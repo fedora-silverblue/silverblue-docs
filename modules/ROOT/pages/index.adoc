@@ -1,0 +1,28 @@
+= Fedora Silverblue Documentation
+
+Welcome to the Fedora Silverblue documentation!
+
+image::silverblue-logo.svg[Silverblue logo]
+
+== What is Silverblue?
+
+_Fedora Silverblue_ is an immutable desktop operating system. Aiming at good support for container-focused workflows, this variant
+of Fedora Workstation targets developer communities.
+
+== What are the advantages of Silverblue over traditional distros?
+
+The use of rpm-ostree for the core OS brings fully atomic upgrades, easy
+rollbacks and workflows that are familiar from OSTree-based servers. An
+OS image that is composed on the server side allows for testing the
+exact bits before they reach client systems, leading to more reliable
+updates.
+
+rpm-ostree is a hybrid image/package system. It supports _package
+layering_, which allows to install RPMs for "OS extensions" such as
+printer drivers, fonts, and utilities like powerline or ykclient.
+
+Moving desktop applications into Flatpak brings stronger isolation, and
+solves longstanding issues with using yum/dnf for desktop applications,
+such as the fact that upgrading deletes the files underneath the running
+application and often breaks it. Flatpaks can be safely updated without
+reboot.

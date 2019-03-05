@@ -1,0 +1,19 @@
+= Other Sources of Information
+----------------------------
+
+This document explains the motivations, goals, and history behind the
+Silverblue effort:
+
+* link:{attachmentsdir}/team-silverblue-origins.pdf[Team Silverblue - The
+Origins]
+
+Here are handy one-page summaries of essential commands:
+
+* link:{attachmentsdir}/flatpak-print-cheatsheet.pdf[Flatpak Cheat Sheet]
+* link:{attachmentsdir}/silverblue-cheatsheet.pdf[rpm-ostree Cheat Sheet]
+
+The container commandos coloring book is a playful introduction to tools
+such as podman, cri-o and buildah by Máirín Duffy and Dan Walsh. Print
+it out, and learn as you color!
+
+* link:{attachmentsdir}/container-commandos.pdf[Container commandos]

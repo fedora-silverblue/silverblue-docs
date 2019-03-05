@@ -1,0 +1,200 @@
+= Silverblue User Guide
+Steven Snow <s40w5s@gmail.com>
+V Pre-Alpha, 2018/11/11
+:TOC:
+:source-highlighter : coderay
+:icons: font
+
+This Document is a work in progress. It aims to help with the daily use of Silverblue
+as a Workstation solution.
+
+.Help Wanted!
+
+****
+If you would like to help this document become better, and have some ideas on how,
+ please message me at
+****
+
+== Document Conventions
+This document will show Notes, Tip's, Information, Cautions, and Warnings as follows
+
+
+NOTE: This is a note to show how this note would be displayed.
+
+TIP: This is a tip, perhaps one you didn't know.
+
+IMPORTANT: This is something important on the topic.
+
+CAUTION: Cautionary note!
+
+WARNING: This is a warning as it would appear!
+
+Whenever a terminal issued command is used it will appear like so `~]$ command`,
+and any other form of coding listed in the document will take the form of `for config (~/.zsh/*.zsh) source $config`
+without the leading `~]$`.
+
+== Introduction
+Daily use of Fedora Silverblue as an acceptable workstation is not so easy as its
+wonderfully seamless installation process would belie. Independence of the OS and
+the Apps, with respect to updates/upgrades is a benefit to stability and security.
+The benefits and pitfalls can come to the forefront when pushing the use case. Which
+currently doesn't seem to need much of a push. The writing of this document is being
+done using Atom as a flatpak on Fedora Silverblue 29. Atom comes with a plethora of
+plugins called packages, that can be of immense use for document creation and editing.
+Things like linters for various writing foibles. One such is Proselint, for which
+there is a Package in Atom. Proselint is useful to help with your writing clarity.
+The Proselint Package installs fine in the Atom flatpak being used on Silverblue,
+but gives an error about not finding proselint. Of course, proselint needs to be
+installed, and can be via rpm-ostree with the command `~]$ rpm-ostree install proselint`,
+followed by the command `~]$ systemctl reboot` to boot into the new image. Once
+back up and logged in, run proselint in the terminal on the file with the expected
+results, yet Atom still does not find proselint when the Proselint package tool
+is run. For now, the Proselint Package in Atom is disabled and the solution is to
+use the command line `~]$ proselint <filename>` to check the file in a terminal.
+This does point to a type of issue faced in using Fedora Silverblue as a daily workstation,
+flatpak app and host apps interaction, specifically there normally is none. Do I
+submit a bug to Silveblue? Atom? the Proselint Atom Package support? Is it a bug
+in the first place, and not just that my way of thinking about a workstation is
+in need of revision? As this example has shown, the immediate solution to the problem
+was to use a layered application in a terminal to check the file that is saved by
+the Atom flatpak. That isn't the satisfactory one though, and it doesn't make for
+the kind of user experience that has come to be expected.
+
+== Installing Fedora Silverblue
+
+The installation instructions for Silverblue can be found https://docs.fedoraproject.org/en-US/fedora-silverblue/installation-guide/[here] and are thorough, with links there to the Fedora Installation Guide as well as some other sources of reference material for Silverblue. While it is detailed and easy to follow, like many installation documents, doesn't fill in answers a user may have pre-installation.
+
+.Layering
+****
+In the issue noted in the Introduction, the package Proselint was layered onto the rpm-ostree to solve the lacking proselint executable. If you have a preferred terminal to use, it should be layered too.
+****
+Answers to such questions as, Do I want to encrypt my storage media? Am I going to use the standard RXVT terminal or do I want TMUX and Terminator, or just Terminator, and how does it need to be set up? These are only a basic selection of the many potential questions that may plague a user intending on using Fedora Silverblue as their daily workstation, and we haven't even contemplated the immutable OS much yet. Each use case draws its own set of questions needing answers to facilitate a successful installation. Throughout, and integral to these many faceted usage environments, are the individual tasks all of us users do to set up our computing environment to suit our use case needs. These tasks are the procedure we follow, whether recorded for reference or not, each time we go through the process of setting up our workstation's. Some, as indicated https://discussion.fedoraproject.org/t/how-i-automated-my-fedora-workstation-with-modular-ansible-roles/579/4[here] in a discussion at fedoraproject.org have automated their workstation setup, in this case using Ansible Roles. Then there are a couple of examples of using github to have a repo for a convenient way of being able to setup/reset a system to a known state. At a discussion about suggested approaches to correctly setup Silverblue https://discussion.fedoraproject.org/t/what-is-the-suggested-approach-es-to-correctly-set-up-a-silverblue-workstation/432[here] examples of that were offered as potential answers.
+
+=== Automatic Partitioning
+=== Manual Partitioning
+=== Installing Side by Side with an Existing System
+== First Login
+=== Lay of the Land
+=== Containers vs Flatpak vs Package Layering
+
+Through the course of using Silverblue daily, it has become apparent that an orchestration
+of all three technologies is what occurs in fact. There are times when a Container
+will provide the flexibility required that a Flatpak cannot, Layering can sometimes
+be the only answer to a problem, and Flatpaks in general work fine as they are intended.
+This is very likely echoed elsewhere throughout any community of users of an OSTree
+type of OS, whether Silverblue or others that use libostree. To successfully navigate
+this terrain it's good to be up on all things rpm-ostree, all things flatpak, and
+a whole lot of things container related.
+
+Each of the technologies expose varying levels of access to the OS image, with the
+Layering approach being the most intrusive in the fact it causes a new image tree
+to be created. The Flatpak application is definitely the least intrusive being sandboxed,
+with limited indirect access and limited developer capabilities to program in access
+to system resources. Containers have more access to system processes and devices.
+
+NOTE: Need verification and details here about the different roles of each.
+
+As stated on https://flatpak.org/[flatpak.org] 'Flatpak is a next-generation technology
+for building and distributing desktop applications on Linux. Flatpak uses libostree
+to store application data, distinct from the host system management model.' In
+practice, what this means is that the flatpak deployment of an application does not
+normally have access to the host OS directly, or any other applications running on
+the host. The application is running on a runtime contained inside of the faltpak
+itself. If this sounds a lot like a flatpak is a container, it's because it is a
+container essentially. An application in flatpak form is running inside of its own environment
+designed specifically to make it work as intended, irrespective of the host OS,
+and is quite effectively sandboxed. One of Flatpak’s main goals is to increase the
+security of desktop systems by isolating applications from one another. This is
+achieved using sandboxing and means that, by default, applications that are run
+with Flatpak have extremely limited access to the host environment. For day to day
+usage in roles that encompass the bulk of things users generally are doing at their
+PC Silverblue, with its immutable OS and flatpak'd applications proves to function
+quite well. The updates are rolling along regularly just like the Fedora Workstation
+I had become used to, and the majority of my applications that are flatpak's work
+as they are intended to.
+
+=== Using Flatpaks/Flathub
+
+When you first run Silverblue after the initial installation steps, you will likely
+want to install some applications, and to do that no doubt you first try Gnome
+Software, only to find nothing. Gnome Software is still there, just not showing
+software to install since the flatpak repository (flathub) is not configured for
+the system yet. This is due entirely to the Fedora licensing scheme, since Flathub
+allows software with non-open source license schemes to be distributed, like for
+instance rpmfusion-nonfree repo does in the normal Workstation version of Fedora.
+The user has to configure the rpmfusion-nonfree repo in order to install anything
+from its repository. In Silverblue, when installing flatpak'd applications, you
+have to configure the repository for use first. You do this with the `flatpak
+remote-add` command. This command takes as its first argument, the name you want
+to give the remote, and the URL it is located at for the second argument. In the
+case of the flathub repository, I simply named mine `flathub` and its URL is
+https://dl.flathub.org/repo/. The command becomes `flatpak remote-add flathub
+"https://dl.flathub.org/repo/"` without the quotes. It is also acceptable, and
+easier to browse to Flathub.org and select the quick setup option for Fedora, which
+Installs the repo via Gnome Software. Whichever way you choose to do it, will result
+in you now having access to all of the flatpak'd applications and extensions available
+on the Flathub repo. These applications will be displayed as usual in Gnome Software
+with their origin being dl.flathub.org. There are more applications being offered
+as flatpak's each day it seems, so check back often if your favourite isn't listed
+yet. There is more you can do with the repo now that you have it installed. The
+flatpak command has numerous options that are useful for inspecting what is available
+at a configured repo. The command `flatpak remotes` will list the installed/configured
+repositories, and if you use the `-d` switch with the command like so `flatpak remotes -d`
+you will get a detailed listing of your configured remotes (repo's).
+
+NOTE: Flatpak refers to repositories as remotes, even if the repo exists on your own system.
+
+Also, it is worth noting that there are other remotes available to be configured
+on your system if you would like to explore some more. If you want to have Firefox
+as a flatpak, instead of using the version shipped as part of the Ostree of Silverblue,
+you could configure the firefox nighly remote (https://dl.flathub.org/repo/) with
+the following command `flatpak remote-add firefox-nightly <https://dl.flathub.org/repo/>`
+then install the FireFox nightly build with the command `flatpak
+install firefox-nightly org.mozilla.FirefoxNightly` and flatpak will install the
+Firefox nightly build for you. You may have already come to the conclusion that
+you could also install it from Gnome Software since you have configured the remote,
+and you would be correct but take note of the source listed on its install icon,
+it is the remote you just configured. As no doubt. some of the clever monkeys out
+there have likely noted when they did a remote-ls command on their configured
+flathub remote, there are more things listed than the app's. There are runtimes,
+and sdk's as well as app's since Flathub.org is a place to distribute such things.
+
+
+=== Using Package Layering
+=== Enabling 3rd Party RPM Repos
+=== Command Line vs. Gnome Software
+
+== Using Containers
+=== Using Podman to Run Containers
+=== Running Your First Container
+=== Writing Your First Dockerfile
+=== Using Buildah to Build Containers
+=== Sharing Data Between Container + Host ?
+=== Example Pet Container Usage
+
+On Fedora Silverblue,  there is an out of the box solution provided for a Pet Container, fedora-toolbox. If it isn't already installed for you, you can do so with the following command `~[$ rpm-ostree install fedora-toolbox`, once it is installed, you'll have to reboot into the new image with `~[$ systemctl reboot`. When your image comes back you can begin with fedora-toolbox immediately by creating an image based upon your current system installation, including your home directory setup with dotfiles and all. To create an image this way type `~[$ fedora-toolbox create`, that will create a toolbox container for you, based upon an image of your current system setup. To use the container, you simply enter `~[$ fedora-toolbox enter` and you should now be at a prompt that looks like this in my case 🔹[user@toolbox ~]$ instead of my normal prompt in Fedora Silverblue which is this Lx  user@localhost  😈  ~ 
+
+NOTE: The prompts as displayed, are normal for my system setup. They will very likely be different on your system.
+
+
+== Upgrades and Rollbacks
+=== Upgrading the OS
+=== Rolling Back the OS
+=== Upgrading Flatpaks
+=== Upgrading Containers
+
+== Miscellany ?
+
+=== Generating SSH Keys ?
+=== Enabling SSH Access ?
+=== Using VPN Connections ?
+=== oc cluster up ?
+
+== Advanced Topics
+
+=== Creating a Custom Silverblue Compose
+=== Generating Your Own Silverblue ISO
+
+== Known Problems
+
+=== Lack of Support for DKMS/AKMOD (i.e. nVidia drivers)
