@@ -40,6 +40,13 @@ $ ostree remote gpg-import fedora-workstation -k /etc/pki/rpm-gpg/RPM-GPG-KEY-fe
 $ rpm-ostree rebase fedora/29/x86_64/silverblue
 ....
 
+To upgrade from Fedora Silverblue 29 to Silverblue 30:
+
+....
+$ sudo ostree remote gpg-import fedora-workstation -k /etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-30-primary
+$ rpm-ostree rebase fedora-workstation:fedora/30/x86_64/silverblue
+....
+
 The process is very similar to a system update: the new OS is downloaded and
 installed in the background, and you just boot into it when it is ready.
 
