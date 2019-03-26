@@ -99,7 +99,7 @@ for building and distributing desktop applications on Linux. Flatpak uses libost
 to store application data, distinct from the host system management model.' In
 practice, what this means is that the flatpak deployment of an application does not
 normally have access to the host OS directly, or any other applications running on
-the host. The application is running on a runtime contained inside of the faltpak
+the host. The application is running on a runtime contained inside of the flatpak
 itself. If this sounds a lot like a flatpak is a container, it's because it is a
 container essentially. An application in flatpak form is running inside of its own environment
 designed specifically to make it work as intended, irrespective of the host OS,
