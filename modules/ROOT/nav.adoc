@@ -3,6 +3,7 @@
 * xref:first-login.adoc[First Login]
 * xref:upgrades.adoc[Upgrades and Rollbacks]
 * xref:silverblue-guide.adoc[Silverblue Guide]
+* xref:silverblue-flatpak-guide.adoc[Silverblue Flatpak Guide]
 * xref:f29-release-notes.adoc[Fedora 29 Silverblue Release Notes]
 * xref:faq.adoc[FAQ]
 * xref:other-sources.adoc[Other Sources]
