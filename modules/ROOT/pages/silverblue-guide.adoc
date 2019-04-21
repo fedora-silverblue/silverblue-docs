@@ -201,27 +201,27 @@ NOTE: The prompts as displayed, are normal for my system setup. They will very l
 When the upgrade process is started, it will download the new files that have changed
 and add them to a new OS image. The new OS image will be used on the next reboot
 of the computer and the old image will be preserved in case a rollback is needed.
-There is no graphical tool available yet to configure the update, so you will need to
+There is no graphical tool available yet to configure the upgrade, so you will need to
 edit files manually and run commands from the terminal for now.
 
 ==== Manual Upgrade Method
 To manually start an OS upgrade, in a terminal run the `sudo rpm-ostree -r upgrade`
-command to download any available updates, stage the upgrade files to the new
+command to download any available upgrade, stage the upgrade files to the new
 image and then will reboot the computer. Remove the `-r` argument in the command
 if you want to manually reboot after the upgrade is staged instead.
 
-==== Setup Automatic Updates
-There is no graphical configuration tool available yet to setup the automatic
-updates so you need to edit files manually and run commands from the terminal
+==== Setup Automatic Upgrades
+There is no graphical configuration tool available yet to setup automatic
+upgrades, so you need to edit files manually and run commands from the terminal
 to get it setup.
 
-First check what the current configuration of automatic update is by running
+First check what the current configuration is of automatic upgrade by running
 the `rpm-ostree status` command in the terminal. The first line of the output will show if
-automatic updates are enabled or not. If it says `AutomaticUpdates: disabled` then
-automatic update is not enabled. If it says `AutomaticUpdates: fetch` then updates will be
-downloaded but not staged. If it says `AutomaticUpdates: stage` the updates
+automatic upgrade is enabled or not. If it says `AutomaticUpdates: disabled` then
+automatic upgrade is not enabled. If it says `AutomaticUpdates: fetch` then an upgrade will be
+downloaded but not staged. If it says `AutomaticUpdates: stage` the upgrade files
 will be downloaded and copied to the new image that will be activated after
-a reboot. To enable automatic ostree updates, do the following:
+a reboot. To enable automatic ostree upgrade, do the following:
 
 1. Edit the file `/etc/rpm-ostreed.conf` and in the `[daemon]` section, uncomment
 and change the line that says
@@ -236,22 +236,25 @@ changes.
 and then `sudo systemctl start rpm-ostreed-automatic.timer`.
 
 4. The default timer configuration is set to be triggered one hour after boot and
-then repeat every one day thereafter. To change the timer frequency edit the file
+then repeat every one day thereafter. To change the timer frequency, edit the file
 `/etc/systemd/system/timers.target.wants/rpm-ostreed-automatic.timer`
 
-5. You can check that the `rpm-ostreed-automatic.timer` is enabled by running command
-`systemctl list-timers`. If it is in the output list, then it is enabled.
+5. You can check that the `rpm-ostreed-automatic.timer` is enabled by running the
+command `systemctl list-timers`. If it is in the output list, then it is enabled.
 
-==== Disable Automatic Updates
-To disable automatic updates, disable the `rpm-ostreed-automatic.service` with
+==== Disable Automatic Upgrade
+To disable automatic upgrade, disable the `rpm-ostreed-automatic.service` with
 the command `sudo systemctl disable rpm-ostreed-automatic.service`.
 
 === Rolling Back the OS
-To rollback the OS, run the command `sudo rpm-ostree -r rollback`. Only the last OS
-deployment before reboot is saved and marked for rollback. You can deploy previously pinned
-OS image deployments by using the `sudo rpm-ostree deploy [version|branch|commit-id]`
-command. Use the `rpm-ostree status` command to see a list of previous deployments
-that are available.
+If something went wrong or is not working correctly with a new  upgrade, then it
+may be necessary to rollback the upgrade until a fix is available. To rollback
+to the previous OS deployment, run the command `sudo rpm-ostree -r rollback`.
+
+You can also deploy previous OS images that you have pinned. Use the
+`rpm-ostree status` command to see the list of previous pinned deployments that
+are available. Then use the `sudo rpm-ostree deploy [version|branch|commit-id]`
+command to deploy the pinned image from the list.
 
 === Upgrading Flatpaks
 === Upgrading Containers
