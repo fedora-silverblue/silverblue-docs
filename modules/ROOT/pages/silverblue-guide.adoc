@@ -179,7 +179,61 @@ NOTE: The prompts as displayed, are normal for my system setup. They will very l
 
 == Upgrades and Rollbacks
 === Upgrading the OS
+When the upgrade process is started, it will download the new files that have changed
+and add them to a new OS image. The new OS image will be used on the next reboot
+of the computer and the old image will be preserved in case a rollback is needed.
+There is no graphical tool available yet to configure the update, so you will need to
+edit files manually and run commands from the terminal for now.
+
+==== Manual Upgrade Method
+To manually start an OS upgrade, in a terminal run the `sudo rpm-ostree -r upgrade`
+command to download any available updates, stage the upgrade files to the new
+image and then will reboot the computer. Remove the `-r` argument in the command
+if you want to manually reboot after the upgrade is staged instead.
+
+==== Setup Automatic Updates
+There is no graphical configuration tool available yet to setup the automatic
+updates so you need to edit files manually and run commands from the terminal
+to get it setup.
+
+First check what the current configuration of automatic update is by running
+the `rpm-ostree status` command in the terminal. The first line of the output will show if
+automatic updates are enabled or not. If it says `AutomaticUpdates: disabled` then
+automatic update is not enabled. If it says `AutomaticUpdates: fetch` then updates will be
+downloaded but not staged. If it says `AutomaticUpdates: stage` the updates
+will be downloaded and copied to the new image that will be activated after
+a reboot. To enable automatic ostree updates, do the following:
+
+1. Edit the file `/etc/rpm-ostreed.conf` and in the `[daemon]` section, uncomment
+and change the line that says
+`#AutomaticUpdatePolicy=none` to `AutomaticUpdatePolicy=fetch` to download the
+upgrade files only, or change it to `AutomaticUpdatePolicy=stage` to download
+and copy the files to the new OS image. Then save the file.
+
+2. Run the command `rpm-ostree reload` to make rpm-ostree aware of the configuration
+changes.
+
+3. Start the systemd unit timer by running command `sudo systemctl enable rpm-ostreed-automatic.timer`
+and then `sudo systemctl start rpm-ostreed-automatic.timer`.
+
+4. The default timer configuration is set to be triggered one hour after boot and
+then repeat every one day thereafter. To change the timer frequency edit the file
+`/etc/systemd/system/timers.target.wants/rpm-ostreed-automatic.timer`
+
+5. You can check that the `rpm-ostreed-automatic.timer` is enabled by running command
+`systemctl list-timers`. If it is in the output list, then it is enabled.
+
+==== Disable Automatic Updates
+To disable automatic updates, disable the `rpm-ostreed-automatic.service` with
+the command `sudo systemctl disable rpm-ostreed-automatic.service`.
+
 === Rolling Back the OS
+To rollback the OS, run the command `sudo rpm-ostree -r rollback`. Only the last OS
+deployment before reboot is saved and marked for rollback. You can deploy previously pinned
+OS image deployments by using the `sudo rpm-ostree deploy [version|branch|commit-id]`
+command. Use the `rpm-ostree status` command to see a list of previous deployments
+that are available.
+
 === Upgrading Flatpaks
 === Upgrading Containers
 
