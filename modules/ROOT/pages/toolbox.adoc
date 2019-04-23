@@ -1,0 +1,82 @@
+= Toolbox
+---------
+
+[[toolbox-intro]]
+Introduction
+------------
+
+Modern development workflows increasingly rely on containers.
+In particular, on an immutable OS like Silverblue, containers
+are essential to getting work done.
+
+But setting up containers 'by hand' can be annoying and repetitive.
+Fedora comes with a tool called toolbox that aims to make container
+setup painless and easy.
+
+You should consider using toolbox if you want to take advantage
+of an immutable, stable OS, but are ont willing to give up the
+convenience of dnf for package installation.
+
+You should also conider using toolbox if you want to cleanly
+separate setups for different project, using different tools, or
+different versions of the same tools.
+
+[[toolbox-installation]]
+Installation
+------------
+
+If you are using Fedora Silverblue 30 or newer, it comes with the 
+toolbox package preinstalled. If you are on a different version or
+edition of Fedora, the command
+
+`dnf install toolbox`
+
+is sufficient to install the toolbox and it dependencies. If you
+are on an older version of Silverblue, use the command
+
+`rpm-ostree install toolbox`
+
+to install the toolbox as a layered rpm.
+
+[[toolbox-commands]]
+Commands
+--------
+
+The toolbox comes with man pages for its commands. Here is a
+quick overview of the available commands:
+
+- `toolbox create` creates a new toolbox container
+- `toolbox enter` spawns a hell inside an existing container
+- `toolbox list` lists existing toolbox containers and images
+- `toolbox rm` removes one or more toolbox containers
+- `toolbox rmi` removes one or more toolbox images
+
+All the commands understand a `--help` option.
+
+[[toolbox-boxes]]
+Available toolboxes
+-------------------
+
+Before you can use the toolbox, you need to create a container.
+This requires downloading the base image (which can be big).
+
+To make the seamless integration with the rest of the system
+work, the toolbox requires the use of a base image that has
+certain required components installed. 
+
+The following base images are available:
+- fedora-29: built from Fedora 29 packages
+- fedora-30: built from Fedora 30 packages
+- fedora-31: built from Fedora 31 packages
+
+[[toolbox-contact
+Learn more
+----------
+
+To learn more about the toolbox, to report issues you find, or
+to contribute ideas or patches,
+go to the http://github.com/debarshiray/toolbox[github] project.
+
+To get in touch with toolbox users and developers, find us
+on the Fedora project discourse server, or join the `#silverblue`
+irc channel on freenode.
