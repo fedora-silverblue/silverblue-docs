@@ -59,6 +59,7 @@ repositories that provide Flatpaks.
 
 * http://flathub.org[Flathub] is a convenient place to find many popular
 desktop apps
+* http://registry.fedoraproject.org[Fedora registry] hosts Flatpaks in OCI format, built from rpms
 * https://sdk.gnome.org/gnome-apps-nightly.flatpakrepo[GNOME nightly]
 provides builds of unstable GNOME apps
 * https://firefox-flatpak.mojefedora.cz/org.mozilla.FirefoxNightly.flatpakref[Firefox
