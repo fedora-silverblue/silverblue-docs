@@ -232,10 +232,13 @@ If something went wrong or is not working correctly with a new  upgrade, then it
 may be necessary to rollback the upgrade until a fix is available. To rollback
 to the previous OS deployment, run the command `sudo rpm-ostree -r rollback`.
 
-You can also deploy previous OS images that you have pinned. Use the
-`rpm-ostree status` command to see the list of previous pinned deployments that
-are available. Then use the `sudo rpm-ostree deploy [version|branch|commit-id]`
-command to deploy the pinned image from the list.
+You can also deploy any previous OS image from the commit history. You can get a list
+of previous commit IDs by doing `ostree pull --commit-metadata-only --depth=-1 fedora:fedora/30/x86_64/silverblue`
+command followed by `ostree log fedora:fedora/30/x86_64/silverblue | less
+` to show the log of previous commits. Then use the `sudo rpm-ostree deploy commit-id`
+command to deploy any commit ID found in that log. You can pin the previous deployment with
+the `ostree admin pin 1` command. Pinned deployments will be shown when you run
+the `rpm-ostree status` command.
 
 === Upgrading Flatpaks
 === Upgrading Containers
