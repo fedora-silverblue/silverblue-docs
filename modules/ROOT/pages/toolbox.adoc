@@ -69,7 +69,7 @@ The following base images are available:
 - fedora-30: built from Fedora 30 packages
 - fedora-31: built from Fedora 31 packages
 
-[[toolbox-contact
+[[toolbox-contact]]
 Learn more
 ----------
 
