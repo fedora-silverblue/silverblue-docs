@@ -159,6 +159,136 @@ there have likely noted when they did a remote-ls command on their configured
 flathub remote, there are more things listed than the app's. There are runtimes,
 and sdk's as well as app's since Flathub.org is a place to distribute such things.
 
+==== Installing Flatpak Applications
+===== Gnome Software
+Gnome Software is the default graphical software installation application that
+Silverblue comes installed with. Gnome Software provides the capability to
+install Flatpak applications from online repositories. To see the list of
+configured repositories, start up the Gnome Software application, open the
+application menu in the upper right corner of the window, and then select
+the `Software Repositories` menu item. A window will open with a list of the
+installed software repositories. Unfortunately, Gnome Software does not provide
+a way to add new repositories from it's graphical interface. To add the
+'flathub.org' repository, use the following instructions.
+
+====== Installing Flathub Repository
+To setup Flathub you need to open up the web browser (Firefox) and go to the
+https://flathub.org/home URL. On the home page click the button for
+'Quick Setup'.
+
+image::sfg_flathub_home.png[title="Flathub home page"]
+
+The Flathub setup page will show options to select from several operating system
+choices. Click on the Fedora logo to start the setup process for Silverblue.
+
+image::sfg_flathub_quicksetup.png[title="Flathub quick setup page"]
+
+The next page will give you some information on the Fedora quick setup. Click
+on the `Flathub repository file` button to start the download of the Flathub
+repository installation file.
+
+image::sfg_flathub_fedora.png[title="Flathub quick setup page"]
+
+A popup window will show download option for the file. The "Open with" option
+should show Software Install (default). For some reason you cannot choose the
+"Do this automatically for files like this from now on" option. Click on the
+`OK` button to start the download.
+
+image::sfg_flathub_download.png[title="Flathub download options"]
+
+After the download is complete, a new window will open showing the Flathub
+repository install options. This window also shows the source location of the
+repository to be installed under the details heading (1). To start the
+installation of the Flathub repository, click on the `Install` button (2).
+
+image::sfg_flathub_install.png[title="Flathub install window"]
+
+After the repository install process is complete, the window will be updated to
+show a `Remove` button in place of the `Install` button. Close the window (1).
+
+image::sfg_flathub_finish.png[title="Flathub install complete"]
+
+Now, if you go back to Gnome Software you should see Flathub listed in the
+'Software Repositories' (1).
+
+image::sfg_repositories.png[title="Gnome Software repositories"]
+
+====== Installing Flatpak Application from Flathub
+Now that the Flathub repository is configured you can install some Flatpak software
+applications from Flathub. The following example shows how to install the
+LibreOffice software application Flatpak from the Flathub repository.
+
+Open the web browser (Firefox) and go to the http://flathub.org/home page. Search
+for LibreOffice and click on the link to open the LibreOffice details page. Click
+on the `Install` button (1) to start the install or see below about reviewing the
+other info on the detail page.
+
+image::sfg_libreoffice_info1.png[title="LibreOffice details page"]
+
+The details below the `Install` button include a link to a setup guide
+for LibreOffice that should be reviewed before beginning the install to see if any
+pre-installation configuration actions are required. There is also some screen shots
+of the application windows to give a preview of what the application interface looks
+like. Below the screenshots is a description of the software application.
+
+Further down the page under the "Additional Information" is information about the
+last update date for the Flatpak (1), the software version(2), and the license
+information (3). Some repositories may not have the latest software version of
+the application and some repositories contain non-free software licensed
+applications. Review this information to be sure it meets your needs. There is
+also a command line instruction to install the Flatpak (4).
+
+image::sfg_libreoffice_info2.png[title="LibreOffice Additional Information"]
+
+After clicking the `Install` button, a download information window will be shown.
+Verify the correct Flatpak is being downloaded and then click on the `OK` button
+to begin installing the LibreOffice application.
+
+image::sfg_libreoffice_install.png[title="LibreOffice Flatpak download"]
+
+Once the Flatpak is downloaded, the Gnome Software application will open a new
+window with an `Install` button (1). This window also shows details again about
+the Flatpak application (2). Notice that LibreOffice is Sandboxed. This means it
+will have limited interaction with other application and the operating system for
+improved security. Also, there is no localization of languages for this application,
+so you may need to install additional extensions to provide support for your language.
+Finally, there is no documentation provided with the Flatpak. Click on the `Install`
+button to begin the installation.
+
+image::sfg_libreoffice_install2.png[title="LibreOffice Flatpak Install]
+
+Once the installation begins, the window will show a progress bar and a `Cancel`
+button (1). It can take some time for LibreOffice download to complete. While
+you are waiting, you can get ready to write a review of the application by clicking
+the `Write a Review` button (2). This will open a window where you can get ready
+to fill in your review comments after the install is complete and you have tried
+out the application.
+
+image::sfg_libreoffice_install3.png[title="LibreOffice Flatpak Installing]
+
+After the installation is successfully completed, you should see the LibreOffice
+application listed in Gnome Software after you reboot Silverblue (yes, this is a bug).
+
+
+image::sfg_libreoffice_launched.png[title="LibreOffice Flatpak launched]
+
+=== Removing Flathub Repository
+If you no longer want to use the Flathub repository, you can remove it with the
+following instructions.
+
+IMPORTANT: All Flatpak applications that were installed from the Flathub repository
+must be uninstalled first or else you will get an error when trying to remove the
+Flathub repository (see Removing Flatpak Applications).
+
+Open the Gnome Software application menu and select repositories. You will see
+a window open with the list of currently installed repositories. Click on the
+Flathub repository list item (1) and it will expand to show the hidden `Remove...`
+button (2). Click on the `Remove...` button (2) and then a confirmation window
+will open. Click on `Remove` button (1) to complete removing the Flathub repository.
+
+image::sfg_software_repo_remove.png[title="Gnome Software remove repository]
+
+image::sfg_software_repo_remove_confirm.png[title="Gnome Software remove confirm]
 
 === Using Package Layering
 === Enabling 3rd Party RPM Repos
