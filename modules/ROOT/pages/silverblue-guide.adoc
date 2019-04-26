@@ -11,8 +11,9 @@ as a Workstation solution.
 .Help Wanted!
 
 ****
-If you would like to help this document become better, and have some ideas on how,
- please message me at
+If you would like to help this document better, please go
+to http://github.com/fedora-silverblue/silverblue-docs[github]
+and submit your suggestions.
 ****
 
 == Document Conventions
@@ -70,9 +71,11 @@ In the issue noted in the Introduction, the package Proselint was layered onto t
 ****
 Answers to such questions as, Do I want to encrypt my storage media? Am I going to use the standard RXVT terminal or do I want TMUX and Terminator, or just Terminator, and how does it need to be set up? These are only a basic selection of the many potential questions that may plague a user intending on using Fedora Silverblue as their daily workstation, and we haven't even contemplated the immutable OS much yet. Each use case draws its own set of questions needing answers to facilitate a successful installation. Throughout, and integral to these many faceted usage environments, are the individual tasks all of us users do to set up our computing environment to suit our use case needs. These tasks are the procedure we follow, whether recorded for reference or not, each time we go through the process of setting up our workstation's. Some, as indicated https://discussion.fedoraproject.org/t/how-i-automated-my-fedora-workstation-with-modular-ansible-roles/579/4[here] in a discussion at fedoraproject.org have automated their workstation setup, in this case using Ansible Roles. Then there are a couple of examples of using github to have a repo for a convenient way of being able to setup/reset a system to a known state. At a discussion about suggested approaches to correctly setup Silverblue https://discussion.fedoraproject.org/t/what-is-the-suggested-approach-es-to-correctly-set-up-a-silverblue-workstation/432[here] examples of that were offered as potential answers.
 
-=== Automatic Partitioning
-=== Manual Partitioning
-=== Installing Side by Side with an Existing System
+// Missing sections:
+// === Automatic Partitioning
+// === Manual Partitioning
+// === Installing Side by Side with an Existing System
+
 == First Login
 === Lay of the Land
 === Containers vs Flatpak vs Package Layering
@@ -290,16 +293,18 @@ image::sfg_software_repo_remove.png[title="Gnome Software remove repository]
 
 image::sfg_software_repo_remove_confirm.png[title="Gnome Software remove confirm]
 
-=== Using Package Layering
-=== Enabling 3rd Party RPM Repos
-=== Command Line vs. Gnome Software
+// Missing sections
+// === Using Package Layering
+// === Enabling 3rd Party RPM Repos
+// === Command Line vs. Gnome Software
 
 == Using Containers
-=== Using Podman to Run Containers
-=== Running Your First Container
-=== Writing Your First Dockerfile
-=== Using Buildah to Build Containers
-=== Sharing Data Between Container + Host ?
+// Missing sections
+// === Using Podman to Run Containers
+// === Running Your First Container
+// === Writing Your First Dockerfile
+// === Using Buildah to Build Containers
+// === Sharing Data Between Container + Host ?
 === Example Pet Container Usage
 
 On Fedora Silverblue,  there is an out of the box solution provided for a Pet Container, fedora-toolbox. If it isn't already installed for you, you can do so with the following command `~[$ rpm-ostree install fedora-toolbox`, once it is installed, you'll have to reboot into the new image with `~[$ systemctl reboot`. When your image comes back you can begin with fedora-toolbox immediately by creating an image based upon your current system installation, including your home directory setup with dotfiles and all. To create an image this way type `~[$ fedora-toolbox create`, that will create a toolbox container for you, based upon an image of your current system setup. To use the container, you simply enter `~[$ fedora-toolbox enter` and you should now be at a prompt that looks like this in my case 🔹[user@toolbox ~]$ instead of my normal prompt in Fedora Silverblue which is this Lx  user@localhost  😈  ~ 
@@ -309,22 +314,77 @@ NOTE: The prompts as displayed, are normal for my system setup. They will very l
 
 == Upgrades and Rollbacks
 === Upgrading the OS
+When the upgrade process is started, it will download the new files that have changed
+and add them to a new OS image. The new OS image will be used on the next reboot
+of the computer and the old image will be preserved in case a rollback is needed.
+There is no graphical tool available yet to configure the upgrade, so you will need to
+edit files manually and run commands from the terminal for now.
+
+==== Manual Upgrade Method
+To manually start an OS upgrade, in a terminal run the `sudo rpm-ostree -r upgrade`
+command to download any available upgrade, stage the upgrade files to the new
+image and then will reboot the computer. Remove the `-r` argument in the command
+if you want to manually reboot after the upgrade is staged instead.
+
+==== Setup Automatic Upgrades
+There is no graphical configuration tool available yet to setup automatic
+upgrades, so you need to edit files manually and run commands from the terminal
+to get it setup.
+
+First check what the current configuration is of automatic upgrade by running
+the `rpm-ostree status` command in the terminal. The first line of the output will show if
+automatic upgrade is enabled or not. If it says `AutomaticUpdates: disabled` then
+automatic upgrade is not enabled. If it says `AutomaticUpdates: fetch` then an upgrade will be
+downloaded but not staged. If it says `AutomaticUpdates: stage` the upgrade files
+will be downloaded and copied to the new image that will be activated after
+a reboot. To enable automatic ostree upgrade, do the following:
+
+1. Edit the file `/etc/rpm-ostreed.conf` and in the `[daemon]` section, uncomment
+and change the line that says
+`#AutomaticUpdatePolicy=none` to `AutomaticUpdatePolicy=fetch` to download the
+upgrade files only, or change it to `AutomaticUpdatePolicy=stage` to download
+and copy the files to the new OS image. Then save the file.
+
+2. Run the command `rpm-ostree reload` to make rpm-ostree aware of the configuration
+changes.
+
+3. Start the systemd unit timer by running command `sudo systemctl enable rpm-ostreed-automatic.timer`
+and then `sudo systemctl start rpm-ostreed-automatic.timer`.
+
+4. The default timer configuration is set to be triggered one hour after boot and
+then repeat every one day thereafter. To change the timer frequency, edit the file
+`/etc/systemd/system/timers.target.wants/rpm-ostreed-automatic.timer`
+
+5. You can check that the `rpm-ostreed-automatic.timer` is enabled by running the
+command `systemctl list-timers`. If it is in the output list, then it is enabled.
+
+==== Disable Automatic Upgrade
+To disable automatic upgrade, disable the `rpm-ostreed-automatic.service` with
+the command `sudo systemctl disable rpm-ostreed-automatic.service`.
+
 === Rolling Back the OS
-=== Upgrading Flatpaks
-=== Upgrading Containers
+If something went wrong or is not working correctly with a new  upgrade, then it
+may be necessary to rollback the upgrade until a fix is available. To rollback
+to the previous OS deployment, run the command `sudo rpm-ostree -r rollback`.
 
-== Miscellany ?
+You can also deploy any previous OS image from the commit history. You can get a list
+of previous commit IDs by doing `ostree pull --commit-metadata-only --depth=-1 fedora:fedora/30/x86_64/silverblue`
+command followed by `ostree log fedora:fedora/30/x86_64/silverblue | less`
+to show the log of previous commits. Then use the `sudo rpm-ostree deploy commit-id`
+command to deploy any commit ID found in that log. You can pin the previous deployment with
+the `ostree admin pin 1` command. Pinned deployments will be shown when you run
+the `rpm-ostree status` command.
 
-=== Generating SSH Keys ?
-=== Enabling SSH Access ?
-=== Using VPN Connections ?
-=== oc cluster up ?
-
-== Advanced Topics
-
-=== Creating a Custom Silverblue Compose
-=== Generating Your Own Silverblue ISO
-
-== Known Problems
-
-=== Lack of Support for DKMS/AKMOD (i.e. nVidia drivers)
+// Missing sections
+// === Upgrading Flatpaks
+// === Upgrading Containers
+// == Miscellany ?
+// === Generating SSH Keys ?
+// === Enabling SSH Access ?
+// === Using VPN Connections ?
+// === oc cluster up ?
+// == Advanced Topics
+// === Creating a Custom Silverblue Compose
+// === Generating Your Own Silverblue ISO
+// == Known Problems
+// === Lack of Support for DKMS/AKMOD (i.e. nVidia drivers)
