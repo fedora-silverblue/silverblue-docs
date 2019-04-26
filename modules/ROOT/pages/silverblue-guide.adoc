@@ -180,7 +180,7 @@ the computer for it to available to the `rpm-ostree` command.
 
 Then you can test that it works by installing a package like ffmpeg for example.
 
-`rpm-ostree install ffmpeg ffmpeg-libs`
+`rpm-ostree install ffmpeg ffmpeg-libs
 // === Command Line vs. Gnome Software
 
 == Using Containers
