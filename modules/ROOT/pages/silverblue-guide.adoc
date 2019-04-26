@@ -11,8 +11,9 @@ as a Workstation solution.
 .Help Wanted!
 
 ****
-If you would like to help this document become better, and have some ideas on how,
- please message me at
+If you would like to help make this document better, please go
+to http://github.com/fedora-silverblue/silverblue-docs[github]
+and submit your suggestions.
 ****
 
 == Document Conventions
@@ -70,9 +71,11 @@ In the issue noted in the Introduction, the package Proselint was layered onto t
 ****
 Answers to such questions as, Do I want to encrypt my storage media? Am I going to use the standard RXVT terminal or do I want TMUX and Terminator, or just Terminator, and how does it need to be set up? These are only a basic selection of the many potential questions that may plague a user intending on using Fedora Silverblue as their daily workstation, and we haven't even contemplated the immutable OS much yet. Each use case draws its own set of questions needing answers to facilitate a successful installation. Throughout, and integral to these many faceted usage environments, are the individual tasks all of us users do to set up our computing environment to suit our use case needs. These tasks are the procedure we follow, whether recorded for reference or not, each time we go through the process of setting up our workstation's. Some, as indicated https://discussion.fedoraproject.org/t/how-i-automated-my-fedora-workstation-with-modular-ansible-roles/579/4[here] in a discussion at fedoraproject.org have automated their workstation setup, in this case using Ansible Roles. Then there are a couple of examples of using github to have a repo for a convenient way of being able to setup/reset a system to a known state. At a discussion about suggested approaches to correctly setup Silverblue https://discussion.fedoraproject.org/t/what-is-the-suggested-approach-es-to-correctly-set-up-a-silverblue-workstation/432[here] examples of that were offered as potential answers.
 
-=== Automatic Partitioning
-=== Manual Partitioning
-=== Installing Side by Side with an Existing System
+// Missing sections:
+// === Automatic Partitioning
+// === Manual Partitioning
+// === Installing Side by Side with an Existing System
+
 == First Login
 === Lay of the Land
 === Containers vs Flatpak vs Package Layering
@@ -160,7 +163,8 @@ flathub remote, there are more things listed than the app's. There are runtimes,
 and sdk's as well as app's since Flathub.org is a place to distribute such things.
 
 
-=== Using Package Layering
+// Missing sections
+// === Using Package Layering
 === Enabling 3rd Party RPM Repos
 Not all the software you may want to use is included in the Fedora repository
 or on Flathub as a Flatpak. Therefore, it will be necessary to add third party
@@ -177,18 +181,15 @@ the computer for it to available to the `rpm-ostree` command.
 Then you can test that it works by installing a package like ffmpeg for example.
 
 `rpm-ostree install ffmpeg ffmpeg-libs`
-
-//==== Copr Repository Setup
-
-
-=== Command Line vs. Gnome Software
+// === Command Line vs. Gnome Software
 
 == Using Containers
-=== Using Podman to Run Containers
-=== Running Your First Container
-=== Writing Your First Dockerfile
-=== Using Buildah to Build Containers
-=== Sharing Data Between Container + Host ?
+// Missing sections
+// === Using Podman to Run Containers
+// === Running Your First Container
+// === Writing Your First Dockerfile
+// === Using Buildah to Build Containers
+// === Sharing Data Between Container + Host ?
 === Example Pet Container Usage
 
 On Fedora Silverblue,  there is an out of the box solution provided for a Pet Container, fedora-toolbox. If it isn't already installed for you, you can do so with the following command `~[$ rpm-ostree install fedora-toolbox`, once it is installed, you'll have to reboot into the new image with `~[$ systemctl reboot`. When your image comes back you can begin with fedora-toolbox immediately by creating an image based upon your current system installation, including your home directory setup with dotfiles and all. To create an image this way type `~[$ fedora-toolbox create`, that will create a toolbox container for you, based upon an image of your current system setup. To use the container, you simply enter `~[$ fedora-toolbox enter` and you should now be at a prompt that looks like this in my case 🔹[user@toolbox ~]$ instead of my normal prompt in Fedora Silverblue which is this Lx  user@localhost  😈  ~ 
@@ -259,21 +260,16 @@ command to deploy any commit ID found in that log. You can pin the previous depl
 the `ostree admin pin 1` command. Pinned deployments will be shown when you run
 the `rpm-ostree status` command.
 
-=== Upgrading Flatpaks
-=== Upgrading Containers
-
-== Miscellany ?
-
-=== Generating SSH Keys ?
-=== Enabling SSH Access ?
-=== Using VPN Connections ?
-=== oc cluster up ?
-
-== Advanced Topics
-
-=== Creating a Custom Silverblue Compose
-=== Generating Your Own Silverblue ISO
-
-== Known Problems
-
-=== Lack of Support for DKMS/AKMOD (i.e. nVidia drivers)
+// Missing sections
+// === Upgrading Flatpaks
+// === Upgrading Containers
+// == Miscellany ?
+// === Generating SSH Keys ?
+// === Enabling SSH Access ?
+// === Using VPN Connections ?
+// === oc cluster up ?
+// == Advanced Topics
+// === Creating a Custom Silverblue Compose
+// === Generating Your Own Silverblue ISO
+// == Known Problems
+// === Lack of Support for DKMS/AKMOD (i.e. nVidia drivers)
