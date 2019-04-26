@@ -1,4 +1,4 @@
-# Fedora Docs Template
+# Fedora Silverblue Documentation
 
 This repository contains the Fedora Silverblue documentation.
 
