@@ -163,14 +163,14 @@ flathub remote, there are more things listed than the app's. There are runtimes,
 and sdk's as well as app's since Flathub.org is a place to distribute such things.
 
 ==== Installing Flatpak Applications
-===== Gnome Software
-Gnome Software is the default graphical software installation application that
-Silverblue comes installed with. Gnome Software provides the capability to
+===== GNOME Software
+GNOME Software is the default graphical software installation application that
+Silverblue comes installed with. GNOME Software provides the capability to
 install Flatpak applications from online repositories. To see the list of
-configured repositories, start up the Gnome Software application, open the
+configured repositories, start up the GNOME Software application, open the
 application menu in the upper right corner of the window, and then select
 the `Software Repositories` menu item. A window will open with a list of the
-installed software repositories. Unfortunately, Gnome Software does not provide
+installed software repositories. Unfortunately, GNOME Software does not provide
 a way to add new repositories from it's graphical interface. To add the
 'flathub.org' repository, use the following instructions.
 
@@ -211,10 +211,10 @@ show a `Remove` button in place of the `Install` button. Close the window (1).
 
 image::sfg_flathub_finish.png[title="Flathub install complete"]
 
-Now, if you go back to Gnome Software you should see Flathub listed in the
+Now, if you go back to GNOME Software you should see Flathub listed in the
 'Software Repositories' (1).
 
-image::sfg_repositories.png[title="Gnome Software repositories"]
+image::sfg_repositories.png[title="GNOME Software repositories"]
 
 ====== Installing Flatpak Application from Flathub
 Now that the Flathub repository is configured you can install some Flatpak software
@@ -249,9 +249,9 @@ to begin installing the LibreOffice application.
 
 image::sfg_libreoffice_install.png[title="LibreOffice Flatpak download"]
 
-Once the Flatpak is downloaded, the Gnome Software application will open a new
+Once the Flatpak is downloaded, the GNOME Software application will open a new
 window with an `Install` button (1). This window also shows details again about
-the Flatpak application (2). Notice that LibreOffice is Sandboxed. This means it
+the Flatpak application (2). Notice that LibreOffice is sandboxed. This means it
 will have limited interaction with other application and the operating system for
 improved security. Also, there is no localization of languages for this application,
 so you may need to install additional extensions to provide support for your language.
@@ -270,7 +270,7 @@ out the application.
 image::sfg_libreoffice_install3.png[title="LibreOffice Flatpak Installing]
 
 After the installation is successfully completed, you should see the LibreOffice
-application listed in Gnome Software after you reboot Silverblue (yes, this is a bug).
+application listed in GNOME Software after you reboot Silverblue (yes, this is a bug).
 
 
 image::sfg_libreoffice_launched.png[title="LibreOffice Flatpak launched]
@@ -283,15 +283,15 @@ IMPORTANT: All Flatpak applications that were installed from the Flathub reposit
 must be uninstalled first or else you will get an error when trying to remove the
 Flathub repository (see Removing Flatpak Applications).
 
-Open the Gnome Software application menu and select repositories. You will see
+Open the GNOME Software application menu and select repositories. You will see
 a window open with the list of currently installed repositories. Click on the
 Flathub repository list item (1) and it will expand to show the hidden `Remove...`
 button (2). Click on the `Remove...` button (2) and then a confirmation window
 will open. Click on `Remove` button (1) to complete removing the Flathub repository.
 
-image::sfg_software_repo_remove.png[title="Gnome Software remove repository]
+image::sfg_software_repo_remove.png[title="GNOME Software remove repository]
 
-image::sfg_software_repo_remove_confirm.png[title="Gnome Software remove confirm]
+image::sfg_software_repo_remove_confirm.png[title="GNOME Software remove confirm]
 
 // Missing sections
 // === Using Package Layering
