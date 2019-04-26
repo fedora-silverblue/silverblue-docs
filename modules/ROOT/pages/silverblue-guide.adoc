@@ -184,6 +184,12 @@ NOTE: The prompts as displayed, are normal for my system setup. They will very l
 === Upgrading Containers
 
 == Miscellany ?
+=== Setup Fingerprint Login
+To use the fingerprint scanner to login you need to install a two packages
+that are not part of the base OS image. Run the command `rpm-ostree install
+fprintd fprintd-pam` on the command line. Then open Gnome Settings and under the
+Details section, open use user panel. You will find the options to setup the
+fingerprint login here.
 
 === Generating SSH Keys ?
 === Enabling SSH Access ?
