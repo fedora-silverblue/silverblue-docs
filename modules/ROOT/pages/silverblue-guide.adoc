@@ -11,7 +11,7 @@ as a Workstation solution.
 .Help Wanted!
 
 ****
-If you would like to help this document better, please go
+If you would like to help make this document better, please go
 to http://github.com/fedora-silverblue/silverblue-docs[github]
 and submit your suggestions.
 ****
@@ -293,7 +293,22 @@ image::sfg_software_repo_remove_confirm.png[title="GNOME Software remove confirm
 
 // Missing sections
 // === Using Package Layering
-// === Enabling 3rd Party RPM Repos
+=== Enabling 3rd Party RPM Repos
+Not all the software you may want to use is included in the Fedora repository
+or on Flathub as a Flatpak. Therefore, it will be necessary to add third party
+repositories for what you need. RPMFusion is a popular third party repository
+that contains many software packages that you may want to layer onto the base
+OS image. Codecs and editors are a good use case example for package layering.
+
+==== RPMFusion Repository Setup
+To setup RPMFusion, run the following command from the terminal and then reboot
+the computer for it to available to the `rpm-ostree` command.
+
+`sudo rpm-ostree install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm`
+
+Then you can test that it works by installing a package like ffmpeg for example.
+
+`rpm-ostree install ffmpeg ffmpeg-libs
 // === Command Line vs. Gnome Software
 
 == Using Containers
