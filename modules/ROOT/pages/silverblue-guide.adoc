@@ -253,10 +253,8 @@ Once the Flatpak is downloaded, the GNOME Software application will open a new
 window with an `Install` button (1). This window also shows details again about
 the Flatpak application (2). Notice that LibreOffice is sandboxed. This means it
 will have limited interaction with other application and the operating system for
-improved security. Also, there is no localization of languages for this application,
-so you may need to install additional extensions to provide support for your language.
-Finally, there is no documentation provided with the Flatpak. Click on the `Install`
-button to begin the installation.
+improved security. Finally, there is no documentation provided with the Flatpak.
+Click on the `Install` button to begin the installation.
 
 image::sfg_libreoffice_install2.png[title="LibreOffice Flatpak Install]
 
