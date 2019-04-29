@@ -69,7 +69,7 @@ And now, we can deploy the commit we just pulled down. The
 you used for the current boot will also apply to the OSTree boot.
 
 ....
-ostree admin deploy --os=fedora --karg-proc-cmdline atomic:fedora/29/x86_64/silverblue
+ostree admin deploy --os=fedora --karg-proc-cmdline fedora:fedora/29/x86_64/silverblue
 ....
 
 To initialize this root, you'll need to copy over your /etc/fstab,
@@ -77,7 +77,7 @@ To initialize this root, you'll need to copy over your /etc/fstab,
 remote that we added:
 
 ....
-for i in /etc/fstab /etc/default/grub /etc/locale.conf /etc/ostree/remotes.d/atomic.conf ; do cp $i /ostree/deploy/fedora/deploy/$checksum.0/$i; done
+for i in /etc/fstab /etc/default/grub /etc/locale.conf /etc/ostree/remotes.d/fedora.conf ; do cp $i /ostree/deploy/fedora/deploy/$checksum.0/$i; done
 ....
 
 where $checksum is whatever the checksum of the deployment is; there
