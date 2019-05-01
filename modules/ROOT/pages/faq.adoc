@@ -1,25 +1,48 @@
 = Frequently Asked Questions (FAQ)
 
-== General
+== About the project
 
 [qanda]
 Is it Team Silverblue, Silverblue, or Fedora Silverblue?::
-    We chose the name Team Silverblue to refer to the overall project. Fedora Silverblue will be used for the OS that we are producing, but calling it Silverblue in its short version is fine as well.
+    We chose the name Team Silverblue to refer to the overall project. Fedora 
+    Silverblue will be used for the OS that we are producing, but calling it 
+    Silverblue in its short version is fine as well.
 
 Why does the Silverblue logo look like a leaf?::
-    Our favorite choice for a project name was Silverleaf, but that sadly did not work out. We just couldn't quite let go of the leaf.
-	You could also say that Silverblue is a new new leaf on Fedora's OSTree :-)
+    Our favorite choice for a project name was Silverleaf, but that sadly did 
+    not work out. We just couldn't quite let go of the leaf. You could also say 
+    that Silverblue is a new new leaf on Fedora's OSTree. 😀
 
 Is Silverbue another GNOME OS?::
-    GNOME OS was a codename that was used by the upstream GNOME project for a while to refer to the idea of designing the entire user experience from boot through login to the desktop. Silverblue by contrast is an effort inside the Fedora project, and will be built with existing Fedora technologies. One aspect that the two efforts have in common is the desire to deliver a user experience that is polished and coherent.
+    GNOME OS was a codename that was used by the upstream GNOME project for a 
+    while to refer to the idea of designing the entire deskotp user experience. 
+    By contrast, Silverblue is an effort inside the Fedora project, and will be 
+    built with existing Fedora technologies. However, the two efforts do share 
+    a desire to deliver a user experience that is polished and coherent.
 
-== Technical
+What is Silverblue's relationship with Project Atomic?::
+    Fedora Silverblue uses the same core technology as Fedora Atomic Host (as 
+    well as its successor, Fedora CoreOS). However, Silverblue is specifically 
+    focused on workstation/desktop use cases.
 
-[qanda]
+== About using Silverblue
+
+[quanda]
+How can I install Eclipse on Silverblue?::
+    An experimental nightly build of Eclipse  
+    http://eclipse.matbooth.co.uk/[is available to download].
 
 How do I create a VPN connection?::
-    /etc is not part of the immutable OS image, so you can just copy files into /etc/NetworkManager/system-connections (or let NetworkManager store them there when you recreate your connections). Certificates in /etc/pki need to be handled similarly.
+    `/etc` is not part of the immutable OS image, so you can just copy files 
+    into `/etc/NetworkManager/system-connections` (or let NetworkManager store 
+    them there when you recreate your connections). Certificates in `/etc/pki` 
+    need to be handled similarly.
 
 How can I play YouTube videos?::
-    Firefox is included in the OS image for now. Until that changes, getting it to play videos works the same way as it does for the regular Workstation: find a package with the needed codecs, and install it. The one difference is that you use _rpm-ostree install_ instead of dnf install.
-	An alternative solution is to install the nightly firefox, which is available as a https://firefox-flatpak.mojefedora.cz/org.mozilla.FirefoxNightly.flatpakref[Flatpak].
+    Firefox is included in the OS image for now. Until that changes, getting it 
+    to play videos works the same way as it does for the regular Fedora 
+    Workstation: find a package with the needed codecs, and install it. The one 
+    difference is that you use `rpm-ostree install` instead of dnf `install.`
+    An alternative solution is to install the nightly Firefox, which is 
+    available as a 
+    https://firefox-flatpak.mojefedora.cz/org.mozilla.FirefoxNightly.flatpakref[Flatpak].

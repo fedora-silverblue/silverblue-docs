@@ -1,0 +1,45 @@
+[technical-information]
+= Technical Information
+
+[[ostree-rpm-ostree]]
+== ostree and rpm-ostree
+
+https://ostree.readthedocs.io/en/latest/[ostree] is the core technology used to 
+compose and update Silverblue. It is  sometimes described as “Git for operating 
+system binaries”: it operates in a similar manner to a version control system, 
+but for filesystem trees. It is OSTree that is for deploying and updating the 
+OS image (ie. everything below `/` that is not symlinked into `/var`). ostree 
+also contains the necessary logic to update grub.cfg entries to point to the
+current image.
+
+https://rpm-ostree.readthedocs.io/en/latest/[rpm-ostree] builds on top of 
+ostree, and makes it possible to install RPMs as a 'layer' on top of an ostree 
+image. In practice, that means you can install RPMs. When a package is 
+installed with `rpm-ostree`, a new OS image is composed by adding the RPM 
+payload to the existing OS image, and creating a new, combined image. To see 
+the newly installed RPMs, you have to reboot into the new image. rpm-ostree 
+also takes care of recreating the layered image whenever you update the base OS 
+image.
+
+[[filesystem-layout]]
+== Silverblue filesystem layout
+
+The root filesystem has the immutable attribute set on OSTree
+installations, so `/`, `/usr` and everything below it is read-only. `/var` is
+where all the runtime state is kept. There are some symlinks that put
+the state-carrying directories in their traditional, expected place:
+
+* `/home` → `/var/home`
+* `/opt` → `/var/opt`
+* `/srv` → `/var/srv`
+* `/root` → `/var/roothome`
+* `/usr/local` → `/var/usrlocal`
+* `/mnt`→ `/var/mnt`
+* `/tmp` → `/sysroot/tmp`
+
+and so on. If you have a separate home partition on your system, it
+should be mounted on `/var/home`.
+
+For a more detailed explanation of the system layout, refer to the 
+excellent https://ostree.readthedocs.io/en/latest/manual/adapting-existing/[libostree documentation] 
+on this subject.
