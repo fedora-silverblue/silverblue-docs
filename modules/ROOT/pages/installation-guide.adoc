@@ -1,5 +1,4 @@
 = Installing Silverblue
------------------------
 
 The preferred way to install Silverblue is with the Fedora MediaWriter
 application. See the https://silverblue.fedoraproject.org/download[Download] page
@@ -10,8 +9,7 @@ you have never installed Fedora before. If you have experience using or
 installing Fedora, you may be able to skip much of these instructions._
 
 [[before-you-begin]]
-Before You Begin
-----------------
+== Before You Begin
 
 Before you start the installation process, you should answer the
 following questions:
@@ -36,8 +34,7 @@ method during the install process, but it will require some additional
 steps.
 
 [[starting-the-install]]
-Starting the Install
---------------------
+== Starting the Install
 
 After you have successfully created your USB stick, you'll need to boot
 your system from the USB stick. Depending on your system, you might get
@@ -94,8 +91,7 @@ you can choose link:#automatic-partition[automatic partitioning]:
 image::faw-storage-start.png[title="Fedora Installation Destination"]
 
 [[automatic-partition]]
-Automatic Partitioning
-----------------------
+== Automatic Partitioning
 
 If you choose automatic partitioning, your job is almost done. Select
 the disk you want to install onto (in this guide we have only a single
@@ -131,8 +127,7 @@ Once you have started the install process, you can move on to the next
 phase where you will link:#user-config[configure users].
 
 [[manual-partition]]
-Manual Partitioning
--------------------
+== Manual Partitioning
 
 When choosing to manually partition your system, you need to be aware of
 certain restrictions specific to Silverblue. Due to how the operating
@@ -231,8 +226,7 @@ Once you have started the installer, you can move on to the
 link:#user-config[User Configuration] section of this guide.
 
 [[user-config]]
-User Configuration
-------------------
+== User Configuration
 
 As the installer churns away, you are presented with a screen where you
 can configure the root password and create one or more regular users:

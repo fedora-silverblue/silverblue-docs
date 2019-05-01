@@ -21,7 +21,7 @@ throw a toolbox away and start again.
 different projects.
 
 [[toolbox-how-it-works]]
-## How it works
+== How it works
 
 Toolbox takes the work out of using containers, by providing a small number of 
 simple commands to  create, enter, list and remove containers. It also 

@@ -1,5 +1,4 @@
 = Installing Silverblue, side-by-side
------------------------------------
 
 WARNING: Some users have reported issues when trying to install
 Silverblue side-by-side.  Please report any issues you may encounter

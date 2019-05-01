@@ -1,5 +1,4 @@
 = Other Sources of Information
-----------------------------
 
 This document explains the motivations, goals, and history behind the
 Silverblue effort:

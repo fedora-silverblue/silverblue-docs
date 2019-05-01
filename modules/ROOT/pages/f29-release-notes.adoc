@@ -1,5 +1,4 @@
 = Fedora 29 Silverblue Release Notes
-------------------------------------
 
 Since the release of Fedora 28 Silverblue, the project has been steadily
 evolving and the result is significant changes in the content of the
@@ -10,8 +9,7 @@ These notes will cover the significant changes from Fedora 28
 Silverblue and what users can expect.
 
 [[changes-from-fedora-28]]
-Changes from Fedora 28 Silverblue
----------------------------------
+== Changes from Fedora 28 Silverblue
 
 For the release of Fedora 29 Silverblue, the content of the base operating
 system was slimmed down significantly, using new tooling developed on the build
@@ -41,8 +39,7 @@ For a complete list of packages that have changed, added, or removed
 in Fedora 29, please see the <<package-changes,full list of changes>>.
 
 [[known-problems]]
-Known Issues
-------------
+== Known Issues
 
 This is not a comprehensive list of all problems but some that might
 trip up users.
@@ -71,8 +68,7 @@ to not enable the Flathub repository by default.  If you wish to use
 the Flatpaks available from Flathub, just follow the https://flatpak.org/setup/Fedora/[install instructions].
 
 [[migrating-from-docker]]
-Migrating from Docker to Podman
--------------------------------
+== Migrating from Docker to Podman
 
 If you previously used `docker` for running and managing your containers while
 using Fedora 28 Silverblue, you may want to migrate your existing container to a
@@ -192,8 +188,7 @@ registry.fedoraproject.org/f28/httpd   latest   79442b002283   5 months ago   43
 ```
 
 [[privelged-to-rootless]]
-Moving Containers from Privileged Container Storage to Unprivileged Container Storage
---------------------------------------------------------------------------------------
+== Moving Containers from Privileged Container Storage to Unprivileged Container Storage
 
 Recent releases of `podman` have introduced the ability to run containers as an unprivileged
 user.  For some users, it may be preferable to run existing containers as an unprivileged
@@ -256,8 +251,7 @@ docker.io/antora/antora                                             latest   1c8
 ```
 
 [[keep-pkgs]]
-Keeping Packages Removed from Fedora 29 Silverblue
----------------------------------------------------
+== Keeping Packages Removed from Fedora 29 Silverblue
 
 As noted earlier, the base content set of Fedora 29 Silverblue has been drastically
 reduced from Fedora 28 Silverblue.  You are encouraged to review the complete list of
@@ -311,16 +305,14 @@ Deployments:
 ```
 
 [[upgrading-from-f28]]
-Upgrading from Fedora 28 Silverblue
------------------------------------
+== Upgrading from Fedora 28 Silverblue
 
 When you are ready to upgrade to Fedora 29 Silverblue, you can follow
 the https://docs.fedoraproject.org/en-US/fedora-silverblue/upgrades/[upgrade instructions].
 
 
 [[package-changes]]
-Package Changes Between Fedora 28 Silverblue and Fedora 29 Silverblue
----------------------------------------------------------------------
+== Package Changes Between Fedora 28 Silverblue and Fedora 29 Silverblue
 
 This is the full set of package changes when upgrading from Fedora 28
 Silverblue to Fedora 29 Silverblue.  This was done using the `28.20181027.0`

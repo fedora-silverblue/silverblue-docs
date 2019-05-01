@@ -1,10 +1,8 @@
 [[upgrades]]
 = Upgrades and Rollbacks
-----------------------
 
 [[upgrading-the-os]]
-Upgrading the OS
-----------------
+== Upgrading the OS
 
 To get updates for the OS, you can run: `rpm-ostree upgrade`. Starting
 with Fedora 28, gnome-software will also offer OS updates on Silverblue
@@ -17,9 +15,7 @@ gnome-software will also notify you about OS updates, just like it does
 on the traditional workstation.
 
 [[change-to-a-new-os-release]]
-Rebasing across new major versions
-----------------------------------
-
+== Rebasing across new major versions
 
 There were a substantial number of changes in Silverblue 29; see https://discussion.fedoraproject.org/t/changes-in-fedora-silverblue-29[this forum thread].  The high level is that the operating system was slimmed down significantly, dropping many applications as well as libvirt and docker.
 
@@ -59,8 +55,7 @@ We plan to have gnome-software offer the same functionality in Fedora 29
 as well.
 
 [[rolling-back-the-os]]
-Rolling Back the OS
--------------------
+== Rolling Back the OS
 
 rpm-ostree keeps two deployments around, which both have an entry in the
 grub menu. When you boot, you can choose the other entry to boot into
@@ -70,8 +65,7 @@ To permanently switch back to the previous deployment, use the
 `rpm-ostree rollback` command.
 
 [[update-applications]]
-Update applications
--------------------
+== Update applications
 
 To update your Flatpak applications, you can run: `flatpak update`.
 gnome-software will also offer Flatpak application updates. Note that
