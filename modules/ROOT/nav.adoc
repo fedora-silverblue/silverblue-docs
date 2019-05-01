@@ -1,7 +1,7 @@
 * xref:installation-guide.adoc[Installation Guide]
 ** xref:installation-dual-boot.adoc[Installation: Dual Boot]
 * xref:getting-started.adoc[First Login]
-* xref:upgrades.adoc[Upgrades and Rollbacks]
+* xref:updates-upgrades-rollbacks.adoc[Updates, Upgrades & Rollbacks]
 * xref:toolbox.adoc[Toolbox]
 * xref:technical-information.adoc[Technical Information]
 * xref:f29-release-notes.adoc[Fedora 29 Silverblue Release Notes]
