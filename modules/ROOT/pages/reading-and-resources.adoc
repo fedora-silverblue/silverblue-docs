@@ -1,18 +1,26 @@
-= Other Sources of Information
+= Reading & Resources
 
-This document explains the motivations, goals, and history behind the
-Silverblue effort:
+This page is a list of further reading and resources for Silverblue.
 
-* link:{attachmentsdir}/team-silverblue-origins.pdf[Team Silverblue - The
-Origins]
+== Technology websites and documentation
 
-Here are handy one-page summaries of essential commands:
+- https://buildah.io/[Buildah] - build OCI container images
+- http://flatpak.org[Flatpak] - next-generation desktop app framework
+- https://ostree.readthedocs.io/en/latest/[ostree] - OS image composition 
+and updates
+- https://podman.io/[podman] - daemonless container engine
+- https://rpm-ostree.readthedocs.io/en/latest/[rpm-ostree] - hybrid 
+image/package system
 
-* link:{attachmentsdir}/flatpak-print-cheatsheet.pdf[Flatpak Cheat Sheet]
-* link:{attachmentsdir}/silverblue-cheatsheet.pdf[rpm-ostree Cheat Sheet]
+== Documents
 
-The container commandos coloring book is a playful introduction to tools
-such as podman, cri-o and buildah by Máirín Duffy and Dan Walsh. Print
-it out, and learn as you color!
-
-* link:{attachmentsdir}/container-commandos.pdf[Container commandos]
+- link:{attachmentsdir}/team-silverblue-origins.pdf[Team Silverblue - The
+Origins] - PDF that explains the motivations, goals, and history behind
+Silverblue
+- link:{attachmentsdir}/flatpak-print-cheatsheet.pdf[Flatpak Cheat Sheet] - 
+PDF with common flatpak commands
+- link:{attachmentsdir}/silverblue-cheatsheet.pdf[rpm-ostree Cheat Sheet] - PDF 
+with common rpm-ostree commands
+-  link:{attachmentsdir}/container-commandos.pdf[Container commandos] -  a 
+playful introduction to tools such as podman, cri-o and buildah by Máirín Duffy 
+and Dan Walsh. Print it out, and learn as you color!
