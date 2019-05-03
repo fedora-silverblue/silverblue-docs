@@ -1,5 +1,4 @@
 * xref:installation-guide.adoc[Installation Guide]
-** xref:installation-dual-boot.adoc[Installation: Dual Boot]
 * xref:getting-started.adoc[First Login]
 * xref:updates-upgrades-rollbacks.adoc[Updates, Upgrades & Rollbacks]
 * xref:toolbox.adoc[Toolbox]
