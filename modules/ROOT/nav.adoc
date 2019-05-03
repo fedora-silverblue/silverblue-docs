@@ -3,6 +3,5 @@
 * xref:updates-upgrades-rollbacks.adoc[Updates, Upgrades & Rollbacks]
 * xref:toolbox.adoc[Toolbox]
 * xref:technical-information.adoc[Technical Information]
-* xref:f29-release-notes.adoc[Fedora 29 Silverblue Release Notes]
 * xref:faq.adoc[FAQ]
 * xref:reading-and-resources.adoc[Reading and Resources]
