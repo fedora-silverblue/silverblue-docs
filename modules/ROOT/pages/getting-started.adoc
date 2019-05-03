@@ -6,54 +6,58 @@ knowledge should generally not be required. However, Silverblue is built
 differently from other operating systems, and there are therefore some things 
 that it is useful to know.
 
-Because Silverblue is immutable, installing software on it works a little that it 
-is isolated from the host system. This can be done in three ways:
+Because Silverblue is immutable, installing software on it works a little 
+differently. The main ways it can be done are:
 
 - Flatpak apps: this is the primary way that apps get installed on Silverblue.
-- Containers: can be installed and used for development
-- Toolbox containers: a special kind of container tailored to provide a 
-development environment
-
-The following sections provide more information on using each of these methods.
+- Containers: which can be installed and used for development purposes
+- Toolbox containers: these are a special kind of container tailored to provide 
+a development environment
 
 The other method of installing software on Silverblue is package layering. 
 This is different from the other methods, and goes against the general 
 principle of immutability. Package layering adds individual packages to the 
 Silverblue system, and in so doing modifies the operating system. 
 
+For information on link:flatpak[Flatpak] and link:package-layering[package 
+layering], see below. Information on containers can be found on the 
+link:toolbox[toolbox page]
+
 [[flatpak]]
-== Flatpak apps
+== Flatpak
 
-Flatpak is the primary way that apps get installed on Silverblue. It is a 
-next-generation application framework that provides a number of advantages. For 
-information about Flatpak, see http://flatpak.org[flatpak.org].
+Flatpak is the primary way that apps can be installed on Silverblue. (For 
+information, see http://flatpak.org[flatpak.org].) Flatpak works out of the box 
+in Fedora Silverblue, and Fedora provides a small (but growing) collection of 
+apps that can be installed.
 
-Flatpak works out of the box in Fedora Silverblue, and Fedora provides a small 
-(but growing) collection of apps that can be installed.
+The other main source of Flatpak apps is https://flathub.org/home[Flathub], 
+which provides a large repository of Flatpak apps that can be installed.
 
-=== Setting up Flathub
+[[flathub-setup]]
+== Setting up Flathub
 
-https://flathub.org/home[Flathub] is a large repository of Flatpak apps that 
-can be installed. To do this, open the 
-https://flatpak.org/setup/Fedora/[Fedora setup page] and click on the “Flathub 
-repository file” button to download the Flathub configuration.
+To setup Flathub on Fedora Silverblue, open the 
+https://flatpak.org/setup/Fedora/[Flathub setup page for Fedora] and click the 
+“Flathub repository file” button to download the Flathub configuration.
 
 image::sfg_flathub_fedora.png[title="Fedora quick setup page"]
 
-A popup window will show download option for the file. The "Open with" option
-should show Software Install (default). Click on the`OK` button to start the download.
+A popup window will show a download option for the file. The “Open with” option
+should show “Software Install (default)”. Click on the “OK” button to start the 
+download.
 
 image::sfg_flathub_download.png[title="Flathub download options"]
 
 After the download is complete, a new window will open showing the Flathub
-repository install options. This window also shows the source location of the
-repository to be installed under the details heading (1). To start the
-installation of the Flathub repository, click on the “Install” button (2).
+repository. This window also shows the source location of the repository to be 
+installed, under the details heading (1). To start the installation of the 
+Flathub repository, click on the “Install” button (2).
 
 image::sfg_flathub_install.png[title="Flathub install window"]
 
-After the repository install process is complete, the window will be updated to
-show a “Remove` button in place of the “Install” button.
+After the repository installation process is complete, the window will be 
+updated to show a “Remove` button in place of the “Install” button.
 
 === Installing Flatpak apps from Flathub
 
@@ -74,23 +78,14 @@ shown. Verify the correct Flatpak is being downloaded and then click on the
 image::sfg_libreoffice_install.png[title="LibreOffice Flatpak download"]
 
 Once the Flatpak is downloaded, the Software application will open a new
-window with an “Install” button (1).Click this button to begin installation.
+window with an “Install” button (1). lick this button to begin installation.
 
 === Flatpak command line
 
-It is also possible to use `flatpak` from the command line. See the 
+In addition to using the Software app to install Flatpak apps, it is also 
+possible to use the `flatpak` command line interface. See the 
 http://docs.flatpak.org/en/latest/using-flatpak.html[Flatpak documentation] for 
-how to use this.
-
-[[toolbox-and-containers]]
-== Toolbox and containers
-
-As an immutable host, Silverblue is an excellent platform for container-based 
-development. For working with containers, buildah and podman are recommended.
-
-Silverblue also comes with the _toolbox_ utility, which uses containers to 
-provide an environment where development tools and libraries can be installed 
-and used. The link:toolbox[toolbox page] provides more details on this.
+how to do this.
 
 [[package-layering]]
 == Package layering
@@ -101,20 +96,18 @@ Any software package that is provided by Fedora can be installed on Silverblue
 using this method.
 
 A Silverblue installation with packages layered on top loses some of the 
-advantages of immutability. With layering in place, the system is no longer 
-identical to other installations, and is not as robust (particularly with 
-regards to OS updates).
+advantages of immutability: with layering in place, the system is no longer 
+identical to other installations, and is not as robust.
 
-Nevertheless, package layering can be a useful option, for installing 
-software that might not be available through other means, or installing 
+Nevertheless, package layering can be a useful option for installing 
+software that might not be available through other means, or for installing 
 software that, for technical reasons, needs to be part of the host operating 
 system.
 
 Typically, the system must be rebooted after a package has been layered. This 
-is an obvious practical disadvantage compared with installing Flatpaks or 
-containers.
+is an practical disadvantage compared with installing Flatpaks or containers.
 
-Package layering is typically only done from the command line. However, the 
+Package layering is generally done from the command line. However, the 
 Software application does rely on it for installing a small number of apps 
 that are currently difficult to install as Flatpakts.
 
@@ -127,7 +120,7 @@ Packages can be installed on Silverblue using:
 This will download the package and any required dependencies, and recompose 
 your Silverblue image with them. `rpm-ostree` uses standard Fedora package 
 names, which can be searched using DNF (this is not available on a Silverblue 
-host, but can be used in a toolbox).
+host, but can be used in a link:toolbox[toolbox]).
 
 Once a package has been installed in this manner, it will be kept up-to-date 
 as new versions are released and as the base operating system is updated.
@@ -143,6 +136,6 @@ different version. For example:
 
 `$ rpm-ostree override replace <path to package>`
 
-Removing and replacing packages is not generally recommended. For more 
-information, see the 
+Removing and replacing packages using package layering is not generally 
+recommended. For more information, see the 
 https://rpm-ostree.readthedocs.io/en/latest/manual/administrator-handbook/[rpm-ostree documentation].
