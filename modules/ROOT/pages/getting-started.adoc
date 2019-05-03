@@ -6,7 +6,7 @@ knowledge should generally not be required. However, Silverblue is built
 differently from other operating systems, and there are therefore some things 
 that it is useful to know.
 
-Because Silverblue is immutable, software has to be installed on it so that it 
+Because Silverblue is immutable, installing software on it works a little that it 
 is isolated from the host system. This can be done in three ways:
 
 - Flatpak apps: this is the primary way that apps get installed on Silverblue.
@@ -31,16 +31,54 @@ information about Flatpak, see http://flatpak.org[flatpak.org].
 Flatpak works out of the box in Fedora Silverblue, and Fedora provides a small 
 (but growing) collection of apps that can be installed.
 
+=== Setting up Flathub
+
 https://flathub.org/home[Flathub] is a large repository of Flatpak apps that 
-can also be used. Setup for Silverblue is just a few clicks - just follow the 
-https://flatpak.org/setup/Fedora/[standard Fedora instructions].
+can be installed. To do this, open the 
+https://flatpak.org/setup/Fedora/[Fedora setup page] and click on the “Flathub 
+repository file” button to download the Flathub configuration.
 
-=== Installing apps with Flatpak
+image::sfg_flathub_fedora.png[title="Fedora quick setup page"]
 
-Flatpak is fully integrated into Fedora Workstation, and apps can be browsed, 
-search and installed using the Software app.
+A popup window will show download option for the file. The "Open with" option
+should show Software Install (default). Click on the`OK` button to start the download.
 
-Alternatively, it is possible to use `flatpak` from the command line. See the 
+image::sfg_flathub_download.png[title="Flathub download options"]
+
+After the download is complete, a new window will open showing the Flathub
+repository install options. This window also shows the source location of the
+repository to be installed under the details heading (1). To start the
+installation of the Flathub repository, click on the “Install” button (2).
+
+image::sfg_flathub_install.png[title="Flathub install window"]
+
+After the repository install process is complete, the window will be updated to
+show a “Remove` button in place of the “Install” button.
+
+=== Installing Flatpak apps from Flathub
+
+Once the Flathub repository has been setup, it can be used to install Flatpak 
+apps. This can be done directly from the Software app, or apps can be browsed 
+on the https://flathub.org/home[Flathub website].
+
+If you choose to install apps from the Flathub website, clicking install will 
+download a file which will be opened by the Software app, which can then be 
+used to install the app. For example, to install LibreOffice, you first 
+search for and open the LibreOffice page, and then press the “Install” button 
+(1). 
+
+After clicking the “Install” button, a download information window will be 
+shown. Verify the correct Flatpak is being downloaded and then click on the 
+“OK” button to begin installing the LibreOffice application.
+
+image::sfg_libreoffice_install.png[title="LibreOffice Flatpak download"]
+
+Once the Flatpak is downloaded, the Software application will open a new
+window with an “Install” button (1).Click this button to begin installation.
+
+=== Flatpak command line
+
+It is also possible to use `flatpak` from the command line. See the 
 http://docs.flatpak.org/en/latest/using-flatpak.html[Flatpak documentation] for 
 how to use this.
 
