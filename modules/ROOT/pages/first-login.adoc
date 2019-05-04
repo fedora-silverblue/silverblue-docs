@@ -21,8 +21,8 @@ the state-carrying directories in their traditional, expected place:
 and so on. If you have a separate home partition on your system, it
 should be mounted on `/var/home`.
 
-For a more detailed explanation of the system layout, refer to the 
-excellent https://ostree.readthedocs.io/en/latest/manual/adapting-existing/[libostree documentation] 
+For a more detailed explanation of the system layout, refer to the
+excellent https://ostree.readthedocs.io/en/latest/manual/adapting-existing/[libostree documentation]
 on this subject.
 
 [[packaging-ostree-rpms-flatpaks-and-containers]]
@@ -67,7 +67,7 @@ nightly]
 * http://eclipse.matbooth.co.uk/[Eclipse nightly]
 
 Once you have repositories enabled, you can use GNOME Software's
-excellent support for searching Flatpaks. Or you can use `flatpak 
+excellent support for searching Flatpaks. Or you can use `flatpak
 search` command.
 
 [[using-pkg-layering]]
@@ -80,7 +80,7 @@ install` command. Once a package has been layered, rpm-ostree will keep
 it up-to-date for you and recreate the layer when you install a newer OS
 image.
 
-You can also remove a package from OS image. The command to do this is 
+You can also remove a package from OS image. The command to do this is
 `rpm-ostree override remove`.
 
 rpm-ostree does not currently have an equivalent to the `dnf search`
@@ -88,7 +88,7 @@ command for finding packages in the configured repositories. As a
 workaround, you can run _dnf_ in a temporary container like this:
 
 ----
-$ sudo podman run --rm fedora:28 dnf search <1>
+$ sudo podman run --rm fedora:30 dnf search <1>
 ----
 <1> provide your search term
 
