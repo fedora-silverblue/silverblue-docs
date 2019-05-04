@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upgrades and Rollbacks :: Local Preview</title>
+    <meta name="generator" content="Antora 2.0.0">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">  </head>
+  <body class="article">
+<header class="header" role="banner">
+  <nav class="navbar" style="">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../..">
+        <img src="../../_/img/docs_logo.png" style="height:40px">
+      </a>
+      <!-- We don't have anything in the menu, but the burger still appears
+           on mobile devices. So let's remove it. -->
+      <!--<button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>-->
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="main-wrapper">
+<div class="navigation-container" data-component="fedora-silverblue" data-version="master">
+  <aside class="navigation" role="navigation">
+    <div class="panels">
+<div class="navigation-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../">Fedora Silverblue</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-toggle"></button>
+    <a class="nav-link" href="../installation-guide/">Installation Guide</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../installation-dual-boot/">Installation: Dual Boot</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../first-login/">First Login</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="./">Upgrades and Rollbacks</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../toolbox/">Toolbox</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../silverblue-guide/">Silverblue Guide</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../f29-release-notes/">Fedora 29 Silverblue Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../faq/">FAQ</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../other-sources/">Other Sources</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="navigation-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Fedora Silverblue</span>
+    <span class="version">master</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Fedora Silverblue</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../">master</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+  <main class="main" role="main">
+<div class="toolbar" role="navigation">
+  <button class="navigation-toggle"></button>
+<nav class="crumbs" role="navigation" aria-label="breadcrumbs">
+  
+  <ul>
+      <li class="crumb HO"><a href="../">Home</a></li>
+    <li class="crumb HO"><a href="../">Fedora Silverblue</a></li>
+    <li class="crumb HA"><a href="./">Upgrades and Rollbacks</a></li>
+  </ul>
+  
+</nav>
+  <div class="edit-this-page"><a href="file:///antora/modules/ROOT/pages/upgrades.adoc">Edit this Page</a></div>
+</div>
+<article class="doc">
+<h1>Upgrades and Rollbacks</h1>
+<div class="sect1">
+<h2 id="upgrading-the-os"><a class="anchor" href="#upgrading-the-os"></a>Upgrading the OS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To get updates for the OS, you can run: <code>rpm-ostree upgrade</code>. Since Fedora 28, gnome-software offers OS updates on Silverblue
+systems. Note that due to the atomic nature of the OS, you will have to
+reboot into the new image to have the updates take effect.</p>
+</div>
+<div class="paragraph">
+<p>If you just want to check for available updates, this command will do
+so: <code>rpm-ostree upgrade --check</code>. Since Fedora 28,
+gnome-software also notifies you about OS updates, just like it does
+on the traditional workstation.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="change-to-a-new-os-release"><a class="anchor" href="#change-to-a-new-os-release"></a>Rebasing across new major versions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>There were a substantial number of changes in Silverblue 29; see <a href="https://discussion.fedoraproject.org/t/changes-in-fedora-silverblue-29">this forum thread</a>.  The high level is that the operating system was slimmed down significantly, dropping many applications as well as libvirt and docker.</p>
+</div>
+<div class="paragraph">
+<p>For desktop applications, it&#8217;s recommended to use Flatpak; but you may also
+layer them back via <code>rpm-ostree install</code>.</p>
+</div>
+<div class="paragraph">
+<p>If for example you want to continue using Docker instead of podman, you can run:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ rpm-ostree install --allow-inactive docker</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Similarly if you want to continue using libvirt, do the same with <code>libvirt</code>.</p>
+</div>
+<div class="paragraph">
+<p>To upgrade from Fedora Atomic Workstation 28 to Silverblue 29:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ ostree remote gpg-import fedora-workstation -k /etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-29-primary
+$ rpm-ostree rebase fedora/29/x86_64/silverblue</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To upgrade from Fedora Silverblue 29 to Silverblue 30:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ sudo ostree remote gpg-import fedora-workstation -k /etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-30-primary
+$ rpm-ostree rebase fedora-workstation:fedora/30/x86_64/silverblue</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The process is very similar to a system update: the new OS is downloaded and
+installed in the background, and you just boot into it when it is ready.</p>
+</div>
+<div class="paragraph">
+<p>Just like system updates, rebases can be reversed: the previous
+deployment is still available, and you can boot back into it if there
+are any problems with the new OS.</p>
+</div>
+<div class="paragraph">
+<p>We plan to have gnome-software offer the same functionality in Fedora 29
+as well.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="rolling-back-the-os"><a class="anchor" href="#rolling-back-the-os"></a>Rolling Back the OS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>rpm-ostree keeps two deployments around, which both have an entry in the
+grub menu. When you boot, you can choose the other entry to boot into
+the previous deployment.</p>
+</div>
+<div class="paragraph">
+<p>To permanently switch back to the previous deployment, use the
+<code>rpm-ostree rollback</code> command.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="update-applications"><a class="anchor" href="#update-applications"></a>Update applications</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To update your Flatpak applications, you can run: <code>flatpak update</code>.
+gnome-software will also offer Flatpak application updates. Note that
+Flatpaks are independent of the base system, so you can install updates
+without a reboot, and just restart affected applications afterwards to
+get the new version.</p>
+</div>
+<div class="paragraph">
+<p>This command will let you check if application updates are available:
+<code>flatpak remote-ls --updates</code>. If you add the <code>-d</code> option, it will
+generate detailed information about the available updates:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ flatpak remote-ls --updates -d
+Ref                                                     Origin             Commit       Installed size Download size
+app/com.valvesoftware.Steam/x86_64/stable               flathub            effe21b05e42   6.3 MB         4.1 MB
+app/org.blender.Blender/x86_64/stable                   flathub            ac90294a1cc3 225.4 MB        79.6 MB
+runtime/org.freedesktop.Platform.VAAPI.Intel/x86_64/1.6 flathub            818a1504fad1   8.7 MB         2.7 MB
+runtime/org.gnome.Platform/x86_64/3.24                  flathub            6132154b089b 739.5 MB       281.4 MB
+runtime/org.gnome.Platform/x86_64/3.26                  flathub            be9fe7b43711 782.5 MB       296.8 MB
+runtime/org.gnome.Sdk/x86_64/3.26                       flathub            c62d5ddf669a   1.6 GB       582.9 MB
+runtime/org.kde.Platform/x86_64/5.9                     flathub            ea891f4a918f   1.1 GB       391.0 MB
+app/org.gnome.Builder/x86_64/master                     gnome-apps-nightly b14e6c0fc6c3 105.0 MB        35.4 MB</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>gnome-software will also notify you about application updates, just like
+it does on the normal workstation.</p>
+</div>
+</div>
+</div>
+</article>
+<div id="contributing">
+    <p class="contribute">Want to help? <a href="https://docs.fedoraproject.org/en-US/fedora-docs/contributing/">Learn how to contribute to Fedora Docs.</a></p>
+</div>  </main>
+</div>
+<footer class="footer">
+  <p>All Fedora Documentation content available under <a href="http://creativecommons.org/licenses/by-sa/3.0/legalcode">CC-BY-SA 3.0</a> or, when specifically noted, under another <a href="https://fedoraproject.org/wiki/Licensing:Main">accepted</a> free and open content license.</p>
+  <p>Last build: </p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script src="../../_/js/vendor/highlight.js"></script>
+<script>hljs.initHighlighting()</script>
+  </body>
+</html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Installing Silverblue, side-by-side :: Local Preview</title>
+    <meta name="generator" content="Antora 2.0.0">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">  </head>
+  <body class="article">
+<header class="header" role="banner">
+  <nav class="navbar" style="">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../..">
+        <img src="../../_/img/docs_logo.png" style="height:40px">
+      </a>
+      <!-- We don't have anything in the menu, but the burger still appears
+           on mobile devices. So let's remove it. -->
+      <!--<button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>-->
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="main-wrapper">
+<div class="navigation-container" data-component="fedora-silverblue" data-version="master">
+  <aside class="navigation" role="navigation">
+    <div class="panels">
+<div class="navigation-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../">Fedora Silverblue</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-toggle"></button>
+    <a class="nav-link" href="../installation-guide/">Installation Guide</a>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">Installation: Dual Boot</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../first-login/">First Login</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../upgrades/">Upgrades and Rollbacks</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../toolbox/">Toolbox</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../silverblue-guide/">Silverblue Guide</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../f29-release-notes/">Fedora 29 Silverblue Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../faq/">FAQ</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../other-sources/">Other Sources</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="navigation-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Fedora Silverblue</span>
+    <span class="version">master</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Fedora Silverblue</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../">master</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+  <main class="main" role="main">
+<div class="toolbar" role="navigation">
+  <button class="navigation-toggle"></button>
+<nav class="crumbs" role="navigation" aria-label="breadcrumbs">
+  
+  <ul>
+      <li class="crumb HO"><a href="../">Home</a></li>
+    <li class="crumb HO"><a href="../">Fedora Silverblue</a></li>
+    <li class="crumb HA"><a href="../installation-guide/">Installation Guide</a></li>
+    <li class="crumb HA"><a href="./">Installation: Dual Boot</a></li>
+  </ul>
+  
+</nav>
+  <div class="edit-this-page"><a href="file:///antora/modules/ROOT/pages/installation-dual-boot.adoc">Edit this Page</a></div>
+</div>
+<article class="doc">
+<h1>Installing Silverblue, side-by-side</h1>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Some users have reported issues when trying to install
+Silverblue side-by-side.  Please report any issues you may encounter
+on the <a href="https://discussion.fedoraproject.org/c/desktop/silverblue">Silverblue Forums</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>A really neat feature of OSTree is that you can parallel install
+<em>inside</em> your existing OS' filesystem. Let&#8217;s try that, we first make
+sure we have the ostree packages:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>yum -y install ostree ostree-grub2</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Before proceeding further, make sure that you have enough space in your
+root filesystem. The recommended minimum is 10GB (the Silverblue repo we
+are going to pull takes ~7GB on disk). Note that ostree will refuse to
+continue if you go below 3% of free space, so there&#8217;s no risk of
+actually running out of space.</p>
+</div>
+<div class="paragraph">
+<p>Next, we add /ostree/repo to the filesystem:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>ostree admin init-fs /</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Add a remote which points to the Silverblue content:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>ostree remote add --set=gpgkeypath=/etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-30-primary fedora https://ostree.fedoraproject.org --set=contenturl=mirrorlist=https://ostree.fedoraproject.org/mirrorlist</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you do not have the Fedora 30 GPG primary key, you can get it from
+<a href="https://getfedora.org/keys/" class="bare">https://getfedora.org/keys/</a>. Alternatively, if you really need to, you
+can turn off GPG verification using the --no-gpg-verify option.</p>
+</div>
+<div class="paragraph">
+<p>Pull down the content (you can interrupt and restart this):</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>ostree --repo=/ostree/repo pull fedora:fedora/30/x86_64/silverblue</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Initialize an OS for this, which acts as a state root.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>ostree admin os-init fedora</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>For EFI systems:</strong> currently ostree uses the presence of
+/boot/grub2/grub.cfg to detect a BIOS system, but that can be present on
+systems booted with EFI as well. If you boot with EFI (/sys/firmware/efi
+exists), then you need to move /boot/grub2/grub.cfg aside:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>mv /boot/grub2/grub.cfg /boot/grub2/grub.cfg.bak</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Since this file is not used on a EFI system, this won&#8217;t break the
+operation of your current system. While you are at it, back up your
+existing grub config:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>cp /boot/efi/EFI/fedora/grub.cfg /boot/efi/EFI/fedora/grub.cfg.bak</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And now, we can deploy the commit we just pulled down. The
+--karg-proc-cmdline switch will ensure that the current kernel arguments
+you used for the current boot will also apply to the OSTree boot.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>ostree admin deploy --os=fedora --karg-proc-cmdline fedora:fedora/30/x86_64/silverblue</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To initialize this root, you&#8217;ll need to copy over your /etc/fstab,
+/etc/locale.conf, /etc/default/grub at least, along with the ostree
+remote that we added:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>for i in /etc/fstab /etc/default/grub /etc/locale.conf /etc/ostree/remotes.d/fedora.conf ; do cp $i /ostree/deploy/fedora/deploy/$checksum.0/$i; done</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>where $checksum is whatever the checksum of the deployment is; there
+should only be a single directory there if this is your first
+deployment.</p>
+</div>
+<div class="paragraph">
+<p>If you have a separate /home mount point, you&#8217;ll need to change that
+fstab copy to refer to /var/home. If you don&#8217;t have a separate /home
+mount point, then you need to make sure that a symlink will be created:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>echo 'L /var/home - - - - ../sysroot/home' &gt; /ostree/deploy/fedora/deploy/$checksum.0/etc/tmpfiles.d/00rpm-ostree.conf</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You&#8217;ll also need to copy your user entry from /etc/passwd, /etc/group,
+and /etc/shadow into the new /etc/, and add yourself to the wheel group
+in /etc/group. Don&#8217;t copy just copy these files literally, however,
+since the system users and groups won&#8217;t be the same.</p>
+</div>
+<div class="paragraph">
+<p><strong>For BIOS systems:</strong> while ostree regenerated the bootloader
+configuration, it writes config into /boot/loader/grub.cfg. On a current
+grubby system, you&#8217;ll need to copy that version over:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>cp /boot/loader/grub.cfg /boot/grub2/grub.cfg</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that you will have to repeat this every time a new tree is created,
+so it may be more convenient to just create a symlink:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>cd /boot/grub2
+rm grub.cfg
+ln -s ../loader/grub.cfg .</pre>
+</div>
+</div>
+</article>
+<div id="contributing">
+    <p class="contribute">Want to help? <a href="https://docs.fedoraproject.org/en-US/fedora-docs/contributing/">Learn how to contribute to Fedora Docs.</a></p>
+</div>  </main>
+</div>
+<footer class="footer">
+  <p>All Fedora Documentation content available under <a href="http://creativecommons.org/licenses/by-sa/3.0/legalcode">CC-BY-SA 3.0</a> or, when specifically noted, under another <a href="https://fedoraproject.org/wiki/Licensing:Main">accepted</a> free and open content license.</p>
+  <p>Last build: </p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script src="../../_/js/vendor/highlight.js"></script>
+<script>hljs.initHighlighting()</script>
+  </body>
+</html>

@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Installing Silverblue :: Local Preview</title>
+    <meta name="generator" content="Antora 2.0.0">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">  </head>
+  <body class="article">
+<header class="header" role="banner">
+  <nav class="navbar" style="">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../..">
+        <img src="../../_/img/docs_logo.png" style="height:40px">
+      </a>
+      <!-- We don't have anything in the menu, but the burger still appears
+           on mobile devices. So let's remove it. -->
+      <!--<button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>-->
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="main-wrapper">
+<div class="navigation-container" data-component="fedora-silverblue" data-version="master">
+  <aside class="navigation" role="navigation">
+    <div class="panels">
+<div class="navigation-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../">Fedora Silverblue</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="1">
+    <button class="nav-toggle"></button>
+    <a class="nav-link" href="./">Installation Guide</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../installation-dual-boot/">Installation: Dual Boot</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../first-login/">First Login</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../upgrades/">Upgrades and Rollbacks</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../toolbox/">Toolbox</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../silverblue-guide/">Silverblue Guide</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../f29-release-notes/">Fedora 29 Silverblue Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../faq/">FAQ</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../other-sources/">Other Sources</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="navigation-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Fedora Silverblue</span>
+    <span class="version">master</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Fedora Silverblue</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../">master</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+  <main class="main" role="main">
+<div class="toolbar" role="navigation">
+  <button class="navigation-toggle"></button>
+<nav class="crumbs" role="navigation" aria-label="breadcrumbs">
+  
+  <ul>
+      <li class="crumb HO"><a href="../">Home</a></li>
+    <li class="crumb HO"><a href="../">Fedora Silverblue</a></li>
+    <li class="crumb HA"><a href="./">Installation Guide</a></li>
+  </ul>
+  
+</nav>
+  <div class="edit-this-page"><a href="file:///antora/modules/ROOT/pages/installation-guide.adoc">Edit this Page</a></div>
+</div>
+<article class="doc">
+<h1>Installing Silverblue</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>The preferred way to install Silverblue is with the Fedora MediaWriter
+application. See the <a href="https://silverblue.fedoraproject.org/download">Download</a> page
+for details on how to create a USB stick to install Silverblue.</p>
+</div>
+<div class="paragraph">
+<p><em>NOTE: The following instructions are written in detail, assuming that
+you have never installed Fedora before. If you have experience using or
+installing Fedora, you may be able to skip much of these instructions.</em></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="before-you-begin"><a class="anchor" href="#before-you-begin"></a>Before You Begin</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Before you start the installation process, you should answer the
+following questions:</p>
+</div>
+<div class="paragraph">
+<p>Do you want to retain any existing data on your system?</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If yes, you should consider using the <a href="#manual-partition">manual
+partitioning</a> method during the install process.</p>
+</li>
+<li>
+<p>Alternatively, if your system has an existing Fedora install on it,
+you could use the <a href="#installing-silverblue-side-by-side">side-by-side</a> install
+method.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Do you want to do a fresh install and do not care about retaining any
+existing data on your system?</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If yes, you should consider using the
+<a href="#automatic-partition">automatic partitioning</a> method during the
+install process. This is the easiest way to get Silverblue installed on
+your system.</p>
+</li>
+<li>
+<p>You may still use the <a href="#manual-partition">manual partitioning</a>
+method during the install process, but it will require some additional
+steps.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="starting-the-install"><a class="anchor" href="#starting-the-install"></a>Starting the Install</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>After you have successfully created your USB stick, you&#8217;ll need to boot
+your system from the USB stick. Depending on your system, you might get
+lucky and it will boot from USB automatically. Otherwise, you&#8217;ll need to
+figure out how to access the boot menu of your system&#8217;s BIOS/UEFI and
+select the USB stick as the boot device.</p>
+</div>
+<div class="paragraph">
+<p>You should see a Fedora 30 installation screen that is identical to the
+Fedora 30 Workstation installer:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/faw-boot-menu.png" alt="faw boot menu">
+</div>
+<div class="title">Figure 1. Fedora 30 Installer Menu</div>
+</div>
+<div class="paragraph">
+<p>From this menu, you can choose to test the media to ensure that the USB
+stick was created successfully. Or launch right into the installer if
+you are feeling confident. For the purposes of this guide, we know our
+USB stick is working properly, so we&#8217;ll start the installer. You may see
+some messages fly past your screen that look like this:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/faw-boot-output.png" alt="faw boot output">
+</div>
+<div class="title">Figure 2. Fedora Installer Services Output</div>
+</div>
+<div class="paragraph">
+<p>Eventually, the graphical installer should start and you&#8217;ll be presented
+with the options to select the language you wish to use during the
+install:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/faw-boot-welcome.png" alt="faw boot welcome">
+</div>
+<div class="title">Figure 3. Fedora Installer Language Selection</div>
+</div>
+<div class="paragraph">
+<p>After selecting your language, the next screen of the installer allows
+us to make additional selections regarding the installer. We can
+configure the keyboard layout, installed language support, date and
+time, networking, and partitioning. In this guide we are only going to
+focus on the partitioning because of certain restrictions in this area
+when using Silverblue. However, if you have questions about some of the
+options of this part (or any part) of the installer, you can consult the
+<a href="https://docs.fedoraproject.org/f28/install-guide/install/Installing_Using_Anaconda.html">Fedora
+Installation Guide</a>.</p>
+</div>
+<div class="paragraph">
+<p>On this screen, you should notice that there is a warning on the bottom
+of the screen that says you need to complete the items marked with the
+warning icon before we can begin the actual install. Additionally, the
+'Begin Installation' button is greyed out. The item that needs to be
+completed is the partitioning and we can start that process by selecting
+the "Installation Destination" item with the warning icon next to it:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/faw-summary-one.png" alt="faw summary one">
+</div>
+<div class="title">Figure 4. Fedora Installtion Summary</div>
+</div>
+<div class="paragraph">
+<p>After choosing the "Installation Destination", you are brought to a
+screen where you have to decide if you want to use automatic
+partitioning or manual partitioning. If you have existing data on your
+disk and want to preserve it, you&#8217;ll want to
+<a href="#manual-partition">manually partition</a> your disk(s). However, if you
+are comfortable with losing any and all existing data on your disk(s),
+you can choose <a href="#automatic-partition">automatic partitioning</a>:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/faw-storage-start.png" alt="faw storage start">
+</div>
+<div class="title">Figure 5. Fedora Installation Destination</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="automatic-partition"><a class="anchor" href="#automatic-partition"></a>Automatic Partitioning</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you choose automatic partitioning, your job is almost done. Select
+the disk you want to install onto (in this guide we have only a single
+disk). Check the radio button that says 'Automatic' and click the big
+blue button at the top that says 'Done'.</p>
+</div>
+<div class="paragraph">
+<p>If your disk already has partitions on it, you&#8217;ll be presented with a
+dialog to 'reclaim' space. This means you are going choose which
+partitions can be deleted, so that the disk can be re-partitioned from
+scratch.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/faw-storage-reclaim.png" alt="faw storage reclaim">
+</div>
+<div class="title">Figure 6. Reclaim Disks Dialog</div>
+</div>
+<div class="paragraph">
+<p>In this guide, we are going to delete all the existing partitions so
+that we can use the entirety of the disk for the install. This is easily
+done with the aptly named 'Delete All' button.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/faw-storage-reclaim-two.png" alt="faw storage reclaim two">
+</div>
+<div class="title">Figure 7. Delete All Partitions</div>
+</div>
+<div class="paragraph">
+<p>And then confirm that you are going to delete all the partitions by
+clicking the 'Reclaim space' button:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/faw-storage-reclaim-delete-all.png" alt="faw storage reclaim delete all">
+</div>
+<div class="title">Figure 8. Confirming Delete All Partitions</div>
+</div>
+<div class="paragraph">
+<p>With your partitioning choice complete, the installer brings you back to
+the installation summary screen and the big blue 'Begin Installation'
+button is beckoning you to click it. Once you click the button, your
+disk(s) will be altered and all data on the disk(s) will be lost.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/faw-summary-two.png" alt="faw summary two">
+</div>
+<div class="title">Figure 9. Ready to Begin Installation</div>
+</div>
+<div class="paragraph">
+<p>Once you have started the install process, you can move on to the next
+phase where you will <a href="#user-config">configure users</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="manual-partition"><a class="anchor" href="#manual-partition"></a>Manual Partitioning</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When choosing to manually partition your system, you need to be aware of
+certain restrictions specific to Silverblue. Due to how the operating
+system and filesystem are managed via libostree, only certain mount
+points can be created during the install process. These mount points are
+limited to <code>/boot</code>, <code>/var</code>, subdirectories under <code>/var</code>, and the root
+filesystem.</p>
+</div>
+<div class="paragraph">
+<p>Unfortunately, the installer (which is shared with vanilla Fedora
+Workstation) is not aware of these restrictions specific to Silverblue
+and will happily accept your custom partitions without error. Only when
+you try to boot your system will you be made aware that you have made a
+mistake.</p>
+</div>
+<div class="paragraph">
+<p>With those restrictions in mind, let&#8217;s try to manually partition our
+system. The first screen you&#8217;ll see is the "Installation Destination"
+screen. From here, you can select which disk(s) to use for the install
+and choose the partitioning method. For this guide, we only have a
+single disk, but you might have more than one disk in your system. In
+order to select the manual parition method, click the radio button
+labeled "Custom".</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/faw-storage-custom-one.png" alt="faw storage custom one">
+</div>
+<div class="title">Figure 10. Selecting Custom Partitioning</div>
+</div>
+<div class="paragraph">
+<p>This will launch you into the "Manual Partioning" screen, which gives
+you a minimal overview of the existing storage configuration. In order
+to see all of the partitions on your disk, you should click the arrow
+next to the "Unknown" disk.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/faw-manual-partition-two.png" alt="faw manual partition two">
+</div>
+<div class="title">Figure 11. Viewing Existing Partitions</div>
+</div>
+<div class="paragraph">
+<p>Now we can see that we have three existing partitions on the disk: two
+<code>ext4</code> partitions and a swap partition. At this point, you should
+(hopefully!) be able to recognize your existing partitions and make sure
+they remain intact if you wanted to keep the existing data on your disk.
+But for this guide, we do not want to preserve any data, so we are going
+to start deleting all of our existing partitions to start fresh. We
+start by selecting the first <code>ext4</code> partition in the list labeled
+"fedora-root". Then we click the button that looks like a dash ("-") to
+mark the partition to be delete. This brings up a prompt asking you to
+confirm that you want to delete the partition.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/faw-manual-partition-three.png" alt="faw manual partition three">
+</div>
+<div class="title">Figure 12. Confirm Deletion of Partition</div>
+</div>
+<div class="paragraph">
+<p>Repeat this process for all the partitions that you want to delete. In
+this guide, we have removed all the paritions from the system and have a
+blank disk to work with.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/faw-manual-partition-four.png" alt="faw manual partition four">
+</div>
+<div class="title">Figure 13. All Partitions Removed</div>
+</div>
+<div class="paragraph">
+<p>We&#8217;ll create our first partition by clicking on the button that looks
+like a plus sign ("+"). This first partition will be our <code>/boot</code> where
+critical pieces of software required to boot your system (like the
+<code>initramfs</code> and <code>vmlinuz</code> executable). It doesn&#8217;t need to be very large,
+so we set the size for 500M.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/faw-manual-partition-boot.png" alt="faw manual partition boot">
+</div>
+<div class="title">Figure 14. Creating the /boot Partition</div>
+</div>
+<div class="paragraph">
+<p>The only other partition we absolutely need in order for the system to
+install successfully is the root partition ("/"). But we have the
+flexibility to create additional partitions that can include <code>/var</code> and
+subdirectories under <code>/var</code>. For the purposes of this guide, we&#8217;ll
+create a <code>/var/home</code> which is where all the user&#8217;s home directories
+live. (There is a symlink from <code>/home</code> to <code>/var/home</code> on Silverblue
+systems.)</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/faw-manual-partition-varhome.png" alt="faw manual partition varhome">
+</div>
+<div class="title">Figure 15. Creating /var/home Partition</div>
+</div>
+<div class="paragraph">
+<p>You can create additional parititions such as <code>/var/log</code> or
+<code>/var/lib/containers</code>, but for this guide, we will move on to creating
+the root partition. We&#8217;ll finish this part of the install process by
+creating the root partition for our system. We can leave the size field
+blank during this step and the installer will automatically use the
+remaining free space on the disk for the partition.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/faw-manual-partition-root.png" alt="faw manual partition root">
+</div>
+<div class="title">Figure 16. Creating Root Partition</div>
+</div>
+<div class="paragraph">
+<p>With all the partitions created, we can inspect the final configuration
+before proceeding. It&#8217;s worth noting here that the default partitioning
+scheme uses
+<a href="https://en.wikipedia.org/wiki/Logical_Volume_Manager_%28Linux%29">LVM</a> as
+the default partitioning scheme with an <code>ext4</code> filesystem. You can
+change this during this partitioning phase to use standard partitions or
+an <code>xfs</code> filesystem, but that is outside the scope of this guide.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/faw-manual-partition-complete.png" alt="faw manual partition complete">
+</div>
+<div class="title">Figure 17. Partitioning Complete</div>
+</div>
+<div class="paragraph">
+<p>After confirming your partitioning choices by clicking the big, blue
+"Done" button at the top of the screen, you are brought back to the
+"Installation Summary" screen. Here you have a chance to inspect your
+choices one last time before starting the actual installation proper.
+Once you click the big, blue "Begin Installation" button, your disk(s)
+will be altered and any data on them may be lost forever.</p>
+</div>
+<div class="paragraph">
+<p>Once you have started the installer, you can move on to the
+<a href="#user-config">User Configuration</a> section of this guide.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="user-config"><a class="anchor" href="#user-config"></a>User Configuration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>As the installer churns away, you are presented with a screen where you
+can configure the root password and create one or more regular users:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/faw-progress-one.png" alt="faw progress one">
+</div>
+<div class="title">Figure 18. Configuring Users</div>
+</div>
+<div class="paragraph">
+<p>Firstly, let&#8217;s configure a root password. Be sure to choose a safe and
+strong password that contains a mix of upper and lower case characters,
+numbers, and symbols. The installer has a nice indicator during this
+root password process that estimates the strength of your password; aim
+for creating a password that is "Strong":</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/faw-root-pw-two.png" alt="faw root pw two">
+</div>
+<div class="title">Figure 19. Choosing a Strong Root Password</div>
+</div>
+<div class="paragraph">
+<p>Then we can create a normal, unprivileged user which we will use as our
+day to day login. The same suggestions about creating a password for
+this user applies. Additionally, we can choose to make the user an
+administrator on the system, which grants the username the ability to
+use the <code>sudo</code> command to elevate their privileges:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/faw-user-two.png" alt="faw user two">
+</div>
+<div class="title">Figure 20. Creating an Unprivileged User</div>
+</div>
+<div class="paragraph">
+<p>Once we have the root password configured and an unprivileged user
+configured, we just sit back and wait for the installer to complete:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/faw-progress-two.png" alt="faw progress two">
+</div>
+<div class="title">Figure 21. Waiting for the Installer to Complete</div>
+</div>
+<div class="paragraph">
+<p>Eventually, the installer will finish and you will be presented with a
+big, blue button that says 'Reboot'. This will (obviously) reboot your
+system and you&#8217;ll be able to login to your Silverblue installation for
+the first time!</p>
+</div>
+</div>
+</div>
+</article>
+<div id="contributing">
+    <p class="contribute">Want to help? <a href="https://docs.fedoraproject.org/en-US/fedora-docs/contributing/">Learn how to contribute to Fedora Docs.</a></p>
+</div>  </main>
+</div>
+<footer class="footer">
+  <p>All Fedora Documentation content available under <a href="http://creativecommons.org/licenses/by-sa/3.0/legalcode">CC-BY-SA 3.0</a> or, when specifically noted, under another <a href="https://fedoraproject.org/wiki/Licensing:Main">accepted</a> free and open content license.</p>
+  <p>Last build: </p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script src="../../_/js/vendor/highlight.js"></script>
+<script>hljs.initHighlighting()</script>
+  </body>
+</html>

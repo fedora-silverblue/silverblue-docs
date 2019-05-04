@@ -28,17 +28,17 @@ ostree admin init-fs /
 Add a remote which points to the Silverblue content:
 
 ....
-ostree remote add --set=gpgkeypath=/etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-29-primary fedora https://ostree.fedoraproject.org --set=contenturl=mirrorlist=https://ostree.fedoraproject.org/mirrorlist
+ostree remote add --set=gpgkeypath=/etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-30-primary fedora https://ostree.fedoraproject.org --set=contenturl=mirrorlist=https://ostree.fedoraproject.org/mirrorlist
 ....
 
-If you do not have the Fedora 29 GPG primary key, you can get it from
+If you do not have the Fedora 30 GPG primary key, you can get it from
 https://getfedora.org/keys/. Alternatively, if you really need to, you
 can turn off GPG verification using the --no-gpg-verify option.
 
 Pull down the content (you can interrupt and restart this):
 
 ....
-ostree --repo=/ostree/repo pull fedora:fedora/29/x86_64/silverblue
+ostree --repo=/ostree/repo pull fedora:fedora/30/x86_64/silverblue
 ....
 
 Initialize an OS for this, which acts as a state root.
@@ -69,7 +69,7 @@ And now, we can deploy the commit we just pulled down. The
 you used for the current boot will also apply to the OSTree boot.
 
 ....
-ostree admin deploy --os=fedora --karg-proc-cmdline fedora:fedora/29/x86_64/silverblue
+ostree admin deploy --os=fedora --karg-proc-cmdline fedora:fedora/30/x86_64/silverblue
 ....
 
 To initialize this root, you'll need to copy over your /etc/fstab,

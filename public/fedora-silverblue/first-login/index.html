@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Login :: Local Preview</title>
+    <meta name="generator" content="Antora 2.0.0">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">  </head>
+  <body class="article">
+<header class="header" role="banner">
+  <nav class="navbar" style="">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../..">
+        <img src="../../_/img/docs_logo.png" style="height:40px">
+      </a>
+      <!-- We don't have anything in the menu, but the burger still appears
+           on mobile devices. So let's remove it. -->
+      <!--<button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>-->
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="main-wrapper">
+<div class="navigation-container" data-component="fedora-silverblue" data-version="master">
+  <aside class="navigation" role="navigation">
+    <div class="panels">
+<div class="navigation-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../">Fedora Silverblue</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-toggle"></button>
+    <a class="nav-link" href="../installation-guide/">Installation Guide</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../installation-dual-boot/">Installation: Dual Boot</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="./">First Login</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../upgrades/">Upgrades and Rollbacks</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../toolbox/">Toolbox</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../silverblue-guide/">Silverblue Guide</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../f29-release-notes/">Fedora 29 Silverblue Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../faq/">FAQ</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../other-sources/">Other Sources</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="navigation-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Fedora Silverblue</span>
+    <span class="version">master</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Fedora Silverblue</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../">master</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+  <main class="main" role="main">
+<div class="toolbar" role="navigation">
+  <button class="navigation-toggle"></button>
+<nav class="crumbs" role="navigation" aria-label="breadcrumbs">
+  
+  <ul>
+      <li class="crumb HO"><a href="../">Home</a></li>
+    <li class="crumb HO"><a href="../">Fedora Silverblue</a></li>
+    <li class="crumb HA"><a href="./">First Login</a></li>
+  </ul>
+  
+</nav>
+  <div class="edit-this-page"><a href="file:///antora/modules/ROOT/pages/first-login.adoc">Edit this Page</a></div>
+</div>
+<article class="doc">
+<h1>First Login</h1>
+<div class="sect1">
+<h2 id="filesystem-layout"><a class="anchor" href="#filesystem-layout"></a>Filesystem Layout</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The root filesystem has the immutable attribute set on OSTree
+installations, so <code>/</code>, <code>/usr</code> and everything below it is readonly. <code>/var</code> is
+where all the runtime state is kept. There are some symlinks that put
+the state-carrying directories in their traditional, expected place:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>/home</code> → <code>/var/home</code></p>
+</li>
+<li>
+<p><code>/opt</code> → <code>/var/opt</code></p>
+</li>
+<li>
+<p><code>/srv</code> → <code>/var/srv</code></p>
+</li>
+<li>
+<p><code>/root</code> → <code>/var/roothome</code></p>
+</li>
+<li>
+<p><code>/usr/local</code> → <code>/var/usrlocal</code></p>
+</li>
+<li>
+<p><code>/mnt</code>→ <code>/var/mnt</code></p>
+</li>
+<li>
+<p><code>/tmp</code> → <code>/sysroot/tmp</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>and so on. If you have a separate home partition on your system, it
+should be mounted on <code>/var/home</code>.</p>
+</div>
+<div class="paragraph">
+<p>For a more detailed explanation of the system layout, refer to the
+excellent <a href="https://ostree.readthedocs.io/en/latest/manual/adapting-existing/">libostree documentation</a>
+on this subject.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="packaging-ostree-rpms-flatpaks-and-containers"><a class="anchor" href="#packaging-ostree-rpms-flatpaks-and-containers"></a>Packaging: ostree, rpms, flatpaks and containers</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><em>ostree</em> is responsible for deploying and updating the OS image (ie
+everything below <code>/</code> that is not symlinked into <code>/var</code>). ostree also
+contains the necessary logic to update grub.cfg entries to point to the
+current image.</p>
+</div>
+<div class="paragraph">
+<p><em>rpm-ostree</em> builds on top of ostree, and makes it possible to install
+rpms as a 'layer' on top of an ostree image. In practice, that means you
+can install rpms as usual, just use rpm-ostree install instead of dnf
+install. What happens under the covers is that rpm-ostree will compose a
+new OS image by adding the rpm payload to the existing OS image, and
+creating a new, combined image. To see the newly installed rpms, you
+have to reboot into the new image. <em>rpm-ostree</em> also takes care of
+recreating the layered image whenever you update the base OS image.</p>
+</div>
+<div class="paragraph">
+<p><em>flatpak</em> uses container technologies to deploy and run desktop
+applications isolated from the underlying OS.</p>
+</div>
+<div class="paragraph">
+<p>You can of course use other container tools like <em>podman</em> or <em>buildah</em>
+to run other containers on a Silverblue system.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="using-flatpak"><a class="anchor" href="#using-flatpak"></a>Using Flatpak</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you don&#8217;t want to use the <em>flatpak</em> commandline tools, GNOME Software
+has excellent support for installing Flatpaks. There are several
+repositories that provide Flatpaks.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="http://flathub.org">Flathub</a> is a convenient place to find many popular
+desktop apps</p>
+</li>
+<li>
+<p><a href="http://registry.fedoraproject.org">Fedora registry</a> hosts Flatpaks in OCI format, built from rpms</p>
+</li>
+<li>
+<p><a href="https://sdk.gnome.org/gnome-apps-nightly.flatpakrepo">GNOME nightly</a>
+provides builds of unstable GNOME apps</p>
+</li>
+<li>
+<p><a href="https://firefox-flatpak.mojefedora.cz/org.mozilla.FirefoxNightly.flatpakref">Firefox
+nightly</a></p>
+</li>
+<li>
+<p><a href="http://eclipse.matbooth.co.uk/">Eclipse nightly</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Once you have repositories enabled, you can use GNOME Software&#8217;s
+excellent support for searching Flatpaks. Or you can use <code>flatpak
+search</code> command.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="using-pkg-layering"><a class="anchor" href="#using-pkg-layering"></a>Using Package Layering</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Package layering works by re-composing the OS image locally, while
+adding extra rpm packages to it. This is done with the <code>rpm-ostree
+install</code> command. Once a package has been layered, rpm-ostree will keep
+it up-to-date for you and recreate the layer when you install a newer OS
+image.</p>
+</div>
+<div class="paragraph">
+<p>You can also remove a package from OS image. The command to do this is
+<code>rpm-ostree override remove</code>.</p>
+</div>
+<div class="paragraph">
+<p>rpm-ostree does not currently have an equivalent to the <code>dnf search</code>
+command for finding packages in the configured repositories. As a
+workaround, you can run <em>dnf</em> in a temporary container like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ sudo podman run --rm fedora:28 dnf search <i class="conum" data-value="1"></i><b>(1)</b></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>provide your search term</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="third-party-repos"><a class="anchor" href="#third-party-repos"></a>Enabling third-party RPM Repositories</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Silverblue installs a number of yum repositories containing useful
+software that is not part of Fedora proper for various reasons. You can
+enable these repositories either during the initial setup of an new
+install, or from the "Software Repositories" dialog in GNOME Software.</p>
+</div>
+</div>
+</div>
+</article>
+<div id="contributing">
+    <p class="contribute">Want to help? <a href="https://docs.fedoraproject.org/en-US/fedora-docs/contributing/">Learn how to contribute to Fedora Docs.</a></p>
+</div>  </main>
+</div>
+<footer class="footer">
+  <p>All Fedora Documentation content available under <a href="http://creativecommons.org/licenses/by-sa/3.0/legalcode">CC-BY-SA 3.0</a> or, when specifically noted, under another <a href="https://fedoraproject.org/wiki/Licensing:Main">accepted</a> free and open content license.</p>
+  <p>Last build: </p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script src="../../_/js/vendor/highlight.js"></script>
+<script>hljs.initHighlighting()</script>
+  </body>
+</html>

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silverblue Flatpak Guide :: Local Preview</title>
+    <meta name="generator" content="Antora 2.0.0">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">  </head>
+  <body class="article">
+<header class="header" role="banner">
+  <nav class="navbar" style="">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../..">
+        <img src="../../_/img/docs_logo.png" style="height:40px">
+      </a>
+      <!-- We don't have anything in the menu, but the burger still appears
+           on mobile devices. So let's remove it. -->
+      <!--<button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>-->
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="main-wrapper">
+<div class="navigation-container" data-component="fedora-silverblue" data-version="master">
+  <aside class="navigation" role="navigation">
+    <div class="panels">
+<div class="navigation-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../">Fedora Silverblue</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-toggle"></button>
+    <a class="nav-link" href="../installation-guide/">Installation Guide</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../installation-dual-boot/">Installation: Dual Boot</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../first-login/">First Login</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../upgrades/">Upgrades and Rollbacks</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../toolbox/">Toolbox</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../silverblue-guide/">Silverblue Guide</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../f29-release-notes/">Fedora 29 Silverblue Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../faq/">FAQ</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../other-sources/">Other Sources</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="navigation-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Fedora Silverblue</span>
+    <span class="version">master</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Fedora Silverblue</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../">master</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+  <main class="main" role="main">
+<div class="toolbar" role="navigation">
+  <button class="navigation-toggle"></button>
+<nav class="crumbs" role="navigation" aria-label="breadcrumbs">
+  
+  <ul>
+      <li class="crumb HO"><a href="../">Home</a></li>
+    <li class="crumb HO"><a href="../">Fedora Silverblue</a></li>
+    <li class="crumb HA"><a href="./">Silverblue Flatpak Guide</a></li>
+  </ul>
+  
+</nav>
+  <div class="edit-this-page"><a href="file:///antora/modules/ROOT/pages/silverblue-flatpak-guide.adoc">Edit this Page</a></div>
+</div>
+<article class="doc">
+<h1>Silverblue Flatpak Guide</h1>
+<div class="sect1">
+<h2 id="_introduction"><a class="anchor" href="#_introduction"></a>Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This guide is intended for beginner users who are new to using the Fedora Silverblue
+desktop operating system and are not familiar with using the Gnome Software
+application to install new software on their computer. It assumes no prior
+knowledge of Linux operating systems or the Gnome desktop environment and it
+provides a detailed step-by-step instruction on how to get new software
+installed.</p>
+</div>
+<div class="paragraph">
+<p>Welcome to Fedora Silverblue. So you have successfully installed Silverblue and
+now you want to get all the software you need installed. As you begin, you will
+see that Silverblue has a minimum amount of default software available after install.
+The Gnome graphical desktop provides the Gnome Software application as the way to install new
+software on your system, similar iTunes and Google Play. Start the Gnome Software
+application from the Gnome launch panel to begin installing software.</p>
+</div>
+<div class="paragraph">
+<p>In Silverblue, Flatpaks are the recommended way to add new software applications
+to your computer. This is because the Flatpak technology is designed to work well
+with graphical desktop environments like Gnome. Flatpak applications provide benefits for
+security by isolating application interactions through sandbox technology. They
+also work well with the Silverblue ostree technology, because Flatpaks do not
+need to update the base operating system files when they are installed. Flatpak
+applications provide all the files they need themselves or use other installed
+Flatpak platform extensions.</p>
+</div>
+<div class="paragraph">
+<p>Flatpak applications are provided by remote online repositories that host the
+Flatpak files. Silverblue comes pre-configured to use the Fedora provided Flatpak
+repository. You can also add additional remote Flatpak repositories to your
+configuration, such as the popular <a href="https://flathub.org" class="bare">https://flathub.org</a> repository. Flathub
+provides much more software than what is available in the Fedora repository, so
+you will likely want to install the Flathub software repository to get all the
+software applications you want.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_installing_flatpak_applications"><a class="anchor" href="#_installing_flatpak_applications"></a>Installing Flatpak Applications</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_gnome_software"><a class="anchor" href="#_gnome_software"></a>Gnome Software</h3>
+<div class="paragraph">
+<p>Gnome Software is the default graphical software installation application that
+Silverblue comes installed with. Gnome Software provides the capability to
+install Flatpak applications from online repositories. To see the list of
+configured repositories, start up the Gnome Software application, open the
+application menu in the upper right corner of the window, and then select
+the <code>Software Repositories</code> menu item. A window will open with a list of the
+installed software repositories. Unfortunately, Gnome Software does not provide
+a way to add new repositories from it&#8217;s graphical interface. To add the
+'flathub.org' repository, use the following instructions.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_installing_flathub_repository"><a class="anchor" href="#_installing_flathub_repository"></a>Installing Flathub Repository</h3>
+<div class="paragraph">
+<p>To setup Flathub you need to open up the web browser (Firefox) and go to the
+<a href="https://flathub.org/home" class="bare">https://flathub.org/home</a> URL. On the home page click the button for
+'Quick Setup'.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/sfg_flathub_home.png" alt="sfg flathub home">
+</div>
+<div class="title">Figure 1. Flathub home page</div>
+</div>
+<div class="paragraph">
+<p>The Flathub setup page will show options to select from several operating system
+choices. Click on the Fedora logo to start the setup process for Silverblue.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/sfg_flathub_quicksetup.png" alt="sfg flathub quicksetup">
+</div>
+<div class="title">Figure 2. Flathub quick setup page</div>
+</div>
+<div class="paragraph">
+<p>The next page will give you some information on the Fedora quick setup. Click
+on the <code>Flathub repository file</code> button to start the download of the Flathub
+repository installation file.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/sfg_flathub_fedora.png" alt="sfg flathub fedora">
+</div>
+<div class="title">Figure 3. Flathub quick setup page</div>
+</div>
+<div class="paragraph">
+<p>A popup window will show download option for the file. The "Open with" option
+should show Software Install (default). For some reason you cannot choose the
+"Do this automatically for files like this from now on" option. Click on the
+<code>OK</code> button to start the download.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/sfg_flathub_download.png" alt="sfg flathub download">
+</div>
+<div class="title">Figure 4. Flathub download options</div>
+</div>
+<div class="paragraph">
+<p>After the download is complete, a new window will open showing the Flathub
+repository install options. This window also shows the source location of the
+repository to be installed under the details heading (1). To start the
+installation of the Flathub repository, click on the <code>Install</code> button (2).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/sfg_flathub_install.png" alt="sfg flathub install">
+</div>
+<div class="title">Figure 5. Flathub install window</div>
+</div>
+<div class="paragraph">
+<p>After the repository install process is complete, the window will be updated to
+show a <code>Remove</code> button in place of the <code>Install</code> button. Close the window (1).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/sfg_flathub_finish.png" alt="sfg flathub finish">
+</div>
+<div class="title">Figure 6. Flathub install complete</div>
+</div>
+<div class="paragraph">
+<p>Now, if you go back to Gnome Software you should see Flathub listed in the
+'Software Repositories' (1).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/sfg_repositories.png" alt="sfg repositories">
+</div>
+<div class="title">Figure 7. Gnome Software repositories</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_installing_flatpak_application_from_flathub"><a class="anchor" href="#_installing_flatpak_application_from_flathub"></a>Installing Flatpak Application from Flathub</h3>
+<div class="paragraph">
+<p>Now that the Flathub repository is configured you can install some Flatpak software
+applications from Flathub. The following example shows how to install the
+LibreOffice software application Flatpak from the Flathub repository.</p>
+</div>
+<div class="paragraph">
+<p>Open the web browser (Firefox) and go to the <a href="http://flathub.org/home" class="bare">http://flathub.org/home</a> page. Search
+for LibreOffice and click on the link to open the LibreOffice details page. Click
+on the <code>Install</code> button (1) to start the install or see below about reviewing the
+other info on the detail page.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/sfg_libreoffice_info1.png" alt="sfg libreoffice info1">
+</div>
+<div class="title">Figure 8. LibreOffice details page</div>
+</div>
+<div class="paragraph">
+<p>The details below the <code>Install</code> button include a link to a setup guide
+for LibreOffice that should be reviewed before beginning the install to see if any
+pre-installation configuration actions are required. There is also some screen shots
+of the application windows to give a preview of what the application interface looks
+like. Below the screenshots is a description of the software application.</p>
+</div>
+<div class="paragraph">
+<p>Further down the page under the "Additional Information" is information about the
+last update date for the Flatpak (1), the software version(2), and the license
+information (3). Some repositories may not have the latest software version of
+the application and some repositories contain non-free software licensed
+applications. Review this information to be sure it meets your needs. There is
+also a command line instruction to install the Flatpak (4).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/sfg_libreoffice_info2.png" alt="sfg libreoffice info2">
+</div>
+<div class="title">Figure 9. LibreOffice Additional Information</div>
+</div>
+<div class="paragraph">
+<p>After clicking the <code>Install</code> button, a download information window will be shown.
+Verify the correct Flatpak is being downloaded and then click on the <code>OK</code> button
+to begin installing the LibreOffice application.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/sfg_libreoffice_install.png" alt="sfg libreoffice install">
+</div>
+<div class="title">Figure 10. LibreOffice Flatpak download</div>
+</div>
+<div class="paragraph">
+<p>Once the Flatpak is downloaded, the Gnome Software application will open a new
+window with an <code>Install</code> button (1). This window also shows details again about
+the Flatpak application (2). Notice that LibreOffice is Sandboxed. This means it
+will have limited interaction with other application and the operating system for
+improved security. Also, there is no localization of languages for this application,
+so you may need to install additional extensions to provide support for your language.
+Finally, there is no documentation provided with the Flatpak. Click on the <code>Install</code>
+button to begin the installation.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/sfg_libreoffice_install2.png" alt="sfg libreoffice install2">
+</div>
+<div class="title">Figure 11. "LibreOffice Flatpak Install</div>
+</div>
+<div class="paragraph">
+<p>Once the installation begins, the window will show a progress bar and a <code>Cancel</code>
+button (1). It can take some time for LibreOffice download to complete. While
+you are waiting, you can get ready to write a review of the application by clicking
+the <code>Write a Review</code> button (2). This will open a window where you can get ready
+to fill in your review comments after the install is complete and you have tried
+out the application.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/sfg_libreoffice_install3.png" alt="sfg libreoffice install3">
+</div>
+<div class="title">Figure 12. "LibreOffice Flatpak Installing</div>
+</div>
+<div class="paragraph">
+<p>After the installation is successfully completed, you should see the LibreOffice
+application listed in Gnome Software after you reboot Silverblue (yes, this is a bug).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/sfg_libreoffice_launched.png" alt="sfg libreoffice launched">
+</div>
+<div class="title">Figure 13. "LibreOffice Flatpak launched</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_removing_flathub_repository"><a class="anchor" href="#_removing_flathub_repository"></a>Removing Flathub Repository</h3>
+<div class="paragraph">
+<p>If you no longer want to use the Flathub repository, you can remove it with the
+following instructions.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+All Flatpak applications that were installed from the Flathub repository
+must be uninstalled first or else you will get an error when trying to remove the
+Flathub repository (see Removing Flatpak Applications).
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Open the Gnome Software application menu and select repositories. You will see
+a window open with the list of currently installed repositories. Click on the
+Flathub repository list item (1) and it will expand to show the hidden <code>Remove&#8230;&#8203;</code>
+button (2). Click on the <code>Remove&#8230;&#8203;</code> button (2) and then a confirmation window
+will open. Click on <code>Remove</code> button (1) to complete removing the Flathub repository.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/sfg_software_repo_remove.png" alt="sfg software repo remove">
+</div>
+<div class="title">Figure 14. "Gnome Software remove repository</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/sfg_software_repo_remove_confirm.png" alt="sfg software repo remove confirm">
+</div>
+<div class="title">Figure 15. "Gnome Software remove confirm</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<div id="contributing">
+    <p class="contribute">Want to help? <a href="https://docs.fedoraproject.org/en-US/fedora-docs/contributing/">Learn how to contribute to Fedora Docs.</a></p>
+</div>  </main>
+</div>
+<footer class="footer">
+  <p>All Fedora Documentation content available under <a href="http://creativecommons.org/licenses/by-sa/3.0/legalcode">CC-BY-SA 3.0</a> or, when specifically noted, under another <a href="https://fedoraproject.org/wiki/Licensing:Main">accepted</a> free and open content license.</p>
+  <p>Last build: </p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script src="../../_/js/vendor/highlight.js"></script>
+<script>hljs.initHighlighting()</script>
+  </body>
+</html>

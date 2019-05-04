@@ -45,10 +45,10 @@ lucky and it will boot from USB automatically. Otherwise, you'll need to
 figure out how to access the boot menu of your system's BIOS/UEFI and
 select the USB stick as the boot device.
 
-You should see a Fedora 28 installation screen that is identical to the
-Fedora 28 Workstation installer:
+You should see a Fedora 30 installation screen that is identical to the
+Fedora 30 Workstation installer:
 
-image::faw-boot-menu.png[title="Fedora 28 Installer Menu"]
+image::faw-boot-menu.png[title="Fedora 30 Installer Menu"]
 
 From this menu, you can choose to test the media to ensure that the USB
 stick was created successfully. Or launch right into the installer if

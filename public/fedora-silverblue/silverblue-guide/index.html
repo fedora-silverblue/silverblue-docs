@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silverblue User Guide :: Local Preview</title>
+    <meta name="generator" content="Antora 2.0.0">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">  </head>
+  <body class="article">
+<header class="header" role="banner">
+  <nav class="navbar" style="">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../..">
+        <img src="../../_/img/docs_logo.png" style="height:40px">
+      </a>
+      <!-- We don't have anything in the menu, but the burger still appears
+           on mobile devices. So let's remove it. -->
+      <!--<button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>-->
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="main-wrapper">
+<div class="navigation-container" data-component="fedora-silverblue" data-version="master">
+  <aside class="navigation" role="navigation">
+    <div class="panels">
+<div class="navigation-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../">Fedora Silverblue</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-toggle"></button>
+    <a class="nav-link" href="../installation-guide/">Installation Guide</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../installation-dual-boot/">Installation: Dual Boot</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../first-login/">First Login</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../upgrades/">Upgrades and Rollbacks</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../toolbox/">Toolbox</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="./">Silverblue Guide</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../f29-release-notes/">Fedora 29 Silverblue Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../faq/">FAQ</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../other-sources/">Other Sources</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="navigation-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Fedora Silverblue</span>
+    <span class="version">master</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Fedora Silverblue</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../">master</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+  <main class="main" role="main">
+<div class="toolbar" role="navigation">
+  <button class="navigation-toggle"></button>
+<nav class="crumbs" role="navigation" aria-label="breadcrumbs">
+  
+  <ul>
+      <li class="crumb HO"><a href="../">Home</a></li>
+    <li class="crumb HO"><a href="../">Fedora Silverblue</a></li>
+    <li class="crumb HA"><a href="./">Silverblue Guide</a></li>
+  </ul>
+  
+</nav>
+  <div class="edit-this-page"><a href="file:///antora/modules/ROOT/pages/silverblue-guide.adoc">Edit this Page</a></div>
+</div>
+<article class="doc">
+<h1>Silverblue User Guide</h1>
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_document_conventions">Document Conventions</a></li>
+<li><a href="#_introduction">Introduction</a></li>
+<li><a href="#_installing_fedora_silverblue">Installing Fedora Silverblue</a></li>
+<li><a href="#_first_login">First Login</a>
+<ul class="sectlevel2">
+<li><a href="#_lay_of_the_land">Lay of the Land</a></li>
+<li><a href="#_containers_vs_flatpak_vs_package_layering">Containers vs Flatpak vs Package Layering</a></li>
+<li><a href="#_using_flatpaksflathub">Using Flatpaks/Flathub</a></li>
+<li><a href="#_removing_flathub_repository">Removing Flathub Repository</a></li>
+<li><a href="#_enabling_3rd_party_rpm_repos">Enabling 3rd Party RPM Repos</a></li>
+</ul>
+</li>
+<li><a href="#_using_containers">Using Containers</a>
+<ul class="sectlevel2">
+<li><a href="#_example_pet_container_usage">Example Pet Container Usage</a></li>
+</ul>
+</li>
+<li><a href="#_upgrades_and_rollbacks">Upgrades and Rollbacks</a>
+<ul class="sectlevel2">
+<li><a href="#_upgrading_the_os">Upgrading the OS</a></li>
+<li><a href="#_rolling_back_the_os">Rolling Back the OS</a></li>
+</ul>
+</li>
+<li><a href="#_miscellany">Miscellany</a>
+<ul class="sectlevel2">
+<li><a href="#_setup_fingerprint_login">Setup Fingerprint Login</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This Document is a work in progress. It aims to help with the daily use of Silverblue
+as a Workstation solution.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Help Wanted!</div>
+<div class="paragraph">
+<p>If you would like to help make this document better, please go
+to <a href="http://github.com/fedora-silverblue/silverblue-docs">github</a>
+and submit your suggestions.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_document_conventions"><a class="anchor" href="#_document_conventions"></a>Document Conventions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This document will show Notes, Tip&#8217;s, Information, Cautions, and Warnings as follows</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This is a note to show how this note would be displayed.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+This is a tip, perhaps one you didn&#8217;t know.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+This is something important on the topic.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+Cautionary note!
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+This is a warning as it would appear!
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Whenever a terminal issued command is used it will appear like so <code>~]$ command</code>,
+and any other form of coding listed in the document will take the form of <code>for config (~/.zsh/*.zsh) source $config</code>
+without the leading <code>~]$</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_introduction"><a class="anchor" href="#_introduction"></a>Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Daily use of Fedora Silverblue as an acceptable workstation is not so easy as its
+wonderfully seamless installation process would belie. Independence of the OS and
+the Apps, with respect to updates/upgrades is a benefit to stability and security.
+The benefits and pitfalls can come to the forefront when pushing the use case. Which
+currently doesn&#8217;t seem to need much of a push. The writing of this document is being
+done using Atom as a flatpak on Fedora Silverblue 29. Atom comes with a plethora of
+plugins called packages, that can be of immense use for document creation and editing.
+Things like linters for various writing foibles. One such is Proselint, for which
+there is a Package in Atom. Proselint is useful to help with your writing clarity.
+The Proselint Package installs fine in the Atom flatpak being used on Silverblue,
+but gives an error about not finding proselint. Of course, proselint needs to be
+installed, and can be via rpm-ostree with the command <code>~]$ rpm-ostree install proselint</code>,
+followed by the command <code>~]$ systemctl reboot</code> to boot into the new image. Once
+back up and logged in, run proselint in the terminal on the file with the expected
+results, yet Atom still does not find proselint when the Proselint package tool
+is run. For now, the Proselint Package in Atom is disabled and the solution is to
+use the command line <code>~]$ proselint &lt;filename&gt;</code> to check the file in a terminal.
+This does point to a type of issue faced in using Fedora Silverblue as a daily workstation,
+flatpak app and host apps interaction, specifically there normally is none. Do I
+submit a bug to Silveblue? Atom? the Proselint Atom Package support? Is it a bug
+in the first place, and not just that my way of thinking about a workstation is
+in need of revision? As this example has shown, the immediate solution to the problem
+was to use a layered application in a terminal to check the file that is saved by
+the Atom flatpak. That isn&#8217;t the satisfactory one though, and it doesn&#8217;t make for
+the kind of user experience that has come to be expected.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_installing_fedora_silverblue"><a class="anchor" href="#_installing_fedora_silverblue"></a>Installing Fedora Silverblue</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The installation instructions for Silverblue can be found <a href="https://docs.fedoraproject.org/en-US/fedora-silverblue/installation-guide/">here</a> and are thorough, with links there to the Fedora Installation Guide as well as some other sources of reference material for Silverblue. While it is detailed and easy to follow, like many installation documents, doesn&#8217;t fill in answers a user may have pre-installation.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Layering</div>
+<div class="paragraph">
+<p>In the issue noted in the Introduction, the package Proselint was layered onto the rpm-ostree to solve the lacking proselint executable. If you have a preferred terminal to use, it should be layered too.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Answers to such questions as, Do I want to encrypt my storage media? Am I going to use the standard RXVT terminal or do I want TMUX and Terminator, or just Terminator, and how does it need to be set up? These are only a basic selection of the many potential questions that may plague a user intending on using Fedora Silverblue as their daily workstation, and we haven&#8217;t even contemplated the immutable OS much yet. Each use case draws its own set of questions needing answers to facilitate a successful installation. Throughout, and integral to these many faceted usage environments, are the individual tasks all of us users do to set up our computing environment to suit our use case needs. These tasks are the procedure we follow, whether recorded for reference or not, each time we go through the process of setting up our workstation&#8217;s. Some, as indicated <a href="https://discussion.fedoraproject.org/t/how-i-automated-my-fedora-workstation-with-modular-ansible-roles/579/4">here</a> in a discussion at fedoraproject.org have automated their workstation setup, in this case using Ansible Roles. Then there are a couple of examples of using github to have a repo for a convenient way of being able to setup/reset a system to a known state. At a discussion about suggested approaches to correctly setup Silverblue <a href="https://discussion.fedoraproject.org/t/what-is-the-suggested-approach-es-to-correctly-set-up-a-silverblue-workstation/432">here</a> examples of that were offered as potential answers.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_first_login"><a class="anchor" href="#_first_login"></a>First Login</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_lay_of_the_land"><a class="anchor" href="#_lay_of_the_land"></a>Lay of the Land</h3>
+
+</div>
+<div class="sect2">
+<h3 id="_containers_vs_flatpak_vs_package_layering"><a class="anchor" href="#_containers_vs_flatpak_vs_package_layering"></a>Containers vs Flatpak vs Package Layering</h3>
+<div class="paragraph">
+<p>Through the course of using Silverblue daily, it has become apparent that an orchestration
+of all three technologies is what occurs in fact. There are times when a Container
+will provide the flexibility required that a Flatpak cannot, Layering can sometimes
+be the only answer to a problem, and Flatpaks in general work fine as they are intended.
+This is very likely echoed elsewhere throughout any community of users of an OSTree
+type of OS, whether Silverblue or others that use libostree. To successfully navigate
+this terrain it&#8217;s good to be up on all things rpm-ostree, all things flatpak, and
+a whole lot of things container related.</p>
+</div>
+<div class="paragraph">
+<p>Each of the technologies expose varying levels of access to the OS image, with the
+Layering approach being the most intrusive in the fact it causes a new image tree
+to be created. The Flatpak application is definitely the least intrusive being sandboxed,
+with limited indirect access and limited developer capabilities to program in access
+to system resources. Containers have more access to system processes and devices.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Need verification and details here about the different roles of each.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>As stated on <a href="https://flatpak.org/">flatpak.org</a> 'Flatpak is a next-generation technology
+for building and distributing desktop applications on Linux. Flatpak uses libostree
+to store application data, distinct from the host system management model.' In
+practice, what this means is that the flatpak deployment of an application does not
+normally have access to the host OS directly, or any other applications running on
+the host. The application is running on a runtime contained inside of the flatpak
+itself. If this sounds a lot like a flatpak is a container, it&#8217;s because it is a
+container essentially. An application in flatpak form is running inside of its own environment
+designed specifically to make it work as intended, irrespective of the host OS,
+and is quite effectively sandboxed. One of Flatpak’s main goals is to increase the
+security of desktop systems by isolating applications from one another. This is
+achieved using sandboxing and means that, by default, applications that are run
+with Flatpak have extremely limited access to the host environment. For day to day
+usage in roles that encompass the bulk of things users generally are doing at their
+PC Silverblue, with its immutable OS and flatpak&#8217;d applications proves to function
+quite well. The updates are rolling along regularly just like the Fedora Workstation
+I had become used to, and the majority of my applications that are flatpak&#8217;s work
+as they are intended to.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_using_flatpaksflathub"><a class="anchor" href="#_using_flatpaksflathub"></a>Using Flatpaks/Flathub</h3>
+<div class="paragraph">
+<p>When you first run Silverblue after the initial installation steps, you will likely
+want to install some applications, and to do that no doubt you first try Gnome
+Software, only to find nothing. Gnome Software is still there, just not showing
+software to install since the flatpak repository (flathub) is not configured for
+the system yet. This is due entirely to the Fedora licensing scheme, since Flathub
+allows software with non-open source license schemes to be distributed, like for
+instance rpmfusion-nonfree repo does in the normal Workstation version of Fedora.
+The user has to configure the rpmfusion-nonfree repo in order to install anything
+from its repository. In Silverblue, when installing flatpak&#8217;d applications, you
+have to configure the repository for use first. You do this with the <code>flatpak
+remote-add</code> command. This command takes as its first argument, the name you want
+to give the remote, and the URL it is located at for the second argument. In the
+case of the flathub repository, I simply named mine <code>flathub</code> and its URL is
+<a href="https://dl.flathub.org/repo/" class="bare">https://dl.flathub.org/repo/</a>. The command becomes <code>flatpak remote-add flathub
+"https://dl.flathub.org/repo/"</code> without the quotes. It is also acceptable, and
+easier to browse to Flathub.org and select the quick setup option for Fedora, which
+Installs the repo via Gnome Software. Whichever way you choose to do it, will result
+in you now having access to all of the flatpak&#8217;d applications and extensions available
+on the Flathub repo. These applications will be displayed as usual in Gnome Software
+with their origin being dl.flathub.org. There are more applications being offered
+as flatpak&#8217;s each day it seems, so check back often if your favourite isn&#8217;t listed
+yet. There is more you can do with the repo now that you have it installed. The
+flatpak command has numerous options that are useful for inspecting what is available
+at a configured repo. The command <code>flatpak remotes</code> will list the installed/configured
+repositories, and if you use the <code>-d</code> switch with the command like so <code>flatpak remotes -d</code>
+you will get a detailed listing of your configured remotes (repo&#8217;s).</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Flatpak refers to repositories as remotes, even if the repo exists on your own system.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Also, it is worth noting that there are other remotes available to be configured
+on your system if you would like to explore some more. If you want to have Firefox
+as a flatpak, instead of using the version shipped as part of the Ostree of Silverblue,
+you could configure the firefox nighly remote (<a href="https://dl.flathub.org/repo/" class="bare">https://dl.flathub.org/repo/</a>) with
+the following command <code>flatpak remote-add firefox-nightly <a href="https://dl.flathub.org/repo/" class="bare">https://dl.flathub.org/repo/</a></code>
+then install the FireFox nightly build with the command <code>flatpak
+install firefox-nightly org.mozilla.FirefoxNightly</code> and flatpak will install the
+Firefox nightly build for you. You may have already come to the conclusion that
+you could also install it from Gnome Software since you have configured the remote,
+and you would be correct but take note of the source listed on its install icon,
+it is the remote you just configured. As no doubt. some of the clever monkeys out
+there have likely noted when they did a remote-ls command on their configured
+flathub remote, there are more things listed than the app&#8217;s. There are runtimes,
+and sdk&#8217;s as well as app&#8217;s since Flathub.org is a place to distribute such things.</p>
+</div>
+<div class="sect3">
+<h4 id="_installing_flatpak_applications"><a class="anchor" href="#_installing_flatpak_applications"></a>Installing Flatpak Applications</h4>
+<div class="sect4">
+<h5 id="_gnome_software"><a class="anchor" href="#_gnome_software"></a>GNOME Software</h5>
+<div class="paragraph">
+<p>GNOME Software is the default graphical software installation application that
+Silverblue comes installed with. GNOME Software provides the capability to
+install Flatpak applications from online repositories. To see the list of
+configured repositories, start up the GNOME Software application, open the
+application menu in the upper right corner of the window, and then select
+the <code>Software Repositories</code> menu item. A window will open with a list of the
+installed software repositories. Unfortunately, GNOME Software does not provide
+a way to add new repositories from it&#8217;s graphical interface. To add the
+'flathub.org' repository, use the following instructions.</p>
+</div>
+<div class="sect5">
+<h6 id="_installing_flathub_repository"><a class="anchor" href="#_installing_flathub_repository"></a>Installing Flathub Repository</h6>
+<div class="paragraph">
+<p>To setup Flathub you need to open up the web browser (Firefox) and go to the
+<a href="https://flathub.org/home" class="bare">https://flathub.org/home</a> URL. On the home page click the button for
+'Quick Setup'.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/sfg_flathub_home.png" alt="sfg flathub home">
+</div>
+<div class="title">Figure 1. Flathub home page</div>
+</div>
+<div class="paragraph">
+<p>The Flathub setup page will show options to select from several operating system
+choices. Click on the Fedora logo to start the setup process for Silverblue.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/sfg_flathub_quicksetup.png" alt="sfg flathub quicksetup">
+</div>
+<div class="title">Figure 2. Flathub quick setup page</div>
+</div>
+<div class="paragraph">
+<p>The next page will give you some information on the Fedora quick setup. Click
+on the <code>Flathub repository file</code> button to start the download of the Flathub
+repository installation file.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/sfg_flathub_fedora.png" alt="sfg flathub fedora">
+</div>
+<div class="title">Figure 3. Flathub quick setup page</div>
+</div>
+<div class="paragraph">
+<p>A popup window will show download option for the file. The "Open with" option
+should show Software Install (default). For some reason you cannot choose the
+"Do this automatically for files like this from now on" option. Click on the
+<code>OK</code> button to start the download.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/sfg_flathub_download.png" alt="sfg flathub download">
+</div>
+<div class="title">Figure 4. Flathub download options</div>
+</div>
+<div class="paragraph">
+<p>After the download is complete, a new window will open showing the Flathub
+repository install options. This window also shows the source location of the
+repository to be installed under the details heading (1). To start the
+installation of the Flathub repository, click on the <code>Install</code> button (2).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/sfg_flathub_install.png" alt="sfg flathub install">
+</div>
+<div class="title">Figure 5. Flathub install window</div>
+</div>
+<div class="paragraph">
+<p>After the repository install process is complete, the window will be updated to
+show a <code>Remove</code> button in place of the <code>Install</code> button. Close the window (1).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/sfg_flathub_finish.png" alt="sfg flathub finish">
+</div>
+<div class="title">Figure 6. Flathub install complete</div>
+</div>
+<div class="paragraph">
+<p>Now, if you go back to GNOME Software you should see Flathub listed in the
+'Software Repositories' (1).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/sfg_repositories.png" alt="sfg repositories">
+</div>
+<div class="title">Figure 7. GNOME Software repositories</div>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_installing_flatpak_application_from_flathub"><a class="anchor" href="#_installing_flatpak_application_from_flathub"></a>Installing Flatpak Application from Flathub</h6>
+<div class="paragraph">
+<p>Now that the Flathub repository is configured you can install some Flatpak software
+applications from Flathub. The following example shows how to install the
+LibreOffice software application Flatpak from the Flathub repository.</p>
+</div>
+<div class="paragraph">
+<p>Open the web browser (Firefox) and go to the <a href="http://flathub.org/home" class="bare">http://flathub.org/home</a> page. Search
+for LibreOffice and click on the link to open the LibreOffice details page. Click
+on the <code>Install</code> button (1) to start the install or see below about reviewing the
+other info on the detail page.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/sfg_libreoffice_info1.png" alt="sfg libreoffice info1">
+</div>
+<div class="title">Figure 8. LibreOffice details page</div>
+</div>
+<div class="paragraph">
+<p>The details below the <code>Install</code> button include a link to a setup guide
+for LibreOffice that should be reviewed before beginning the install to see if any
+pre-installation configuration actions are required. There is also some screen shots
+of the application windows to give a preview of what the application interface looks
+like. Below the screenshots is a description of the software application.</p>
+</div>
+<div class="paragraph">
+<p>Further down the page under the "Additional Information" is information about the
+last update date for the Flatpak (1), the software version(2), and the license
+information (3). Some repositories may not have the latest software version of
+the application and some repositories contain non-free software licensed
+applications. Review this information to be sure it meets your needs. There is
+also a command line instruction to install the Flatpak (4).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/sfg_libreoffice_info2.png" alt="sfg libreoffice info2">
+</div>
+<div class="title">Figure 9. LibreOffice Additional Information</div>
+</div>
+<div class="paragraph">
+<p>After clicking the <code>Install</code> button, a download information window will be shown.
+Verify the correct Flatpak is being downloaded and then click on the <code>OK</code> button
+to begin installing the LibreOffice application.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/sfg_libreoffice_install.png" alt="sfg libreoffice install">
+</div>
+<div class="title">Figure 10. LibreOffice Flatpak download</div>
+</div>
+<div class="paragraph">
+<p>Once the Flatpak is downloaded, the GNOME Software application will open a new
+window with an <code>Install</code> button (1). This window also shows details again about
+the Flatpak application (2). Notice that LibreOffice is sandboxed. This means it
+will have limited interaction with other application and the operating system for
+improved security. Finally, there is no documentation provided with the Flatpak.
+Click on the <code>Install</code> button to begin the installation.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/sfg_libreoffice_install2.png" alt="sfg libreoffice install2">
+</div>
+<div class="title">Figure 11. "LibreOffice Flatpak Install</div>
+</div>
+<div class="paragraph">
+<p>Once the installation begins, the window will show a progress bar and a <code>Cancel</code>
+button (1). It can take some time for LibreOffice download to complete. While
+you are waiting, you can get ready to write a review of the application by clicking
+the <code>Write a Review</code> button (2). This will open a window where you can get ready
+to fill in your review comments after the install is complete and you have tried
+out the application.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/sfg_libreoffice_install3.png" alt="sfg libreoffice install3">
+</div>
+<div class="title">Figure 12. "LibreOffice Flatpak Installing</div>
+</div>
+<div class="paragraph">
+<p>After the installation is successfully completed, you should see the LibreOffice
+application listed in GNOME Software after you reboot Silverblue (yes, this is a bug).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/sfg_libreoffice_launched.png" alt="sfg libreoffice launched">
+</div>
+<div class="title">Figure 13. "LibreOffice Flatpak launched</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_removing_flathub_repository"><a class="anchor" href="#_removing_flathub_repository"></a>Removing Flathub Repository</h3>
+<div class="paragraph">
+<p>If you no longer want to use the Flathub repository, you can remove it with the
+following instructions.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+All Flatpak applications that were installed from the Flathub repository
+must be uninstalled first or else you will get an error when trying to remove the
+Flathub repository (see Removing Flatpak Applications).
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Open the GNOME Software application menu and select repositories. You will see
+a window open with the list of currently installed repositories. Click on the
+Flathub repository list item (1) and it will expand to show the hidden <code>Remove&#8230;&#8203;</code>
+button (2). Click on the <code>Remove&#8230;&#8203;</code> button (2) and then a confirmation window
+will open. Click on <code>Remove</code> button (1) to complete removing the Flathub repository.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/sfg_software_repo_remove.png" alt="sfg software repo remove">
+</div>
+<div class="title">Figure 14. "GNOME Software remove repository</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/sfg_software_repo_remove_confirm.png" alt="sfg software repo remove confirm">
+</div>
+<div class="title">Figure 15. "GNOME Software remove confirm</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_enabling_3rd_party_rpm_repos"><a class="anchor" href="#_enabling_3rd_party_rpm_repos"></a>Enabling 3rd Party RPM Repos</h3>
+<div class="paragraph">
+<p>Not all the software you may want to use is included in the Fedora repository
+or on Flathub as a Flatpak. Therefore, it will be necessary to add third party
+repositories for what you need. RPMFusion is a popular third party repository
+that contains many software packages that you may want to layer onto the base
+OS image. Codecs and editors are a good use case example for package layering.</p>
+</div>
+<div class="sect3">
+<h4 id="_rpmfusion_repository_setup"><a class="anchor" href="#_rpmfusion_repository_setup"></a>RPMFusion Repository Setup</h4>
+<div class="paragraph">
+<p>To setup RPMFusion, run the following command from the terminal and then reboot
+the computer for it to available to the <code>rpm-ostree</code> command.</p>
+</div>
+<div class="paragraph">
+<p><code>sudo rpm-ostree install <a href="https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm" class="bare">https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm</a> -E %fedora).noarch.rpm <a href="https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm" class="bare">https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm</a> -E %fedora).noarch.rpm</code></p>
+</div>
+<div class="paragraph">
+<p>Then you can test that it works by installing a package like ffmpeg for example.</p>
+</div>
+<div class="paragraph">
+<p>`rpm-ostree install ffmpeg ffmpeg-libs</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_containers"><a class="anchor" href="#_using_containers"></a>Using Containers</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_example_pet_container_usage"><a class="anchor" href="#_example_pet_container_usage"></a>Example Pet Container Usage</h3>
+<div class="paragraph">
+<p>On Fedora Silverblue,  there is an out of the box solution provided for a Pet Container, fedora-toolbox. If it isn&#8217;t already installed for you, you can do so with the following command <code>~[$ rpm-ostree install fedora-toolbox</code>, once it is installed, you&#8217;ll have to reboot into the new image with <code>~[$ systemctl reboot</code>. When your image comes back you can begin with fedora-toolbox immediately by creating an image based upon your current system installation, including your home directory setup with dotfiles and all. To create an image this way type <code>~[$ fedora-toolbox create</code>, that will create a toolbox container for you, based upon an image of your current system setup. To use the container, you simply enter <code>~[$ fedora-toolbox enter</code> and you should now be at a prompt that looks like this in my case 🔹[user@toolbox ~]$ instead of my normal prompt in Fedora Silverblue which is this Lx  user@localhost  😈  ~ </p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The prompts as displayed, are normal for my system setup. They will very likely be different on your system.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_upgrades_and_rollbacks"><a class="anchor" href="#_upgrades_and_rollbacks"></a>Upgrades and Rollbacks</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_upgrading_the_os"><a class="anchor" href="#_upgrading_the_os"></a>Upgrading the OS</h3>
+<div class="paragraph">
+<p>When the upgrade process is started, it will download the new files that have changed
+and add them to a new OS image. The new OS image will be used on the next reboot
+of the computer and the old image will be preserved in case a rollback is needed.
+There is no graphical tool available yet to configure the upgrade, so you will need to
+edit files manually and run commands from the terminal for now.</p>
+</div>
+<div class="sect3">
+<h4 id="_manual_upgrade_method"><a class="anchor" href="#_manual_upgrade_method"></a>Manual Upgrade Method</h4>
+<div class="paragraph">
+<p>To manually start an OS upgrade, in a terminal run the <code>sudo rpm-ostree -r upgrade</code>
+command to download any available upgrade, stage the upgrade files to the new
+image and then will reboot the computer. Remove the <code>-r</code> argument in the command
+if you want to manually reboot after the upgrade is staged instead.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_setup_automatic_upgrades"><a class="anchor" href="#_setup_automatic_upgrades"></a>Setup Automatic Upgrades</h4>
+<div class="paragraph">
+<p>There is no graphical configuration tool available yet to setup automatic
+upgrades, so you need to edit files manually and run commands from the terminal
+to get it setup.</p>
+</div>
+<div class="paragraph">
+<p>First check what the current configuration is of automatic upgrade by running
+the <code>rpm-ostree status</code> command in the terminal. The first line of the output will show if
+automatic upgrade is enabled or not. If it says <code>AutomaticUpdates: disabled</code> then
+automatic upgrade is not enabled. If it says <code>AutomaticUpdates: fetch</code> then an upgrade will be
+downloaded but not staged. If it says <code>AutomaticUpdates: stage</code> the upgrade files
+will be downloaded and copied to the new image that will be activated after
+a reboot. To enable automatic ostree upgrade, do the following:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Edit the file <code>/etc/rpm-ostreed.conf</code> and in the <code>[daemon]</code> section, uncomment
+and change the line that says
+<code>#AutomaticUpdatePolicy=none</code> to <code>AutomaticUpdatePolicy=fetch</code> to download the
+upgrade files only, or change it to <code>AutomaticUpdatePolicy=stage</code> to download
+and copy the files to the new OS image. Then save the file.</p>
+</li>
+<li>
+<p>Run the command <code>rpm-ostree reload</code> to make rpm-ostree aware of the configuration
+changes.</p>
+</li>
+<li>
+<p>Start the systemd unit timer by running command <code>sudo systemctl enable rpm-ostreed-automatic.timer</code>
+and then <code>sudo systemctl start rpm-ostreed-automatic.timer</code>.</p>
+</li>
+<li>
+<p>The default timer configuration is set to be triggered one hour after boot and
+then repeat every one day thereafter. To change the timer frequency, edit the file
+<code>/etc/systemd/system/timers.target.wants/rpm-ostreed-automatic.timer</code></p>
+</li>
+<li>
+<p>You can check that the <code>rpm-ostreed-automatic.timer</code> is enabled by running the
+command <code>systemctl list-timers</code>. If it is in the output list, then it is enabled.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_disable_automatic_upgrade"><a class="anchor" href="#_disable_automatic_upgrade"></a>Disable Automatic Upgrade</h4>
+<div class="paragraph">
+<p>To disable automatic upgrade, disable the <code>rpm-ostreed-automatic.service</code> with
+the command <code>sudo systemctl disable rpm-ostreed-automatic.service</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_rolling_back_the_os"><a class="anchor" href="#_rolling_back_the_os"></a>Rolling Back the OS</h3>
+<div class="paragraph">
+<p>If something went wrong or is not working correctly with a new  upgrade, then it
+may be necessary to rollback the upgrade until a fix is available. To rollback
+to the previous OS deployment, run the command <code>sudo rpm-ostree -r rollback</code>.</p>
+</div>
+<div class="paragraph">
+<p>You can also deploy any previous OS image from the commit history. You can get a list
+of previous commit IDs by doing <code>ostree pull --commit-metadata-only --depth=-1 fedora:fedora/30/x86_64/silverblue</code>
+command followed by <code>ostree log fedora:fedora/30/x86_64/silverblue | less</code>
+to show the log of previous commits. Then use the <code>sudo rpm-ostree deploy commit-id</code>
+command to deploy any commit ID found in that log. You can pin the previous deployment with
+the <code>ostree admin pin 1</code> command. Pinned deployments will be shown when you run
+the <code>rpm-ostree status</code> command.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_miscellany"><a class="anchor" href="#_miscellany"></a>Miscellany</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_setup_fingerprint_login"><a class="anchor" href="#_setup_fingerprint_login"></a>Setup Fingerprint Login</h3>
+<div class="paragraph">
+<p>To use the fingerprint scanner to login you need to install a two packages
+that are not part of the base OS image. Run the command <code>rpm-ostree install
+fprintd fprintd-pam</code> on the command line. Then open GNOME Settings and under the
+Details section, open use user panel. You will find the options to setup the
+fingerprint login here.</p>
+</div>
+</div>
+</div>
+</div>
+</article>
+<div id="contributing">
+    <p class="contribute">Want to help? <a href="https://docs.fedoraproject.org/en-US/fedora-docs/contributing/">Learn how to contribute to Fedora Docs.</a></p>
+</div>  </main>
+</div>
+<footer class="footer">
+  <p>All Fedora Documentation content available under <a href="http://creativecommons.org/licenses/by-sa/3.0/legalcode">CC-BY-SA 3.0</a> or, when specifically noted, under another <a href="https://fedoraproject.org/wiki/Licensing:Main">accepted</a> free and open content license.</p>
+  <p>Last build: </p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script src="../../_/js/vendor/highlight.js"></script>
+<script>hljs.initHighlighting()</script>
+  </body>
+</html>

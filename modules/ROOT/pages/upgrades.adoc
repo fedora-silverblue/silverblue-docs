@@ -5,14 +5,13 @@
 Upgrading the OS
 ----------------
 
-To get updates for the OS, you can run: `rpm-ostree upgrade`. Starting
-with Fedora 28, gnome-software will also offer OS updates on Silverblue
+To get updates for the OS, you can run: `rpm-ostree upgrade`. Since Fedora 28, gnome-software offers OS updates on Silverblue
 systems. Note that due to the atomic nature of the OS, you will have to
 reboot into the new image to have the updates take effect.
 
 If you just want to check for available updates, this command will do
-so: `rpm-ostree upgrade --check`. Starting with Fedora 28,
-gnome-software will also notify you about OS updates, just like it does
+so: `rpm-ostree upgrade --check`. Since Fedora 28,
+gnome-software also notifies you about OS updates, just like it does
 on the traditional workstation.
 
 [[change-to-a-new-os-release]]
