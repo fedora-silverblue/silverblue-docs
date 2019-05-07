@@ -1,28 +1,50 @@
-= Fedora Silverblue Documentation
+= Fedora Silverblue User Guide
 
-Welcome to the Fedora Silverblue documentation!
+Welcome to the Fedora Silverblue user guide!
 
 image::silverblue-logo.svg[Silverblue logo]
 
-== What is Silverblue?
+_Fedora Silverblue_ is an immutable desktop operating system, which aims to be 
+extremely stable and reliable. It also aims to be an excellent platform for 
+developers and for those using container-focused workflows.
 
-_Fedora Silverblue_ is an immutable desktop operating system. Aiming at good support for container-focused workflows, this variant
-of Fedora Workstation targets developer communities.
+[[introduction]]
+== Introduction to Silverblue
 
-== What are the advantages of Silverblue over traditional distros?
+Silverblue is a variant of Fedora Workstation. It looks, feels and behaves like 
+a regular desktop operating system, and the experience is similar to what you 
+find with regular Fedora Workstation.
 
-The use of rpm-ostree for the core OS brings fully atomic upgrades, easy
-rollbacks and workflows that are familiar from OSTree-based servers. An
-OS image that is composed on the server side allows for testing the
-exact bits before they reach client systems, leading to more reliable
-updates.
+However, unlike other operating systems, Silverblue is immutable. This means 
+that every installation of Silverblue is identical to every other installation 
+(of the same version): the ones and zeros that make up Silverblue are exactly 
+the same from one machine to the next, and those ones and zeros never change 
+as Silverblue is used. Even when you install apps and use other software, 
+your version of Silverblue always remains the same.
 
-rpm-ostree is a hybrid image/package system. It supports _package
-layering_, which allows to install RPMs for "OS extensions" such as
-printer drivers, fonts, and utilities like powerline or ykclient.
+Silverblue's immutable design is intended to make it more stable, less prone to 
+bugs, and easier to test and develop. Being immutable also makes OS updates 
+quicker and more reliable, and it makes it possible to roll back to a previous 
+version if something goes wrong.
 
-Moving desktop applications into Flatpak brings stronger isolation, and
-solves longstanding issues with using yum/dnf for desktop applications,
-such as the fact that upgrading deletes the files underneath the running
-application and often breaks it. Flatpaks can be safely updated without
-reboot.
+Finally, Silverblue's immutable approach makes it a natural match for 
+containerized apps as well as container-based development. In each case, apps 
+and containers are kept separate from the host system, improving stability and 
+reliability.
+
+[[this-guide]]
+== This guide
+
+In most cases, Silverblue behaves like a standard Fedora Workstation 
+installation, and the https://docs.fedoraproject.org/[standard Fedora 
+documentation] can be used. This guide covers those areas where Silverblue 
+differs from a standard Fedora Workstation, including:
+
+- link:installation[OS installation]
+- link:getting-started[Installing apps and software]
+- link:upgrades[OS upgrades and rollbacks]
+
+The primary audience for these docs are new users, who aren't expected to have 
+specialist knowledge or technical understanding about Silverblue's internals. 
+However, some background link:technical-information[technical information] is 
+provided in later sections, for those who are interested and want to learn more.

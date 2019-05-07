@@ -1,4 +1,13 @@
+[[toolbox]]
 = Toolbox
+
+As an immutable host, Silverblue is an excellent platform for container-based 
+development and, for working with containers, https://buildah.io/[buildah] and 
+podman[https://podman.io/] are recommended.
+
+Silverblue also comes with the _toolbox_ utility, which uses containers to 
+provide an environment where development tools and libraries can be installed 
+and used. The link:toolbox[toolbox page] provides more details on this.
 
 Toolbox makes it easy to use a containerized environment for everyday software 
 development and debugging. On immutable operating systems, like
@@ -20,7 +29,7 @@ throw a toolbox away and start again.
 different projects.
 
 [[toolbox-how-it-works]]
-## How it works
+== How it works
 
 Toolbox takes the work out of using containers, by providing a small number of 
 simple commands to  create, enter, list and remove containers. It also 
