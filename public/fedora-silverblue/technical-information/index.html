@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Information :: Local Preview</title>
+    <meta name="generator" content="Antora 2.0.0">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">  </head>
+  <body class="article">
+<header class="header" role="banner">
+  <nav class="navbar" style="">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../..">
+        <img src="../../_/img/docs_logo.png" style="height:40px">
+      </a>
+      <!-- We don't have anything in the menu, but the burger still appears
+           on mobile devices. So let's remove it. -->
+      <!--<button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>-->
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="main-wrapper">
+<div class="navigation-container" data-component="fedora-silverblue" data-version="master">
+  <aside class="navigation" role="navigation">
+    <div class="panels">
+<div class="navigation-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../">Fedora Silverblue</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../installation/">Installation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../getting-started/">Getting Started</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../updates-upgrades-rollbacks/">Updates, Upgrades &amp; Rollbacks</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../toolbox/">Toolbox</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="./">Technical Information</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../reading-and-resources/">Reading and Resources</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../faq/">FAQ</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="navigation-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Fedora Silverblue</span>
+    <span class="version">master</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Fedora Silverblue</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../">master</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+  <main class="main" role="main">
+<div class="toolbar" role="navigation">
+  <button class="navigation-toggle"></button>
+<nav class="crumbs" role="navigation" aria-label="breadcrumbs">
+  
+  <ul>
+      <li class="crumb HO"><a href="../">Home</a></li>
+    <li class="crumb HO"><a href="../">Fedora Silverblue</a></li>
+    <li class="crumb HA"><a href="./">Technical Information</a></li>
+  </ul>
+  
+</nav>
+  <div class="edit-this-page"><a href="file:///antora/modules/ROOT/pages/technical-information.adoc">Edit this Page</a></div>
+</div>
+<article class="doc">
+<h1>Technical Information</h1>
+<div class="sect1">
+<h2 id="ostree-rpm-ostree"><a class="anchor" href="#ostree-rpm-ostree"></a>ostree and rpm-ostree</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="https://ostree.readthedocs.io/en/latest/">ostree</a> is the core technology used to
+compose and update Silverblue. It is  sometimes described as “Git for operating
+system binaries”: it operates in a similar manner to a version control system,
+but for filesystem trees. It is OSTree that is for deploying and updating the
+OS image (ie. everything below <code>/</code> that is not symlinked into <code>/var</code>). ostree
+also contains the necessary logic to update grub.cfg entries to point to the
+current image.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://rpm-ostree.readthedocs.io/en/latest/">rpm-ostree</a> builds on top of
+ostree, and makes it possible to install RPMs as a 'layer' on top of an ostree
+image. In practice, that means you can install RPMs. When a package is
+installed with <code>rpm-ostree</code>, a new OS image is composed by adding the RPM
+payload to the existing OS image, and creating a new, combined image. To see
+the newly installed RPMs, you have to reboot into the new image. rpm-ostree
+also takes care of recreating the layered image whenever you update the base OS
+image.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="filesystem-layout"><a class="anchor" href="#filesystem-layout"></a>Silverblue filesystem layout</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The root filesystem has the immutable attribute set on OSTree
+installations, so <code>/</code>, <code>/usr</code> and everything below it is read-only. <code>/var</code> is
+where all the runtime state is kept. There are some symlinks that put
+the state-carrying directories in their traditional, expected place:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>/home</code> → <code>/var/home</code></p>
+</li>
+<li>
+<p><code>/opt</code> → <code>/var/opt</code></p>
+</li>
+<li>
+<p><code>/srv</code> → <code>/var/srv</code></p>
+</li>
+<li>
+<p><code>/root</code> → <code>/var/roothome</code></p>
+</li>
+<li>
+<p><code>/usr/local</code> → <code>/var/usrlocal</code></p>
+</li>
+<li>
+<p><code>/mnt</code>→ <code>/var/mnt</code></p>
+</li>
+<li>
+<p><code>/tmp</code> → <code>/sysroot/tmp</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>and so on. If you have a separate home partition on your system, it
+should be mounted on <code>/var/home</code>.</p>
+</div>
+<div class="paragraph">
+<p>For a more detailed explanation of the system layout, refer to the
+excellent <a href="https://ostree.readthedocs.io/en/latest/manual/adapting-existing/">libostree documentation</a>
+on this subject.</p>
+</div>
+</div>
+</div>
+</article>
+<div id="contributing">
+    <p class="contribute">Want to help? <a href="https://docs.fedoraproject.org/en-US/fedora-docs/contributing/">Learn how to contribute to Fedora Docs.</a></p>
+</div>  </main>
+</div>
+<footer class="footer">
+  <p>All Fedora Documentation content available under <a href="http://creativecommons.org/licenses/by-sa/3.0/legalcode">CC-BY-SA 3.0</a> or, when specifically noted, under another <a href="https://fedoraproject.org/wiki/Licensing:Main">accepted</a> free and open content license.</p>
+  <p>Last build: </p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script src="../../_/js/vendor/highlight.js"></script>
+<script>hljs.initHighlighting()</script>
+  </body>
+</html>

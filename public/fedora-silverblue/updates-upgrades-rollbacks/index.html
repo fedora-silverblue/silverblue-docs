@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Updates, Upgrades &amp; Rollbacks :: Local Preview</title>
+    <meta name="generator" content="Antora 2.0.0">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">  </head>
+  <body class="article">
+<header class="header" role="banner">
+  <nav class="navbar" style="">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../..">
+        <img src="../../_/img/docs_logo.png" style="height:40px">
+      </a>
+      <!-- We don't have anything in the menu, but the burger still appears
+           on mobile devices. So let's remove it. -->
+      <!--<button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>-->
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="main-wrapper">
+<div class="navigation-container" data-component="fedora-silverblue" data-version="master">
+  <aside class="navigation" role="navigation">
+    <div class="panels">
+<div class="navigation-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../">Fedora Silverblue</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../installation/">Installation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../getting-started/">Getting Started</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="./">Updates, Upgrades &amp; Rollbacks</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../toolbox/">Toolbox</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../technical-information/">Technical Information</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../reading-and-resources/">Reading and Resources</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../faq/">FAQ</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="navigation-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Fedora Silverblue</span>
+    <span class="version">master</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Fedora Silverblue</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../">master</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+  <main class="main" role="main">
+<div class="toolbar" role="navigation">
+  <button class="navigation-toggle"></button>
+<nav class="crumbs" role="navigation" aria-label="breadcrumbs">
+  
+  <ul>
+      <li class="crumb HO"><a href="../">Home</a></li>
+    <li class="crumb HO"><a href="../">Fedora Silverblue</a></li>
+    <li class="crumb HA"><a href="./">Updates, Upgrades &amp; Rollbacks</a></li>
+  </ul>
+  
+</nav>
+  <div class="edit-this-page"><a href="file:///antora/modules/ROOT/pages/updates-upgrades-rollbacks.adoc">Edit this Page</a></div>
+</div>
+<article class="doc">
+<h1>Updates, Upgrades &amp; Rollbacks</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Updating Silverblue is quicker and more reliable when compared with other
+operating systems.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="updating"><a class="anchor" href="#updating"></a>Updating Silverblue</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>OS updates in Silverblue are fully integrated into the desktop: you will be
+notified when an update is available and it will be automatically downloaded,
+if this is your preference.</p>
+</div>
+<div class="paragraph">
+<p>Once an update is ready, it is just a matter of rebooting to start using the
+new version. There is no waiting for the update to be installed during this
+reboot.</p>
+</div>
+<div class="paragraph">
+<p>If you&#8217;d prefer, it is also possible to update using the command line. To do
+this, run:</p>
+</div>
+<div class="paragraph">
+<p><code>$ rpm-ostree upgrade</code></p>
+</div>
+<div class="paragraph">
+<p>Alternatively, to check for available updates without downloading them, run:</p>
+</div>
+<div class="paragraph">
+<p><code>&amp; rpm-ostree upgrade --check</code></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="upgrading"><a class="anchor" href="#upgrading"></a>Upgrading between major versions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Upgrading between major versions (such as from Fedora 29 to Fedora 30) is not
+fully integrated into Silverblue at this time. However, Silverblue can be
+upgraded from the command line, using the <code>ostree</code> command.</p>
+</div>
+<div class="paragraph">
+<p>To upgrade from Fedora Silverblue 29 to Silverblue 30, run:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ sudo ostree remote gpg-import fedora-workstation -k /etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-30-primary
+$ rpm-ostree rebase fedora-workstation:fedora/30/x86_64/silverblue</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The process is very similar to a system update: the new OS is downloaded and
+installed in the background, and you just boot into it when it is ready.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="rolling-back"><a class="anchor" href="#rolling-back"></a>Rolling back</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Silverblue keeps a record of the previous OS version, which can be switched to
+instead of the latest version. While this shouldn&#8217;t usually be necessary, it
+can be helpful if there is a problem with an update or an upgrade (roll backs
+work the same way for both), as well as for development purposes.</p>
+</div>
+<div class="paragraph">
+<p>There are two ways to roll back to thae previous version:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Temporary rollbacks: to temporarily roll back to a previous version, simply
+reboot and select the previous version from the boot menu (often known as the
+grub menu).</p>
+</li>
+<li>
+<p>Permanant rollbacks: to permanently switch back to the previous deployment,
+use the <code>rpm-ostree rollback</code> command.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>After rolling back, you will technically be on an old OS version, and may be
+prompted to update.</p>
+</div>
+</div>
+</div>
+</article>
+<div id="contributing">
+    <p class="contribute">Want to help? <a href="https://docs.fedoraproject.org/en-US/fedora-docs/contributing/">Learn how to contribute to Fedora Docs.</a></p>
+</div>  </main>
+</div>
+<footer class="footer">
+  <p>All Fedora Documentation content available under <a href="http://creativecommons.org/licenses/by-sa/3.0/legalcode">CC-BY-SA 3.0</a> or, when specifically noted, under another <a href="https://fedoraproject.org/wiki/Licensing:Main">accepted</a> free and open content license.</p>
+  <p>Last build: </p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script src="../../_/js/vendor/highlight.js"></script>
+<script>hljs.initHighlighting()</script>
+  </body>
+</html>

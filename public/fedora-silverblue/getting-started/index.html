@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started :: Local Preview</title>
+    <meta name="generator" content="Antora 2.0.0">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">  </head>
+  <body class="article">
+<header class="header" role="banner">
+  <nav class="navbar" style="">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../..">
+        <img src="../../_/img/docs_logo.png" style="height:40px">
+      </a>
+      <!-- We don't have anything in the menu, but the burger still appears
+           on mobile devices. So let's remove it. -->
+      <!--<button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>-->
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="main-wrapper">
+<div class="navigation-container" data-component="fedora-silverblue" data-version="master">
+  <aside class="navigation" role="navigation">
+    <div class="panels">
+<div class="navigation-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../">Fedora Silverblue</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../installation/">Installation</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="./">Getting Started</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../updates-upgrades-rollbacks/">Updates, Upgrades &amp; Rollbacks</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../toolbox/">Toolbox</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../technical-information/">Technical Information</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../reading-and-resources/">Reading and Resources</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../faq/">FAQ</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="navigation-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Fedora Silverblue</span>
+    <span class="version">master</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Fedora Silverblue</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../">master</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+  <main class="main" role="main">
+<div class="toolbar" role="navigation">
+  <button class="navigation-toggle"></button>
+<nav class="crumbs" role="navigation" aria-label="breadcrumbs">
+  
+  <ul>
+      <li class="crumb HO"><a href="../">Home</a></li>
+    <li class="crumb HO"><a href="../">Fedora Silverblue</a></li>
+    <li class="crumb HA"><a href="./">Getting Started</a></li>
+  </ul>
+  
+</nav>
+  <div class="edit-this-page"><a href="file:///antora/modules/ROOT/pages/getting-started.adoc">Edit this Page</a></div>
+</div>
+<article class="doc">
+<h1>Getting Started</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Silverblue is designed to be easy and straightforward to use, and specialist
+knowledge should generally not be required. However, Silverblue is built
+differently from other operating systems, and there are therefore some things
+that it is useful to know.</p>
+</div>
+<div class="paragraph">
+<p>Because Silverblue is immutable, installing software on it works a little
+differently. The main ways it can be done are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Flatpak apps: this is the primary way that apps get installed on Silverblue.</p>
+</li>
+<li>
+<p>Containers: which can be installed and used for development purposes</p>
+</li>
+<li>
+<p>Toolbox containers: these are a special kind of container tailored to provide
+a development environment</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The other method of installing software on Silverblue is package layering.
+This is different from the other methods, and goes against the general
+principle of immutability. Package layering adds individual packages to the
+Silverblue system, and in so doing modifies the operating system.</p>
+</div>
+<div class="paragraph">
+<p>For information on <a href="flatpak">Flatpak</a> and <a href="package-layering">package
+layering</a>, see below. Information on containers can be found on the
+<a href="toolbox">toolbox page</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="flatpak"><a class="anchor" href="#flatpak"></a>Flatpak</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Flatpak is the primary way that apps can be installed on Silverblue. (For
+information, see <a href="http://flatpak.org">flatpak.org</a>.) Flatpak works out of the box
+in Fedora Silverblue, and Fedora provides a small (but growing) collection of
+apps that can be installed.</p>
+</div>
+<div class="paragraph">
+<p>The other main source of Flatpak apps is <a href="https://flathub.org/home">Flathub</a>,
+which provides a large repository of Flatpak apps that can be installed.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="flathub-setup"><a class="anchor" href="#flathub-setup"></a>Setting up Flathub</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To setup Flathub on Fedora Silverblue, open the
+<a href="https://flatpak.org/setup/Fedora/">Flathub setup page for Fedora</a> and click the
+“Flathub repository file” button to download the Flathub configuration.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/sfg_flathub_fedora.png" alt="sfg flathub fedora">
+</div>
+<div class="title">Figure 1. Fedora quick setup page</div>
+</div>
+<div class="paragraph">
+<p>A popup window will show a download option for the file. The “Open with” option
+should show “Software Install (default)”. Click on the “OK” button to start the
+download.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/sfg_flathub_download.png" alt="sfg flathub download">
+</div>
+<div class="title">Figure 2. Flathub download options</div>
+</div>
+<div class="paragraph">
+<p>After the download is complete, a new window will open showing the Flathub
+repository. This window also shows the source location of the repository to be
+installed, under the details heading (1). To start the installation of the
+Flathub repository, click on the “Install” button (2).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/sfg_flathub_install.png" alt="sfg flathub install">
+</div>
+<div class="title">Figure 3. Flathub install window</div>
+</div>
+<div class="paragraph">
+<p>After the repository installation process is complete, the window will be
+updated to show a “Remove` button in place of the “Install” button.</p>
+</div>
+<div class="sect2">
+<h3 id="_installing_flatpak_apps_from_flathub"><a class="anchor" href="#_installing_flatpak_apps_from_flathub"></a>Installing Flatpak apps from Flathub</h3>
+<div class="paragraph">
+<p>Once the Flathub repository has been setup, it can be used to install Flatpak
+apps. This can be done directly from the Software app, or apps can be browsed
+on the <a href="https://flathub.org/home">Flathub website</a>.</p>
+</div>
+<div class="paragraph">
+<p>If you choose to install apps from the Flathub website, clicking install will
+download a file which will be opened by the Software app, which can then be
+used to install the app. For example, to install LibreOffice, you first
+search for and open the LibreOffice page, and then press the “Install” button
+(1).</p>
+</div>
+<div class="paragraph">
+<p>After clicking the “Install” button, a download information window will be
+shown. Verify the correct Flatpak is being downloaded and then click on the
+“OK” button to begin installing the LibreOffice application.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/sfg_libreoffice_install.png" alt="sfg libreoffice install">
+</div>
+<div class="title">Figure 4. LibreOffice Flatpak download</div>
+</div>
+<div class="paragraph">
+<p>Once the Flatpak is downloaded, the Software application will open a new
+window with an “Install” button (1). lick this button to begin installation.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_flatpak_command_line"><a class="anchor" href="#_flatpak_command_line"></a>Flatpak command line</h3>
+<div class="paragraph">
+<p>In addition to using the Software app to install Flatpak apps, it is also
+possible to use the <code>flatpak</code> command line interface. See the
+<a href="http://docs.flatpak.org/en/latest/using-flatpak.html">Flatpak documentation</a> for
+how to do this.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="package-layering"><a class="anchor" href="#package-layering"></a>Package layering</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Package layering works by modifying your Silverblue installation. As the name
+implies, it works by modifying the packages from which Silverblue is composed.
+Any software package that is provided by Fedora can be installed on Silverblue
+using this method.</p>
+</div>
+<div class="paragraph">
+<p>A Silverblue installation with packages layered on top loses some of the
+advantages of immutability: with layering in place, the system is no longer
+identical to other installations, and is not as robust.</p>
+</div>
+<div class="paragraph">
+<p>Nevertheless, package layering can be a useful option for installing
+software that might not be available through other means, or for installing
+software that, for technical reasons, needs to be part of the host operating
+system.</p>
+</div>
+<div class="paragraph">
+<p>Typically, the system must be rebooted after a package has been layered. This
+is an practical disadvantage compared with installing Flatpaks or containers.</p>
+</div>
+<div class="paragraph">
+<p>Package layering is generally done from the command line. However, the
+Software application does rely on it for installing a small number of apps
+that are currently difficult to install as Flatpakts.</p>
+</div>
+<div class="sect2">
+<h3 id="_installing_packages"><a class="anchor" href="#_installing_packages"></a>Installing packages</h3>
+<div class="paragraph">
+<p>Packages can be installed on Silverblue using:</p>
+</div>
+<div class="paragraph">
+<p><code>$ rpm-ostree install &lt;package name&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>This will download the package and any required dependencies, and recompose
+your Silverblue image with them. <code>rpm-ostree</code> uses standard Fedora package
+names, which can be searched using DNF (this is not available on a Silverblue
+host, but can be used in a <a href="toolbox">toolbox</a>).</p>
+</div>
+<div class="paragraph">
+<p>Once a package has been installed in this manner, it will be kept up-to-date
+as new versions are released and as the base operating system is updated.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_removing_and_replacing_packages"><a class="anchor" href="#_removing_and_replacing_packages"></a>Removing and replacing packages</h3>
+<div class="paragraph">
+<p>A package can be removed from a Silverblue installation using:</p>
+</div>
+<div class="paragraph">
+<p><code>$ rpm-ostree override remove &lt;package name&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>The same <code>rpm-ostree override</code> command can be used to replace a package with a
+different version. For example:</p>
+</div>
+<div class="paragraph">
+<p><code>$ rpm-ostree override replace &lt;path to package&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>Removing and replacing packages using package layering is not generally
+recommended. For more information, see the
+<a href="https://rpm-ostree.readthedocs.io/en/latest/manual/administrator-handbook/">rpm-ostree documentation</a>.</p>
+</div>
+</div>
+</div>
+</div>
+</article>
+<div id="contributing">
+    <p class="contribute">Want to help? <a href="https://docs.fedoraproject.org/en-US/fedora-docs/contributing/">Learn how to contribute to Fedora Docs.</a></p>
+</div>  </main>
+</div>
+<footer class="footer">
+  <p>All Fedora Documentation content available under <a href="http://creativecommons.org/licenses/by-sa/3.0/legalcode">CC-BY-SA 3.0</a> or, when specifically noted, under another <a href="https://fedoraproject.org/wiki/Licensing:Main">accepted</a> free and open content license.</p>
+  <p>Last build: </p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script src="../../_/js/vendor/highlight.js"></script>
+<script>hljs.initHighlighting()</script>
+  </body>
+</html>

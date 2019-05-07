@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toolbox :: Local Preview</title>
+    <meta name="generator" content="Antora 2.0.0">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">  </head>
+  <body class="article">
+<header class="header" role="banner">
+  <nav class="navbar" style="">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../..">
+        <img src="../../_/img/docs_logo.png" style="height:40px">
+      </a>
+      <!-- We don't have anything in the menu, but the burger still appears
+           on mobile devices. So let's remove it. -->
+      <!--<button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>-->
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="main-wrapper">
+<div class="navigation-container" data-component="fedora-silverblue" data-version="master">
+  <aside class="navigation" role="navigation">
+    <div class="panels">
+<div class="navigation-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../">Fedora Silverblue</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../installation/">Installation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../getting-started/">Getting Started</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../updates-upgrades-rollbacks/">Updates, Upgrades &amp; Rollbacks</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="./">Toolbox</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../technical-information/">Technical Information</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../reading-and-resources/">Reading and Resources</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../faq/">FAQ</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="navigation-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Fedora Silverblue</span>
+    <span class="version">master</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Fedora Silverblue</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../">master</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+  <main class="main" role="main">
+<div class="toolbar" role="navigation">
+  <button class="navigation-toggle"></button>
+<nav class="crumbs" role="navigation" aria-label="breadcrumbs">
+  
+  <ul>
+      <li class="crumb HO"><a href="../">Home</a></li>
+    <li class="crumb HO"><a href="../">Fedora Silverblue</a></li>
+    <li class="crumb HA"><a href="./">Toolbox</a></li>
+  </ul>
+  
+</nav>
+  <div class="edit-this-page"><a href="file:///antora/modules/ROOT/pages/toolbox.adoc">Edit this Page</a></div>
+</div>
+<article class="doc">
+<h1>Toolbox</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>As an immutable host, Silverblue is an excellent platform for container-based
+development and, for working with containers, <a href="https://buildah.io/">buildah</a> and
+podman[<a href="https://podman.io/" class="bare">https://podman.io/</a>] are recommended.</p>
+</div>
+<div class="paragraph">
+<p>Silverblue also comes with the <em>toolbox</em> utility, which uses containers to
+provide an environment where development tools and libraries can be installed
+and used. The <a href="toolbox">toolbox page</a> provides more details on this.</p>
+</div>
+<div class="paragraph">
+<p>Toolbox makes it easy to use a containerized environment for everyday software
+development and debugging. On immutable operating systems, like
+<a href="https://silverblue.fedoraproject.org/">Fedora Silverblue</a>, it  provides a
+familiar package-based environment in which tools and libraries can be
+installed and used. However, toolbox can also be used on package-based systems.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="toolbox-why-use"><a class="anchor" href="#toolbox-why-use"></a>Why use toolbox?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Using toolbox containers to install development tools offers a number of
+advantages:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>It keeps the host OS clean and stable, and helps to avoid the clutter that
+can happen after installing lots of development tools and packages.</p>
+</li>
+<li>
+<p>Containers are a safe space to experiment: if things go wrong, it&#8217;s easy to
+throw a toolbox away and start again.</p>
+</li>
+<li>
+<p>Containers are a good way to isolate and organise the dependencies needed for
+different projects.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="toolbox-how-it-works"><a class="anchor" href="#toolbox-how-it-works"></a>How it works</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Toolbox takes the work out of using containers, by providing a small number of
+simple commands to  create, enter, list and remove containers. It also
+integrates toolbox containers into your regular working environment, to
+make it easy for you to use them as an everyday development space.</p>
+</div>
+<div class="paragraph">
+<p>Each toolbox container is an environment that you can enter from the command
+line. Inside each one, you will find:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Your existing username and permissions</p>
+</li>
+<li>
+<p>Access to your home directory</p>
+</li>
+<li>
+<p>Common command lines tools, including the DNF package manager</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In other words, toolbox containers look, feel and behave like a standard Linux
+command line environment.</p>
+</div>
+<div class="paragraph">
+<p>In most cases, when a command is run inside a container, the program from
+inside the container is used. However, there are a few special cases where the
+program on the host is used instead. One example of this is the toolbox command
+itself; this makes it possible to use toolbox from inside toolbox containers.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="toolbox-installation"><a class="anchor" href="#toolbox-installation"></a>Installation</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_fedora_silverblue"><a class="anchor" href="#_fedora_silverblue"></a>Fedora Silverblue</h3>
+<div class="paragraph">
+<p>Toolbox is preinstalled on Fedora Silverblue 30 or newer. On older versions, it
+can be installed with the following command:</p>
+</div>
+<div class="paragraph">
+<p><code>$ rpm-ostree install toolbox</code></p>
+</div>
+<div class="paragraph">
+<p>This will install toolbox as a layered RPM.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_fedora_workstation"><a class="anchor" href="#_fedora_workstation"></a>Fedora Workstation</h3>
+<div class="paragraph">
+<p>Toolbox can be installed on Fedora Workstation (or any package-based version of
+Fedora) with the following command:</p>
+</div>
+<div class="paragraph">
+<p><code>$ dnf install toolbox</code></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="toolbox-first-toolbox"><a class="anchor" href="#toolbox-first-toolbox"></a>Your first toolbox</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Once toolbox is installed, two simple commands are required to get started:</p>
+</div>
+<div class="paragraph">
+<p><code>$ toolbox create</code></p>
+</div>
+<div class="paragraph">
+<p>This will download an OCI image and create a toolbox container from it. Once
+this is complete, run:</p>
+</div>
+<div class="paragraph">
+<p><code>$ toolbox enter</code></p>
+</div>
+<div class="paragraph">
+<p>Once inside the toolbox, you can access common command line tools, and install
+new ones using DNF.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+When the prompt is inside a toolbox, it is prepended with a diamond:
+this indicates that the prompt is inside a toolbox container.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="toolbox-commands"><a class="anchor" href="#toolbox-commands"></a>Commands and usage</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>toolbox create [--container &lt;name&gt;]</code></dt>
+<dd>
+<p>Creates a toolbox container. This will download an OCI image if one isn&#8217;t
+available (this is required to create the container). By default a Fedora image
+matching the version of the host is used. Used without options,
+<code>toolbox create</code> will automatically name the container it creates. To create
+additional toolboxes, use the  <code>--container &lt;name&gt;</code> option.</p>
+</dd>
+<dt class="hdlist1"><code>toolbox enter [--container &lt;name&gt;]</code></dt>
+<dd>
+<p>Enters a toolbox for interactive use. Used without options, <code>toolbox enter</code>
+opens the default toolbox. If there is more than one toolbox, use the
+<code>--container name</code> option to specify the toolbox to enter.</p>
+</dd>
+<dt class="hdlist1"><code>toolbox list</code></dt>
+<dd>
+<p>Lists local toolbox images and containers. Note: it is typical to see two
+images listed, one with a <code>localhost</code> prefix and one with a
+<code>registry.fedoraproject.org</code> prefix. These are a normal result of the toolbox
+creation process.</p>
+</dd>
+<dt class="hdlist1"><code>toolbox rm [--force] &lt;name&gt;</code></dt>
+<dd>
+<p>Removes one or more toolbox containers. The <code>--force</code> option removes the
+container even if it is running.</p>
+</dd>
+<dt class="hdlist1"><code>toolbox rmi [--force] &lt;name&gt;</code></dt>
+<dd>
+<p>Removes one or more toolbox images.</p>
+</dd>
+<dt class="hdlist1"><code>toolbox --help</code></dt>
+<dd>
+<p>Lists available commands.</p>
+</dd>
+</dl>
+</div>
+<div class="sect2">
+<h3 id="_exiting_a_toolbox"><a class="anchor" href="#_exiting_a_toolbox"></a>Exiting a toolbox</h3>
+<div class="paragraph">
+<p>To return to the host environment, either run <code>exit</code> or quit the current shell
+(typically Ctrl+D).</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="toolbox-under-the-hood"><a class="anchor" href="#toolbox-under-the-hood"></a>Under the hood</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Toolbox uses the following technologies:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://buildah.io/">Buildah</a></p>
+</li>
+<li>
+<p><a href="https://www.opencontainers.org/">OCI container images</a></p>
+</li>
+<li>
+<p><a href="https://podman.io/">Podman</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="toolbox-contact"><a class="anchor" href="#toolbox-contact"></a>Contact and issues</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To report issues, make suggestions, or contribute fixes, see
+<a href="https://github.com/debarshiray/toolbox">toolbox&#8217;s GitHub project</a>.</p>
+</div>
+<div class="paragraph">
+<p>To get in touch with toolbox users and developers, use
+<a href="https://discussion.fedoraproject.org/">Fedora&#8217;s Discourse
+instance</a>, or join the #silverblue IRC
+channel on Freenode.</p>
+</div>
+</div>
+</div>
+</article>
+<div id="contributing">
+    <p class="contribute">Want to help? <a href="https://docs.fedoraproject.org/en-US/fedora-docs/contributing/">Learn how to contribute to Fedora Docs.</a></p>
+</div>  </main>
+</div>
+<footer class="footer">
+  <p>All Fedora Documentation content available under <a href="http://creativecommons.org/licenses/by-sa/3.0/legalcode">CC-BY-SA 3.0</a> or, when specifically noted, under another <a href="https://fedoraproject.org/wiki/Licensing:Main">accepted</a> free and open content license.</p>
+  <p>Last build: </p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script src="../../_/js/vendor/highlight.js"></script>
+<script>hljs.initHighlighting()</script>
+  </body>
+</html>

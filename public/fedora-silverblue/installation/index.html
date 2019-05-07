@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Installing Silverblue :: Local Preview</title>
+    <meta name="generator" content="Antora 2.0.0">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">  </head>
+  <body class="article">
+<header class="header" role="banner">
+  <nav class="navbar" style="">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../..">
+        <img src="../../_/img/docs_logo.png" style="height:40px">
+      </a>
+      <!-- We don't have anything in the menu, but the burger still appears
+           on mobile devices. So let's remove it. -->
+      <!--<button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>-->
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="main-wrapper">
+<div class="navigation-container" data-component="fedora-silverblue" data-version="master">
+  <aside class="navigation" role="navigation">
+    <div class="panels">
+<div class="navigation-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../">Fedora Silverblue</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="./">Installation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../getting-started/">Getting Started</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../updates-upgrades-rollbacks/">Updates, Upgrades &amp; Rollbacks</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../toolbox/">Toolbox</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../technical-information/">Technical Information</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../reading-and-resources/">Reading and Resources</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../faq/">FAQ</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="navigation-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Fedora Silverblue</span>
+    <span class="version">master</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Fedora Silverblue</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../">master</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+  <main class="main" role="main">
+<div class="toolbar" role="navigation">
+  <button class="navigation-toggle"></button>
+<nav class="crumbs" role="navigation" aria-label="breadcrumbs">
+  
+  <ul>
+      <li class="crumb HO"><a href="../">Home</a></li>
+    <li class="crumb HO"><a href="../">Fedora Silverblue</a></li>
+    <li class="crumb HA"><a href="./">Installation</a></li>
+  </ul>
+  
+</nav>
+  <div class="edit-this-page"><a href="file:///antora/modules/ROOT/pages/installation.adoc">Edit this Page</a></div>
+</div>
+<article class="doc">
+<h1>Installing Silverblue</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Fedora Silverblue can be installed in the standard manner, and the official
+Fedora installation guide can be followed for your Fedora version: see the
+<a href="https://docs.fedoraproject.org/en-US/docs/">Fedora documentation site</a> for more
+details.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="before-you-begin"><a class="anchor" href="#before-you-begin"></a>Before you begin</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>As with installing any new operating system, it is important to back up
+any data that you want to save before starting, and have a clear
+understanding of the consequences of what you are doing.</p>
+</div>
+<div class="paragraph">
+<p>While Silverblue is intended to provide the full range of capabilities as a
+regular Fedora Workstation, it is a different type of system and some things
+are different. Therefore, if you have any important or specific needs it is
+recommended to check that Silverblue can satisfy them before you install. This
+can include particular applications that you might require or technical
+abilitise for developers. Silverblue can be tested in a virtual machine prior
+to installation.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="known-limitations"><a class="anchor" href="#known-limitations"></a>Known limitations</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>It is important to be aware that Silverblue does not provide a fully
+functional experience for dual booting or manual partitioning, including
+seperate home partitions.</strong></p>
+</div>
+<div class="paragraph">
+<p>It is possible to make Silverblue work for both dual boot and manual
+partitioning, and some guidance is provided on manual partitioning below.
+However, there are hazards involved in both cases, and you should only attempt
+to use these features if you have done the necessary research, and are
+confident that you can overcome any issues you might encounter.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="getting-silverblue"><a class="anchor" href="#getting-silverblue"></a>Getting Silverblue</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you are using Fedora Media Writer, Silverblue should be listed as a
+download option. However, if it isn&#8217;t, or if you want to download it manually,
+an install image can be downloaded from
+<a href="https://silverblue.fedoraproject.org/">the main Silverblue website</a>.</p>
+</div>
+<div class="paragraph">
+<p>Once you have got your copy of Silverblue, it can be installed in the usual
+manner. We hope that you love it!</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="manual-partition"><a class="anchor" href="#manual-partition"></a>Manual Partitioning</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>As described above, there are known issues with manual partitioning on
+Silverblue, and it should be used with caution. The following notes are
+intended as hints for those attempting it, rather than recommended practice.</p>
+</div>
+<div class="paragraph">
+<p>With Silverblue, only certain mounts can be manually specified as
+partitions. These include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>/boot</code></p>
+</li>
+<li>
+<p><code>/var</code></p>
+</li>
+<li>
+<p>Subdirectories under <code>/var</code>, including:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>/var/home</code> (Silverblue has a symlink from <code>/home</code> to <code>/var/home</code>)</p>
+</li>
+<li>
+<p><code>/var/log</code></p>
+</li>
+<li>
+<p><code>/var/containers</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The root filesystem: <code>/</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The Fedora installer is not aware of these restrictions and will accept
+custom partitions without error, even if they are incompatible with
+Silverblue. This makes custom partitioning with Silverblue hazardous.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/faw-manual-partition-complete.png" alt="faw manual partition complete">
+</div>
+<div class="title">Figure 1. Partitioning Complete</div>
+</div>
+<div class="paragraph">
+<p>The above screenshot shown a typical configuration with manual partitioning,
+with partitions for <code>/boot</code>, <code>/</code>, <code>swap</code> and <code>/var/home</code>.</p>
+</div>
+<div class="paragraph">
+<p>Manual partitioning on Silverblue can be done with
+<a href="https://en.wikipedia.org/wiki/Logical_Volume_Manager_%28Linux%29">LVM</a>, as well
+as standard partitions or an <code>xfs</code> filesystem.</p>
+</div>
+</div>
+</div>
+</article>
+<div id="contributing">
+    <p class="contribute">Want to help? <a href="https://docs.fedoraproject.org/en-US/fedora-docs/contributing/">Learn how to contribute to Fedora Docs.</a></p>
+</div>  </main>
+</div>
+<footer class="footer">
+  <p>All Fedora Documentation content available under <a href="http://creativecommons.org/licenses/by-sa/3.0/legalcode">CC-BY-SA 3.0</a> or, when specifically noted, under another <a href="https://fedoraproject.org/wiki/Licensing:Main">accepted</a> free and open content license.</p>
+  <p>Last build: </p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script src="../../_/js/vendor/highlight.js"></script>
+<script>hljs.initHighlighting()</script>
+  </body>
+</html>
