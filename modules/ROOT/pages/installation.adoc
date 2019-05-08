@@ -1,7 +1,8 @@
 = Installing Silverblue
 
-Fedora Silverblue can be installed in the standard manner, and the official 
-Fedora installation guide can be followed for your Fedora version: see the 
+Fedora Silverblue can be installed in the same way as Fedora Workstation, and 
+the official Fedora installation guide can be followed for your Fedora version.
+See the 
 https://docs.fedoraproject.org/en-US/docs/[Fedora documentation site] for more 
 details.
 
@@ -12,26 +13,27 @@ As with installing any new operating system, it is important to back up
 any data that you want to save before starting, and have a clear 
 understanding of the consequences of what you are doing.
 
-While Silverblue is intended to provide the full range of capabilities as a 
-regular Fedora Workstation, it is a different type of system and some things 
-are different. Therefore, if you have any important or specific needs it is 
-recommended to check that Silverblue can satisfy them before you install. This 
-can include particular applications that you might require or technical 
-abilitise for developers. Silverblue can be tested in a virtual machine prior 
-to installation.
+Silverblue is intended to provide the full range of capabilities that you would 
+expect from an installation of Fedora Workstation. However, there are some 
+differences in terms of which applications can be installed, and how the 
+operating system environment works.
+
+It is therefore recommended that you read this user guide before decideng to 
+install Silverblue. It is also recommended that, that Silverblue meets any 
+specific needs or requirements that you might have. If you are uncertain about 
+this, Silverblue can also be tested in a virtual machine prior to installation.
 
 [[known-limitations]]
 == Known limitations
 
-*It is important to be aware that Silverblue does not provide a fully 
-functional experience for dual booting or manual partitioning, including 
-seperate home partitions.*
+*Silverblue does not provide a fully functional experience for dual booting or 
+manual partitioning, including seperate home partitions.*
 
 It is possible to make Silverblue work for both dual boot and manual 
 partitioning, and some guidance is provided on manual partitioning below. 
 However, there are hazards involved in both cases, and you should only attempt 
 to use these features if you have done the necessary research, and are 
-confident that you can overcome any issues you might encounter.
+confident that you can overcome any issues that you might encounter.
 
 [[getting-silverblue]]
 == Getting Silverblue
@@ -49,7 +51,8 @@ manner. We hope that you love it!
 
 As described above, there are known issues with manual partitioning on 
 Silverblue, and it should be used with caution. The following notes are 
-intended as hints for those attempting it, rather than recommended practice.
+intended as hints for those attempting it, and should not be treated as 
+recommended practice.
 
 With Silverblue, only certain mounts can be manually specified as 
 partitions. These include:
@@ -64,11 +67,11 @@ partitions. These include:
 
 The Fedora installer is not aware of these restrictions and will accept 
 custom partitions without error, even if they are incompatible with 
-Silverblue. This makes custom partitioning with Silverblue hazardous.
+Silverblue.
 
 image::faw-manual-partition-complete.png[title="Partitioning Complete"]
 
-The above screenshot shown a typical configuration with manual partitioning, 
+The above screenshot shows a typical configuration with manual partitioning, 
 with partitions for `/boot`, `/`, `swap` and `/var/home`.
 
 Manual partitioning on Silverblue can be done with 

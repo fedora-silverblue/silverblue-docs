@@ -38,7 +38,7 @@ How do I create a VPN connection?::
     them there when you recreate your connections). Certificates in `/etc/pki` 
     need to be handled similarly.
 
-How can I play YouTube videos?::
+How can I play more videos in Firefox, like YouTube?::
     Firefox is included in the OS image for now. Until that changes, getting it 
     to play videos works the same way as it does for the regular Fedora 
     Workstation: find a package with the needed codecs, and install it. The one 

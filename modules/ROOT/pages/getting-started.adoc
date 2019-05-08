@@ -6,13 +6,14 @@ knowledge should generally not be required. However, Silverblue is built
 differently from other operating systems, and there are therefore some things 
 that it is useful to know.
 
-Because Silverblue is immutable, installing software on it works a little 
-differently. The main ways it can be done are:
+Silverblue has different options for installing software, compared with a 
+standard Fedora Workstation (or other package-based Linux distributions). These 
+include:
 
 - Flatpak apps: this is the primary way that apps get installed on Silverblue.
-- Containers: which can be installed and used for development purposes
-- Toolbox containers: these are a special kind of container tailored to provide 
-a development environment
+- Containers: which can be installed and used for development purposes.
+- Toolbox containers: a special kind of container that are tailored to be used 
+as a software development environment.
 
 The other method of installing software on Silverblue is package layering. 
 This is different from the other methods, and goes against the general 
