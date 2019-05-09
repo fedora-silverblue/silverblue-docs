@@ -1,15 +1,17 @@
 [[updates-upgrades-rollbacks]]
 = Updates, Upgrades & Rollbacks
 
-Updating Silverblue is quicker and more reliable when compared with other 
-operating systems.
+Installing updates with Silverblue is easy and fast (much faster than other 
+operating systems). It also has a special rollback feature, in case anything 
+goes wrong.
 
 [[updating]]
 == Updating Silverblue
 
 OS updates in Silverblue are fully integrated into the desktop: you will be 
-notified when an update is available and it will be automatically downloaded, 
-if this is your preference.
+automatically notified when an update is available. The standard behavior is 
+to automatically download the update (this can be changed from the 
+update preferences in Software).
 
 Once an update is ready, it is just a matter of rebooting to start using the 
 new version. There is no waiting for the update to be installed during this 
@@ -20,18 +22,21 @@ this, run:
 
 `$ rpm-ostree upgrade`
 
-Alternatively, to check for available updates without downloading them, run:
+This will check for new updates and download and install them if they are 
+available. Alternatively, to check for available updates without downloading 
+them, run:
 
-`& rpm-ostree upgrade --check`
+`$ rpm-ostree upgrade --check`
 
 [[upgrading]]
 == Upgrading between major versions
 
 Upgrading between major versions (such as from Fedora 29 to Fedora 30) is not 
 fully integrated into Silverblue at this time. However, Silverblue can be 
-upgraded from the command line, using the `ostree` command.
+upgraded between major versions using the `ostree` command.
 
-To upgrade from Fedora Silverblue 29 to Silverblue 30, run:
+For example, to upgrade from Fedora Silverblue 29 to Silverblue 30, the 
+commands are:
 
 ....
 $ sudo ostree remote gpg-import fedora-workstation -k /etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-30-primary
@@ -46,10 +51,10 @@ installed in the background, and you just boot into it when it is ready.
 
 Silverblue keeps a record of the previous OS version, which can be switched to 
 instead of the latest version. While this shouldn't usually be necessary, it 
-can be helpful if there is a problem with an update or an upgrade (roll backs 
+can be helpful if there is a problem with an update or an upgrade (rollbacks 
 work the same way for both), as well as for development purposes.
 
-There are two ways to roll back to thae previous version:
+There are two ways to roll back to the previous version:
 
 . Temporary rollbacks: to temporarily roll back to a previous version, simply 
 reboot and select the previous version from the boot menu (often known as the 
@@ -58,4 +63,5 @@ grub menu).
 use the `rpm-ostree rollback` command.
 
 After rolling back, you will technically be on an old OS version, and may be 
-prompted to update.
+prompted to update. Updating will undo the rollback, so should be avoided if 
+you want the rollback to stay in effect.
