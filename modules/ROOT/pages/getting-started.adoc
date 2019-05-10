@@ -110,7 +110,7 @@ is an practical disadvantage compared with installing Flatpaks or containers.
 
 Package layering is generally done from the command line. However, the 
 Software application does rely on it for installing a small number of apps 
-that are currently difficult to install as Flatpakts.
+that are currently difficult to install as Flatpaks.
 
 === Installing packages
 
