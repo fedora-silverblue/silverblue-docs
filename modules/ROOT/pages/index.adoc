@@ -42,7 +42,7 @@ differs from a standard Fedora Workstation, including:
 
 - link:installation[OS installation]
 - link:getting-started[Installing apps and software]
-- link:upgrades[OS upgrades and rollbacks]
+- link:updates-upgrades-rollbacks[OS upgrades and rollbacks]
 
 The primary audience for these docs are new users, who aren't expected to have 
 specialist knowledge or technical knowledg about Silverblue's internals. 
