@@ -10,19 +10,16 @@ Silverblue has different options for installing software, compared with a
 standard Fedora Workstation (or other package-based Linux distributions). These 
 include:
 
-- Flatpak apps: this is the primary way that apps get installed on Silverblue.
-- Containers: which can be installed and used for development purposes.
-- Toolbox containers: a special kind of container that are tailored to be used 
-as a software development environment.
-
-The other method of installing software on Silverblue is package layering. 
-This is different from the other methods, and goes against the general 
-principle of immutability. Package layering adds individual packages to the 
-Silverblue system, and in so doing modifies the operating system. 
+- Flatpak apps: this is the primary way that (GUI) apps get installed on Silverblue.
+- Toolbox: Used primarily for CLI apps; development, debugging tools etc.
+- Package layering: The rpm-ostree tool used for host updates is a full hybrid
+  image/package system.  By default the system operates in pure image mode,
+  but package layering is useful for things like libvirt, drivers, etc.
 
 For information on link:flatpak[Flatpak] and link:package-layering[package 
-layering], see below. Information on containers can be found on the 
-link:toolbox[toolbox page].
+layering], see below.
+
+See the dedicated link:toolbox[toolbox page] to get started with it.
 
 [[flatpak]]
 == Flatpak
@@ -92,21 +89,21 @@ how to do this.
 == Package layering
 
 Package layering works by modifying your Silverblue installation. As the name 
-implies, it works by modifying the packages from which Silverblue is composed. 
-Any software package that is provided by Fedora can be installed on Silverblue 
+implies, it works by extending the packages from which Silverblue is composed. 
+
+Good examples of packages to be layered would be:
+
+ - `fish`: An alternative Unix shell
+ - `sway`: A Wayland tiling compositor
+ - `libvirt`: The libvirt daemon
+
+Most (but not all) RPM packages provided by Fedora can be installed on Silverblue 
 using this method.
 
-A Silverblue installation with packages layered on top loses some of the 
-advantages of immutability: with layering in place, the system is no longer 
-identical to other installations, and is not as robust.
-
-Nevertheless, package layering can be a useful option for installing 
-software that might not be available through other means, or for installing 
-software that, for technical reasons, needs to be part of the host operating 
-system.
-
-Typically, the system must be rebooted after a package has been layered. This 
-is an practical disadvantage compared with installing Flatpaks or containers.
+Currently, using package layering creates a new "deployment", or bootable filesystem
+root.  It does not affect your current root.  This preserves rollback and the transactional model, but means system must be rebooted after a package has been layered.
+Eventually this limitation may be lifted, but it's generally expected that you use package
+layering sparingly, and use `flatpak` and `dnf install` inside a `toolbox` etc.
 
 Package layering is generally done from the command line. However, the 
 Software application does rely on it for installing a small number of apps 
@@ -126,16 +123,14 @@ host, but can be used in a link:toolbox[toolbox]).
 Once a package has been installed in this manner, it will be kept up-to-date 
 as new versions are released and as the base operating system is updated.
 
-=== Removing and replacing packages
+=== Replacing packages
 
-A package can be removed from a Silverblue installation using:
-
-`$ rpm-ostree override remove <package name>`
-
-The same `rpm-ostree override` command can be used to replace a package with a 
-different version. For example:
+In some scenarios, you may want to e.g. test out a new version of `podman` or
+`kernel` or other packages that live on the host.  The `rpm-ostree override` command can be used to replace a package with a different version.  Currently you must download the RPM packages locally, and then run:
 
 `$ rpm-ostree override replace <path to package>`
+
+You may also use `override remove` to effectively "hide" packages; they will still exist in the underlying base layer, but will not appear in the booted root.
 
 Removing and replacing packages using package layering is not generally 
 recommended. For more information, see the 
