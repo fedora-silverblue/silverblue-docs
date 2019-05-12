@@ -1,0 +1,161 @@
+= Troubleshooting
+------------------
+
+Silverblue is a radically new way of deploying and managing your
+desktop operating system, so you may ocassionally run into problems
+while going through your day to day.  Below are some of the more
+common problems reported and any workarounds for those problems.
+
+"Forbidden base package replacements"
+--------------------------------------
+https://github.com/projectatomic/rpm-ostree/issues/415
+
+This can happen when a package that is being layered has a
+dependency on a package that is in the base OS.  In the
+problematic case, the layered package requires a newer version
+of the dependent package which is not available in the base OS.
+
+In most cases, waiting for a newer OSTree compose will resolve
+this problem.  The dependent package will be updated in the compose
+and the package that was going to be layered will be successful.
+
+However, if you continue to encounter this problem with a newer
+compose, you can try to cleanup the metadata with `rpm-ostree cleanup -m`
+and then retrying the `rpm-ostree install`.
+
+Alternatively, you can try rebasing to any `updates` ref,
+like `fedora/30/updates/x86_64` after the `cleanup` operation.
+
+Installing packages to `/opt` or `/usr/local`
+----------------------------------------------
+https://github.com/projectatomic/rpm-ostree/issues/233
+
+Installing into `/opt` was commonly raised as a problem when users where
+trying to install Google Chrome.  A partial solution has been implemented
+that allows users to layer Google Chrome, however it is not a complete
+solution for applications that write mutable data to `/opt`.
+
+https://github.com/projectatomic/rpm-ostree/pull/1795
+
+Using Nvidia drivers
+---------------------
+https://github.com/projectatomic/rpm-ostree/issues/1091
+
+Users have long wanted to use their Nvidia GPUs on their Silverblue systems.
+Thankfully, recent changes to the `akmods` and `kmodtools` packages were
+made by https://twitter.com/gnomealex[Alex Larsson] to allow for normal
+installation of the Nvidia drivers.
+
+`# rpm-ostree install kmod-nvidia xorg-x11-drv-nvidia`
+
+You can read more about the work that Alex did on his https://blogs.gnome.org/alexl/2019/03/06/nvidia-drivers-in-fedora-silverblue/[blog].
+
+SELinux problems
+-----------------
+As users work with Silverblue day-to-day, it is possible that they have modified
+the default SELinux policy in an effort to workaround one or more problems
+related to SELinux.  This is usually done when a user sees a SELinux denial in the
+journal.  If this is the case and one wishes to revert back to the default SELinux
+policy, you can try these set of actions.
+
+1. Check the state of the SELinux policy
+
+----
+$ sudo ostree admin config-diff | grep policy
+M    selinux/targeted/active/policy.linked
+M    selinux/targeted/active/policy.kern
+M    selinux/targeted/policy/policy.31
+A    selinux/targeted/policy/policy.30
+----
+
+If anything is returned by this command, then your SELinux policy has been modified
+from the default.
+
+2.  Copy the default SELinux policy shipped in the OSTree compose
+
+----
+$ sudo cp -al /etc/selinux{,.bak}
+$ sudo rsync -rlv /usr/etc/selinux/ /etc/selinux/
+----
+
+After doing this, the output from `ostree admin config-diff | grep policy` should
+no longer indicate the policy is modified.
+
+If your policy still appears to be modified, you can try the following approach.
+
+3.  Remove the SELinux policy; copy in the default policy
+
+----
+$ sudo rm -rf /etc/selinux
+$ sudo cp -aT /usr/etc/selinux /etc/selinux
+----
+
+After this, the `ostree admin config-diff | grep policy` command should return
+no modifications.
+
+Unable to add user to group
+----------------------------
+https://github.com/projectatomic/rpm-ostree/issues/29
+
+https://github.com/projectatomic/rpm-ostree/issues/49
+
+Due to how `rpm-ostree` handles user + group entries, it may not be possible
+to use `usermod -a -G` to add a user to a group successfully.  Until the
+`rpm-ostree` moves to using `systemd sysusers`, users will have to
+populate the `/etc/group` file from the `/usr/lib/group` file before they
+can add themselves to the group.  For example, if you wanted to add a user
+to the `libvirt` group:
+
+----
+# grep -E '^libvirt:' /usr/lib/group >> /etc/group
+# usermod -a G libvirt username
+----
+
+`ostree fsck` reports file corruption
+--------------------------------------
+It is possible to end up in a situation where one or more files on the disk
+have become corrupted or missing.  In this case, `ostree fsck` will report
+errors in certain commits.  The workaround in this case is to mark the entire
+OSTree commit as partially retrieved and then re-pull the commit.
+
+https://github.com/ostreedev/ostree/pull/345#issuecomment-262263824
+
+Read-only `/boot/efi` prevents any upgrades
+--------------------------------------------
+https://github.com/projectatomic/rpm-ostree/issues/1380
+
+This issue is most commonly seen when users have installed Silverblue
+on Apple hardware.  The `/boot/efi` partition on Apple hardware is
+formatted as HFS+ and is not always resilient to power failures or
+other kinds of hard power events.
+
+Since Silverblue now includes the `hfsplus-tools` package in the base
+compose, it has become relatively easy for users to workaround this
+kind of error.
+
+----
+# umount /boot/efi
+# fsck.hfsplus /dev/sda1
+# mount -o rw /boot/efi
+----
+
+See the linked issue for additional details.
+
+Unable to install Silverblue on EFI systems
+--------------------------------------------
+https://bugzilla.redhat.com/show_bug.cgi?id=1575957
+
+Users have reported that they cannot install Silverblue on an EFI based
+system where they previously had another OS installed.  The error that
+is often observed looks like:
+
+`ostree ['admin', '--sysroot=/mnt/sysimage', 'deploy', '--os=fedora-workstation', 'fedora-workstation:fedora/28/x86_64/workstation'] existed with code -6`
+
+A workaround for this issue is to reformat the EFI partition on the host
+during the install process.  This can be done during the install process
+by selecting Custom Partitioning and being sure to check the `Reformat`
+box when creating the `/boot/efi` partition.
+
+WARNING: Choosing to reformat `/boot/efi` will likely result in the inability
+to boot any other operating systems that were previously installed.  Be sure that
+yau have backed up any important data before using this workaround.
