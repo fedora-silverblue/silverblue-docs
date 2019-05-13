@@ -22,7 +22,7 @@ Silverblue system, and in so doing modifies the operating system.
 
 For information on link:flatpak[Flatpak] and link:package-layering[package 
 layering], see below. Information on containers can be found on the 
-link:toolbox[toolbox page]
+link:toolbox[toolbox page].
 
 [[flatpak]]
 == Flatpak
