@@ -45,6 +45,6 @@ differs from a standard Fedora Workstation, including:
 - link:upgrades[OS upgrades and rollbacks]
 
 The primary audience for these docs are new users, who aren't expected to have 
-specialist knowledge or technical knowledg about Silverblue's internals. 
+specialist knowledge or technical knowledge about Silverblue's internals. 
 However, some background link:technical-information[technical information] is 
 provided, for those who are interested and want to learn more.
