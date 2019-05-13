@@ -17,7 +17,7 @@ used to compose, deplay and update Silverblue. ostree operates in a similar
 manner to a version control system, but it operates on entire filesystem trees. 
 It is often described as “Git for operating system binaries”.
 
-For Silverblue installs, ostree is responsible for eploying and updating the OS 
+For Silverblue installs, ostree is responsible for deploying and updating the OS 
 image (including everything below `/` that is not symlinked into `/var`). It 
 also updates `grub.cfg` entries to point to the current image.
 
