@@ -3,7 +3,7 @@
 
 As an immutable host, Silverblue is an excellent platform for container-based 
 development and, for working with containers, https://buildah.io/[buildah] and 
-podman[https://podman.io/] are recommended.
+https://podman.io/[podman] are recommended.
 
 Silverblue also comes with the _toolbox_ utility, which uses containers to 
 provide an environment where development tools and libraries can be installed 
