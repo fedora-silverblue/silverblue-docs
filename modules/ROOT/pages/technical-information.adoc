@@ -13,7 +13,7 @@ in a non-standard manner.
 == ostree and rpm-ostree
 
 https://ostree.readthedocs.io/en/latest/[ostree] is the core technology that is 
-used to compose, deplay and update Silverblue. ostree operates in a similar 
+used to compose, deploy and update Silverblue. ostree operates in a similar 
 manner to a version control system, but it operates on entire filesystem trees. 
 It is often described as “Git for operating system binaries”.
 
@@ -38,7 +38,7 @@ On Silverblue, the root filesystem is immutable. This means that `/`, `/usr`
 and everything below it is read-only.
 
 `/var` is where all of Silverblue's runtime state is store. Symlinks are used 
-to make traditional state-carrying directors availabel in their expected 
+to make traditional state-carrying directors available in their expected 
 locations. This includes:
 
 * `/home` → `/var/home`
