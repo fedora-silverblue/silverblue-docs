@@ -58,40 +58,44 @@ related to SELinux.  This is usually done when a user sees a SELinux denial in t
 journal.  If this is the case and one wishes to revert back to the default SELinux
 policy, you can try these set of actions.
 
-1. Check the state of the SELinux policy
-
+. Check the state of the SELinux policy
++
+--
 ----
-$ sudo ostree admin config-diff | grep policy
-M    selinux/targeted/active/policy.linked
-M    selinux/targeted/active/policy.kern
-M    selinux/targeted/policy/policy.31
-A    selinux/targeted/policy/policy.30
+  $ sudo ostree admin config-diff | grep policy
+  M    selinux/targeted/active/policy.linked
+  M    selinux/targeted/active/policy.kern
+  M    selinux/targeted/policy/policy.31
+  A    selinux/targeted/policy/policy.30
 ----
 
 If anything is returned by this command, then your SELinux policy has been modified
 from the default.
+--
 
-2.  Copy the default SELinux policy shipped in the OSTree compose
-
+.  Copy the default SELinux policy shipped in the OSTree compose
++
+--
 ----
-$ sudo cp -al /etc/selinux{,.bak}
-$ sudo rsync -rlv /usr/etc/selinux/ /etc/selinux/
+  $ sudo cp -al /etc/selinux{,.bak}
+  $ sudo rsync -rlv /usr/etc/selinux/ /etc/selinux/
 ----
-
 After doing this, the output from `ostree admin config-diff | grep policy` should
 no longer indicate the policy is modified.
 
 If your policy still appears to be modified, you can try the following approach.
+--
 
-3.  Remove the SELinux policy; copy in the default policy
-
+.  Remove the SELinux policy; copy in the default policy
++
+--
 ----
-$ sudo rm -rf /etc/selinux
-$ sudo cp -aT /usr/etc/selinux /etc/selinux
+  $ sudo rm -rf /etc/selinux
+  $ sudo cp -aT /usr/etc/selinux /etc/selinux
 ----
-
 After this, the `ostree admin config-diff | grep policy` command should return
 no modifications.
+--
 
 Unable to add user to group
 ----------------------------
