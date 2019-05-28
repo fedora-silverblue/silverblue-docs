@@ -16,10 +16,9 @@ include:
   image/package system.  By default the system operates in pure image mode,
   but package layering is useful for things like libvirt, drivers, etc.
 
-For information on link:flatpak[Flatpak] and link:package-layering[package 
-layering], see below.
+For information on <<flatpak>> and <<package-layering,package layering>>, see below.
 
-See the dedicated link:toolbox[toolbox page] to get started with it.
+See the dedicated <<toolbox.adoc#toolbox,toolbox>> page to get started with it.
 
 [[flatpak]]
 == Flatpak

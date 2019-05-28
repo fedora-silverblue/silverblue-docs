@@ -7,7 +7,7 @@ https://podman.io/[podman] are recommended.
 
 Silverblue also comes with the _toolbox_ utility, which uses containers to 
 provide an environment where development tools and libraries can be installed 
-and used. The link:toolbox[toolbox page] provides more details on this.
+and used.
 
 Toolbox makes it easy to use a containerized environment for everyday software 
 development and debugging. On immutable operating systems, like
