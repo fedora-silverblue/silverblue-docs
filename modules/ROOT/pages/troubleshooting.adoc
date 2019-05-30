@@ -185,3 +185,15 @@ As a workaround, it is possible to override `podman` packages newer than version
   - Alternatively, you can avoid downloading the file by issuing the following command: `rpm-ostree override replace https://kojipkgs.fedoraproject.org//packages/podman/1.2.0/2.git3bd528e.fc30/x86_64/podman-1.2.0-2.git3bd528e.fc30.x86_64.rpm`
 
 You can now reboot the system for the change to take effect.
+
+Unable to enter a toolbox due to permissions errors
+----------------------------------------------------
+https://github.com/containers/libpod/issues/3187
+
+With certain versions of `libpod`, trying to enter a toolbox will result in
+errors. You can fix this by resetting the permissions on the overlay-containers
+with the following command.
+
+`sudo chown -R $USER ~/.local/share/containers/storage/overlay-containers`
+
+This will reset the permissions on your containers and allow you to enter them again.
