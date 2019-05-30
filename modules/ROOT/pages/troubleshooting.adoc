@@ -163,3 +163,15 @@ box when creating the `/boot/efi` partition.
 WARNING: Choosing to reformat `/boot/efi` will likely result in the inability
 to boot any other operating systems that were previously installed.  Be sure that
 yau have backed up any important data before using this workaround.
+
+Unable to enter a toolbox due to permissions errors
+----------------------------------------------------
+https://github.com/containers/libpod/issues/3187
+
+With certain versions of `libpod`, trying to enter a toolbox will result in
+errors. You can fix this by resetting the permissions on the overlay-containers
+with the following command.
+
+`sudo chown -R $USER ~/.local/share/containers/storage/overlay-containers`
+
+This will reset the permissions on your containers and allow you to enter them again.
