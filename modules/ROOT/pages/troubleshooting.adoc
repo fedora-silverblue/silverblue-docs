@@ -190,7 +190,7 @@ Unable to enter a toolbox due to permissions errors
 ----------------------------------------------------
 https://github.com/containers/libpod/issues/3187
 
-With certain versions of `libpod`, trying to enter a toolbox will result in
+With certain versions of `podman`, trying to enter a toolbox will result in
 errors. You can fix this by resetting the permissions on the overlay-containers
 with the following command.
 
