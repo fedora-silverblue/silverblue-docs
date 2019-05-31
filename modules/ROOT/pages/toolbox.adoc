@@ -68,7 +68,7 @@ This will install toolbox as a layered RPM.
 Toolbox can be installed on Fedora Workstation (or any package-based version of 
 Fedora) with the following command:
 
-`$ dnf install toolbox`
+`$ sudo dnf install toolbox`
 
 [[toolbox-first-toolbox]]
 ## Your first toolbox
