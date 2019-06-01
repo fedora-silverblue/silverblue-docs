@@ -177,11 +177,18 @@ toolbox: failed to list images with com.redhat.component=fedora-toolbox
 
 TIP: The following workaround might be useful for other `toolbox` errors caused by `podman` versions greater than `1.2.0`. See https://github.com/debarshiray/toolbox/issues/169#issuecomment-495193902[Toolbox Github Repo]
 
-As a workaround, it is possible to override `podman` packages newer than version `1.2.0` following these steps:
+As a workaround, it is possible to override `podman` packages newer than version `1.2.0` by issuing:
+
+----
+$ rpm-ostree override --remove=podman-manpages replace https://kojipkgs.fedoraproject.org//packages/podman/1.2.0/2.git3bd528e.fc30/x86_64/podman-1.2.0-2.git3bd528e.fc30.x86_64.rpm
+----
+
+Reboot the system to apply the changes.
+
+For reference, it is also possible to override the package by following these steps: 
 
 . Download `podman-1.2.0-2.git3bd528e.fc30.x86_64.rpm` from https://kojipkgs.fedoraproject.org//packages/podman/1.2.0/2.git3bd528e.fc30/x86_64/podman-1.2.0-2.git3bd528e.fc30.x86_64.rpm[Koji]
 . Remove `podman-manpages` issuing: `rpm-ostree override remove podman-manpages`
 . Override the currenty installed `podman` package (using the package you have downloaded on the first step) by: `rpm-ostree override replace podman-1.2.0-2.git3bd528e.fc30.x86_64.rpm`
-  - Alternatively, you can avoid downloading the file by issuing the following command: `rpm-ostree override replace https://kojipkgs.fedoraproject.org//packages/podman/1.2.0/2.git3bd528e.fc30/x86_64/podman-1.2.0-2.git3bd528e.fc30.x86_64.rpm`
 
 You can now reboot the system for the change to take effect.
