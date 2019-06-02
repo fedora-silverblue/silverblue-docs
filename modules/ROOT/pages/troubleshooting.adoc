@@ -196,4 +196,8 @@ with the following command.
 
 `sudo chown -R $USER ~/.local/share/containers/storage/overlay-containers`
 
+<<<<<<< HEAD
 This will reset the permissions on your containers and allow you to enter them again.
+=======
+This will reset the permissions on your containers and allow you to enter them again.
+>>>>>>> c1acc90d8120f54d08558598312434aa8d420cdd
