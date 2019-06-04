@@ -192,3 +192,16 @@ For reference, it is also possible to override the package by following these st
 . Override the currenty installed `podman` package (using the package you have downloaded on the first step) by: `rpm-ostree override replace podman-1.2.0-2.git3bd528e.fc30.x86_64.rpm`
 
 You can now reboot the system for the change to take effect.
+
+Unable to enter a toolbox due to permissions errors
+----------------------------------------------------
+https://github.com/containers/libpod/issues/3187
+
+With certain versions of `podman`, trying to enter a toolbox will result in
+errors. You can fix this by resetting the permissions on the overlay-containers
+with the following command.
+
+`sudo chown -R $USER ~/.local/share/containers/storage/overlay-containers`
+
+This will reset the permissions on your containers and allow you to enter them again.
+
