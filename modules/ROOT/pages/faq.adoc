@@ -29,8 +29,8 @@ What is Silverblue's relationship with Project Atomic?::
 
 [quanda]
 How can I install Eclipse on Silverblue?::
-    An experimental nightly build of Eclipse  
-    http://eclipse.matbooth.co.uk/[is available to download].
+    Instructions to setup the Nightly flatpak remote for Eclipse are available
+    http://eclipse.matbooth.co.uk/flatpak[here].
 
 How do I create a VPN connection?::
     `/etc` is not part of the immutable OS image, so you can just copy files 
