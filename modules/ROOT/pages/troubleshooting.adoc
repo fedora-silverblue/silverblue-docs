@@ -169,6 +169,8 @@ you have backed up any important data before using this workaround.
 `toolbox: failed to list images with com.redhat.component=fedora-toolbox`
 --------------------------------------------------------------------------
 
+IMPORTANT: As of `podman` version `1.4.0` this workaround is not necessary. Ensure `podman` is up to date by issuing `rpm-ostree upgrade` before attempting this workaround.
+
 When issuing the `toolbox list` command, systems using `podman` versions newer than `1.2.0`, will generate the following error:
 
 ----
@@ -192,6 +194,12 @@ For reference, it is also possible to override the package by following these st
 . Override the currenty installed `podman` package (using the package you have downloaded on the first step) by: `rpm-ostree override replace podman-1.2.0-2.git3bd528e.fc30.x86_64.rpm`
 
 You can now reboot the system for the change to take effect.
+
+To revert this workaround issue the following command:
+
+----
+rpm-ostree override reset podman; rpm-ostree override reset podman-manpages
+----
 
 Unable to enter a toolbox due to permissions errors
 ----------------------------------------------------
