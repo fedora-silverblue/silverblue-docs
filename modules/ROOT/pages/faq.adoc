@@ -42,7 +42,25 @@ How can I play more videos in Firefox, like YouTube?::
     Firefox is included in the OS image for now. Until that changes, getting it 
     to play videos works the same way as it does for the regular Fedora 
     Workstation: find a package with the needed codecs, and install it. The one 
-    difference is that you use `rpm-ostree install` instead of dnf `install.`
+    difference is that you use `rpm-ostree install` instead of `dnf install`.
     An alternative solution is to install the nightly Firefox, which is 
     available as a 
     https://firefox-flatpak.mojefedora.cz/org.mozilla.FirefoxNightly.flatpakref[Flatpak].
+
+How can I see what packages were updated between two commits?::
+
+* If you want to compare the booted deployment with the pending deployment (or rollback deployment), simply issue:
+
+ $ rpm-ostree db diff
++
+TIP: You can also see the RPM changelog by adding the `-c` option like so: `rpm-ostree db diff -c`
+
+* If you want to see which packages were updated between two specific commits:
+
+. find out which two commits you want to compare by issuing:
+ 
+ $ ostree log <ref>
+
+. you can now compare the two commits by issuing:
+
+ $ rpm-ostree db diff <commit x> <commit y>
