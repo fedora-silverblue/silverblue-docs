@@ -21,11 +21,11 @@ installed and used. However, toolbox can also be used on package-based systems.
 Using toolbox containers to install development tools offers a number of 
 advantages:
 
-- It keeps the host OS clean and stable, and helps to avoid the clutter that 
+* It keeps the host OS clean and stable, and helps to avoid the clutter that 
 can happen after installing lots of development tools and packages.
-- Containers are a safe space to experiment: if things go wrong, it's easy to 
+* Containers are a safe space to experiment: if things go wrong, it's easy to 
 throw a toolbox away and start again. 
-- Containers are a good way to isolate and organise the dependencies needed for 
+* Containers are a good way to isolate and organise the dependencies needed for 
 different projects.
 
 [[toolbox-how-it-works]]
@@ -39,9 +39,9 @@ make it easy for you to use them as an everyday development space.
 Each toolbox container is an environment that you can enter from the command 
 line. Inside each one, you will find:
 
-- Your existing username and permissions
-- Access to your home directory
-- Common command lines tools, including the DNF package manager
+* Your existing username and permissions
+* Access to your home directory
+* Common command lines tools, including the DNF package manager
 
 In other words, toolbox containers look, feel and behave like a standard Linux 
 command line environment.
@@ -59,7 +59,7 @@ itself; this makes it possible to use toolbox from inside toolbox containers.
 Toolbox is preinstalled on Fedora Silverblue 30 or newer. On older versions, it 
 can be installed with the following command:
 
-`$ rpm-ostree install toolbox`
+ $ rpm-ostree install toolbox
 
 This will install toolbox as a layered RPM.
 
@@ -68,25 +68,24 @@ This will install toolbox as a layered RPM.
 Toolbox can be installed on Fedora Workstation (or any package-based version of 
 Fedora) with the following command:
 
-`$ sudo dnf install toolbox`
+ $ sudo dnf install toolbox
 
 [[toolbox-first-toolbox]]
-## Your first toolbox
+== Your first toolbox
 
 Once toolbox is installed, two simple commands are required to get started:
 
-`$ toolbox create`
+ $ toolbox create
 
 This will download an OCI image and create a toolbox container from it. Once 
 this is complete, run:
 
-`$ toolbox enter`
+ $ toolbox enter
 
 Once inside the toolbox, you can access common command line tools, and install 
 new ones using DNF. 
 
-[NOTE]
-When the prompt is inside a toolbox, it is prepended with a diamond: 
+NOTE: When the prompt is inside a toolbox, it is prepended with a diamond: 
 this indicates that the prompt is inside a toolbox container.
 
 [[toolbox-commands]]
@@ -137,9 +136,9 @@ To return to the host environment, either run `exit` or quit the current shell
 
 Toolbox uses the following technologies:
 
- - https://buildah.io/[Buildah]
- - https://www.opencontainers.org/[OCI container images]
- - https://podman.io/[Podman]
+* https://buildah.io/[Buildah]
+* https://www.opencontainers.org/[OCI container images]
+* https://podman.io/[Podman]
 
 [[toolbox-contact]]
 == Contact and issues
