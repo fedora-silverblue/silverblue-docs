@@ -77,7 +77,7 @@ no longer indicate the policy is modified.
 If your policy still appears to be modified, you can try the following approach.
 +
 .  Remove the SELinux policy; copy in the default policy
-+ 
++
  $ sudo rm -rf /etc/selinux
  $ sudo cp -aT /usr/etc/selinux /etc/selinux
 +
@@ -184,3 +184,32 @@ with the following command.
  $ sudo chown -R $USER ~/.local/share/containers/storage/overlay-containers
 
 This will reset the permissions on your containers and allow you to enter them again.
+
+== Running `restorecon`
+
+WARNING: You should never run `restorecon` on a Silverblue host.  See the following
+bug for details - https://bugzilla.redhat.com/show_bug.cgi?id=1259018
+
+However, if you happened to do this, it is possible to recover.
+
+1.  Boot with `enforcing=0` on the kernel command line
+2.  Create a new, "fixed" commit locally
+3.  Deploy the new "fixed" commit
+4.  Run `restorecon`
+5.  Reboot
+6.  Cleanup
+
+ $ rpm-ostree status -b | grep BaseCommit
+                 BaseCommit: 696991d589980aeaef5eda352dd7ad3d33c444c789c209f793a84bc6e7269aee
+ $ sudo ostree checkout -H 696991d589980aeaef5eda352dd7ad3d33c444c789c209f793a84bc6e7269aee /ostree/repo/tmp/selinux-fix
+ $ sudo ostree fsck --delete
+ $ sudo ostree commit --consume --link-checkout-speedup --orphan --selinux-policy=/ /ostree/repo/tmp/selinux-fix
+ $ sudo restorecon -Rv /var
+ $ sudo restorecon -Rv /etc
+ $ sudo ostree admin deploy fedora-atomic:fedora/30/x86_64/silverblue
+ $ sudo reboot
+
+The caveat to this recovery is that your layered packages will be removed; you'll
+need to relayer them after the recovery.
+
+See this upstream comment for additional details - https://github.com/ostreedev/ostree/issues/1265#issuecomment-484557615
