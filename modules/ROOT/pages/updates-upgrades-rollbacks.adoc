@@ -20,13 +20,13 @@ reboot.
 If you'd prefer, it is also possible to update using the command line. To do 
 this, run:
 
-`$ rpm-ostree upgrade`
+ $ rpm-ostree upgrade
 
 This will check for new updates and download and install them if they are 
 available. Alternatively, to check for available updates without downloading 
 them, run:
 
-`$ rpm-ostree upgrade --check`
+ $ rpm-ostree upgrade --check
 
 [[upgrading]]
 == Upgrading between major versions
@@ -38,10 +38,8 @@ upgraded between major versions using the `ostree` command.
 For example, to upgrade from Fedora Silverblue 29 to Silverblue 30, the 
 commands are:
 
-....
-$ sudo ostree remote gpg-import fedora-workstation -k /etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-30-primary
-$ rpm-ostree rebase fedora-workstation:fedora/30/x86_64/silverblue
-....
+ $ sudo ostree remote gpg-import fedora-workstation -k /etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-30-primary
+ $ rpm-ostree rebase fedora-workstation:fedora/30/x86_64/silverblue
 
 The process is very similar to a system update: the new OS is downloaded and
 installed in the background, and you just boot into it when it is ready.
