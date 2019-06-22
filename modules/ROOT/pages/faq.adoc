@@ -64,3 +64,17 @@ TIP: You can also see the RPM changelog by adding the `-c` option like so: `rpm-
 . you can now compare the two commits by issuing:
 
  $ rpm-ostree db diff <commit x> <commit y>
+
+How can I check the version number of an installed package?::
+
+You can simply use:
+
+ $ rpm -q <package>
+
+How can I check if an `rpm` software package is available in the repository?::
+
+At this point in time, there is no `rpm` package search function built into `rpm-ostree`. However, you can use `toolbox` with the following command:
+
+ $ toolbox run dnf search <package>
++
+NOTE: The assumption is that you have already created a toolbox matching the version of your Fedora Silverblue installation.
