@@ -23,7 +23,7 @@ machine to the next, and it never changes as it is used.
 Silverblue's immutable design is intended to make it more stable, less prone to 
 bugs, and easier to test and develop. Finally, Silverblue's immutable design 
 also makes it an excellent platform for containerized apps as well as 
-container-based software development development. In each case, apps and 
+container-based software development. In each case, apps and 
 containers are kept separate from the host system, improving stability and 
 reliability.
 
