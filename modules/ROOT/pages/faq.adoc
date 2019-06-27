@@ -78,3 +78,16 @@ At this point in time, there is no `rpm` package search function built into `rpm
  $ toolbox run dnf search <package>
 +
 NOTE: The assumption is that you have already created a toolbox matching the version of your Fedora Silverblue installation.
+
+How can I downgrade my system's kernel?::
+
+If, for whatever reason, you need to downgrade the kernel, you can do so by following these steps:
+
+. For the version you need to downgrade, download `<kernel>`, `<kernel-core>`, `<kernel-modules>` and `<kernel-modules-extra>` from https://koji.fedoraproject.org/koji/packageinfo?packageID=8[Koji].
+
+. Install the packages downloaded on the previous step by issuing:
+
+ $ rpm-ostree override replace <kernel> <kernel-core> <kernel-modules> <kernel-modules-extra>
+
+. Reboot the system to apply the changes.
+
