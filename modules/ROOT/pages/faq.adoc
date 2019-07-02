@@ -47,6 +47,18 @@ How can I play more videos in Firefox, like YouTube?::
     available as a 
     https://firefox-flatpak.mojefedora.cz/org.mozilla.FirefoxNightly.flatpakref[Flatpak].
 
+How can I use Adobe Flash on the Firefox version pre installed on my system?::
+
+You can follow this https://docs.fedoraproject.org/en-US/quick-docs/using-adobe-flash/[Fedora quickdoc] with the following changes:
+
+. where needed, substitute the `dnf install` command with the `rpm-ostree install` command
+
+. reboot the system after the installation of the Adobe DNF repository
+
+. install only `flash-plugin` as `libcurl` and `alsa-plugins-pulseaudio` are installed by default on Fedora Silverblue
+
+. reboot the system after having installed `flash-plugin`
+
 How can I see what packages were updated between two commits?::
 
 * If you want to compare the booted deployment with the pending deployment (or rollback deployment), simply issue:
