@@ -98,7 +98,7 @@ can add themselves to the group.  For example, if you wanted to add a user
 to the `libvirt` group:
 
  # grep -E '^libvirt:' /usr/lib/group >> /etc/group
- # usermod -a G libvirt username
+ # usermod -aG libvirt username
 
 == `ostree fsck` reports file corruption
 
