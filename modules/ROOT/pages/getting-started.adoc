@@ -54,7 +54,7 @@ Flathub repository, click on the “Install” button (2).
 image::sfg_flathub_install.png[title="Flathub install window"]
 
 After the repository installation process is complete, the window will be 
-updated to show a “Remove` button in place of the “Install” button.
+updated to show a “Remove" button in place of the “Install” button.
 
 === Installing Flatpak apps from Flathub
 
@@ -62,20 +62,20 @@ Once the Flathub repository has been setup, it can be used to install Flatpak
 apps. This can be done directly from the Software app, or apps can be browsed 
 on the https://flathub.org/home[Flathub website].
 
-If you choose to install apps from the Flathub website, clicking install will 
+If you choose to install apps from the Flathub website, clicking "Install" will 
 download a file which will be opened by the Software app, which can then be 
-used to install the app. For example, to install LibreOffice, you first 
+used to install the app. For example, to install https://www.libreoffice.org/[LibreOffice], you first 
 search for and open the LibreOffice page, and then press the “Install” button 
-(1). 
+(2). 
 
 After clicking the “Install” button, a download information window will be 
-shown. Verify the correct Flatpak is being downloaded and then click on the 
+shown. Verify the correct Flatpak has been downloaded and then click on the 
 “OK” button to begin installing the LibreOffice application.
 
 image::sfg_libreoffice_install.png[title="LibreOffice Flatpak download"]
 
 Once the Flatpak is downloaded, the Software application will open a new
-window with an “Install” button (1). lick this button to begin installation.
+window with an “Install” button (2). Click this button to begin installation.
 
 === Flatpak command line
 
@@ -100,7 +100,8 @@ Most (but not all) RPM packages provided by Fedora can be installed on Silverblu
 using this method.
 
 Currently, using package layering creates a new "deployment", or bootable filesystem
-root.  It does not affect your current root.  This preserves rollback and the transactional model, but means system must be rebooted after a package has been layered.
+root.  It does not affect your current root.  This preserves rollback and the transactional model, 
+but means that the system must be rebooted after a package has been layered.
 Eventually this limitation may be lifted, but it's generally expected that you use package
 layering sparingly, and use `flatpak` and `dnf install` inside a `toolbox` etc.
 
@@ -124,7 +125,7 @@ as new versions are released and as the base operating system is updated.
 
 === Replacing packages
 
-In some scenarios, you may want to e.g. test out a new version of `podman` or
+In some scenarios, you may want to test out a new version of `podman` or
 `kernel` or other packages that live on the host.  The `rpm-ostree override` command can be used to replace a package with a different version.  Currently you must download the RPM packages locally, and then run:
 
  $ rpm-ostree override replace <path to package>
