@@ -8,7 +8,7 @@ goes wrong.
 [[updating]]
 == Updating Silverblue
 
-OS updates in Silverblue are fully integrated into the desktop: you will be 
+OS updates in Silverblue are fully integrated into the desktop; you will be 
 automatically notified when an update is available. The standard behavior is 
 to automatically download the update (this can be changed from the 
 update preferences in Software).
