@@ -16,6 +16,22 @@ If you are a developer, you can contribute to one of the several projects which 
 
 Your contributions towards the main https://fedoraproject.org/wiki/Join[Fedora] project are also very welcome.
 
+[[creating-flatpaks]]
+== Creating Flatpaks
+
+Your favourite application is not in the default repository and won't probably be added? You can do it yourself! Go through our tutorial for creating flatpaks from rpm packages:
+
+* https://docs.fedoraproject.org/en-US/flatpak/tutorial/[RPM to Flatpak tutorial]
+
+To become an official packager you need to go through several steps to gain all required permissions to use the Fedora infrastrucutre (Pagure, Koji, Bodhi). There is a detailed https://fedoraproject.org/wiki/Join_the_package_collection_maintainers[wiki page] about becoming a packager.
+
+Other useful links:
+
+* https://pagure.io[Pagure]
+* https://src.fedoraproject.org[Package Sources]
+* https://koji.fedoraproject.org/koji/[Koji]
+* https://bodhi.fedoraproject.org/[Bodhi]
+
 [[writing-documentation]]
 == Writing Documentation
 
