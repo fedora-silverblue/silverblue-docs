@@ -38,8 +38,10 @@ upgraded between major versions using the `ostree` command.
 For example, to upgrade from Fedora Silverblue 29 to Silverblue 30, the 
 commands are:
 
- $ sudo ostree remote gpg-import fedora-workstation -k /etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-30-primary
- $ rpm-ostree rebase fedora-workstation:fedora/30/x86_64/silverblue
+NOTE: Currently, the default remote for Silverblue 30 is named `fedora`. If this is not the case for your system, you can find out the remote name by issuing: `ostree remote list`.
+
+ $ sudo ostree remote gpg-import fedora -k /etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-30-primary
+ $ rpm-ostree rebase fedora:fedora/30/x86_64/silverblue
 
 The process is very similar to a system update: the new OS is downloaded and
 installed in the background, and you just boot into it when it is ready.
