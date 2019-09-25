@@ -13,9 +13,9 @@ Why does the Silverblue logo look like a leaf?::
     not work out. We just couldn't quite let go of the leaf. You could also say 
     that Silverblue is a new new leaf on Fedora's OSTree. 😀
 
-Is Silverbue another GNOME OS?::
+Is Silverblue another GNOME OS?::
     GNOME OS was a codename that was used by the upstream GNOME project for a 
-    while to refer to the idea of designing the entire deskotp user experience. 
+    while to refer to the idea of designing the entire desktop user experience. 
     By contrast, Silverblue is an effort inside the Fedora project, and will be 
     built with existing Fedora technologies. However, the two efforts do share 
     a desire to deliver a user experience that is polished and coherent.
