@@ -37,7 +37,7 @@ whenever you update the base OS image.
 On Silverblue, the root filesystem is immutable. This means that `/`, `/usr` 
 and everything below it is read-only.
 
-`/var` is where all of Silverblue's runtime state is store. Symlinks are used 
+`/var` is where all of Silverblue's runtime state is stored. Symlinks are used 
 to make traditional state-carrying directors available in their expected 
 locations. This includes:
 
