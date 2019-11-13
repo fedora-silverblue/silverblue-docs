@@ -144,7 +144,7 @@ Toolbox uses the following technologies:
 == Contact and issues
 
 To report issues, make suggestions, or contribute fixes, see 
-https://github.com/debarshiray/toolbox[toolbox's GitHub project].
+https://github.com/containers/toolbox[toolbox's GitHub project].
 
 To get in touch with toolbox users and developers, use 
 https://discussion.fedoraproject.org/[Fedora's Discourse 
