@@ -1,0 +1,101 @@
+[[rpm-ostree]]
+= rpm-ostree
+
+One of main features of Silverblue is hybrid image/package system rpm-ostree,
+which uses https://ostree.readthedocs.io/en/latest/[libOSTree] as base image format.
+It also accepts RPM Package Manager on both client side and server site,
+it shares parts of code with libdnf.
+
+[[rpm-ostree-features]]
+== Features
+
+Instead of live package installation we are used to from many other package managers,
+OSTree replicates a complete filesystem into a new deployment (available after next reboot)
+One of main benefits of this is than user can always rollback into the older version. This way
+different deployments layer and override each other.
+
+[[rpm-ostree-how-it-works]]
+== How it works
+
+To make new deployment of a OS you have to simply install a https://docs.fedoraproject.org/en-US/fedora-silverblue/toolbox/[toolbox container],
+package or some flatpack.
+
+$ rpm-ostree install PACKAGE
+
+After the installation, we have to use command to reboot system to start using the new deployment.
+
+$ systemctl reboot
+
+This will boot you into the altered system.
+
+[[rpm-ostree-commands]]
+== Commands and usage
+
+Almost every command can be used with `--help` or `-h` option, to show information about
+said command.
+
+`rpm-ostree db`::
+
+Shows information about commits made in RPM, it has three sub commands
+`diff` Show package changes between two commits
+`list` List packages within commits 
+`version` Show rpmbd version of packages within commits
+
+`rpm-ostree deploy`::
+
+Deploys specific commit (be it version, commit ID or branch) and creates new deployment
+using it. You must reboot for changes to take effect. Can be used with `--reboot` or `-r` option,
+to automatically reboot after deployment is ready.
+
+`rpm-ostree install PACKAGE`::
+
+It takes one or more `PACKAGE` names as arguments, packages are then fetched from their yum location
+and overlaid on the top of a new deployment.
+can be used with `--reboot` or `-r` option, to automaticaly reboot after packages were installed.
+Packages can be later removed with `rpm-ostree uninstall` command
+
+`rpm-ostree rebase`::
+
+Switch to a different branch 
+
+`rpm-ostree rollback`::
+
+Revert to previously booted tree, needs a reboot to take effect,
+can be used with `--reboot` or `-r` option, to reboot automatically
+
+`rpm-ostree status`::
+
+Get the version of booted system
+
+`rpm-ostree upgrade`::
+
+Performs a system update, can be used with `--reboot` or `-r` option, to automatically
+reboot to the updated OS
+
+`rpm-ostree kargs [option]`::
+
+used for Query or modifying of kernel arguments. This will also deploy a new deployment
+with new kernel arguments, but previous deployments aren't changed.
+user can modify them using one of these options:
+`--append=KEY=VALUE`:: append an argument `VALUE` to the `KEY` 
+`--replace=KEY=VALUE`:: replace value stored in `KEY` with new `VALUE`
+`--delete=KEY`:: deletes value stored in `KEY`
+`--editor`:: Opens text editor 
+
+[[rpm-ostree-under-the-hood]]
+== Under the hood
+rpm-ostree uses the following technologies:
+
+* https://github.com/rpm-software-management/libdnf/tree/master/libdnf[libdnf]
+* https://ostree.readthedocs.io/en/latest/[libostree]
+
+[[rpm-ostree-contact]]
+== Contacts and issues
+
+To report issues, make suggestions, or contribute fixes, see 
+https://github.com/coreos/rpm-ostree[rpm-ostree's GitHub project].
+
+To get in touch with toolbox users and developers, use 
+https://discussion.fedoraproject.org/[Fedora's Discourse 
+instance], or join the #silverblue IRC 
+channel on Freenode.
