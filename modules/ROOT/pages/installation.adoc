@@ -27,13 +27,12 @@ or booted from a flash drive using Fedora Media Writer.
 [[known-limitations]]
 == Known limitations
 
-*Silverblue does not provide a fully functional experience for dual booting or 
-manual partitioning, including separate home partitions.*
+*Silverblue does not provide a fully functional experience for manual partitioning, including separate home partitions.*
 
-It is possible to make Silverblue work for both dual boot and manual 
-partitioning, and some guidance is provided on manual partitioning below. 
-However, there are hazards involved in both cases, and you should only attempt 
-to use these features if you have done the necessary research, and are 
+It is possible to make Silverblue work for manual 
+partitioning, and some guidance is provided below. 
+However, there are hazards involved, and you should only attempt 
+to use this feature if you have done the necessary research, and are 
 confident that you can overcome any issues that you might encounter.
 
 [[getting-silverblue]]
