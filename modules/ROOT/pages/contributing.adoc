@@ -23,7 +23,7 @@ Your favourite application is not in the default repository and won't probably b
 
 * https://docs.fedoraproject.org/en-US/flatpak/tutorial/[RPM to Flatpak tutorial]
 
-To become an official packager you need to go through several steps to gain all required permissions to use the Fedora infrastrucutre (Pagure, Koji, Bodhi). There is a detailed https://fedoraproject.org/wiki/Join_the_package_collection_maintainers[wiki page] about becoming a packager.
+To become an official packager you need to go through several steps to gain all required permissions to use the Fedora infrastructure (Pagure, Koji, Bodhi). There is a detailed https://fedoraproject.org/wiki/Join_the_package_collection_maintainers[wiki page] about becoming a packager.
 
 Other useful links:
 
@@ -35,7 +35,7 @@ Other useful links:
 [[writing-documentation]]
 == Writing Documentation
 
-Creating or modifing documentation is easy. Head over to our https://github.com/fedora-silverblue/silverblue-docs[documentation] GitHub repository, fork it and create a pull request.
+Creating or modifying documentation is easy. Head over to our https://github.com/fedora-silverblue/silverblue-docs[documentation] GitHub repository, fork it and create a pull request.
 
 If you are not comfortable with using git, create a new topic in our https://discussion.fedoraproject.org/c/desktop/silverblue[community] or log an https://github.com/fedora-silverblue/silverblue-docs/issues[issue] describing what need to be changed.
 

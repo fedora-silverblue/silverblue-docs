@@ -59,7 +59,7 @@ There are two ways to roll back to the previous version:
 . Temporary rollbacks: to temporarily roll back to a previous version, simply 
 reboot and select the previous version from the boot menu (often known as the 
 grub menu).
-. Permanant rollbacks: to permanently switch back to the previous deployment, 
+. Permanent rollbacks: to permanently switch back to the previous deployment,
 use the `rpm-ostree rollback` command.
 
 After rolling back, you will technically be on an old OS version, and may be 
