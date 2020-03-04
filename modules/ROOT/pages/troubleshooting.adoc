@@ -1,7 +1,7 @@
 = Troubleshooting
 
 Silverblue is a radically new way of deploying and managing your
-desktop operating system, so you may ocassionally run into problems
+desktop operating system, so you may occasionally run into problems
 while going through your day to day.  Below are some of the more
 common problems reported and any workarounds for those problems.
 
@@ -138,7 +138,7 @@ is often observed looks like:
 
 A couple of possible workarounds exist:
 
-* During the install process, select "Custom Partitioning" and create an additional EFI partition. Assign the newly created EFI partition to `/boot/efi`. You will then be able to boot the previous OS(s) alongside Fedora Silverblue. If this workaround is not successfull follow the below step.
+* During the install process, select "Custom Partitioning" and create an additional EFI partition. Assign the newly created EFI partition to `/boot/efi`. You will then be able to boot the previous OS(s) alongside Fedora Silverblue. If this workaround is not successful follow the below step.
 * Reformat the EFI partition on the host during the install process. This can be done by selecting "Custom Partitioning" and checking the `Reformat` box when creating the `/boot/efi` partition.
 
 WARNING: Choosing to reformat `/boot/efi` will likely result in the inability
@@ -165,7 +165,7 @@ For reference, it is also possible to override the package by following these st
 
 . Download `podman-1.2.0-2.git3bd528e.fc30.x86_64.rpm` from https://kojipkgs.fedoraproject.org//packages/podman/1.2.0/2.git3bd528e.fc30/x86_64/podman-1.2.0-2.git3bd528e.fc30.x86_64.rpm[Koji]
 . Remove `podman-manpages` issuing: `rpm-ostree override remove podman-manpages`
-. Override the currenty installed `podman` package (using the package you have downloaded on the first step) by: `rpm-ostree override replace podman-1.2.0-2.git3bd528e.fc30.x86_64.rpm`
+. Override the currently installed `podman` package (using the package you have downloaded on the first step) by: `rpm-ostree override replace podman-1.2.0-2.git3bd528e.fc30.x86_64.rpm`
 
 You can now reboot the system for the change to take effect.
 
