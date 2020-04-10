@@ -38,7 +38,7 @@ On Silverblue, the root filesystem is immutable. This means that `/`, `/usr`
 and everything below it is read-only.
 
 `/var` is where all of Silverblue's runtime state is stored. Symlinks are used 
-to make traditional state-carrying directors available in their expected 
+to make traditional state-carrying directories available in their expected 
 locations. This includes:
 
 * `/home` → `/var/home`
