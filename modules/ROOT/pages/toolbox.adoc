@@ -22,11 +22,11 @@ Using toolbox containers to install development tools offers a number of
 advantages:
 
 * It keeps the host OS clean and stable, and helps to avoid the clutter that 
-can happen after installing lots of development tools and packages.
+  can happen after installing lots of development tools and packages.
 * Containers are a safe space to experiment: if things go wrong, it's easy to 
-throw a toolbox away and start again. 
+  throw a toolbox away and start again.
 * Containers are a good way to isolate and organise the dependencies needed for 
-different projects.
+  different projects.
 
 [[toolbox-how-it-works]]
 == How it works
