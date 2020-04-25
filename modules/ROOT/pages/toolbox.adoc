@@ -5,7 +5,7 @@ As an immutable host, Silverblue is an excellent platform for container-based
 development and, for working with containers, https://buildah.io/[buildah] and 
 https://podman.io/[podman] are recommended.
 
-Silverblue also comes with the _toolbox_ utility, which uses containers to 
+Silverblue also comes with the https://github.com/containers/toolbox[toolbox] utility, which uses containers to 
 provide an environment where development tools and libraries can be installed 
 and used.
 
@@ -48,8 +48,9 @@ command line environment.
 
 In most cases, when a command is run inside a container, the program from 
 inside the container is used. However, there are a few special cases where the 
-program on the host is used instead. One example of this is the toolbox command 
-itself; this makes it possible to use toolbox from inside toolbox containers.
+program on the host is used instead (using `flatpak-spawn`). One example of
+this is the toolbox command itself; this makes it possible to use toolbox from
+inside toolbox containers.
 
 [[toolbox-installation]]
 == Installation
@@ -86,7 +87,8 @@ Once inside the toolbox, you can access common command line tools, and install
 new ones using DNF. 
 
 NOTE: When the prompt is inside a toolbox, it is prepended with a diamond: 
-this indicates that the prompt is inside a toolbox container.
+this indicates that the prompt is inside a toolbox container. The diamond
+symbol may not be present if you use a custom shell theme.
 
 [[toolbox-commands]]
 == Commands and usage
@@ -105,12 +107,15 @@ Enters a toolbox for interactive use. Used without options, `toolbox enter`
 opens the default toolbox. If there is more than one toolbox, use the 
 `--container name` option to specify the toolbox to enter.
 
+`toolbox run [--container <name>] <cmd> <arg ...>`::
+
+Runs a command in a toolbox without entering it. Used without options, `toolbox
+run` runs the command in the default toolbox. If there is more than one toolbox,
+use the `--container name` option to specify the toolbox to be used.
+
 `toolbox list`::
 
-Lists local toolbox images and containers. Note: it is typical to see two 
-images listed, one with a `localhost` prefix and one with a 
-`registry.fedoraproject.org` prefix. These are a normal result of the toolbox 
-creation process.
+Lists local toolbox images and containers.
 
 `toolbox rm [--force] <name>`::
 
@@ -136,7 +141,6 @@ To return to the host environment, either run `exit` or quit the current shell
 
 Toolbox uses the following technologies:
 
-* https://buildah.io/[Buildah]
 * https://www.opencontainers.org/[OCI container images]
 * https://podman.io/[Podman]
 
