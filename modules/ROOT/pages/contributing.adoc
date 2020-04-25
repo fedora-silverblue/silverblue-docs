@@ -11,7 +11,7 @@ If you are a developer, you can contribute to one of the several projects which 
 * https://github.com/projectatomic/rpm-ostree[rpm-ostree]
 * https://github.com/flatpak/flatpak[flatpak]
 * https://github.com/ostreedev/ostree[ostree]
-* https://github.com/debarshiray/toolbox[toolbox]
+* https://github.com/containers/toolbox[toolbox]
 * https://github.com/containers/libpod[podman]
 
 Your contributions towards the main https://fedoraproject.org/wiki/Join[Fedora] project are also very welcome.
