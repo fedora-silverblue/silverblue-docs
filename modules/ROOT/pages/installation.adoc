@@ -28,7 +28,7 @@ or booted from a flash drive using Fedora Media Writer.
 == Known limitations
 
 *Silverblue does not provide a fully functional experience for dual booting or 
-manual partitioning, including separate home partitions.*
+manual partitioning.*
 
 It is possible to make Silverblue work for both dual boot and manual 
 partitioning, and some guidance is provided on manual partitioning below. 
@@ -53,7 +53,7 @@ manner. We hope that you love it!
 As described above, there are known issues with manual partitioning on 
 Silverblue, and it should be used with caution. The following notes are 
 intended as hints for those attempting it, and should not be treated as 
-recommended practice.
+recommended practice. Automatic partitioning is recommended.
 
 With Silverblue, only certain mounts can be manually specified as 
 partitions. These include:
@@ -75,6 +75,6 @@ image::faw-manual-partition-complete.png[title="Partitioning Complete"]
 The above screenshot shows a typical configuration with manual partitioning, 
 with partitions for `/boot`, `/`, `swap` and `/var/home`.
 
-Manual partitioning on Silverblue can be done with 
+Manual partitioning on Silverblue can be done with `Btrfs`,
 https://en.wikipedia.org/wiki/Logical_Volume_Manager_%28Linux%29[LVM], as well 
 as standard partitions or an `xfs` filesystem.  
