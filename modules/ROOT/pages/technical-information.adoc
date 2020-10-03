@@ -34,10 +34,23 @@ whenever you update the base OS image.
 [[filesystem-layout]]
 == Silverblue filesystem layout
 
-On Silverblue, the root filesystem is immutable. This means that `/`, `/usr` 
-and everything below it is read-only.
+On Silverblue, the root filesystem is immutable. This means that the following 
+system directories and everything below them are read-only:
 
-`/var` is where all of Silverblue's runtime state is stored. Symlinks are used 
+* `/`
+* `/usr`
+
+On the otherhand, the following system directories are writable using the live filesystem:
+
+* `/boot`
+* `/dev`
+* `/etc`
+* `/run`
+* `/sysroot`
+* `/tmp`
+* `/var`
+
+`/var` is where the majority of Silverblue's runtime state is stored. Symlinks are used 
 to make traditional state-carrying directories available in their expected 
 locations. This includes:
 
