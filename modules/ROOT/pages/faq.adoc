@@ -11,7 +11,7 @@ Is it Team Silverblue, Silverblue, or Fedora Silverblue?::
 Why does the Silverblue logo look like a leaf?::
     Our favorite choice for a project name was Silverleaf, but that sadly did 
     not work out. We just couldn't quite let go of the leaf. You could also say 
-    that Silverblue is a new new leaf on Fedora's OSTree. 😀
+    that Silverblue is a new leaf on Fedora's OSTree. 😀
 
 Is Silverblue another GNOME OS?::
     GNOME OS was a codename that was used by the upstream GNOME project for a 
