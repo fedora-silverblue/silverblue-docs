@@ -31,17 +31,20 @@ them, run:
 [[upgrading]]
 == Upgrading between major versions
 
-Upgrading between major versions (such as from Fedora 30 to Fedora 31) is not 
-fully integrated into Silverblue at this time. However, Silverblue can be 
+Upgrading between major versions (such as from Fedora 32 to Fedora 33) can  
+be completed using the Software application. Alternatively, Silverblue can be 
 upgraded between major versions using the `ostree` command.
 
-For example, to upgrade to Silverblue 32, the 
-commands are:
+First, verify the branch is available. You can print all available branches with this command:
 
-NOTE: Currently, the default remote for Silverblue 32 is named `fedora`. If this is not the case for your system, you can find out the remote name by issuing: `ostree remote list`.
+ $ ostree remote refs fedora
 
- $ sudo ostree remote gpg-import fedora -k /etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-32-primary
- $ rpm-ostree rebase fedora:fedora/32/x86_64/silverblue
+After you verify the name of your branch, you are ready to proceed. For example, to upgrade to Silverblue 33, the 
+command is:
+
+NOTE: Currently, the default remote for Silverblue 33 is named `fedora`. If this is not the case for your system, you can find out the remote name by issuing: `ostree remote list`.
+
+ $ rpm-ostree rebase fedora:fedora/33/x86_64/silverblue
 
 The process is very similar to a system update: the new OS is downloaded and
 installed in the background, and you just boot into it when it is ready.
