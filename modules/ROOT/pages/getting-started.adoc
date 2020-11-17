@@ -134,4 +134,4 @@ You may also use `override remove` to effectively "hide" packages; they will sti
 
 Removing and replacing packages using package layering is not generally 
 recommended. For more information, see the 
-https://rpm-ostree.readthedocs.io/en/latest/manual/administrator-handbook/[rpm-ostree documentation].
+https://coreos.github.io/rpm-ostree/administrator-handbook/[rpm-ostree documentation].

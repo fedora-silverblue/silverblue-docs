@@ -12,7 +12,7 @@ in a non-standard manner.
 [[ostree-rpm-ostree]]
 == ostree and rpm-ostree
 
-https://ostree.readthedocs.io/en/latest/[ostree] is the core technology that is 
+https://ostreedev.github.io/ostree/[ostree] is the core technology that is 
 used to compose, deploy and update Silverblue. ostree operates in a similar 
 manner to a version control system, but it operates on entire filesystem trees. 
 It is often described as “Git for operating system binaries”.
@@ -21,7 +21,7 @@ For Silverblue installs, ostree is responsible for deploying and updating the OS
 image (including everything below `/` that is not symlinked into `/var`). It 
 also updates `grub.cfg` entries to point to the current image.
 
-https://rpm-ostree.readthedocs.io/en/latest/[rpm-ostree] builds on top of 
+https://coreos.github.io/rpm-ostree/[rpm-ostree] builds on top of 
 ostree, and makes it possible to install RPMs as a “layer” on top of an ostree 
 image. This makes it possible to install RPMs on Silverblue.
 
