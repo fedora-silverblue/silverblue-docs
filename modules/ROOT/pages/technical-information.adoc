@@ -53,5 +53,5 @@ This means that separate home partitions should be mounted on `/var/home`.
 
 For a more detailed explanation of Silverblue's filesystem layout, refer to the 
 excellent 
-https://ostree.readthedocs.io/en/latest/manual/adapting-existing/[libostree 
+https://ostreedev.github.io/ostree/adapting-existing/[libostree 
 documentation].
