@@ -39,14 +39,19 @@ How do I create a VPN connection?::
     need to be handled similarly.
 
 How can I play more videos in Firefox, like YouTube?::
-    Firefox is included in the OS image for now. Until that changes, getting it 
-    to play videos works the same way as it does for the regular Fedora 
-    Workstation: find a package with the needed codecs, and install it. The one 
-    difference is that you use `rpm-ostree install` instead of `dnf install`.
-    An alternative solution is to install the nightly Firefox, which is 
-    available as a 
-    https://firefox-flatpak.mojefedora.cz/org.mozilla.FirefoxNightly.flatpakref[Flatpak].
+    Firefox is included in the OS image for now. Until that changes, you can 
+    install the Firefox https://flathub.org/apps/details/org.mozilla.firefox[Flatpak]. 
+    Then simply run `rpm-ostree override remove firefox` to remove the RPM version from the base image.
+    Alternatively, getting it to play videos works the same way as it does for the regular 
+    Fedora Workstation: find a package with the needed codecs, and install it. The one 
+    difference is that you use 
+    `rpm-ostree install` instead of `dnf install`. 
+    However, this will overlay quite a few packages that could be otherwise avoided.
++
+TIP: The popular https://www.chromium.org/[Chromium] is also available as a https://flathub.org/apps/details/org.chromium.Chromium[Flatpak]
 
+//To my knowledge Flash is EOL. Should we still include this portion of the guide considering that?
+////
 How can I use Adobe Flash on the Firefox version pre installed on my system?::
 
 You can follow this https://docs.fedoraproject.org/en-US/quick-docs/using-adobe-flash/[Fedora quickdoc] with the following changes:
@@ -58,7 +63,7 @@ You can follow this https://docs.fedoraproject.org/en-US/quick-docs/using-adobe-
 . install only `flash-plugin` as `libcurl` and `alsa-plugins-pulseaudio` are installed by default on Fedora Silverblue
 
 . reboot the system after having installed `flash-plugin`
-
+////
 How can I see what packages were updated between two commits?::
 
 * If you want to compare the booted deployment with the pending deployment (or rollback deployment), simply issue:
