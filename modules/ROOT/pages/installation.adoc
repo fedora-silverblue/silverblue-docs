@@ -84,8 +84,8 @@ as standard partitions or an `xfs` filesystem.
 
 Some users will want to install Silverblue alongside other operating systems -- including or *NIX flavours. For them we provide a minimal, functional partition scheme, consisting of:
 
-1. `/boot/efi` on a (physical) partition -- typically the active ESP partition shared among bootloaders
-2. `/boot` on a (physical) partition, freshly created for the installation, preferably formatted to `btrfs`
-3. `/` -- root -- as a preferably `btrfs` (physical) partition within a freshly created LVM2 volume group.
+1. `/boot/efi` on a physical partition -- typically the active ESP partition shared among bootloaders
+2. `/boot` on a physical, freshly created partition, preferably formatted to `btrfs`
+3. `/` -- root -- as preferably `btrfs`-formatted physicial partition within a freshly created LVM2 volume group.
 
-To reproduce the scheme from Anaconda (the installer), simply set the preexistent ESP partition to mount as `/boot/efi` (1), and see to it that (2) and (3) are created and set as above.
+To reproduce the scheme from Anaconda (the installer), simply set the preexistent ESP partition to mount as `/boot/efi` (1) and see to it that (2) and (3) are created and set as above.
