@@ -105,7 +105,8 @@ symbol may not be present if you use a custom shell theme.
 [[toolbox-commands]]
 == Commands and usage
 
-`toolbox create [options] <name>`:
+[[toolbox-create]]
+=== toolbox create [options] <name>
 
 Creates a toolbox container. This will download an OCI image if one isn't 
 available (this is required to create the container). By default an image
@@ -122,8 +123,9 @@ To use a different distribution to create a toolbox container (e.g., RHEL on
 Fedora, use the `--distro <distro> | -d <distro>` option.
 
 To use a different image, use the ``--image <name> | -i <name>`` option.
-  
-`toolbox enter [options] <name>`::
+
+[[toolbox-enter]]
+=== toolbox enter [options] <name>
 
 Enters a toolbox for interactive use. Used without options, `toolbox enter` 
 opens the default toolbox.
@@ -136,7 +138,8 @@ To enter a toolbox for a different distribution (e.g., Fedora on RHEL), use the
 To enter a toolbox with specific version (e.g., RHEL 8.1 on RHEL 8.3), use the
 `--release <release> | -r <release>` option.
 
-`toolbox run [options] <cmd> <arg ...>`::
+[[toolbox-run]]
+=== toolbox run [options] <cmd> <arg ...>
 
 Runs a command in a toolbox without entering it. Used without options, `toolbox
 run` runs the command in the default toolbox.
@@ -150,7 +153,8 @@ RHEL), use the `--distro <distro> |-d <distro>` option.
 To run a command in a toolbox with specific version (e.g., RHEL 8.1 on RHEL
 8.3), use the `--release <release> | -r <release>` option.
 
-`toolbox list [options]`::
+[[toolbox-list]]
+=== toolbox list [options]
 
 Lists local toolbox images and containers.
 
@@ -158,7 +162,8 @@ To only show containers, use the `[--containers | -c]` option.
 
 To only show images, use the `--images | -i]` option.
 
-`toolbox rm [options] <name ...>`::
+[[toolbox-rm]]
+=== toolbox rm [options] <name ...>
 
 Removes one or more toolbox containers.
 
@@ -167,7 +172,8 @@ running.
 
 The `--all | -a` option removes all toolbox containers.
 
-`toolbox rmi [options] <name ...>`::
+[[toolbox-rmi]]
+=== toolbox rmi [options] <name ...>
 
 Removes one or more toolbox images.
 
@@ -176,15 +182,16 @@ have been created using the marked images.
 
 The `-all | -a` option removes all toolbox images.
 
-`toolbox --help`::
+[[toolbox-help]]
+=== toolbox --help
 
 Shows Toolbox's manual page.
 
+[[toolbox-exiting]]
 === Exiting a toolbox
 
 To return to the host environment, either run `exit` or quit the current shell 
 (typically Ctrl+D).
-
 
 [[toolbox-under-the-hood]]
 == Under the hood
