@@ -1,53 +1,65 @@
 [[toolbox]]
 = Toolbox
 
-As an immutable host, Silverblue is an excellent platform for container-based 
-development and, for working with containers, https://buildah.io/[buildah] and 
+As an immutable host, Silverblue is an excellent platform for container-based
+development and, for working with containers, https://buildah.io/[buildah] and
 https://podman.io/[podman] are recommended.
 
-Silverblue also comes with the https://github.com/containers/toolbox[toolbox] utility, which uses containers to 
-provide an environment where development tools and libraries can be installed 
-and used.
-
-Toolbox makes it easy to use a containerized environment for everyday software 
-development and debugging. On immutable operating systems, like
-https://silverblue.fedoraproject.org/[Fedora Silverblue], it  provides a 
-familiar package-based environment in which tools and libraries can be 
-installed and used. However, toolbox can also be used on package-based systems.
+Silverblue also comes with the https://github.com/containers/toolbox[toolbox]
+utility, which uses containers to provide an environment where development
+tools and libraries can be installed and used.
 
 [[toolbox-why-use]]
 == Why use toolbox?
 
-Using toolbox containers to install development tools offers a number of 
-advantages:
+Toolbox makes it easy to use a containerized environment for everyday software
+development and debugging. On immutable operating systems, like
+https://silverblue.fedoraproject.org/[Fedora Silverblue], it provides a
+familiar package-based environment in which tools and libraries can be
+installed and used. However, toolbox can also be used on package-based systems.
 
-* It keeps the host OS clean and stable, and helps to avoid the clutter that 
+Using Toolbox for running your workflows in a containerized manner brings you
+several advantages:
+
+* It keeps the host OS clean and stable, and helps to avoid the clutter that
   can happen after installing lots of development tools and packages.
-* Containers are a safe space to experiment: if things go wrong, it's easy to 
-  throw a toolbox away and start again.
-* Containers are a good way to isolate and organise the dependencies needed for 
+* You get access to different versions of supported distributions independent
+  of the version you are running.
+* Containers are a good way to isolate and organise the dependencies needed for
   different projects.
+* Containers are a safe space to experiment: if things go wrong, it's easy to
+  throw a toolbox away and start again.
 
 [[toolbox-how-it-works]]
 == How it works
 
-Toolbox takes the work out of using containers, by providing a small number of 
-simple commands to  create, enter, list and remove containers. It also 
-integrates toolbox containers into your regular working environment, to 
+Toolbox takes the work out of using containers, by providing a small number of
+simple commands to create, enter, list and remove containers. It also
+integrates toolbox containers into your regular working environment, to
 make it easy for you to use them as an everyday development space.
+
+Containers are created from images and those are usually a very stripped down
+version of distributions. In such images there are almost no tools and
+documentation available. The team behind Toolbox maintains a Fedora image where
+such tools and documentation are available, providing with a good out of the
+box experience.
 
 Each toolbox container is an environment that you can enter from the command 
 line. Inside each one, you will find:
 
 * Your existing username and permissions
-* Access to your home directory
-* Common command lines tools, including the DNF package manager
+* Access to your home directory and several other locations
+* Access to both system and session D-Bus, system journal and Kerberos 
+* Common command lines tools, including a package manager (e.g., DNF on Fedora)
 
-In other words, toolbox containers look, feel and behave like a standard Linux 
-command line environment.
+In other words, toolbox containers look, feel and behave like a standard Linux
+command line environment. By connecting all this information, toolbox
+containers lose a certain amount of security gained by using the containers
+technology. Therefore, you should not treat toolbox containers as a sandbox
+where you can execute any script you would never run on any other system.
 
-In most cases, when a command is run inside a container, the program from 
-inside the container is used. However, there are a few special cases where the 
+In most cases, when a command is run inside a container, the program from
+inside the container is used. However, there are a few special cases where the
 program on the host is used instead (using `flatpak-spawn`). One example of
 this is the toolbox command itself; this makes it possible to use toolbox from
 inside toolbox containers.
@@ -84,7 +96,7 @@ this is complete, run:
  $ toolbox enter
 
 Once inside the toolbox, you can access common command line tools, and install 
-new ones using DNF. 
+new ones using a package manager (e.g., DNF on Fedora). 
 
 NOTE: When the prompt is inside a toolbox, it is prepended with a diamond: 
 this indicates that the prompt is inside a toolbox container. The diamond
