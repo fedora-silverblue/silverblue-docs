@@ -105,42 +105,80 @@ symbol may not be present if you use a custom shell theme.
 [[toolbox-commands]]
 == Commands and usage
 
-`toolbox create [--container <name>]`::
+`toolbox create [options] <name>`:
 
 Creates a toolbox container. This will download an OCI image if one isn't 
-available (this is required to create the container). By default a Fedora image 
-matching the version of the host is used. Used without options, 
-`toolbox create` will automatically name the container it creates. To create 
-additional toolboxes, use the  ``--container <name>`` option.
+available (this is required to create the container). By default an image
+matching the version of the host is used. If the host system does not have a
+matching image, a Fedora image is used instead.
+
+Used without options, `toolbox create` will automatically name the container it
+creates. To create additional toolboxes, use the `<name>` argument.
+
+To use a specific version of the host system (e.g., Fedora 32 on Fedora 34),
+use the `--release <release> | -r <release>` option.
+
+To use a different distribution to create a toolbox container (e.g., RHEL on
+Fedora, use the `--distro <distro> | -d <distro>` option.
+
+To use a different image, use the ``--image <name> | -i <name>`` option.
   
-`toolbox enter [--container <name>]`::
+`toolbox enter [options] <name>`::
 
 Enters a toolbox for interactive use. Used without options, `toolbox enter` 
-opens the default toolbox. If there is more than one toolbox, use the 
-`--container name` option to specify the toolbox to enter.
+opens the default toolbox.
 
-`toolbox run [--container <name>] <cmd> <arg ...>`::
+To enter a toolbox with specific name, use the `name` argument.
+
+To enter a toolbox for a different distribution (e.g., Fedora on RHEL), use the
+`--distro <distro> |-d <distro>` option.
+
+To enter a toolbox with specific version (e.g., RHEL 8.1 on RHEL 8.3), use the
+`--release <release> | -r <release>` option.
+
+`toolbox run [options] <cmd> <arg ...>`::
 
 Runs a command in a toolbox without entering it. Used without options, `toolbox
-run` runs the command in the default toolbox. If there is more than one toolbox,
-use the `--container name` option to specify the toolbox to be used.
+run` runs the command in the default toolbox.
 
-`toolbox list`::
+To run a command in a toolbox with specific name, use the `--container <name> |
+-c <name>` option.
+
+To run a command in a toolbox for a different distribution (e.g., Fedora on
+RHEL), use the `--distro <distro> |-d <distro>` option.
+
+To run a command in a toolbox with specific version (e.g., RHEL 8.1 on RHEL
+8.3), use the `--release <release> | -r <release>` option.
+
+`toolbox list [options]`::
 
 Lists local toolbox images and containers.
 
-`toolbox rm [--force] <name>`::
+To only show containers, use the `[--containers | -c]` option.
 
-Removes one or more toolbox containers. The `--force` option removes the 
-container even if it is running.
+To only show images, use the `--images | -i]` option.
 
-`toolbox rmi [--force] <name>`::
+`toolbox rm [options] <name ...>`::
+
+Removes one or more toolbox containers.
+
+The `--force | -f` option removes the marked containers even if they are
+running.
+
+The `--all | -a` option removes all toolbox containers.
+
+`toolbox rmi [options] <name ...>`::
 
 Removes one or more toolbox images.
 
+The `--force | -f` option removes the marked images and all containers that
+have been created using the marked images.
+
+The `-all | -a` option removes all toolbox images.
+
 `toolbox --help`::
 
-Lists available commands.
+Shows Toolbox's manual page.
 
 === Exiting a toolbox
 
