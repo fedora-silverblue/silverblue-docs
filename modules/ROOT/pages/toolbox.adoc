@@ -158,9 +158,9 @@ To run a command in a toolbox with specific version (e.g., RHEL 8.1 on RHEL
 
 Lists local toolbox images and containers.
 
-To only show containers, use the `[--containers | -c]` option.
+To only show containers, use the `--containers | -c` option.
 
-To only show images, use the `--images | -i]` option.
+To only show images, use the `--images | -i` option.
 
 [[toolbox-rm]]
 === toolbox rm [options] <name ...>
@@ -180,7 +180,7 @@ Removes one or more toolbox images.
 The `--force | -f` option removes the marked images and all containers that
 have been created using the marked images.
 
-The `-all | -a` option removes all toolbox images.
+The `--all | -a` option removes all toolbox images.
 
 [[toolbox-help]]
 === toolbox --help
