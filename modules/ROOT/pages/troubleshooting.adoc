@@ -44,6 +44,7 @@ made by https://twitter.com/gnomealex[Alex Larsson] to allow for normal
 installation of the Nvidia drivers.
 
  # rpm-ostree install kmod-nvidia xorg-x11-drv-nvidia
+ # rpm-ostree kargs --append=rd.driver.blacklist=nouveau --append=modprobe.blacklist=nouveau --append=nvidia-drm.modeset=1
 
 You can read more about the work that Alex did on his https://blogs.gnome.org/alexl/2019/03/06/nvidia-drivers-in-fedora-silverblue/[blog].
 
