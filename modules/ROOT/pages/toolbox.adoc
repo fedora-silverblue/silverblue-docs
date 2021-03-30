@@ -1,9 +1,9 @@
 [[toolbox]]
 = Toolbox
 
-As an immutable host, Silverblue is an excellent platform for container-based
-development and, for working with containers, https://buildah.io/[buildah] and
-https://podman.io/[podman] are recommended.
+As a host system with anti-hysteresis properties, Silverblue is an excellent 
+platform for container-based development and, for working with containers, 
+https://buildah.io/[buildah] and https://podman.io/[podman] are recommended.
 
 Silverblue also comes with the https://github.com/containers/toolbox[toolbox]
 utility, which uses containers to provide an environment where development
@@ -13,7 +13,7 @@ tools and libraries can be installed and used.
 == Why use toolbox?
 
 Toolbox makes it easy to use a containerized environment for everyday software
-development and debugging. On immutable operating systems, like
+development and debugging. On anti-hysteresis operating systems, like
 https://silverblue.fedoraproject.org/[Fedora Silverblue], it provides a
 familiar package-based environment in which tools and libraries can be
 installed and used. However, toolbox can also be used on package-based systems.
