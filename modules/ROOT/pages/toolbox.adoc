@@ -120,7 +120,7 @@ To use a specific version of the host system (e.g., Fedora 32 on Fedora 34),
 use the `--release <release> | -r <release>` option.
 
 To use a different distribution to create a toolbox container (e.g., RHEL on
-Fedora, use the `--distro <distro> | -d <distro>` option.
+Fedora), use the `--distro <distro> | -d <distro>` option.
 
 To use a different image, use the ``--image <name> | -i <name>`` option.
 
