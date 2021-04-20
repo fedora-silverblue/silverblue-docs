@@ -100,6 +100,8 @@ to the `libvirt` group:
  # grep -E '^libvirt:' /usr/lib/group >> /etc/group
  # usermod -aG libvirt username
 
+NOTE: You will need to log off and log back in to apply these changes.
+
 == `ostree fsck` reports file corruption
 
 It is possible to end up in a situation where one or more files on the disk
@@ -134,7 +136,7 @@ Users have reported that they cannot install Silverblue on an EFI based
 system where they previously had another OS installed.  The error that
 is often observed looks like:
 
- ostree ['admin', '--sysroot=/mnt/sysimage', 'deploy', '--os=fedora-workstation', 'fedora-workstation:fedora/28/x86_64/workstation'] existed with code -6`
+ ostree ['admin', '--sysroot=/mnt/sysimage', 'deploy', '--os=fedora-workstation', 'fedora-workstation:fedora/28/x86_64/workstation'] exited with code -6`
 
 A couple of possible workarounds exist:
 
