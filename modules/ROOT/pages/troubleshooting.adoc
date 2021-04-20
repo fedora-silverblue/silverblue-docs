@@ -187,6 +187,28 @@ with the following command.
 
 This will reset the permissions on your containers and allow you to enter them again.
 
+== How to Reset the root Password
+
+While booting the system the GRUB2 menu will be displayed. To boot the system into rescue mode using bash follow these steps:
+
+1. Use the arrow keys to select the boot entry you want to edit
+2. Press e to edit that entry
+3. Use the arrow keys to go to the line that starts with `linux`, `linux16`, or `linuxefi`
+4. Go the the end of that line, add a space then type `rw init=/bin/bash`. If your disk is encrypted, you may need to add plymouth.enable=0
+5. Press Ctrl-x or F10 to boot that entry
+6. Change the root password
+ # passwd
+7. Change SELinux config line from **SELINUX=enforcing** to **SELINUX=permissive**
+ # vi /etc/selinux/config
+8. Reboot machine
+ # /sbin/reboot -f 
+8. After logging in, reset SELinux on /etc
+ # restorecon -Rv /etc
+9. Change SELinux config line back to **SELINUX=enforcing**
+ # vi /etc/selinux/config
+10. Reboot
+ # reboot
+
 == Running `restorecon`
 
 WARNING: You should never run `restorecon` on a Silverblue host.  See the following
