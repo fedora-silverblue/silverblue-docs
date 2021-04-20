@@ -40,15 +40,14 @@ system directories and everything below them are read-only:
 * `/`
 * `/usr`
 
-On the otherhand, the following system directories are writable using the live filesystem:
+On the otherhand, the following system directories are writable:
+
+* `/etc`
+* `/var`
+The following system directories are writable, but expect to become read-only in future versions of Silverblue:
 
 * `/boot`
-* `/dev`
-* `/etc`
-* `/run`
 * `/sysroot`
-* `/tmp`
-* `/var`
 
 `/var` is where the majority of Silverblue's runtime state is stored. Symlinks are used 
 to make traditional state-carrying directories available in their expected 
