@@ -18,7 +18,7 @@ include:
 
 For information on <<flatpak>> and <<package-layering,package layering>>, see below.
 
-See the dedicated <<toolbox.adoc,toolbox>> page to get started with it.
+See the dedicated xref:toolbox.adoc[toolbox] page to get started with it.
 
 [[flatpak]]
 == Flatpak
@@ -118,7 +118,7 @@ Packages can be installed on Silverblue using:
 This will download the package and any required dependencies, and recompose 
 your Silverblue image with them. `rpm-ostree` uses standard Fedora package 
 names, which can be searched using DNF (this is not available on a Silverblue 
-host, but can be used in a <<toolbox.adoc,toolbox>>).
+host, but can be used in a xref:toolbox.adoc[toolbox]).
 
 Once a package has been installed in this manner, it will be kept up-to-date 
 as new versions are released and as the base operating system is updated.
