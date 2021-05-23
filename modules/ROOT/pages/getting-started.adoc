@@ -102,7 +102,8 @@ using this method.
 Currently, using package layering creates a new "deployment", or bootable filesystem
 root.  It does not affect your current root.  This preserves rollback and the transactional model, 
 but means that the system must be rebooted after a package has been layered.
-Eventually this limitation may be lifted, but it's generally expected that you use package
+If you don't want to reboot your system for switching to the new deployment, you can use an experimental `rpm-ostree ex apply-live` command to update the filesystem to see changes from new deployment, 
+but it's generally expected that you use package
 layering sparingly, and use `flatpak` and `dnf install` inside a `toolbox` etc.
 
 Package layering is generally done from the command line. However, the 
@@ -126,9 +127,13 @@ as new versions are released and as the base operating system is updated.
 === Replacing packages
 
 In some scenarios, you may want to test out a new version of `podman` or
-`kernel` or other packages that live on the host.  The `rpm-ostree override` command can be used to replace a package with a different version.  Currently you must download the RPM packages locally, and then run:
+`kernel` or other packages that live on the host.  The `rpm-ostree override` command can be used to replace a package with a different version.  You can download the package locally and run:
 
  $ rpm-ostree override replace <path to package>
+
+Or you can override packages without downloading using links from koji or bodhi. For example:
+
+ $ rpm-ostree override replace https://kojipkgs.fedoraproject.org//packages/podman/3.1.2/1.fc34/x86_64/podman-3.1.2-1.fc34.x86_64.rpm https://kojipkgs.fedoraproject.org//packages/podman/3.1.2/1.fc34/x86_64/podman-plugins-3.1.2-1.fc34.x86_64.rpm
 
 You may also use `override remove` to effectively "hide" packages; they will still exist in the underlying base layer, but will not appear in the booted root.
 
