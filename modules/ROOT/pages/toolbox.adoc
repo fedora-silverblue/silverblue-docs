@@ -210,4 +210,4 @@ https://github.com/containers/toolbox[toolbox's GitHub project].
 To get in touch with toolbox users and developers, use 
 https://discussion.fedoraproject.org/[Fedora's Discourse 
 instance], or join the #silverblue IRC 
-channel on Freenode.
+channel on https://libera.chat/[Libera].
