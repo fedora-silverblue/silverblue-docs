@@ -13,7 +13,7 @@ container_launch() {
         if groups | grep -wq "docker"; then
             echo "This build script is using Docker to run the build in an isolated environment."
             docker $1
-        
+
         else
             echo "This build script is using $runtime to run the build in an isolated environment. You might be asked for your password."
             echo "You can avoid this by adding your user to the 'docker' group, but be aware of the security implications. See https://docs.docker.com/install/linux/linux-postinstall/."
@@ -21,9 +21,9 @@ container_launch() {
         fi
 
     else
-   	echo "Error: No container runtimes were found."
-	echo "Please install either podman or docker"
-	exit 1
+        echo "Error: No container runtimes were found."
+        echo "Please install either podman or docker"
+        exit 1
     fi
 }
 
