@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cmd="run --rm -v $(pwd):/antora:ro -v $(pwd)/nginx.conf:/etc/nginx/conf.d/default.conf:ro -p 8080:80 nginx"
+cmd="run --rm -v $(pwd):/antora:ro -v $(pwd)/nginx.conf:/etc/nginx/conf.d/default.conf:ro -p 8080:80 docker.io/nginx"
 
 container_launch() {
     # Use podman if available on Linux, otherwise use docker
