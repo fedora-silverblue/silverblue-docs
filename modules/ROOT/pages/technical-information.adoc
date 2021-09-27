@@ -1,44 +1,44 @@
 [technical-information]
 = Technical Information
 
-This page provides some background technical information on Silverblue, 
-including information on the core technologies used to build it, as well as the 
+This page provides some background technical information on Silverblue,
+including information on the core technologies used to build it, as well as the
 filesystem layout.
 
-Users should not need to know this information. It is provided here for those 
-who are interested in the technical details or those who want to use Silverblue 
+Users should not need to know this information. It is provided here for those
+who are interested in the technical details or those who want to use Silverblue
 in a non-standard manner.
 
 [[ostree-rpm-ostree]]
 == ostree and rpm-ostree
 
-https://ostreedev.github.io/ostree/[ostree] is the core technology that is 
-used to compose, deploy and update Silverblue. ostree operates in a similar 
-manner to a version control system, but it operates on entire filesystem trees. 
-It is often described as “Git for operating system binaries”.
+https://ostreedev.github.io/ostree/[ostree] is the core technology that is used
+to compose, deploy and update Silverblue. ostree operates in a similar manner
+to a version control system, but it operates on entire filesystem trees. It is
+often described as “Git for operating system binaries”.
 
-For Silverblue installs, ostree is responsible for deploying and updating the OS 
-image (including everything below `/` that is not symlinked into `/var`). It 
+For Silverblue installs, ostree is responsible for deploying and updating the
+OS image (including everything below `/` that is not symlinked into `/var`). It
 also updates `grub.cfg` entries to point to the current image.
 
-https://coreos.github.io/rpm-ostree/[rpm-ostree] builds on top of 
-ostree, and makes it possible to install RPMs as a “layer” on top of an ostree 
-image. This makes it possible to install RPMs on Silverblue.
+https://coreos.github.io/rpm-ostree/[rpm-ostree] builds on top of ostree, and
+makes it possible to install RPMs as a “layer” on top of an ostree image. This
+makes it possible to install RPMs on Silverblue.
 
-When a package is installed with `rpm-ostree`, a new OS image is composed by 
-adding the RPM payload to the existing OS image, and creating a new, combined 
-image. To see the newly installed RPMs, the system needs to be rebooted with 
-the new image. rpm-ostree also takes care of recreating the layered image 
+When a package is installed with `rpm-ostree`, a new OS image is composed by
+adding the RPM payload to the existing OS image, and creating a new, combined
+image. To see the newly installed RPMs, the system needs to be rebooted with
+the new image. rpm-ostree also takes care of recreating the layered image
 whenever you update the base OS image.
 
 [[filesystem-layout]]
 == Silverblue filesystem layout
 
-On Silverblue, the root filesystem is immutable. This means that `/`, `/usr` 
+On Silverblue, the root filesystem is immutable. This means that `/`, `/usr`
 and everything below it is read-only.
 
-`/var` is where all of Silverblue's runtime state is stored. Symlinks are used 
-to make traditional state-carrying directories available in their expected 
+`/var` is where all of Silverblue's runtime state is stored. Symlinks are used
+to make traditional state-carrying directories available in their expected
 locations. This includes:
 
 * `/home` → `/var/home`
@@ -51,7 +51,6 @@ locations. This includes:
 
 This means that separate home partitions should be mounted on `/var/home`.
 
-For a more detailed explanation of Silverblue's filesystem layout, refer to the 
-excellent 
-https://ostreedev.github.io/ostree/adapting-existing/[libostree 
-documentation].
+For a more detailed explanation of Silverblue's filesystem layout, refer to the
+excellent
+https://ostreedev.github.io/ostree/adapting-existing/[libostree documentation].

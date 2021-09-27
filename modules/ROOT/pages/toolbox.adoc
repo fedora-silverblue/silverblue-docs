@@ -35,8 +35,8 @@ several advantages:
 
 Toolbox takes the work out of using containers, by providing a small number of
 simple commands to create, enter, list and remove containers. It also
-integrates toolbox containers into your regular working environment, to
-make it easy for you to use them as an everyday development space.
+integrates toolbox containers into your regular working environment, to make it
+easy for you to use them as an everyday development space.
 
 Containers are created from images and those are usually a very stripped down
 version of distributions. In such images there are almost no tools and
@@ -44,12 +44,12 @@ documentation available. The team behind Toolbox maintains a Fedora image where
 such tools and documentation are available, providing with a good out of the
 box experience.
 
-Each toolbox container is an environment that you can enter from the command 
+Each toolbox container is an environment that you can enter from the command
 line. Inside each one, you will find:
 
 * Your existing username and permissions
 * Access to your home directory and several other locations
-* Access to both system and session D-Bus, system journal and Kerberos 
+* Access to both system and session D-Bus, system journal and Kerberos
 * Common command lines tools, including a package manager (e.g., DNF on Fedora)
 
 In other words, toolbox containers look, feel and behave like a standard Linux
@@ -69,7 +69,7 @@ inside toolbox containers.
 
 === Fedora Silverblue
 
-Toolbox is preinstalled on Fedora Silverblue 30 or newer. On older versions, it 
+Toolbox is preinstalled on Fedora Silverblue 30 or newer. On older versions, it
 can be installed with the following command:
 
  $ rpm-ostree install toolbox
@@ -78,7 +78,7 @@ This will install toolbox as a layered RPM.
 
 === Fedora Workstation
 
-Toolbox can be installed on Fedora Workstation (or any package-based version of 
+Toolbox can be installed on Fedora Workstation (or any package-based version of
 Fedora) with the following command:
 
  $ sudo dnf install toolbox
@@ -90,17 +90,17 @@ Once toolbox is installed, two simple commands are required to get started:
 
  $ toolbox create
 
-This will download an OCI image and create a toolbox container from it. Once 
+This will download an OCI image and create a toolbox container from it. Once
 this is complete, run:
 
  $ toolbox enter
 
-Once inside the toolbox, you can access common command line tools, and install 
-new ones using a package manager (e.g., DNF on Fedora). 
+Once inside the toolbox, you can access common command line tools, and install
+new ones using a package manager (e.g., DNF on Fedora).
 
-NOTE: When the prompt is inside a toolbox, it is prepended with a diamond: 
-this indicates that the prompt is inside a toolbox container. The diamond
-symbol may not be present if you use a custom shell theme.
+NOTE: When the prompt is inside a toolbox, it is prepended with a diamond: this
+indicates that the prompt is inside a toolbox container. The diamond symbol may
+not be present if you use a custom shell theme.
 
 [[toolbox-commands]]
 == Commands and usage
@@ -108,7 +108,7 @@ symbol may not be present if you use a custom shell theme.
 [[toolbox-create]]
 === toolbox create [options] <name>
 
-Creates a toolbox container. This will download an OCI image if one isn't 
+Creates a toolbox container. This will download an OCI image if one isn't
 available (this is required to create the container). By default an image
 matching the version of the host is used. If the host system does not have a
 matching image, a Fedora image is used instead.
@@ -127,7 +127,7 @@ To use a different image, use the ``--image <name> | -i <name>`` option.
 [[toolbox-enter]]
 === toolbox enter [options] <name>
 
-Enters a toolbox for interactive use. Used without options, `toolbox enter` 
+Enters a toolbox for interactive use. Used without options, `toolbox enter`
 opens the default toolbox.
 
 To enter a toolbox with specific name, use the `name` argument.
@@ -190,7 +190,7 @@ Shows Toolbox's manual page.
 [[toolbox-exiting]]
 === Exiting a toolbox
 
-To return to the host environment, either run `exit` or quit the current shell 
+To return to the host environment, either run `exit` or quit the current shell
 (typically Ctrl+D).
 
 [[toolbox-under-the-hood]]
@@ -204,10 +204,9 @@ Toolbox uses the following technologies:
 [[toolbox-contact]]
 == Contact and issues
 
-To report issues, make suggestions, or contribute fixes, see 
+To report issues, make suggestions, or contribute fixes, see
 https://github.com/containers/toolbox[toolbox's GitHub project].
 
-To get in touch with toolbox users and developers, use 
-https://discussion.fedoraproject.org/[Fedora's Discourse 
-instance], or join the #silverblue IRC 
-channel on https://libera.chat/[Libera].
+To get in touch with toolbox users and developers, use
+https://discussion.fedoraproject.org/[Fedora's Discourse instance], or join the
+#silverblue IRC channel on https://libera.chat/[Libera].

@@ -58,7 +58,7 @@ TIP: You can also see the RPM changelog by adding the `-c` option like so: `rpm-
 * If you want to see which packages were updated between two specific commits:
 
 . find out which two commits you want to compare by issuing:
- 
+
  $ ostree log <ref>
 
 . you can now compare the two commits by issuing:
