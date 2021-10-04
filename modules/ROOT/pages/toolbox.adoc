@@ -41,7 +41,7 @@ easy for you to use them as an everyday development space.
 Containers are created from images and those are usually a very stripped down
 version of distributions. In such images there are almost no tools and
 documentation available. The team behind Toolbox maintains a Fedora image where
-such tools and documentation are available, providing with a good out of the
+such tools and documentation are available, providing a good out of the
 box experience.
 
 Each toolbox container is an environment that you can enter from the command
