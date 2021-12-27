@@ -43,6 +43,7 @@ Thankfully, recent changes to the `akmods` and `kmodtools` packages were
 made by https://twitter.com/gnomealex[Alex Larsson] to allow for normal
 installation of the Nvidia drivers.
 
+ # sed '0,/^enabled=/{s/^enabled=0/enabled=1/}' -i /etc/yum.repos.d/rpmfusion-nonfree-nvidia-driver.repo
  # rpm-ostree install kmod-nvidia xorg-x11-drv-nvidia
  # rpm-ostree kargs --append=rd.driver.blacklist=nouveau --append=modprobe.blacklist=nouveau --append=nvidia-drm.modeset=1
 
