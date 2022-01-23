@@ -30,6 +30,26 @@ on your host system. Please run this command in a Toolbx container!
 ====
 
 
+=== Finding out if you are currently in a Toolbx container
+
+If you frequently make use of Toolbx to perform various tasks and use multiple
+Toolbx containers it can be hard to keep track of whether you are currently
+executing commands on the host or in a Toolbx container. Furthermore, there is
+currently no command to tell you in which Toolbx container you are working.
+
+To alleviate this, you can add the following shell alias at the end of your
+`~/.bashrc`:
+
+  alias istoolbx='[ -f "/run/.toolboxenv" ] && grep -oP "(?<=name=\")[^\";]+" /run/.containerenv'
+
+When you open a new shell, you now have access to the new command `istoolbx`.
+This will behave as follows
+
+* When run from the host, returns an exit code of 1
+* When run from a Toolbx container, returns an exit code of 0 and prints the
+  current Toolbx containers name to the console
+
+
 
 == Working with `ostree`/`rpm-ostree`
 
