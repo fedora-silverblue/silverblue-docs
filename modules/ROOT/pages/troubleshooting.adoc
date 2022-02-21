@@ -1,47 +1,35 @@
 = Troubleshooting
 
-{variant-name} is a radically new way of deploying and managing your
-desktop operating system, so you may occasionally run into problems
-while going through your day to day.  Below are some of the more
-common problems reported and any workarounds for those problems.
+{variant-name} is a radically new way of deploying and managing your desktop operating system, so you may occasionally run into problems while going through your day to day.
+Below are some of the more common problems reported and any workarounds for those problems.
 
 == "Forbidden base package replacements"
 
 https://github.com/projectatomic/rpm-ostree/issues/415[GitHub Issue]
 
-This can happen when a package that is being layered has a
-dependency on a package that is in the base OS.  In the
-problematic case, the layered package requires a newer version
-of the dependent package which is not available in the base OS.
+This can happen when a package that is being layered has a dependency on a package that is in the base OS.
+In the problematic case, the layered package requires a newer version of the dependent package which is not available in the base OS.
 
-In most cases, waiting for a newer OSTree compose will resolve
-this problem.  The dependent package will be updated in the compose
-and the package that was going to be layered will be successful.
+In most cases, waiting for a newer OSTree compose will resolve this problem.
+The dependent package will be updated in the compose and the package that was going to be layered will be successful.
 
-However, if you continue to encounter this problem with a newer
-compose, you can try to cleanup the metadata with `rpm-ostree cleanup -m`
-and then retrying the `rpm-ostree install`.
+However, if you continue to encounter this problem with a newer compose, you can try to cleanup the metadata with `rpm-ostree cleanup -m` and then retrying the `rpm-ostree install`.
 
-Alternatively, you can try rebasing to any `updates` ref,
-like `fedora/30/updates/x86_64` after the `cleanup` operation.
+Alternatively, you can try rebasing to any `updates` ref, like `fedora/30/updates/x86_64` after the `cleanup` operation.
 
 == Installing packages to `/opt` or `/usr/local`
 
 https://github.com/projectatomic/rpm-ostree/issues/233[GitHub Issue]
 
-Installing into `/opt` was commonly raised as a problem when users where
-trying to install Google Chrome.  A partial https://github.com/projectatomic/rpm-ostree/pull/1795[solution] has been implemented
-that allows users to layer Google Chrome, however it is not a complete
-solution for applications that write mutable data to `/opt`.
+Installing into `/opt` was commonly raised as a problem when users where trying to install Google Chrome.
+A partial https://github.com/projectatomic/rpm-ostree/pull/1795[solution] has been implemented that allows users to layer Google Chrome, however it is not a complete solution for applications that write mutable data to `/opt`.
 
 == Using Nvidia drivers
 
 https://github.com/projectatomic/rpm-ostree/issues/1091[GitHub Issue]
 
 Users have long wanted to use their Nvidia GPUs on their {variant-name} systems.
-Thankfully, recent changes to the `akmods` and `kmodtools` packages were
-made by https://twitter.com/gnomealex[Alex Larsson] to allow for normal
-installation of the Nvidia drivers.
+Thankfully, recent changes to the `akmods` and `kmodtools` packages were made by https://twitter.com/gnomealex[Alex Larsson] to allow for normal installation of the Nvidia drivers.
 
  # rpm-ostree install kmod-nvidia xorg-x11-drv-nvidia
  # rpm-ostree kargs --append=rd.driver.blacklist=nouveau --append=modprobe.blacklist=nouveau --append=nvidia-drm.modeset=1
@@ -50,11 +38,9 @@ You can read more about the work that Alex did on his https://blogs.gnome.org/al
 
 == SELinux problems
 
-As users work with {variant-name} day-to-day, it is possible that they have modified
-the default SELinux policy in an effort to workaround one or more problems related
-to SELinux. This is usually done when a user sees a SELinux denial in the journal.
-If this is the case and one wishes to revert back to the default SELinux policy,
-you can try these set of actions.
+As users work with {variant-name} day-to-day, it is possible that they have modified the default SELinux policy in an effort to workaround one or more problems related to SELinux.
+This is usually done when a user sees a SELinux denial in the journal.
+If this is the case and one wishes to revert back to the default SELinux policy, you can try these set of actions.
 
 . Check the state of the SELinux policy
 +
@@ -64,26 +50,23 @@ you can try these set of actions.
  M    selinux/targeted/policy/policy.31
  A    selinux/targeted/policy/policy.30
 +
-If anything is returned by this command, then your SELinux policy has been modified
-from the default.
+If anything is returned by this command, then your SELinux policy has been modified from the default.
 +
-.  Copy the default SELinux policy shipped in the OSTree compose
+. Copy the default SELinux policy shipped in the OSTree compose
 +
  $ sudo cp -al /etc/selinux{,.bak}
  $ sudo rsync -rlv /usr/etc/selinux/ /etc/selinux/
 +
-After doing this, the output from `ostree admin config-diff | grep policy` should
-no longer indicate the policy is modified.
+After doing this, the output from `ostree admin config-diff | grep policy` should no longer indicate the policy is modified.
 +
 If your policy still appears to be modified, you can try the following approach.
 +
-.  Remove the SELinux policy; copy in the default policy
+. Remove the SELinux policy; copy in the default policy
 +
  $ sudo rm -rf /etc/selinux
  $ sudo cp -aT /usr/etc/selinux /etc/selinux
 +
-After this, the `ostree admin config-diff | grep policy` command should return
-no modifications.
+After this, the `ostree admin config-diff | grep policy` command should return no modifications.
 
 == Unable to add user to group
 
@@ -91,12 +74,9 @@ https://github.com/projectatomic/rpm-ostree/issues/29[GitHub Issue]
 
 https://github.com/projectatomic/rpm-ostree/issues/49[GitHub Issue]
 
-Due to how `rpm-ostree` handles user + group entries, it may not be possible
-to use `usermod -a -G` to add a user to a group successfully.  Until the
-`rpm-ostree` moves to using `systemd sysusers`, users will have to
-populate the `/etc/group` file from the `/usr/lib/group` file before they
-can add themselves to the group.  For example, if you wanted to add a user
-to the `libvirt` group:
+Due to how `rpm-ostree` handles user + group entries, it may not be possible to use `usermod -a -G` to add a user to a group successfully.
+Until the `rpm-ostree` moves to using `systemd sysusers`, users will have to populate the `/etc/group` file from the `/usr/lib/group` file before they can add themselves to the group.
+For example, if you wanted to add a user to the `libvirt` group:
 
  # grep -E '^libvirt:' /usr/lib/group >> /etc/group
  # usermod -aG libvirt username
@@ -105,23 +85,18 @@ NOTE: You will need to log off and log back in to apply these changes.
 
 == `ostree fsck` reports file corruption
 
-It is possible to end up in a situation where one or more files on the disk
-have become corrupted or missing.  In this case, `ostree fsck` will report
-errors in certain commits.  The https://github.com/ostreedev/ostree/pull/345#issuecomment-262263824[workaround]
-in this case is to mark the entire OSTree commit as partially retrieved and then re-pull the commit.
+It is possible to end up in a situation where one or more files on the disk have become corrupted or missing.
+In this case, `ostree fsck` will report errors in certain commits.
+The https://github.com/ostreedev/ostree/pull/345#issuecomment-262263824[workaround] in this case is to mark the entire OSTree commit as partially retrieved and then re-pull the commit.
 
 == Read-only `/boot/efi` prevents any upgrades
 
 https://github.com/projectatomic/rpm-ostree/issues/1380[GitHub Issue]
 
-This issue is most commonly seen when users have installed {variant-name}
-on Apple hardware. The `/boot/efi` partition on Apple hardware is
-formatted as HFS+ and is not always resilient to power failures or
-other kinds of hard power events.
+This issue is most commonly seen when users have installed {variant-name} on Apple hardware.
+The `/boot/efi` partition on Apple hardware is formatted as HFS+ and is not always resilient to power failures or other kinds of hard power events.
 
-Since {variant-name} now includes the `hfsplus-tools` package in the base
-compose, it has become relatively easy for users to workaround this
-kind of error.
+Since {variant-name} now includes the `hfsplus-tools` package in the base compose, it has become relatively easy for users to workaround this kind of error.
 
  # umount /boot/efi
  # fsck.hfsplus /dev/sda1
@@ -133,30 +108,34 @@ See the linked issue for additional details.
 
 https://bugzilla.redhat.com/show_bug.cgi?id=1575957[Bugzilla Issue]
 
-Users have reported that they cannot install {variant-name} on an EFI based
-system where they previously had another OS installed. The error that
-is often observed looks like:
+Users have reported that they cannot install {variant-name} on an EFI based system where they previously had another OS installed.
+The error that is often observed looks like:
 
  ostree ['admin', '--sysroot=/mnt/sysimage', 'deploy', '--os=fedora-workstation', 'fedora-workstation:fedora/28/x86_64/workstation'] exited with code -6`
 
 A couple of possible workarounds exist:
 
-* During the install process, select "Custom Partitioning" and create an additional EFI partition. Assign the newly created EFI partition to `/boot/efi`. You will then be able to boot the previous OS(s) alongside Fedora {variant-name}. If this workaround is not successful follow the below step.
-* Reformat the EFI partition on the host during the install process. This can be done by selecting "Custom Partitioning" and checking the `Reformat` box when creating the `/boot/efi` partition.
+* During the install process, select "Custom Partitioning" and create an additional EFI partition.
+  Assign the newly created EFI partition to `/boot/efi`.
+  You will then be able to boot the previous OS(s) alongside Fedora {variant-name}.
+  If this workaround is not successful follow the below step.
+* Reformat the EFI partition on the host during the install process.
+  This can be done by selecting "Custom Partitioning" and checking the `Reformat` box when creating the `/boot/efi` partition.
 
-WARNING: Choosing to reformat `/boot/efi` will likely result in the inability
-to boot any other operating systems that were previously installed. Be sure that
-you have backed up any important data before using this workaround.
+WARNING: Choosing to reformat `/boot/efi` will likely result in the inability to boot any other operating systems that were previously installed.
+         Be sure that you have backed up any important data before using this workaround.
 
 == `toolbox: failed to list images with com.redhat.component=fedora-toolbox`
 
-IMPORTANT: As of `podman` version `1.4.0` this workaround is not necessary. Ensure `podman` is up to date by issuing `rpm-ostree upgrade` before attempting this workaround.
+IMPORTANT: As of `podman` version `1.4.0` this workaround is not necessary.
+           Ensure `podman` is up to date by issuing `rpm-ostree upgrade` before attempting this workaround.
 
 When issuing the `toolbox list` command, systems using `podman` versions newer than `1.2.0`, will generate the following error:
 
  toolbox: failed to list images with com.redhat.component=fedora-toolbox
 
-TIP: The following workaround might be useful for other `toolbox` errors caused by `podman` versions greater than `1.2.0`. See https://github.com/debarshiray/toolbox/issues/169#issuecomment-495193902[Toolbox Github Repo]
+TIP: The following workaround might be useful for other `toolbox` errors caused by `podman` versions greater than `1.2.0`.
+     See https://github.com/debarshiray/toolbox/issues/169#issuecomment-495193902[Toolbox Github Repo]
 
 As a workaround, it is possible to override `podman` packages newer than version `1.2.0` by issuing:
 
@@ -164,7 +143,7 @@ As a workaround, it is possible to override `podman` packages newer than version
 
 Reboot the system to apply the changes.
 
-For reference, it is also possible to override the package by following these steps: 
+For reference, it is also possible to override the package by following these steps:
 
 . Download `podman-1.2.0-2.git3bd528e.fc30.x86_64.rpm` from https://kojipkgs.fedoraproject.org//packages/podman/1.2.0/2.git3bd528e.fc30/x86_64/podman-1.2.0-2.git3bd528e.fc30.x86_64.rpm[Koji]
 . Remove `podman-manpages` issuing: `rpm-ostree override remove podman-manpages`
@@ -180,9 +159,8 @@ To revert this workaround issue the following command:
 
 https://github.com/containers/libpod/issues/3187[GitHub Issue]
 
-With certain versions of `podman`, trying to enter a toolbox will result in
-errors. You can fix this by resetting the permissions on the overlay-containers
-with the following command.
+With certain versions of `podman`, trying to enter a toolbox will result in errors.
+You can fix this by resetting the permissions on the overlay-containers with the following command.
 
  $ sudo chown -R $USER ~/.local/share/containers/storage/overlay-containers
 
@@ -190,17 +168,17 @@ This will reset the permissions on your containers and allow you to enter them a
 
 == Running `restorecon`
 
-WARNING: You should never run `restorecon` on a {variant-name} host. See the following
-bug for details - https://bugzilla.redhat.com/show_bug.cgi?id=1259018
+WARNING: You should never run `restorecon` on a {variant-name} host.
+         See the following bug for details - https://bugzilla.redhat.com/show_bug.cgi?id=1259018
 
 However, if you happened to do this, it is possible to recover.
 
-1.  Boot with `enforcing=0` on the kernel command line
-2.  Create a new, "fixed" commit locally
-3.  Deploy the new "fixed" commit
-4.  Run `restorecon`
-5.  Reboot
-6.  Cleanup
+1. Boot with `enforcing=0` on the kernel command line
+2. Create a new, "fixed" commit locally
+3. Deploy the new "fixed" commit
+4. Run `restorecon`
+5. Reboot
+6. Cleanup
 
  $ rpm-ostree status -b | grep BaseCommit
                  BaseCommit: 696991d589980aeaef5eda352dd7ad3d33c444c789c209f793a84bc6e7269aee
@@ -212,7 +190,6 @@ However, if you happened to do this, it is possible to recover.
  $ sudo ostree admin deploy fedora:fedora/35/x86_64/{variant}
  $ sudo reboot
 
-The caveat to this recovery is that your layered packages will be removed; you'll
-need to relayer them after the recovery.
+The caveat to this recovery is that your layered packages will be removed; you'll need to relayer them after the recovery.
 
-See this upstream comment for additional details - https://github.com/ostreedev/ostree/issues/1265#issuecomment-484557615
+See this upstream comment for additional details: https://github.com/ostreedev/ostree/issues/1265#issuecomment-484557615
