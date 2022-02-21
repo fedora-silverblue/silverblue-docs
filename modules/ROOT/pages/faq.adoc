@@ -3,47 +3,38 @@
 == About the project
 
 Is it Team Silverblue, Silverblue, or Fedora Silverblue?::
-    We chose the name Team Silverblue to refer to the overall project. Fedora 
-    Silverblue will be used for the OS that we are producing, but calling it 
-    Silverblue in its short version is fine as well.
+    We chose the name Team Silverblue to refer to the overall project.
+    Fedora Silverblue will be used for the OS that we are producing, but calling it Silverblue in its short version is fine as well.
 
 Why does the Silverblue logo look like a leaf?::
-    Our favorite choice for a project name was Silverleaf, but that sadly did 
-    not work out. We just couldn't quite let go of the leaf. You could also say 
-    that Silverblue is a new leaf on Fedora's OSTree. 😀
+    Our favorite choice for a project name was Silverleaf, but that sadly did not work out.
+    We just couldn't quite let go of the leaf.
+    You could also say that Silverblue is a new leaf on Fedora's OSTree.
+    😀
 
 Is Silverblue another GNOME OS?::
-    GNOME OS was a codename that was used by the upstream GNOME project for a 
-    while to refer to the idea of designing the entire desktop user experience. 
-    By contrast, Silverblue is an effort inside the Fedora project, and will be 
-    built with existing Fedora technologies. However, the two efforts do share 
-    a desire to deliver a user experience that is polished and coherent.
+    GNOME OS was a codename that was used by the upstream GNOME project for a while to refer to the idea of designing the entire desktop user experience.
+    By contrast, Silverblue is an effort inside the Fedora project, and will be built with existing Fedora technologies.
+    However, the two efforts do share a desire to deliver a user experience that is polished and coherent.
 
 What is {variant-name}'s relationship with Project Atomic?::
-    Fedora {variant-name} uses the same core technology as Fedora Atomic Host (as
-    well as its successor, Fedora CoreOS). However, {variant-name} is specifically
-    focused on workstation/desktop use cases.
+    Fedora {variant-name} uses the same core technology as Fedora Atomic Host (as well as its successor, Fedora CoreOS).
+    However, {variant-name} is specifically focused on workstation/desktop use cases.
 
 == About using {variant-name}
 
 How can I install Eclipse on {variant-name}?::
-    Instructions to setup the Nightly flatpak remote for Eclipse are available
-    http://eclipse.matbooth.co.uk/flatpak[here].
+    Instructions to setup the Nightly flatpak remote for Eclipse are available http://eclipse.matbooth.co.uk/flatpak[here].
 
 How do I create a VPN connection?::
-    `/etc` is not part of the immutable OS image, so you can just copy files 
-    into `/etc/NetworkManager/system-connections` (or let NetworkManager store 
-    them there when you recreate your connections). Certificates in `/etc/pki` 
-    need to be handled similarly.
+    `/etc` is not part of the immutable OS image, so you can just copy files into `/etc/NetworkManager/system-connections` (or let NetworkManager store them there when you recreate your connections).
+    Certificates in `/etc/pki` need to be handled similarly.
 
 How can I play more videos in Firefox, like YouTube?::
-    Firefox is included in the OS image for now. Until that changes, getting it 
-    to play videos works the same way as it does for the regular Fedora 
-    Workstation: find a package with the needed codecs, and install it. The one 
-    difference is that you use `rpm-ostree install` instead of `dnf install`.
-    An alternative solution is to install the nightly Firefox, which is 
-    available as a 
-    https://firefox-flatpak.mojefedora.cz/org.mozilla.FirefoxNightly.flatpakref[Flatpak].
+    Firefox is included in the OS image for now.
+    Until that changes, getting it to play videos works the same way as it does for the regular Fedora Workstation: find a package with the needed codecs, and install it.
+    The one difference is that you use `rpm-ostree install` instead of `dnf install`.
+    An alternative solution is to install the nightly Firefox, which is available as a https://firefox-flatpak.mojefedora.cz/org.mozilla.FirefoxNightly.flatpakref[Flatpak].
 
 How can I see what packages were updated between two commits?::
 
@@ -71,7 +62,8 @@ You can simply use:
 
 How can I check if an `rpm` software package is available in the repository?::
 
-At this point in time, there is no `rpm` package search function built into `rpm-ostree`. However, you can use `toolbox` with the following command:
+At this point in time, there is no `rpm` package search function built into `rpm-ostree`.
+However, you can use `toolbox` with the following command:
 
  $ toolbox run dnf search <package>
 +
@@ -105,6 +97,7 @@ NOTE: `0` here refers to the first deployment listed by `rpm-ostree status`
 
 . After the deployment is pinned, you can upgrade your system by using the instructions found {docs-url}/updates-upgrades-rollbacks/#upgrading[here].
 
-. When you have completed rebasing, reboot the system. The GRUB menu will now present you with both: the previous deployment major version entry (e.g.: *"Fedora 30.YYYYMMDD.n"*) and the new deployment major version entry (e.g.: *"Fedora 31.YYYYMMDD.n"*).
+. When you have completed rebasing, reboot the system.
+The GRUB menu will now present you with both: the previous deployment major version entry (e.g.: *"Fedora 30.YYYYMMDD.n"*) and the new deployment major version entry (e.g.: *"Fedora 31.YYYYMMDD.n"*).
 +
 NOTE: At the moment it is not possible to name (pinned) deployments and their associated GRUB menu entries.

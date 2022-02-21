@@ -6,7 +6,8 @@ Help us improve Fedora {variant-name} by contributing to the project!
 [[developing]]
 == Developing {variant-name}
 
-If you are a developer, you can contribute to one of the several projects which make Fedora {variant-name} possible. Submit your pull requests to:
+If you are a developer, you can contribute to one of the several projects which make Fedora {variant-name} possible.
+Submit your pull requests to:
 
 * https://github.com/projectatomic/rpm-ostree[rpm-ostree]
 * https://github.com/flatpak/flatpak[flatpak]
@@ -19,7 +20,8 @@ Your contributions towards the main https://fedoraproject.org/wiki/Join[Fedora] 
 [[writing-documentation]]
 == Writing Documentation
 
-Creating or modifying documentation is easy. Head over to our {docs-src}[documentation] GitHub repository, fork it and create a pull request.
+Creating or modifying documentation is easy.
+Head over to our {docs-src}[documentation] GitHub repository, fork it and create a pull request.
 
 If you are not comfortable with using git, create a new topic in our {discussion-forum}[community] or log an {docs-issue}[issue] describing what need to be changed.
 
@@ -28,11 +30,13 @@ If you are not comfortable with using git, create a new topic in our {discussion
 
 When creating documentation, please follow these writing conventions:
 
-* Code blocks for commands that require `root` privileges must show the `#` prompt symbol. Example:
+* Code blocks for commands that require `root` privileges must show the `#` prompt symbol.
+  Example:
 
  # dnf install <package>
 +
-The `$` user prompt symbol can also be used but you must prefix the command with `sudo`. Example:
+The `$` user prompt symbol can also be used but you must prefix the command with `sudo`.
+Example:
 
  $ sudo dnf install <package>
 
@@ -48,7 +52,8 @@ Your favourite application is not in the default repository and won't probably b
 
 * https://docs.fedoraproject.org/en-US/flatpak/tutorial/[RPM to Flatpak tutorial]
 
-To become an official packager you need to go through several steps to gain all required permissions to use the Fedora infrastructure (Pagure, Koji, Bodhi). There is a detailed https://docs.fedoraproject.org/en-US/package-maintainers/Joining_the_Package_Maintainers/[page] about becoming a packager.
+To become an official packager you need to go through several steps to gain all required permissions to use the Fedora infrastructure (Pagure, Koji, Bodhi).
+There is a detailed https://docs.fedoraproject.org/en-US/package-maintainers/Joining_the_Package_Maintainers/[page] about becoming a packager.
 
 Other useful links:
 

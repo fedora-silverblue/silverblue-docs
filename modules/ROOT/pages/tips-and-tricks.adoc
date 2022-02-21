@@ -4,25 +4,20 @@
 
 === Finding out if you are currently in a Toolbx container
 
-If you frequently make use of Toolbx to perform various tasks and use multiple
-Toolbx containers it can be hard to keep track of whether you are currently
-executing commands on the host or in a Toolbx container. Furthermore, there is
-currently no command to tell you in which Toolbx container you are working.
+If you frequently make use of Toolbx to perform various tasks and use multiple Toolbx containers it can be hard to keep track of whether you are currently executing commands on the host or in a Toolbx container.
+Furthermore, there is currently no command to tell you in which Toolbx container you are working.
 
-To alleviate this, you can add the following shell alias at the end of your
-`~/.bashrc`:
+To alleviate this, you can add the following shell alias at the end of your `~/.bashrc`:
 
   alias istoolbx='[ -f "/run/.toolboxenv" ] && grep -oP "(?<=name=\")[^\";]+" /run/.containerenv'
 
 When you open a new shell, you now have access to the new command `istoolbx`.
-This will behave as follows
+This will behave as follows:
 
 * When run from the host, returns an exit code of 1
-* When run from a Toolbx container, returns an exit code of 0 and prints the
-  current Toolbx containers name to the console
-  
-If a more automated solution is your preference the following added to your `~/.bashrc` will change your bash prompt to
-include "[toolbox <name>]":
+* When run from a Toolbx container, returns an exit code of 0 and prints the current Toolbx containers name to the console
+
+If a more automated solution is your preference the following added to your `~/.bashrc` will change your bash prompt to include "[toolbox <name>]":
 
 ```
 function is_toolbox() {
@@ -34,8 +29,7 @@ function is_toolbox() {
 }
 ```
 
-Now you can include `is_toolbox` in your `PS1` variable and not need to execute any extra commands
-in order to know whether or not your are in a toolbox or host shell.
+Now you can include `is_toolbox` in your `PS1` variable and not need to execute any extra commands in order to know whether or not your are in a toolbox or host shell.
 
 Example:
 ```
@@ -43,53 +37,43 @@ export PS1="\[\e[31m\]\`is_toolbox\`\]\e[m\]\[\e[32m\]\\$ \[\e[m\]\[\e[37m\]❱\
 ```
 
 This results in a prompt which appears as such when not in a toolbox: `$ ❱`
-However, when running in a toolbox named "default" looks like: `[toolbox default]$ ❱`
 
+However, when running in a toolbox named "default" looks like: `[toolbox default]$ ❱`
 
 === Running applications from inside Toolbx on the host
 
-This can be necessary if you want to interact with tools available from the
-host, for example `podman`, `nmcli` or `rpm-ostree` without leaving the Toolbx
-container in between. You can use `flatpak-spawn`, included in the base
-installation for this:
+This can be necessary if you want to interact with tools available from the host, for example `podman`, `nmcli` or `rpm-ostree` without leaving the Toolbx container in between.
+You can use `flatpak-spawn`, included in the base installation for this:
 
   $ flatpak-spawn --host podman --help
 
-If the application you want to call requires `sudo` access, the `-S` option must
-be supplied to `sudo` like below:
+If the application you want to call requires `sudo` access, the `-S` option must be supplied to `sudo` like below:
 
   $ flatpak-spawn --host sudo -S rpm-ostree status
 
-If you find yourself using commands like these frequently to access e.g. the
-flatpak command from inside the Toolbx container, you can create yourself a
-short custom wrapper script (*inside the Toolbx container*). To do this, perform
-the following steps:
+If you find yourself using commands like these frequently to access e.g. the flatpak command from inside the Toolbx container, you can create yourself a short custom wrapper script (*inside the Toolbx container*).
+To do this, perform the following steps:
 
-1. Define the `istoolbx` alias (for convenience) by executing the command
-   mentioned above in your terminal
+1. Define the `istoolbx` alias (for convenience) by executing the command mentioned above in your terminal
 
-2. Make sure you are in a Toolbx container. If the following command doesn't
-   produce any output, you are likely still working on the host!
+2. Make sure you are in a Toolbx container.
+   If the following command doesn't produce any output, you are likely still working on the host!
 
      [toolbx]$ istoolbx
      <Toolbx container name here>
 
-3. Once you have made sure you're in a Toolbx container, execute the following
-   command:
+3. Once you have made sure you're in a Toolbx container, execute the following command:
 
     [toolbx]$ echo -e '#!/bin/sh\nexec /usr/bin/flatpak-spawn --host flatpak "$@"' | sudo tee /usr/local/bin/flatpak 1>/dev/null && sudo chmod +x /usr/local/bin/flatpak
 
-You now have a `flatpak` command available that allows you to interact with
-`flatpak` as if you were running the command on the host.
-
+You now have a `flatpak` command available that allows you to interact with `flatpak` as if you were running the command on the host.
 
 == Working with `ostree`/`rpm-ostree`
 
 === Tracking changes to the base OS
 
-Some directories in `ostree`-based operating systems are writable by the user,
-like `/etc`. You can get a quick overview of the files changed under `/etc`
-using the following command:
+Some directories in `ostree`-based operating systems are writable by the user, like `/etc`.
+You can get a quick overview of the files changed under `/etc` using the following command:
 
   $ sudo ostree admin config-diff
 
@@ -97,18 +81,14 @@ To get a more elaborate diff, you can use something like this:
 
   $ sudo diff -yrW200 --suppress-common-lines --color=always /usr/etc /etc 2>/dev/null
 
-NOTE: This works because ostree keeps an unmodified copy of the `/etc` directory
-      under `/usr/etc`. All of your changes go to `/etc` directly.
-
-
+NOTE: This works because ostree keeps an unmodified copy of the `/etc` directory under `/usr/etc`.
+      All of your changes go to `/etc` directly.
 
 == Working with Flatpak applications
 
 === Directly accessing Flatpak applications from the CLI
 
-The most noticable change when using Flatpak applications instead of
-conventional installations is that the applications cannot be directly called
-from the CLI any more, like so:
+The most noticable change when using Flatpak applications instead of conventional installations is that the applications cannot be directly called from the CLI any more, like so:
 
   $ evince
   bash: command not found: evince
@@ -117,19 +97,15 @@ Instead, one can call them like this:
 
   $ flatpak run org.gnome.Evince
 
-In addition, most Flatpak applications export their internal binaries under an
-installation-dependent location:
+In addition, most Flatpak applications export their internal binaries under an installation-dependent location:
 
-* For Flatpak applications installed from `system` remotes, these can be found
-  under `/var/lib/flatpak/exports/bin/`
-* For Flatpak applications installed from `user` remotes, these can be found
-  under `$HOME/.local/share/flatpak/exports/bin/`
+* For Flatpak applications installed from `system` remotes, these can be found under `/var/lib/flatpak/exports/bin/`
+* For Flatpak applications installed from `user` remotes, these can be found under `$HOME/.local/share/flatpak/exports/bin/`
 
 [NOTE]
 ====
-If you're unsure to which installation a Flatpak application belongs, you can
-use this command to print it out:
-        
+If you're unsure to which installation a Flatpak application belongs, you can use this command to print it out:
+
   $ flatpak list --app --columns=name,installation
 ====
 
@@ -142,4 +118,3 @@ or setup shell `alias`es as needed to make them available to the CLI like so:
   $ alias evince="flatpak run org.gnome.Evince"
     # or alias evince="org.gnome.Evince"
   $ evince
-
