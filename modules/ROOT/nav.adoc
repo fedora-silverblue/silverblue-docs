@@ -7,3 +7,4 @@
 * xref:contributing.adoc[Contributing]
 * xref:troubleshooting.adoc[Troubleshooting]
 * xref:faq.adoc[FAQ]
+* xref:tips-and-tricks.adoc[Tips and Tricks]
