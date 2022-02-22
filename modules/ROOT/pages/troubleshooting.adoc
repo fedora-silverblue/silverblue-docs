@@ -1,6 +1,6 @@
 = Troubleshooting
 
-Silverblue is a radically new way of deploying and managing your
+{variant-name} is a radically new way of deploying and managing your
 desktop operating system, so you may occasionally run into problems
 while going through your day to day.  Below are some of the more
 common problems reported and any workarounds for those problems.
@@ -38,7 +38,7 @@ solution for applications that write mutable data to `/opt`.
 
 https://github.com/projectatomic/rpm-ostree/issues/1091[GitHub Issue]
 
-Users have long wanted to use their Nvidia GPUs on their Silverblue systems.
+Users have long wanted to use their Nvidia GPUs on their {variant-name} systems.
 Thankfully, recent changes to the `akmods` and `kmodtools` packages were
 made by https://twitter.com/gnomealex[Alex Larsson] to allow for normal
 installation of the Nvidia drivers.
@@ -50,7 +50,7 @@ You can read more about the work that Alex did on his https://blogs.gnome.org/al
 
 == SELinux problems
 
-As users work with Silverblue day-to-day, it is possible that they have modified
+As users work with {variant-name} day-to-day, it is possible that they have modified
 the default SELinux policy in an effort to workaround one or more problems related
 to SELinux. This is usually done when a user sees a SELinux denial in the journal.
 If this is the case and one wishes to revert back to the default SELinux policy,
@@ -114,12 +114,12 @@ in this case is to mark the entire OSTree commit as partially retrieved and then
 
 https://github.com/projectatomic/rpm-ostree/issues/1380[GitHub Issue]
 
-This issue is most commonly seen when users have installed Silverblue
-on Apple hardware.  The `/boot/efi` partition on Apple hardware is
+This issue is most commonly seen when users have installed {variant-name}
+on Apple hardware. The `/boot/efi` partition on Apple hardware is
 formatted as HFS+ and is not always resilient to power failures or
 other kinds of hard power events.
 
-Since Silverblue now includes the `hfsplus-tools` package in the base
+Since {variant-name} now includes the `hfsplus-tools` package in the base
 compose, it has become relatively easy for users to workaround this
 kind of error.
 
@@ -129,19 +129,19 @@ kind of error.
 
 See the linked issue for additional details.
 
-== Unable to install Silverblue on EFI systems
+== Unable to install {variant-name} on EFI systems
 
 https://bugzilla.redhat.com/show_bug.cgi?id=1575957[Bugzilla Issue]
 
-Users have reported that they cannot install Silverblue on an EFI based
-system where they previously had another OS installed.  The error that
+Users have reported that they cannot install {variant-name} on an EFI based
+system where they previously had another OS installed. The error that
 is often observed looks like:
 
  ostree ['admin', '--sysroot=/mnt/sysimage', 'deploy', '--os=fedora-workstation', 'fedora-workstation:fedora/28/x86_64/workstation'] exited with code -6`
 
 A couple of possible workarounds exist:
 
-* During the install process, select "Custom Partitioning" and create an additional EFI partition. Assign the newly created EFI partition to `/boot/efi`. You will then be able to boot the previous OS(s) alongside Fedora Silverblue. If this workaround is not successful follow the below step.
+* During the install process, select "Custom Partitioning" and create an additional EFI partition. Assign the newly created EFI partition to `/boot/efi`. You will then be able to boot the previous OS(s) alongside Fedora {variant-name}. If this workaround is not successful follow the below step.
 * Reformat the EFI partition on the host during the install process. This can be done by selecting "Custom Partitioning" and checking the `Reformat` box when creating the `/boot/efi` partition.
 
 WARNING: Choosing to reformat `/boot/efi` will likely result in the inability
@@ -190,7 +190,7 @@ This will reset the permissions on your containers and allow you to enter them a
 
 == Running `restorecon`
 
-WARNING: You should never run `restorecon` on a Silverblue host.  See the following
+WARNING: You should never run `restorecon` on a {variant-name} host. See the following
 bug for details - https://bugzilla.redhat.com/show_bug.cgi?id=1259018
 
 However, if you happened to do this, it is possible to recover.
@@ -209,7 +209,7 @@ However, if you happened to do this, it is possible to recover.
  $ sudo ostree commit --consume --link-checkout-speedup --orphan --selinux-policy=/ /ostree/repo/tmp/selinux-fix
  $ sudo restorecon -Rv /var
  $ sudo restorecon -Rv /etc
- $ sudo ostree admin deploy fedora-atomic:fedora/30/x86_64/silverblue
+ $ sudo ostree admin deploy fedora-atomic:fedora/30/x86_64/{variant}
  $ sudo reboot
 
 The caveat to this recovery is that your layered packages will be removed; you'll
