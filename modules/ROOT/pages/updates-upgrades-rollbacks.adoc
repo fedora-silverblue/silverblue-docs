@@ -38,7 +38,7 @@ upgraded between major versions using the `ostree` command.
 First, verify the branch is available. You can print all available branches
 with this command:
 
- $ ostree remote refs fedora
+ $ ostree remote refs fedora | grep {variant}
 
 After you verify the name of your branch, you are ready to proceed. For
 example, to upgrade to {variant-name} 35, the command is:
