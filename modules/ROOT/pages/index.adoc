@@ -1,43 +1,43 @@
-= Fedora Silverblue User Guide
+= Fedora {variant-name} User Guide
 
-Welcome to the Fedora Silverblue user guide!
+Welcome to the Fedora {variant-name} user guide!
 
-image::silverblue-logo.svg[Silverblue logo]
+image::silverblue-logo.svg[{variant-name} logo]
 
-_Fedora Silverblue_ is an immutable desktop operating system. It aims to be
+_Fedora {variant-name}_ is an immutable desktop operating system. It aims to be
 extremely stable and reliable. It also aims to be an excellent platform for
 developers and for those using container-focused workflows.
 
 [[introduction]]
-== Introduction to Silverblue
+== Introduction to {variant-name}
 
-Silverblue is a variant of Fedora Workstation. It looks, feels and behaves like
+{variant-name} is a variant of Fedora Workstation. It looks, feels and behaves like
 a regular desktop operating system, and the experience is similar to what you
 find with using a standard Fedora Workstation.
 
-However, unlike other operating systems, Silverblue is immutable. This means
+However, unlike other operating systems, {variant-name} is immutable. This means
 that every installation is identical to every other installation of the same
 version. The operating system that is on disk is exactly the same from one
 machine to the next, and it never changes as it is used.
 
-Silverblue's immutable design is intended to make it more stable, less prone to
-bugs, and easier to test and develop. Finally, Silverblue's immutable design
+{variant-name}'s immutable design is intended to make it more stable, less prone to
+bugs, and easier to test and develop. Finally, {variant-name}'s immutable design
 also makes it an excellent platform for containerized applications as well as
 container-based software development. In each case, applications (apps) and
 containers are kept separate from the host system, improving stability and
 reliability.
 
-Silverblue's core technologies have some other helpful features. OS updates are
+{variant-name}'s core technologies have some other helpful features. OS updates are
 fast and there's no waiting around for them to install: just reboot as normal
-to start using the next version. With Silverblue, it is also possible to roll
+to start using the next version. With {variant-name}, it is also possible to roll
 back to the previous version of the operating system, if something goes wrong.
 
 [[this-guide]]
 == About this guide
 
-In most cases, Silverblue behaves like a standard Fedora Workstation
+In most cases, {variant-name} behaves like a standard Fedora Workstation
 installation, and the https://docs.fedoraproject.org/[standard Fedora
-documentation] can be used. This guide covers those areas where Silverblue
+documentation] can be used. This guide covers those areas where {variant-name}
 differs from a standard Fedora Workstation, including:
 
 * link:installation[OS installation]
@@ -45,6 +45,6 @@ differs from a standard Fedora Workstation, including:
 * link:updates-upgrades-rollbacks[OS upgrades and rollbacks]
 
 The primary audience for these docs are new users, who aren't expected to have
-specialist knowledge or technical knowledge about Silverblue's internals.
+specialist knowledge or technical knowledge about {variant-name}'s internals.
 However, some background link:technical-information[technical information] is
 provided, for those who are interested and want to learn more.

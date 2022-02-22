@@ -20,15 +20,15 @@ Is Silverblue another GNOME OS?::
     built with existing Fedora technologies. However, the two efforts do share 
     a desire to deliver a user experience that is polished and coherent.
 
-What is Silverblue's relationship with Project Atomic?::
-    Fedora Silverblue uses the same core technology as Fedora Atomic Host (as 
-    well as its successor, Fedora CoreOS). However, Silverblue is specifically 
+What is {variant-name}'s relationship with Project Atomic?::
+    Fedora {variant-name} uses the same core technology as Fedora Atomic Host (as
+    well as its successor, Fedora CoreOS). However, {variant-name} is specifically
     focused on workstation/desktop use cases.
 
-== About using Silverblue
+== About using {variant-name}
 
 [quanda]
-How can I install Eclipse on Silverblue?::
+How can I install Eclipse on {variant-name}?::
     Instructions to setup the Nightly flatpak remote for Eclipse are available
     http://eclipse.matbooth.co.uk/flatpak[here].
 
@@ -77,7 +77,7 @@ At this point in time, there is no `rpm` package search function built into `rpm
 
  $ toolbox run dnf search <package>
 +
-NOTE: The assumption is that you have already created a toolbox matching the version of your Fedora Silverblue installation.
+NOTE: The assumption is that you have already created a toolbox matching the version of your Fedora {variant-name} installation.
 
 How can I downgrade my system's kernel?::
 
@@ -105,7 +105,7 @@ NOTE: `0` here refers to the first deployment listed by `rpm-ostree status`
 
  rpm-ostree status
 
-. After the deployment is pinned, you can upgrade your system by using the instructions found https://docs.fedoraproject.org/en-US/fedora-silverblue/updates-upgrades-rollbacks/#upgrading[here.]
+. After the deployment is pinned, you can upgrade your system by using the instructions found {docs-url}/updates-upgrades-rollbacks/#upgrading[here].
 
 . When you have completed rebasing, reboot the system. The GRUB menu will now present you with both: the previous deployment major version entry (e.g.: *"Fedora 30.YYYYMMDD.n"*) and the new deployment major version entry (e.g.: *"Fedora 31.YYYYMMDD.n"*).
 +

@@ -1,14 +1,14 @@
 [[updates-upgrades-rollbacks]]
 = Updates, Upgrades & Rollbacks
 
-Installing updates with Silverblue is easy and fast (much faster than other
+Installing updates with {variant-name} is easy and fast (much faster than other
 operating systems). It also has a special rollback feature, in case anything
 goes wrong.
 
 [[updating]]
-== Updating Silverblue
+== Updating {variant-name}
 
-OS updates in Silverblue are fully integrated into the desktop; you will be
+OS updates in {variant-name} are fully integrated into the desktop; you will be
 automatically notified when an update is available. The standard behavior is to
 automatically download the update (this can be changed from the update
 preferences in Software).
@@ -32,7 +32,7 @@ them, run:
 == Upgrading between major versions
 
 Upgrading between major versions (such as from Fedora 34 to Fedora 35) can be
-completed using the Software application. Alternatively, Silverblue can be
+completed using the Software application. Alternatively, {variant-name} can be
 upgraded between major versions using the `ostree` command.
 
 First, verify the branch is available. You can print all available branches
@@ -41,13 +41,13 @@ with this command:
  $ ostree remote refs fedora
 
 After you verify the name of your branch, you are ready to proceed. For
-example, to upgrade to Silverblue 35, the command is:
+example, to upgrade to {variant-name} 35, the command is:
 
-NOTE: Currently, the default remote for Silverblue 35 is named `fedora`. If
+NOTE: Currently, the default remote for {variant-name} 35 is named `fedora`. If
 this is not the case for your system, you can find out the remote name by
 issuing: `ostree remote list`.
 
- $ rpm-ostree rebase fedora:fedora/35/x86_64/silverblue
+ $ rpm-ostree rebase fedora:fedora/35/x86_64/{variant}
 
 The process is very similar to a system update: the new OS is downloaded and
 installed in the background, and you just boot into it when it is ready.
@@ -55,7 +55,7 @@ installed in the background, and you just boot into it when it is ready.
 [[rolling-back]]
 == Rolling back
 
-Silverblue keeps a record of the previous OS version, which can be switched to
+{variant-name} keeps a record of the previous OS version, which can be switched to
 instead of the latest version. While this shouldn't usually be necessary, it
 can be helpful if there is a problem with an update or an upgrade (rollbacks
 work the same way for both), as well as for development purposes.

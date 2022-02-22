@@ -1,6 +1,6 @@
 = Reading & Resources
 
-This page is a list of further reading and resources for Silverblue.
+This page is a list of further reading and resources for {variant-name}.
 
 == Technology websites and documentation
 
