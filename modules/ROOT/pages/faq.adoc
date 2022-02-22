@@ -2,7 +2,6 @@
 
 == About the project
 
-[qanda]
 Is it Team Silverblue, Silverblue, or Fedora Silverblue?::
     We chose the name Team Silverblue to refer to the overall project. Fedora 
     Silverblue will be used for the OS that we are producing, but calling it 
@@ -27,7 +26,6 @@ What is {variant-name}'s relationship with Project Atomic?::
 
 == About using {variant-name}
 
-[quanda]
 How can I install Eclipse on {variant-name}?::
     Instructions to setup the Nightly flatpak remote for Eclipse are available
     http://eclipse.matbooth.co.uk/flatpak[here].
