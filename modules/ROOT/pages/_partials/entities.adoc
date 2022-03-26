@@ -1,0 +1,11 @@
+:variant-name: Silverblue
+
+:website: https://silverblue.fedoraproject.org/
+
+:docs-issue: https://github.com/fedora-silverblue/silverblue-docs/issues
+
+:docs-src: https://github.com/fedora-silverblue/silverblue-docs
+
+:issue-tracker: https://github.com/fedora-silverblue/silverblue-docs/issues
+
+:discussion-forum: https://discussion.fedoraproject.org/tags/c/project/7/silverblue
