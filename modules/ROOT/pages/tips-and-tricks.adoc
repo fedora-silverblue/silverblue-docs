@@ -26,8 +26,7 @@ include "[toolbox <name>]":
 
 ```
 function is_toolbox() {
-    # $HOSTNAME is assigned to "toolbox" when running in a toolbox container.
-    if [ "${HOSTNAME}" == "toolbox" ]
+    if [ -f "/run/.toolboxenv" ]
     then
         TOOLBOX_NAME=$(cat /run/.containerenv | grep -oP "(?<=name=\")[^\";]+")
         echo "[${HOSTNAME} ${TOOLBOX_NAME}]"
