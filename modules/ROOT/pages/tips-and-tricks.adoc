@@ -20,7 +20,31 @@ This will behave as follows
 * When run from the host, returns an exit code of 1
 * When run from a Toolbx container, returns an exit code of 0 and prints the
   current Toolbx containers name to the console
+  
+If a more automated solution is your preference the following added to your `~/.bashrc` will change your bash prompt to
+include "[toolbox <name>]":
 
+```
+function is_toolbox() {
+    # $HOSTNAME is assigned to "toolbox" when running in a toolbox container.
+    if [ "${HOSTNAME}" == "toolbox" ]
+    then
+        TOOLBOX_NAME=$(cat /run/.containerenv | grep -oP "(?<=name=\")[^\";]+")
+        echo "[${HOSTNAME} ${TOOLBOX_NAME}]"
+    fi
+}
+```
+
+Now you can include `is_toolbox` in your `PS1` variable and not need to execute any extra commands
+in order to know whether or not your are in a toolbox or host shell.
+
+Example:
+```
+export PS1="\[\e[31m\]\`is_toolbox\`\]\e[m\]\[\e[32m\]\\$ \[\e[m\]\[\e[37m\]❱\[\e[m\] "
+```
+
+This results in a prompt which appears as such when not in a toolbox: `$ ❱`
+However, when running in a toolbox named "default" looks like: `[toolbox default]$ ❱`
 
 
 === Running applications from inside Toolbx on the host
