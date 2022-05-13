@@ -26,21 +26,27 @@ Alternatively, to check for available updates without downloading them, run:
 [[upgrading]]
 == Upgrading between major versions
 
-Upgrading between major versions (such as from Fedora 34 to Fedora 35) can be completed using the Software application.
+Upgrading between major versions (such as from Fedora 35 to Fedora 36) can be completed using the Software application.
 Alternatively, {variant-name} can be upgraded between major versions using the `ostree` command.
 
 First, verify the branch is available.
 You can print all available branches with this command:
 
- $ ostree remote refs fedora | grep {variant}
+[source,bash,subs="attributes"]
+----
+$ ostree remote refs fedora | grep {variant}
+----
 
 After you verify the name of your branch, you are ready to proceed.
-For example, to upgrade to {variant-name} 35, the command is:
+For example, to upgrade to {variant-name} {version}, the command is:
 
-NOTE: Currently, the default remote for {variant-name} 35 is named `fedora`.
+NOTE: Currently, the default remote for {variant-name} {version} is named `fedora`.
       If this is not the case for your system, you can find out the remote name by issuing: `ostree remote list`.
 
- $ rpm-ostree rebase fedora:fedora/35/x86_64/{variant}
+[source,bash,subs="attributes"]
+----
+$ rpm-ostree rebase fedora:fedora/{version}/x86_64/{variant}
+----
 
 The process is very similar to a system update: the new OS is downloaded and installed in the background, and you just boot into it when it is ready.
 

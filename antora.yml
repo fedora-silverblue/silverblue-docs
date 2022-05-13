@@ -19,6 +19,7 @@ asciidoc:
   attributes:
     variant: silverblue
     variant-name: Silverblue
+    version: 36
     website: https://silverblue.fedoraproject.org/
     issue-tracker: https://github.com/fedora-silverblue/issue-tracker/issues
     docs-url: https://docs.fedoraproject.org/en-US/fedora-silverblue/

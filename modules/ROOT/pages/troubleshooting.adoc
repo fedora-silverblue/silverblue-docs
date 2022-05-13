@@ -180,15 +180,18 @@ However, if you happened to do this, it is possible to recover.
 5. Reboot
 6. Cleanup
 
- $ rpm-ostree status -b | grep BaseCommit
-                 BaseCommit: 696991d589980aeaef5eda352dd7ad3d33c444c789c209f793a84bc6e7269aee
- $ sudo ostree checkout -H 696991d589980aeaef5eda352dd7ad3d33c444c789c209f793a84bc6e7269aee /ostree/repo/tmp/selinux-fix
- $ sudo ostree fsck --delete
- $ sudo ostree commit --consume --link-checkout-speedup --orphan --selinux-policy=/ /ostree/repo/tmp/selinux-fix
- $ sudo restorecon -Rv /var
- $ sudo restorecon -Rv /etc
- $ sudo ostree admin deploy fedora:fedora/35/x86_64/{variant}
- $ sudo reboot
+[source,bash,subs="attributes"]
+----
+$ rpm-ostree status -b | grep BaseCommit
+                BaseCommit: 696991d589980aeaef5eda352dd7ad3d33c444c789c209f793a84bc6e7269aee
+$ sudo ostree checkout -H 696991d589980aeaef5eda352dd7ad3d33c444c789c209f793a84bc6e7269aee /ostree/repo/tmp/selinux-fix
+$ sudo ostree fsck --delete
+$ sudo ostree commit --consume --link-checkout-speedup --orphan --selinux-policy=/ /ostree/repo/tmp/selinux-fix
+$ sudo restorecon -Rv /var
+$ sudo restorecon -Rv /etc
+$ sudo ostree admin deploy fedora:fedora/{version}/x86_64/{variant}
+$ sudo reboot
+----
 
 The caveat to this recovery is that your layered packages will be removed; you'll need to relayer them after the recovery.
 
