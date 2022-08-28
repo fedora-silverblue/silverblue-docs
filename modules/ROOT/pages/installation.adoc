@@ -13,7 +13,7 @@ However, there are some differences in terms of which applications can be instal
 
 It is therefore recommended that you read this user guide before deciding to install {variant-name}.
 It is also recommended that you determine whether {variant-name} meets the specific needs or requirements that you might have.
-If you are uncertain about this, {variant-name} can also be tested in a virtual machine prior to installation or booted from a flash drive using Fedora Media Writer.
+If you are uncertain about this, {variant-name} can also be tested in a virtual machine prior to installation.
 
 [[known-limitations]]
 == Known limitations
