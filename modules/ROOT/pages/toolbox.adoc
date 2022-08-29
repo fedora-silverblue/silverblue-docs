@@ -19,7 +19,7 @@ Using Toolbox for running your workflows in a containerized manner brings you se
 * Containers are a good way to isolate and organise the dependencies needed for different projects.
 * Containers are a safe space to experiment: if things go wrong, it's easy to throw a toolbox away and start again.
 
-However, it is very important to note that toolbox containers are still integrated with your host system, so you should not attempt to things or run software you otherwise would't on your host system. Toolbox containers are not completely safe environments like virtual machines.
+However, it is very important to note that toolbox containers are still integrated with your host system, so you should not attempt to do things or run software you otherwise wouldn't on your host system. Toolbox containers are not completely isolated environments like virtual machines.
 
 [[toolbox-how-it-works]]
 == How it works
