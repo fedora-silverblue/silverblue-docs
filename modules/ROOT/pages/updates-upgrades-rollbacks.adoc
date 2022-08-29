@@ -53,7 +53,9 @@ The process is very similar to a system update: the new OS is downloaded and ins
 
 Additionally, you can choose to rebase to a different variant of Silverblue, like for example Fedora Kinoite. Kinoite is similar to Silverblue, except for the fact that it uses the KDE Plasma desktop environment instead of the default GNOME desktop environment. 
 
-What this means is, you can rebase to Fedora Kinoite to try it out, without ever touching your current system. Because the two system images are isolated from eachother, you will never find your gnome system apps installed on your Plasma desktop, and vice-versa. All of your flatpak apps and /home files will stay persistent between rebases. Same applies for testing out the bleeding-edge version of Silverblue, which is Rawhide.
+What this means is, you can rebase to Fedora Kinoite to try it out, without ever touching your current system. Because the two system images are isolated from eachother, the two desktop environments will never be installed at the same time. All of your flatpak apps and /home files will stay persistent between rebases. Same applies for testing out the bleeding-edge version of Silverblue, which is Rawhide.
+
+If you decide to rebase, make sure to https://docs.fedoraproject.org/en-US/fedora-silverblue/faq/#_about_using_silverblue[pin] your current deployment, so you don't accidentaly lose it (by default, only the two most recent deployments are kept).
 
 [[rolling-back]]
 == Rolling back
