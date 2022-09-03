@@ -1,12 +1,12 @@
 [[contributing]]
-= Contributing to Fedora {variant-name}
+= Contributing to {variant-name}
 
-Help us improve Fedora {variant-name} by contributing to the project!
+Help us improve {variant-name} by contributing to the project!
 
 [[developing]]
 == Developing {variant-name}
 
-If you are a developer, you can contribute to one of the several projects which make Fedora {variant-name} possible.
+If you are a developer, you can contribute to one of the several projects which make {variant-name} possible.
 Submit your pull requests to:
 
 * https://github.com/projectatomic/rpm-ostree[rpm-ostree]

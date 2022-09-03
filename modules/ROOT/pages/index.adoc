@@ -1,10 +1,10 @@
-= Fedora {variant-name} User Guide
+= {variant-name} User Guide
 
-Welcome to the Fedora {variant-name} user guide!
+Welcome to the {variant-name} user guide!
 
 image::silverblue-logo.svg[{variant-name} logo]
 
-_Fedora {variant-name}_ is an immutable desktop operating system.
+_{variant-name}_ is an immutable desktop operating system.
 It aims to be extremely stable and reliable.
 It also aims to be an excellent platform for developers and for those using container-focused workflows.
 

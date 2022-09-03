@@ -117,7 +117,7 @@ A couple of possible workarounds exist:
 
 * During the install process, select "Custom Partitioning" and create an additional EFI partition.
   Assign the newly created EFI partition to `/boot/efi`.
-  You will then be able to boot the previous OS(s) alongside Fedora {variant-name}.
+  You will then be able to boot the previous OS(s) alongside {variant-name}.
   If this workaround is not successful follow the below step.
 * Reformat the EFI partition on the host during the install process.
   This can be done by selecting "Custom Partitioning" and checking the `Reformat` box when creating the `/boot/efi` partition.

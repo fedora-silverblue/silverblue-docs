@@ -18,7 +18,7 @@ Is Silverblue another GNOME OS?::
     However, the two efforts do share a desire to deliver a user experience that is polished and coherent.
 
 What is {variant-name}'s relationship with Project Atomic?::
-    Fedora {variant-name} uses the same core technology as Fedora Atomic Host (as well as its successor, Fedora CoreOS).
+    {variant-name} uses the same core technology as Fedora Atomic Host (as well as its successor, Fedora CoreOS).
     However, {variant-name} is specifically focused on workstation/desktop use cases.
 
 == About using {variant-name}
@@ -67,7 +67,7 @@ However, you can use `toolbox` with the following command:
 
  $ toolbox run dnf search <package>
 +
-NOTE: The assumption is that you have already created a toolbox matching the version of your Fedora {variant-name} installation.
+NOTE: The assumption is that you have already created a toolbox matching the version of your {variant-name} installation.
 
 How can I downgrade my system's kernel?::
 
