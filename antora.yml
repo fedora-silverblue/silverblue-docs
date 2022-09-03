@@ -1,9 +1,9 @@
 # Name will be mostly visible in the URL. Treat it as an indentifier.
 # Tip: If you want to use the local preview scripts that come with this repository, please change this value in the site.yml file as well. (under site/start_page)
-name: fedora-silverblue  # <---- PLEASE MODIFY
+name: fedora-silverblue
 
 # Title will be visible on the page.
-title: Fedora Silverblue # <---- PLEASE MODIFY
+title: Fedora Silverblue
 
 # If you don't plan to have multiple versions of the docs (for example, to document multiple versions of some software), you can ignore this field. Otherwise, change "master" to a specific version.
 version: master
@@ -17,12 +17,12 @@ nav:
 
 asciidoc:
   attributes:
-    variant: silverblue
-    variant-name: Silverblue
+    variant: "silverblue"
+    variant-name: "Fedora Silverblue"
     version: 36
-    website: https://silverblue.fedoraproject.org/
-    issue-tracker: https://github.com/fedora-silverblue/issue-tracker/issues
-    docs-url: https://docs.fedoraproject.org/en-US/fedora-silverblue/
-    docs-src: https://github.com/fedora-silverblue/silverblue-docs
-    docs-issue: https://github.com/fedora-silverblue/silverblue-docs/issues
-    discussion-forum: https://discussion.fedoraproject.org/c/desktop/silverblue
+    website: "https://silverblue.fedoraproject.org/"
+    issue-tracker: "https://github.com/fedora-silverblue/issue-tracker/issues"
+    docs-url: "https://docs.fedoraproject.org/en-US/fedora-silverblue/"
+    docs-src: "https://github.com/fedora-silverblue/silverblue-docs"
+    docs-issue: "https://github.com/fedora-silverblue/silverblue-docs/issues"
+    discussion-forum: "https://discussion.fedoraproject.org/c/desktop/silverblue"

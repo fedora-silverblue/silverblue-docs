@@ -20,14 +20,14 @@ See the dedicated xref:toolbox.adoc[toolbox] page to get started with it.
 == Flatpak
 
 Flatpak is the primary way that apps can be installed on {variant-name} (for more information, see http://flatpak.org[flatpak.org]).
-Flatpak works out of the box in Fedora {variant-name}, and Fedora provides a small (but growing) collection of apps that can be installed.
+Flatpak works out of the box in {variant-name}, and Fedora provides a small (but growing) collection of apps that can be installed.
 
 The other main source of Flatpak apps is https://flathub.org/home[Flathub], which provides a large repository of Flatpak apps that can be installed.
 
 [[flathub-setup]]
 == Setting up Flathub
 
-To setup Flathub on Fedora {variant-name}, open the https://flatpak.org/setup/Fedora/[Flathub setup page for Fedora] and click the “Flathub repository file” button to download the Flathub configuration.
+To setup Flathub on {variant-name}, open the https://flatpak.org/setup/Fedora/[Flathub setup page for Fedora] and click the “Flathub repository file” button to download the Flathub configuration.
 
 image::sfg_flathub_fedora.png[title="Fedora quick setup page"]
 

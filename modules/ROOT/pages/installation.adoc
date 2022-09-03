@@ -1,6 +1,6 @@
 = Installing {variant-name}
 
-Fedora {variant-name} can be installed in the same way as Fedora Workstation, and the official Fedora installation guide can be followed for your Fedora version.
+{variant-name} can be installed in the same way as Fedora Workstation, and the official Fedora installation guide can be followed for your Fedora version.
 See the https://docs.fedoraproject.org/en-US/docs/[Fedora documentation site] for more details.
 
 [[before-you-begin]]

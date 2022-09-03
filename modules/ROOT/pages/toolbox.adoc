@@ -9,7 +9,7 @@ As an immutable host, {variant-name} is an excellent platform for container-base
 == Why use toolbox?
 
 Toolbox makes it easy to use a containerized environment for everyday software development and debugging.
-On immutable operating systems, like {website}[Fedora {variant-name}], it provides a familiar package-based environment in which tools and libraries can be installed and used.
+On immutable operating systems, like {website}[{variant-name}], it provides a familiar package-based environment in which tools and libraries can be installed and used.
 However, toolbox can also be used on package-based systems.
 
 Using Toolbox for running your workflows in a containerized manner brings you several advantages:
@@ -50,9 +50,9 @@ One example of this is the toolbox command itself; this makes it possible to use
 [[toolbox-installation]]
 == Installation
 
-=== Fedora {variant-name}
+=== {variant-name}
 
-Toolbox is preinstalled on Fedora {variant-name} 30 or newer.
+Toolbox is preinstalled on {variant-name} 30 or newer.
 On older versions, it can be installed with the following command:
 
  $ rpm-ostree install toolbox
