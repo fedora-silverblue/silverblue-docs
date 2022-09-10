@@ -8,7 +8,7 @@ However, {variant-name} is built differently from other operating systems, and t
 These include:
 
 * Flatpak apps: this is the primary way that (GUI) apps get installed on {variant-name}.
-* Toolbox: Used primarily for CLI apps; development, debugging tools, etc, but also has support for graphical apps.
+* Toolbox: Used primarily for CLI apps; development, debugging tools, etc., but also has support for graphical apps.
 * Package layering: Most Fedora packages can be installed on the system with the help of package layering.
   By default the system operates in pure image mode, but package layering is useful for things like libvirt, drivers, etc.
 
