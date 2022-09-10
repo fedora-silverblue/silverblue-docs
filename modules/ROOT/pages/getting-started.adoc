@@ -92,7 +92,9 @@ Good examples of packages to be layered would be:
 Most (but not all) RPM packages provided by Fedora can be installed on {variant-name} using this method.
 
 Currently, using package layering creates a new "deployment", or bootable filesystem root.
-It does not affect your current root. This preserves rollback and the transactional model, but means that the system must be rebooted after a package has been layered or updated, unless you run `rpm-ostree install --apply-live <pkg>`, in which case it applies it directly to your current deployment. 
+It does not affect your current root.
+This preserves rollback and the transactional model, but means that the system must be rebooted after a package has been layered or updated.
+You can alternatively use `rpm-ostree install --apply-live <pkg>` to also temporarily apply the change directly to your currently booted deployment.
 It's generally expected that you use package layering sparingly, and use `flatpak` and `dnf install` inside a `toolbox` etc.
 
 Package layering is generally done from the command line.
