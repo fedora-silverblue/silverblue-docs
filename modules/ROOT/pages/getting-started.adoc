@@ -8,8 +8,8 @@ However, {variant-name} is built differently from other operating systems, and t
 These include:
 
 * Flatpak apps: this is the primary way that (GUI) apps get installed on {variant-name}.
-* Toolbox: Used primarily for CLI apps; development, debugging tools etc.
-* Package layering: The rpm-ostree tool used for host updates is a full hybrid image/package system.
+* Toolbox: Used primarily for CLI apps; development, debugging tools, etc., but also has support for graphical apps.
+* Package layering: Most Fedora packages can be installed on the system with the help of package layering.
   By default the system operates in pure image mode, but package layering is useful for things like libvirt, drivers, etc.
 
 For information on <<flatpak>> and <<package-layering,package layering>>, see below.
@@ -45,6 +45,10 @@ image::sfg_flathub_install.png[title="Flathub install window"]
 
 After the repository installation process is complete, the window will be updated to show a “Remove" button in place of the “Install” button.
 
+Alternatively, you can use the following command from the terminal:
+
+ $ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
 === Installing Flatpak apps from Flathub
 
 Once the Flathub repository has been setup, it can be used to install Flatpak apps.
@@ -61,10 +65,17 @@ image::sfg_libreoffice_install.png[title="LibreOffice Flatpak download"]
 Once the Flatpak is downloaded, the Software application will open a new window with an “Install” button (2).
 Click this button to begin installation.
 
+Alternatively, each application on flathub.org can be installed through the terminal by running the installation command at the bottom of the page that should look something like this:
+
+ $ flatpak install flathub <package-name>
+ 
+As an example, Firefox can be installed by running the following command which can be found on Firefox's flathub page:
+
+ $ flatpak install flathub org.mozilla.firefox
+
 === Flatpak command line
 
-In addition to using the Software app to install Flatpak apps, it is also possible to use the `flatpak` command line interface.
-See the http://docs.flatpak.org/en/latest/using-flatpak.html[Flatpak documentation] for how to do this.
+Additional details about the flatpak command line interface can be found in the official http://docs.flatpak.org/en/latest/using-flatpak.html[Flatpak documentation].
 
 [[package-layering]]
 == Package layering
@@ -82,8 +93,9 @@ Most (but not all) RPM packages provided by Fedora can be installed on {variant-
 
 Currently, using package layering creates a new "deployment", or bootable filesystem root.
 It does not affect your current root.
-This preserves rollback and the transactional model, but means that the system must be rebooted after a package has been layered.
-If you don't want to reboot your system for switching to the new deployment, you can use an experimental `rpm-ostree ex apply-live` command to update the filesystem to see changes from new deployment, but it's generally expected that you use package layering sparingly, and use `flatpak` and `dnf install` inside a `toolbox` etc.
+This preserves rollback and the transactional model, but means that the system must be rebooted after a package has been layered or updated.
+You can alternatively use `rpm-ostree install --apply-live <pkg>` to also temporarily apply the change directly to your currently booted deployment.
+It's generally expected that you use package layering sparingly, and use `flatpak` and `dnf install` inside a `toolbox` etc.
 
 Package layering is generally done from the command line.
 However, the Software application does rely on it for installing a small number of apps that are currently difficult to install as Flatpaks.
