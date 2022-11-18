@@ -118,3 +118,37 @@ or setup shell `alias`es as needed to make them available to the CLI like so:
   $ alias evince="flatpak run org.gnome.Evince"
     # or alias evince="org.gnome.Evince"
   $ evince
+
+== Enabling RPM Fusion repos
+
+[CAUTION]
+====
+This section discusses third-party software sources not officially affiliated with or endorsed by the Fedora Project.
+Use them at your own discretion.
+Fedora recommends the use of free and open source software and avoidance of software encumbered by patents.
+====
+
+Users may want to take advantage of the non-free software that is made available via the https://rpmfusion.org/[RPM Fusion]
+repos in order to use the proprietary NVIDIA drivers, multimedia codecs, or other software not
+distributed as part of Fedora.
+
+The first time you install the RPM Fusion repos, you need to install the versioned RPMs:
+
+    $ sudo rpm-ostree install \
+        https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
+        https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+    $ reboot
+
+
+Once you have rebooted into the new deployment, you can run the following command to remove
+the “lock” on the versioned packages that were installed previously. This will enable the
+RPM Fusion repos to be automatically updated and versioned correctly across major Fedora version rebases:
+
+    $ sudo rpm-ostree update \
+        --uninstall rpmfusion-free-release \
+        --uninstall rpmfusion-nonfree-release \
+        --install rpmfusion-free-release \
+        --install rpmfusion-nonfree-release
+    $ reboot
+
+For more information, see https://discussion.fedoraproject.org/t/simplifying-updates-for-rpm-fusion-packages-and-other-packages-shipping-their-own-rpm-repos/30364[this thread] on the Fedora Discourse site.
