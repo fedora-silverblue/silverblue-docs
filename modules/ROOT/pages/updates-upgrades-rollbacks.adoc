@@ -30,24 +30,35 @@ Alternatively, to check for available updates without downloading them, run:
 Upgrading between major versions (such as from Fedora 35 to Fedora 36) can be completed using the Software application.
 Alternatively, {variant-name} can be upgraded between major versions using the `ostree` command.
 
-First, verify the branch is available.
-You can print all available branches with this command:
+WARNING: Skipping major releases is currently untested and is thus not supported.
+         You should update only one major release at a time, i.e. from Fedora 35 to 36, etc.
+
+First, make sure that you are running the latest update for the current version:
+
+[source,bash]
+----
+$ rpm-ostree upgrade
+----
+
+Reboot your system if needed.
+Then, verify that the branch for the next major version is available.
+You can print all available branches for {variant-name} with this command:
 
 [source,bash,subs="attributes"]
 ----
 $ ostree remote refs fedora | grep {variant}
 ----
 
-After you verify the name of your branch, you are ready to proceed.
+After you've verified the name of your branch, you are ready to proceed.
 For example, to upgrade to {variant-name} {version}, the command is:
-
-NOTE: Currently, the default remote for {variant-name} {version} is named `fedora`.
-      If this is not the case for your system, you can find out the remote name by issuing: `ostree remote list`.
 
 [source,bash,subs="attributes"]
 ----
 $ rpm-ostree rebase fedora:fedora/{version}/x86_64/{variant}
 ----
+
+NOTE: Currently, the default remote for {variant-name} {version} is named `fedora`.
+      If this is not the case for your system, you can find out the remote name by issuing: `ostree remote list`.
 
 The process is very similar to a system update: the new OS is downloaded and installed in the background, and you just boot into it when it is ready.
 
