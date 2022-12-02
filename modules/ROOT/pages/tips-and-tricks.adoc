@@ -160,3 +160,21 @@ or setup shell `alias`es as needed to make them available to the CLI like so:
   $ alias evince="flatpak run org.gnome.Evince"
     # or alias evince="org.gnome.Evince"
   $ evince
+
+== How do to replace fedora-flatpak remote with flathub?
+. Enable the flathub remote if not already enabled using the instructions {docs-url}/getting-started/#flathub-setup[here]
+
+. Run this command to reinstall fedora flatpak repo applications with ones from flathub
+
+ $ flatpak install --reinstall flathub $(flatpak list --app-runtime=org.fedoraproject.Platform --columns=application | tail -n +1 )
+
+. Then finally, remove the fedora flatpak repo.
+
+ $ flatpak remote-delete fedora
+
+[NOTE]
+====
+Make sure that the only thing prompted for removal is the runtime, if any other application is listed, run
+
+ $ flatpak install --reinstall flathub name.of.application
+====
