@@ -1,6 +1,6 @@
 = Tips and Tricks
 
-== Hidding the default browser (Firefox)
+== Hiding the default browser (Firefox)
 
 If you're using another browser than the one installed by default (Firefox) then you can hide the default one from the interface via the following commands:
 
