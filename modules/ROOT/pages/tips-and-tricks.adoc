@@ -162,6 +162,7 @@ or setup shell `alias`es as needed to make them available to the CLI like so:
   $ evince
 
 == How do to replace fedora-flatpak remote with flathub?
+
 . Enable the flathub remote if not already enabled using the instructions {docs-url}/getting-started/#flathub-setup[here]
 
 . Run this command to reinstall fedora flatpak repo applications with ones from flathub
