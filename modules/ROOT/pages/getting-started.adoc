@@ -27,7 +27,11 @@ The other main source of Flatpak apps is https://flathub.org/home[Flathub], whic
 [[flathub-setup]]
 == Setting up Flathub
 
-To setup Flathub on {variant-name}, open the https://flatpak.org/setup/Fedora/[Flathub setup page for Fedora] and click the “Flathub repository file” button to download the Flathub configuration.
+To setup Flathub on {variant-name}, run 
+
+ $ flatpak remote-modify --no-filter --enable flathub
+
+If it does not exist, open the https://flatpak.org/setup/Fedora/[Flathub setup page for Fedora] and click the “Flathub repository file” button to download the Flathub configuration.
 
 image::sfg_flathub_fedora.png[title="Fedora quick setup page"]
 
