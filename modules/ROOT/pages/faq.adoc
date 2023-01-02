@@ -81,7 +81,7 @@ If, for whatever reason, you need to downgrade the kernel, you can do so by foll
 
 . Reboot the system to apply the changes.
 
-How can I upgrade my system to the next major version (for instance: rawhide or an upcoming Fedora release branch), while keeping my current deployment?::
+[[pinning]]How can I upgrade my system to the next major version (for instance: rawhide or an upcoming Fedora release branch), while keeping my current deployment?::
 
 OSTree allows you to pin deployments (pinning ensures that your deployment of choice is kept and not discarded).
 
@@ -95,7 +95,7 @@ NOTE: `0` here refers to the first deployment listed by `rpm-ostree status`
 
  rpm-ostree status
 
-. After the deployment is pinned, you can upgrade your system by using the instructions found {docs-url}/updates-upgrades-rollbacks/#upgrading[here].
+. After the deployment is pinned, you can upgrade your system by using the instructions found xref:updates-upgrades-rollbacks.adoc#upgrading[here].
 
 . When you have completed rebasing, reboot the system.
 The GRUB menu will now present you with both: the previous deployment major version entry (e.g.: *"Fedora 30.YYYYMMDD.n"*) and the new deployment major version entry (e.g.: *"Fedora 31.YYYYMMDD.n"*).
