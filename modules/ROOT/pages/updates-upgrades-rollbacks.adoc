@@ -70,7 +70,7 @@ Because the two system images are isolated from eachother, the two desktop envir
 All of your flatpak apps and /home files will stay persistent between rebases.
 Same applies for testing out the bleeding-edge version of {variant-name}, which is Rawhide.
 
-If you decide to rebase, make sure to https://docs.fedoraproject.org/en-US/fedora-silverblue/faq/#_about_using_silverblue[pin] your current deployment, so you don't accidentaly lose it (by default, only the two most recent deployments are kept).
+If you decide to rebase, make sure to xref:faq.adoc#pinning[pin] your current deployment, so you don't accidentaly lose it (by default, only the two most recent deployments are kept).
 
 [[rolling-back]]
 == Rolling back
