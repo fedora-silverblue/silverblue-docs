@@ -68,7 +68,7 @@ Click this button to begin installation.
 Alternatively, each application on flathub.org can be installed through the terminal by running the installation command at the bottom of the page that should look something like this:
 
  $ flatpak install flathub <package-name>
- 
+
 As an example, Firefox can be installed by running the following command which can be found on Firefox's flathub page:
 
  $ flatpak install flathub org.mozilla.firefox
