@@ -22,7 +22,6 @@ asciidoc:
     version: 36
     website: "https://silverblue.fedoraproject.org/"
     issue-tracker: "https://github.com/fedora-silverblue/issue-tracker/issues"
-    docs-url: "https://docs.fedoraproject.org/en-US/fedora-silverblue/"
     docs-src: "https://github.com/fedora-silverblue/silverblue-docs"
     docs-issue: "https://github.com/fedora-silverblue/silverblue-docs/issues"
     discussion-forum: "https://discussion.fedoraproject.org/c/desktop/silverblue"
