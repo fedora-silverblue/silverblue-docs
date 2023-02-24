@@ -52,9 +52,9 @@ Alternatively, you can use the following command from the terminal:
 === Installing Flatpak apps from Flathub
 
 Once the Flathub repository has been setup, it can be used to install Flatpak apps.
-This can be done directly from the Software app, or apps can be browsed on the https://flathub.org/home[Flathub website].
+This can be done directly from the {update-application} application, or apps can be browsed on the https://flathub.org/home[Flathub website].
 
-If you choose to install apps from the Flathub website, clicking "Install" will download a file which will be opened by the Software app, which can then be used to install the app.
+If you choose to install apps from the Flathub website, clicking "Install" will download a file which will be opened by the {update-application} application, which can then be used to install the app.
 For example, to install https://www.libreoffice.org/[LibreOffice], you first search for and open the LibreOffice page, and then press the “Install” button (2).
 
 After clicking the “Install” button, a download information window will be shown.
@@ -62,7 +62,7 @@ Verify the correct Flatpak has been downloaded and then click on the “OK” bu
 
 image::sfg_libreoffice_install.png[title="LibreOffice Flatpak download"]
 
-Once the Flatpak is downloaded, the Software application will open a new window with an “Install” button (2).
+Once the Flatpak is downloaded, the {update-application} application will open a new window with an “Install” button (2).
 Click this button to begin installation.
 
 Alternatively, each application on flathub.org can be installed through the terminal by running the installation command at the bottom of the page that should look something like this:

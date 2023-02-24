@@ -189,7 +189,7 @@ $ sudo ostree fsck --delete
 $ sudo ostree commit --consume --link-checkout-speedup --orphan --selinux-policy=/ /ostree/repo/tmp/selinux-fix
 $ sudo restorecon -Rv /var
 $ sudo restorecon -Rv /etc
-$ sudo ostree admin deploy fedora:fedora/{version}/x86_64/{variant}
+$ sudo ostree admin deploy fedora:fedora/{version-stable}/x86_64/{variant}
 $ sudo reboot
 ----
 
