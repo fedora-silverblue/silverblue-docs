@@ -2,45 +2,56 @@
 
 == About the project
 
-Is it Team Silverblue, Silverblue, or Fedora Silverblue?::
-    We chose the name Team Silverblue to refer to the overall project.
-    Fedora Silverblue will be used for the OS that we are producing, but calling it Silverblue in its short version is fine as well.
+=== Is it Team Silverblue, Silverblue, or Fedora Silverblue?
 
-Why does the Silverblue logo look like a leaf?::
-    Our favorite choice for a project name was Silverleaf, but that sadly did not work out.
-    We just couldn't quite let go of the leaf.
-    You could also say that Silverblue is a new leaf on Fedora's OSTree.
-    😀
+We chose the name Team Silverblue to refer to the overall project.
+Fedora Silverblue will be used for the OS that we are producing, but calling it Silverblue in its short version is fine as well.
 
-Is Silverblue another GNOME OS?::
-    GNOME OS was a codename that was used by the upstream GNOME project for a while to refer to the idea of designing the entire desktop user experience.
-    By contrast, Silverblue is an effort inside the Fedora project, and will be built with existing Fedora technologies.
-    However, the two efforts do share a desire to deliver a user experience that is polished and coherent.
+=== Why does the Silverblue logo look like a leaf?
 
-What is {variant-name}'s relationship with Project Atomic?::
-    {variant-name} uses the same core technology as Fedora Atomic Host (as well as its successor, Fedora CoreOS).
-    However, {variant-name} is specifically focused on workstation/desktop use cases.
+Our favorite choice for a project name was Silverleaf, but that sadly did not work out.
+We just couldn't quite let go of the leaf.
+You could also say that Silverblue is a new leaf on Fedora's OSTree.
+😀
+
+=== Is Silverblue another GNOME OS?
+
+GNOME OS was a codename that was used by the upstream GNOME project for a while to refer to the idea of designing the entire desktop user experience.
+By contrast, Silverblue is an effort inside the Fedora project, and will be built with existing Fedora technologies.
+However, the two efforts do share a desire to deliver a user experience that is polished and coherent.
+
+=== What is {variant-name}'s relationship with Fedora Kinoite, Fedora IoT and Fedora CoreOS?
+
+{variant-name} uses the same core technology as Fedora Kinoite, Fedora IoT and Fedora CoreOS.
+However, {variant-name} is specifically focused on workstation/desktop use cases with the GNOME desktop.
 
 == About using {variant-name}
 
-How can I install Eclipse on {variant-name}?::
-    Instructions to setup the Nightly flatpak remote for Eclipse are available http://eclipse.matbooth.co.uk/flatpak[here].
+=== How can I play more videos in Firefox, like YouTube?
 
-How do I create a VPN connection?::
-    `/etc` is not part of the immutable OS image, so you can just copy files into `/etc/NetworkManager/system-connections` (or let NetworkManager store them there when you recreate your connections).
-    Certificates in `/etc/pki` need to be handled similarly.
+Firefox is included in the OS image for now (see https://github.com/fedora-silverblue/issue-tracker/issues/288[issue#288] for progress on moving to Flatpak by default).
+Until that changes, getting it to play videos works the same way as it does for the regular Fedora Workstation: find a package with the needed codecs, and install it.
+The one difference is that you use `rpm-ostree install` instead of `dnf install`.
+An alternative solution is to install https://flathub.org/apps/details/org.mozilla.firefox[Firefox from Flathub].
 
-How can I play more videos in Firefox, like YouTube?::
-    Firefox is included in the OS image for now.
-    Until that changes, getting it to play videos works the same way as it does for the regular Fedora Workstation: find a package with the needed codecs, and install it.
-    The one difference is that you use `rpm-ostree install` instead of `dnf install`.
-    An alternative solution is to install the nightly Firefox, which is available as a https://firefox-flatpak.mojefedora.cz/org.mozilla.FirefoxNightly.flatpakref[Flatpak].
+=== How do I create a VPN connection?
 
-How can I see what packages were updated between two commits?::
+`/etc` is not part of the immutable OS image, so you can just copy files into `/etc/NetworkManager/system-connections` (or let NetworkManager store them there when you recreate your connections).
+Certificates in `/etc/pki` need to be handled similarly.
+
+=== How can I install my preferred IDE on {variant-name}?
+
+You can install most IDE directly in a toolbox where you can also install all the developments tools from the Fedora repositories.
+To be able to launch them directly from menus, you can copy the `.desktop` file for the IDE from the toolbox to your home directory in `~/.local/share/applications/`.
+You should then update the `Exec` line in the `.desktop` file to prepend `toolbox run` to start it from the toolbox.
+You can also use the IDEs packaged as Flatpaks from Flathub.
+
+=== How can I see what packages were updated between two commits?
 
 * If you want to compare the booted deployment with the pending deployment (or rollback deployment), simply issue:
 
  $ rpm-ostree db diff
+
 +
 TIP: You can also see the RPM changelog by adding the `-c` option like so: `rpm-ostree db diff -c`
 
@@ -54,22 +65,22 @@ TIP: You can also see the RPM changelog by adding the `-c` option like so: `rpm-
 
  $ rpm-ostree db diff <commit x> <commit y>
 
-How can I check the version number of an installed package?::
+=== How can I check the version number of an installed package?
 
 You can simply use:
 
  $ rpm -q <package>
 
-How can I check if an `rpm` software package is available in the repository?::
+=== How can I check if an `rpm` software package is available in the repository?
 
 At this point in time, there is no `rpm` package search function built into `rpm-ostree`.
 However, you can use `toolbox` with the following command:
 
  $ toolbox run dnf search <package>
-+
+
 NOTE: The assumption is that you have already created a toolbox matching the version of your {variant-name} installation.
 
-How can I downgrade my system's kernel?::
+=== How can I downgrade my system's kernel?
 
 If, for whatever reason, you need to downgrade the kernel, you can do so by following these steps:
 
@@ -88,6 +99,7 @@ OSTree allows you to pin deployments (pinning ensures that your deployment of ch
 . Assuming that you want to keep your default deployment, issue the following command:
 
  $ sudo ostree admin pin 0
+
 +
 NOTE: `0` here refers to the first deployment listed by `rpm-ostree status`
 
