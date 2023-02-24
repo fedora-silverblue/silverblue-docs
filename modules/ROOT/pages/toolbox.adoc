@@ -52,12 +52,7 @@ One example of this is the toolbox command itself; this makes it possible to use
 
 === {variant-name}
 
-Toolbox is preinstalled on {variant-name} 30 or newer.
-On older versions, it can be installed with the following command:
-
- $ rpm-ostree install toolbox
-
-This will install toolbox as a layered RPM.
+Toolbox is preinstalled on {variant-name}.
 
 === Fedora Workstation
 
