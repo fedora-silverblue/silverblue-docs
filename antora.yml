@@ -25,7 +25,9 @@ asciidoc:
   attributes:
     variant: "silverblue"
     variant-name: "Fedora Silverblue"
-    version: 36
+    version-stable: 37
+    version-oldstable: 36
+    update-application: "GNOME Software"
     website: "https://silverblue.fedoraproject.org/"
     issue-tracker: "https://github.com/fedora-silverblue/issue-tracker/issues"
     docs-src: "https://github.com/fedora-silverblue/silverblue-docs"
