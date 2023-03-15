@@ -92,7 +92,7 @@ If, for whatever reason, you need to downgrade the kernel, you can do so by foll
 
 . Reboot the system to apply the changes.
 
-[[pinning]]How can I upgrade my system to the next major version (for instance: rawhide or an upcoming Fedora release branch), while keeping my current deployment?::
+=== [[pinning]]How can I upgrade my system to the next major version (for instance: rawhide or an upcoming Fedora release branch), while keeping my current deployment?
 
 OSTree allows you to pin deployments (pinning ensures that your deployment of choice is kept and not discarded).
 
