@@ -31,8 +31,15 @@ https://github.com/projectatomic/rpm-ostree/issues/1091[GitHub Issue]
 Users have long wanted to use their Nvidia GPUs on their {variant-name} systems.
 Thankfully, recent changes to the `akmods` and `kmodtools` packages were made by https://twitter.com/gnomealex[Alex Larsson] to allow for normal installation of the Nvidia drivers.
 
+Ensure your system is fully updated by running `sudo rpm-ostree upgrade` and rebooting.
+
+Setup RPM Fusion as per the https://docs.fedoraproject.org/en-US/quick-docs/setup_rpmfusion/#proc_enabling-the-rpmfusion-repositories-for-ostree-based-systems_enabling-the-rpmfusion-repositories[documentation] including the reboot.
+
+Installing the drivers:
+
  # rpm-ostree install kmod-nvidia xorg-x11-drv-nvidia
  # rpm-ostree kargs --append=rd.driver.blacklist=nouveau --append=modprobe.blacklist=nouveau --append=nvidia-drm.modeset=1
+ # systemctl reboot
 
 You can read more about the work that Alex did on his https://blogs.gnome.org/alexl/2019/03/06/nvidia-drivers-in-fedora-silverblue/[blog].
 
