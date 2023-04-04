@@ -37,6 +37,7 @@ Setup RPM Fusion as per the https://docs.fedoraproject.org/en-US/quick-docs/setu
 
 Installing the drivers:
 
+ # sed '0,/^enabled=/{s/^enabled=0/enabled=1/}' -i /etc/yum.repos.d/rpmfusion-nonfree-nvidia-driver.repo
  # rpm-ostree install kmod-nvidia xorg-x11-drv-nvidia
  # rpm-ostree kargs --append=rd.driver.blacklist=nouveau --append=modprobe.blacklist=nouveau --append=nvidia-drm.modeset=1
  # systemctl reboot
