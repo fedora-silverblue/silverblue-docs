@@ -128,3 +128,12 @@ You may also use `override remove` to effectively "hide" packages; they will sti
 
 Removing and replacing packages using package layering is not generally recommended.
 For more information, see the https://coreos.github.io/rpm-ostree/administrator-handbook/[rpm-ostree documentation].
+
+=== Adding Additional Repositories
+
+Some software may require adding a third-party repository. This can be achieved by downloading the `.repo` file into `/etc/yum.repos.d/`. 
+For example, to install Tailscale, you can do the following:
+
+ $ cd /etc/yum.repos.d/
+ $ sudo wget https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+ $ rpm-ostree install tailscale
