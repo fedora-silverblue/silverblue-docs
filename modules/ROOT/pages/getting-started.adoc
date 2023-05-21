@@ -132,8 +132,6 @@ For more information, see the https://coreos.github.io/rpm-ostree/administrator-
 === Adding Additional Repositories
 
 Some software may require adding a third-party repository. This can be achieved by downloading the `.repo` file into `/etc/yum.repos.d/`. 
-For example, to install Tailscale, you can do the following:
-
- $ cd /etc/yum.repos.d/
- $ sudo wget https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+For example, if you wito install Tailscale, you can do the following:
+ $ curl https://pkgs.tailscale.com/stable/fedora/tailscale.repo | sudo tee /etc/yum.repos.d/tailscale.repo
  $ rpm-ostree install tailscale
