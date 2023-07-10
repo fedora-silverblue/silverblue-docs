@@ -59,6 +59,52 @@ See the upstream issue https://github.com/coreos/rpm-ostree/issues/1091[rpm-ostr
 Instead, we recommend that you make https://rpmfusion.org/Packaging/KernelModules/Kmods2[kmods] packages for out of tree kernel modules and submit them to the https://rpmfusion.org/[RPM Fusion] repos.
 The kmods packages will then be used by https://rpmfusion.org/Packaging/KernelModules/Akmods[akmods] which is supported on {variant-name}.
 
+== Adding external package repositories
+
+CAUTION: This section discusses third-party software sources not officially affiliated with or endorsed by the Fedora Project. Use them at your own discretion.
+
+NOTE: If you want to use RPM Fusion repositories, please follow the xref:tips-and-tricks.adoc#_enabling_rpm_fusion_repos[Enabling RPM Fusion repos] section.
+
+Until we implement support in rpm-ostree (tracked in https://github.com/coreos/rpm-ostree/issues/4014[rpm-ostree#4014]), you can add additional repositories on {variant-name} manually using the following example for Tailscale.
+
+. Fetch and install the repo config:
++
+ $ curl -O https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+ [tailscale-stable]
+ name=Tailscale stable
+ baseurl=https://pkgs.tailscale.com/stable/fedora/$basearch
+ enabled=1
+ type=rpm
+ repo_gpgcheck=1
+ gpgcheck=0
+ gpgkey=https://pkgs.tailscale.com/stable/fedora/repo.gpg
+ $ sudo install -o 0 -g 0 -m644 tailscale.repo /etc/yum.repos.d/tailscale.repo
++
+
+. Fetch and install the GPG keys:
++
+ $ curl -O https://pkgs.tailscale.com/stable/fedora/repo.gpg
+ $ sudo install -o 0 -g 0 -m644 repo.gpg /etc/pki/rpm-gpg/tailscale.gpg
++
+
+. Replace the `gpgkey=` URL in the repo config by the path the GPG keys:
++
+ $ sudo $EDITOR /etc/yum.repos.d/tailscale.repo
+ $ cat /etc/yum.repos.d/tailscale.repo
+ [tailscale-stable]
+ name=Tailscale stable
+ baseurl=https://pkgs.tailscale.com/stable/fedora/$basearch
+ enabled=1
+ type=rpm
+ repo_gpgcheck=1
+ gpgcheck=0
+ # Update this line
+ gpgkey=/etc/pki/rpm-gpg/tailscale.gpg
+ #      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
++
+
+. Install the new packages with `rpm-ostree install`.
+
 == SELinux problems
 
 As users work with {variant-name} day-to-day, it is possible that they have modified the default SELinux policy in an effort to workaround one or more problems related to SELinux.
