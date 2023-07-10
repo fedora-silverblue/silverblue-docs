@@ -24,24 +24,40 @@ https://github.com/projectatomic/rpm-ostree/issues/233[GitHub Issue]
 Installing into `/opt` was commonly raised as a problem when users where trying to install Google Chrome.
 A partial https://github.com/projectatomic/rpm-ostree/pull/1795[solution] has been implemented that allows users to layer Google Chrome, however it is not a complete solution for applications that write mutable data to `/opt`.
 
-== Using Nvidia drivers
+== Using NVIDIA drivers
 
-https://github.com/projectatomic/rpm-ostree/issues/1091[GitHub Issue]
+You can install the official NVIDIA binary drivers from the RPM Fusion repositories.
 
-Users have long wanted to use their Nvidia GPUs on their {variant-name} systems.
-Thankfully, recent changes to the `akmods` and `kmodtools` packages were made by https://twitter.com/gnomealex[Alex Larsson] to allow for normal installation of the Nvidia drivers.
+CAUTION: The NVIDIA binary drivers are not maintained by the Fedora Project and may sometimes not be available for the kernel version included in {variant-name}.
 
-Ensure your system is fully updated by running `sudo rpm-ostree upgrade` and rebooting.
+NOTE: The https://universal-blue.org/[Universal Blue] project creates operating system images for {variant-name} with the NVIDIA drivers included. The Universal Blue images are based on the official Fedora images with additional changes at their discretion. The Universal Blue images are not officially endorsed by the Fedora Project. Use them at your own discretion.
 
-Setup RPM Fusion as per the https://docs.fedoraproject.org/en-US/quick-docs/setup_rpmfusion/#proc_enabling-the-rpmfusion-repositories-for-ostree-based-systems_enabling-the-rpmfusion-repositories[documentation] including the reboot.
+. First, ensure that your system is fully updated by running `sudo rpm-ostree upgrade` and rebooting.
 
-Installing the drivers:
+. Then setup the RPM Fusion repositories following the https://docs.fedoraproject.org/en-US/quick-docs/setup_rpmfusion/#proc_enabling-the-rpmfusion-repositories-for-ostree-based-systems_enabling-the-rpmfusion-repositories[documentation], including the two reboots.
 
+. Finally, install the drivers:
++
  # rpm-ostree install kmod-nvidia xorg-x11-drv-nvidia
  # rpm-ostree kargs --append=rd.driver.blacklist=nouveau --append=modprobe.blacklist=nouveau --append=nvidia-drm.modeset=1
  # systemctl reboot
++
 
+
+NOTE: When using Secure Boot, the locally installed NVIDIA drivers have to be signed with a local key that is enrolled using `mokutil`. See the https://github.com/fedora-silverblue/issue-tracker/issues/272[fedora-silverblue#272] issue for more details.
+
+You may also encounter the following issues during installation: https://github.com/fedora-silverblue/issue-tracker/issues/286[#286], https://github.com/fedora-silverblue/issue-tracker/issues/331[#331]
+
+Thanks to https://blogs.gnome.org/alexl/[Alex Larsson] who made the required changes to the `akmods` and `kmodtools` packages.
 You can read more about the work that Alex did on his https://blogs.gnome.org/alexl/2019/03/06/nvidia-drivers-in-fedora-silverblue/[blog].
+
+== Out of tree kernel modules and drivers using DKMS
+
+{variant-name} currently does not have support for DKMS.
+See the upstream issue https://github.com/coreos/rpm-ostree/issues/1091[rpm-ostree#1091].
+
+Instead, we recommend that you make https://rpmfusion.org/Packaging/KernelModules/Kmods2[kmods] packages for out of tree kernel modules and submit them to the https://rpmfusion.org/[RPM Fusion] repos.
+The kmods packages will then be used by https://rpmfusion.org/Packaging/KernelModules/Akmods[akmods] which is supported on {variant-name}.
 
 == SELinux problems
 
