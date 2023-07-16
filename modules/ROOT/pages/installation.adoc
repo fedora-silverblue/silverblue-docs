@@ -23,6 +23,11 @@ If you are uncertain about this, {variant-name} can also be tested in a virtual 
 It is possible to make {variant-name} work for both dual boot and manual partitioning, and some guidance is provided on manual partitioning below.
 However, there are hazards involved in both cases, and you should only attempt to use these features if you have done the necessary research, and are confident that you can overcome any issues that you might encounter.
 
+*The keyboard layout selected during installation is not used for the LUKS unlock screen of {variant-name}.*
+
+Regardless of your selection during the installation process, the keyboard layout available for the LUKS unlock screen will default to `en-US` (English - United States of America).
+There are some workarounds available, as described in the https://bugzilla.redhat.com/show_bug.cgi?id=1890085[bug] opened in 2020 on the Red Hat bugzilla, or on the https://github.com/fedora-silverblue/issue-tracker/issues/3[issue #3] in the Fedora Silverblue issue tracker on GitHub.
+
 [[getting-silverblue]]
 == Getting {variant-name}
 
