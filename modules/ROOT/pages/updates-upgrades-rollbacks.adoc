@@ -96,7 +96,7 @@ If you want to rollback to another version that the one currently available on y
 +
 [source,bash,subs="attributes"]
 ----
-$ sudo ostree pull --commit-metadata-only --depth=10 fedora fedora/{version-stable}/x86_64/silverblue
+$ sudo ostree pull --commit-metadata-only --depth=10 fedora fedora/{version-stable}/x86_64/{variant}
 ----
 
 . Display the log:
