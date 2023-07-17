@@ -63,10 +63,12 @@ CAUTION: This section discusses third-party software sources not officially affi
 
 NOTE: If you want to use RPM Fusion repositories, please follow the xref:tips-and-tricks.adoc#_enabling_rpm_fusion_repos[Enabling RPM Fusion repos] section.
 
-Until we implement support in rpm-ostree (tracked in https://github.com/coreos/rpm-ostree/issues/4014[rpm-ostree#4014]), you can add additional repositories on {variant-name} manually using the following example for Tailscale.
+Some sofware may only be available from a third-party repository.
+You can add an external repository manually on {variant-name} by placing the `.repo` file into `/etc/yum.repos.d/` and the GPG key into `/etc/pki/rpm-gpg/`.
+The following is a full example for setting up the Taiscale repo:
 
 . Fetch and install the repo config:
-+
+
  $ curl -O https://pkgs.tailscale.com/stable/fedora/tailscale.repo
  [tailscale-stable]
  name=Tailscale stable
@@ -80,13 +82,13 @@ Until we implement support in rpm-ostree (tracked in https://github.com/coreos/r
 +
 
 . Fetch and install the GPG keys:
-+
+
  $ curl -O https://pkgs.tailscale.com/stable/fedora/repo.gpg
  $ sudo install -o 0 -g 0 -m644 repo.gpg /etc/pki/rpm-gpg/tailscale.gpg
 +
 
 . Replace the `gpgkey=` URL in the repo config by the path the GPG keys:
-+
+
  $ sudo $EDITOR /etc/yum.repos.d/tailscale.repo
  $ cat /etc/yum.repos.d/tailscale.repo
  [tailscale-stable]
@@ -101,7 +103,11 @@ Until we implement support in rpm-ostree (tracked in https://github.com/coreos/r
  #      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 +
 
-. Install the new packages with `rpm-ostree install`.
+. Install the new packages with:
+
+  $ rpm-ostree install tailscale
+
+Better support in `rpm-ostree` for this use case is tracked in https://github.com/coreos/rpm-ostree/issues/4014[rpm-ostree#4014].
 
 == SELinux problems
 
