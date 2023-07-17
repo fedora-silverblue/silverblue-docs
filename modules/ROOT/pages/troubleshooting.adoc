@@ -37,12 +37,10 @@ NOTE: The https://universal-blue.org/[Universal Blue] project creates operating 
 . Then setup the RPM Fusion repositories following the https://docs.fedoraproject.org/en-US/quick-docs/setup_rpmfusion/#proc_enabling-the-rpmfusion-repositories-for-ostree-based-systems_enabling-the-rpmfusion-repositories[documentation], including the two reboots.
 
 . Finally, install the drivers:
-+
+
  # rpm-ostree install kmod-nvidia xorg-x11-drv-nvidia
  # rpm-ostree kargs --append=rd.driver.blacklist=nouveau --append=modprobe.blacklist=nouveau --append=nvidia-drm.modeset=1
  # systemctl reboot
-+
-
 
 NOTE: When using Secure Boot, the locally installed NVIDIA drivers have to be signed with a local key that is enrolled using `mokutil`. See the https://github.com/fedora-silverblue/issue-tracker/issues/272[fedora-silverblue#272] issue for more details.
 
