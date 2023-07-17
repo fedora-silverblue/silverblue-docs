@@ -105,11 +105,11 @@ NOTE: `0` here refers to the first deployment listed by `rpm-ostree status`
 
 . Verify that you have pinned your deployment of choice by issuing:
 
- rpm-ostree status
+ $ rpm-ostree status
 
 . After the deployment is pinned, you can upgrade your system by using the instructions found xref:updates-upgrades-rollbacks.adoc#upgrading[here].
 
 . When you have completed rebasing, reboot the system.
-The GRUB menu will now present you with both: the previous deployment major version entry (e.g.: *"Fedora 30.YYYYMMDD.n"*) and the new deployment major version entry (e.g.: *"Fedora 31.YYYYMMDD.n"*).
+The GRUB menu will now present you with both: the previous deployment major version entry (e.g.: *"Fedora {version-oldstable}.YYYYMMDD.n"*) and the new deployment major version entry (e.g.: *"Fedora {version-stable}.YYYYMMDD.n"*).
 +
 NOTE: At the moment it is not possible to name (pinned) deployments and their associated GRUB menu entries.
