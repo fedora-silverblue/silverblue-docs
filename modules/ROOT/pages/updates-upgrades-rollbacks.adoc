@@ -88,3 +88,29 @@ There are two ways to roll back to the previous version:
 
 After rolling back, you will technically be on an old OS version, and may be prompted to update.
 Updating will undo the rollback, so should be avoided if you want the rollback to stay in effect.
+
+`rpm-ostree` only keeps one rollback version available by default.
+If you want to rollback to another version that the one currently available on your system, you can do so with the following commands:
+
+. Pull the ostree commit log from the remote repository:
++
+[source,bash,subs="attributes"]
+----
+$ sudo ostree pull --commit-metadata-only --depth=10 fedora fedora/{version-stable}/x86_64/silverblue
+----
+
+. Display the log:
++
+[source,bash,subs="attributes"]
+----
+$ ostree log fedora:fedora/{version-stable}/x86_64/{variant}
+----
+
+. Deploy a specific commit:
++
+[source,bash,subs="attributes"]
+----
+$ rpm-ostree deploy {version-stable}.20230716.0
+----
+
+Note that this will deploy the exact version as requested and will not include overlayed packages and other changes.
