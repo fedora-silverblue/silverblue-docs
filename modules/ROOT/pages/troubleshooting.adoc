@@ -148,8 +148,8 @@ Until `rpm-ostree` moves to using `systemd sysusers`, users will have to populat
 
 For example, if you wanted to add a user to the `libvirt` group:
 
- # grep -E '^libvirt:' /usr/lib/group >> /etc/group
- # usermod -aG libvirt username
+ $ grep -E '^libvirt:' /usr/lib/group | sudo tee -a /etc/group
+ $ sudo usermod -aG libvirt $USER
 
 NOTE: You will need to log off and log back in to apply these changes.
 
