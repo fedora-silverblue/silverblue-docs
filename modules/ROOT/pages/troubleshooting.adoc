@@ -42,7 +42,7 @@ NOTE: The https://universal-blue.org/[Universal Blue] project creates operating 
  # rpm-ostree kargs --append=rd.driver.blacklist=nouveau --append=modprobe.blacklist=nouveau --append=nvidia-drm.modeset=1
  # systemctl reboot
 
-NOTE: When using Secure Boot, the locally installed NVIDIA drivers have to be signed with a local key that is enrolled using `mokutil`. See the https://github.com/fedora-silverblue/issue-tracker/issues/272[fedora-silverblue#272] issue for more details.
+NOTE: When using Secure Boot, the locally installed NVIDIA drivers have to be signed with a local key that is enrolled using `mokutil`. See the https://github.com/fedora-silverblue/issue-tracker/issues/499[fedora-silverblue#499] issue for more details.
 
 You may also encounter the following issues during installation: https://github.com/fedora-silverblue/issue-tracker/issues/286[#286], https://github.com/fedora-silverblue/issue-tracker/issues/331[#331]
 
