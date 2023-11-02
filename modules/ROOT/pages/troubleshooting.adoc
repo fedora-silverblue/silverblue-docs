@@ -34,7 +34,7 @@ NOTE: The https://universal-blue.org/[Universal Blue] project creates operating 
 
 . First, ensure that your system is fully updated by running `sudo rpm-ostree upgrade` and rebooting.
 
-. Then setup the RPM Fusion repositories following the https://docs.fedoraproject.org/en-US/quick-docs/setup_rpmfusion/#proc_enabling-the-rpmfusion-repositories-for-ostree-based-systems_enabling-the-rpmfusion-repositories[documentation], including the two reboots.
+. Then setup the RPM Fusion repositories following the https://docs.fedoraproject.org/en-US/quick-docs/rpmfusion-setup/#_enabling_the_rpm_fusion_repositories_for_ostree_based_systems[documentation], including the two reboots.
 
 . Finally, install the drivers:
 
