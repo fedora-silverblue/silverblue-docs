@@ -49,7 +49,7 @@ You can print all available branches for {variant-name} with this command:
 
 [source,bash,subs="attributes"]
 ----
-$ ostree remote refs fedora | grep {variant} | grep $(uname -i)
+$ ostree remote refs fedora | grep {variant} | grep $(uname -m)
 ----
 
 After you've verified the name of your branch, you are ready to proceed.
