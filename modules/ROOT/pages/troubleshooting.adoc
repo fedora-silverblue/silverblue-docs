@@ -99,7 +99,7 @@ The following is a full example for setting up the Taiscale repo:
  repo_gpgcheck=1
  gpgcheck=0
  # Update this line
- gpgkey=/etc/pki/rpm-gpg/tailscale.gpg
+ gpgkey=file:///etc/pki/rpm-gpg/tailscale.gpg
  #      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 +
 
