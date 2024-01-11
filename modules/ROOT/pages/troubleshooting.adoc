@@ -266,3 +266,28 @@ $ sudo reboot
 The caveat to this recovery is that your layered packages will be removed; you'll need to relayer them after the recovery.
 
 See this upstream comment for additional details: https://github.com/ostreedev/ostree/issues/1265#issuecomment-484557615[ostree#1265].
+
+== Resetting passwords in Rescue Mode
+
+In the case where you are unable to remember your user password or root password, you can reset the password using the following steps.
+
+1. While the system is booting, interrupt the boot sequence at the https://docs.fedoraproject.org/en-US/quick-docs/grub2-bootloader/[GRUB2] menu by using the *Esc* key.
+2. Select the boot entry that you wish to edit using the arrow keys.
+3. Edit the selected entry with the *e* key.
+4. Use the arrow keys to select the line beginning with `linux`, `linux16`, or `linuxefi`.
+5. Go to the end of that line and append `init=/bin/bash` to the end of the line.
+6. Press *Ctrl-x* or *F10* to boot the entry.
+7. At the resulting `bash` prompt, run the following commands:
+
+[source,bash]
+----
+# mount -t selinuxfs selinuxfs /sys/fs/selinux
+# /sbin/load_policy
+# passwd
+# sync
+# /sbin/reboot -ff
+----
+
+If you want to change the password for a user account, replace the `passwd` command with `passwd <username>`.
+
+After the system finishes rebooting, you should be able to login with the username and new password.
