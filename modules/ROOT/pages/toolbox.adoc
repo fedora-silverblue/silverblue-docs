@@ -54,9 +54,9 @@ One example of this is the `toolbox` command itself; this makes it possible to u
 
 Toolbx is preinstalled on {variant-name}.
 
-=== Fedora Workstation
+=== {variant-classic}
 
-Toolbx can be installed on Fedora Workstation (or any package-based version of Fedora) with the following command:
+Toolbx can be installed on {variant-classic} (or any package-based version of Fedora) with the following command:
 
  $ sudo dnf install toolbox
 

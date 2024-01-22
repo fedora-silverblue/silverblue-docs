@@ -1,6 +1,6 @@
 = Installing {variant-name}
 
-{variant-name} can be installed in the same way as Fedora Workstation, and the official Fedora installation guide can be followed for your Fedora version.
+{variant-name} can be installed in the same way as {variant-classic}, and the official Fedora installation guide can be followed for your Fedora version.
 See the https://docs.fedoraproject.org/en-US/docs/[Fedora documentation site] for more details.
 
 [[before-you-begin]]
@@ -8,7 +8,7 @@ See the https://docs.fedoraproject.org/en-US/docs/[Fedora documentation site] fo
 
 As with installing any new operating system, it is important to back up any data that you want to save before starting, and have a clear understanding of the consequences of what you are doing.
 
-{variant-name} is intended to provide the full range of capabilities that you would expect from an installation of Fedora Workstation.
+{variant-name} is intended to provide the full range of capabilities that you would expect from an installation of {variant-classic}.
 However, there are some differences in terms of which applications can be installed, and how the operating system environment works.
 
 It is therefore recommended that you read this user guide before deciding to install {variant-name}.

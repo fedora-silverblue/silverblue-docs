@@ -65,10 +65,10 @@ NOTE: Currently, the default remote for {variant-name} {version-stable} is named
 
 The process is very similar to a system update: the new OS is downloaded and installed in the background, and you just boot into it when it is ready.
 
-Additionally, you can choose to rebase to a different immutable variant of Fedora, like for example Fedora Kinoite.
-Fedora Kinoite is similar to {variant-name}, except for the fact that it uses the KDE Plasma desktop environment instead of the default GNOME desktop environment.
+Additionally, you can choose to rebase to a different immutable variant of Fedora, like for example {alternative-name}.
+{alternative-name} is similar to {variant-name}, except for the fact that it uses the {alternative-desktop} instead of the default {variant-desktop}.
 
-What this means is, you can rebase to Fedora Kinoite to try it out, without ever touching your current system.
+What this means is, you can rebase to {alternative-name} to try it out, without ever touching your current system.
 Because the two system images are isolated from eachother, the two desktop environments will never be installed at the same time.
 All of your flatpak apps and /home files will stay persistent between rebases.
 Same applies for testing out the bleeding-edge version of {variant-name}, which is Rawhide.
