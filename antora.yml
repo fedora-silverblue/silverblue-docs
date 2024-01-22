@@ -25,9 +25,13 @@ asciidoc:
   attributes:
     variant: "silverblue"
     variant-name: "Fedora Silverblue"
+    variant-classic: "Fedora Workstation"
+    variant-desktop: "GNOME desktop environment"
     version-stable: 39
     version-oldstable: 38
     update-application: "GNOME Software"
+    alternative-name: "Fedora Kinoite"
+    alternative-desktop: "KDE Plasma desktop environment"
     website: "https://silverblue.fedoraproject.org/"
     issue-tracker: "https://github.com/fedora-silverblue/issue-tracker/issues"
     docs-src: "https://github.com/fedora-silverblue/silverblue-docs"

@@ -11,8 +11,8 @@ It also aims to be an excellent platform for developers and for those using cont
 [[introduction]]
 == Introduction to {variant-name}
 
-{variant-name} is a variant of Fedora Workstation.
-It looks, feels and behaves like a regular desktop operating system, and the experience is similar to what you find with using a standard Fedora Workstation.
+{variant-name} is a variant of {variant-classic}.
+It looks, feels and behaves like a regular desktop operating system, and the experience is similar to what you find with using a standard {variant-classic}.
 
 However, unlike other operating systems, {variant-name} is immutable.
 This means that every installation is identical to every other installation of the same version.
@@ -29,8 +29,8 @@ With {variant-name}, it is also possible to roll back to the previous version of
 [[this-guide]]
 == About this guide
 
-In most cases, {variant-name} behaves like a standard Fedora Workstation installation, and the https://docs.fedoraproject.org/[standard Fedora documentation] can be used.
-This guide covers those areas where {variant-name} differs from a standard Fedora Workstation, including:
+In most cases, {variant-name} behaves like a standard {variant-classic} installation, and the https://docs.fedoraproject.org/[standard Fedora documentation] can be used.
+This guide covers those areas where {variant-name} differs from a standard {variant-classic}, including:
 
 * xref:installation.adoc[OS installation]
 * xref:getting-started.adoc[Installing apps and software]

@@ -20,17 +20,17 @@ GNOME OS was a codename that was used by the upstream GNOME project for a while 
 By contrast, Silverblue is an effort inside the Fedora project, and will be built with existing Fedora technologies.
 However, the two efforts do share a desire to deliver a user experience that is polished and coherent.
 
-=== What is {variant-name}'s relationship with Fedora Kinoite, Fedora IoT and Fedora CoreOS?
+=== What is {variant-name}'s relationship with {alternative-name}, Fedora IoT and Fedora CoreOS?
 
-{variant-name} uses the same core technology as Fedora Kinoite, Fedora IoT and Fedora CoreOS.
-However, {variant-name} is specifically focused on workstation/desktop use cases with the GNOME desktop.
+{variant-name} uses the same core technology as {alternative-name}, Fedora IoT and Fedora CoreOS.
+However, {variant-name} is specifically focused on workstation and desktop use cases with the {variant-desktop}.
 
 == About using {variant-name}
 
 === How can I play more videos in Firefox, like YouTube?
 
 Firefox is included in the OS image for now (see https://github.com/fedora-silverblue/issue-tracker/issues/288[issue#288] for progress on moving to Flatpak by default).
-Until that changes, getting it to play videos works the same way as it does for the regular Fedora Workstation: find a package with the needed codecs, and install it.
+Until that changes, getting it to play videos works the same way as it does for the regular {variant-classic}: find a package with the needed codecs, and install it.
 The one difference is that you use `rpm-ostree install` instead of `dnf install`.
 An alternative solution is to install https://flathub.org/apps/details/org.mozilla.firefox[Firefox from Flathub].
 
