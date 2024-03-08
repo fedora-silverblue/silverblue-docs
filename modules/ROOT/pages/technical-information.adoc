@@ -26,10 +26,10 @@ rpm-ostree also takes care of recreating the layered image whenever you update t
 [[filesystem-layout]]
 == {variant-name} filesystem layout
 
-On {variant-name}, the root filesystem is immutable.
-This means that `/`, `/usr` and everything below it is read-only.
+On {variant-name}, the root filesystem (`/`) is immutable.
+The `/usr` directory and everything below it is read-only.
 
-`/var` is where all of {variant-name}'s runtime state is stored.
+The `/etc` and `/var` directories are respectively used to store configuration files and runtime state and are thus writable.
 Symlinks are used to make traditional state-carrying directories available in their expected locations.
 This includes:
 
@@ -43,4 +43,9 @@ This includes:
 
 This means that separate home partitions should be mounted on `/var/home`.
 
-For a more detailed explanation of {variant-name}'s filesystem layout, refer to the excellent https://ostreedev.github.io/ostree/adapting-existing/[libostree documentation].
+Since Fedora Linux 37, the `/sysroot` directory is also https://fedoraproject.org/wiki/Changes/Silverblue_Kinoite_readonly_sysroot[mounted read-only].
+
+The `/boot` and `/boot/efi` directories are currently also mounted as writable but there are plans to mount them read-only in the future or even not mount them at all.
+See https://gitlab.com/fedora/ostree/sig/-/issues/21[Mount /boot as Read Only by default] and https://gitlab.com/fedora/ostree/sig/-/issues/22[Do not mount /boot/efi by default].
+
+For a more detailed explanation of {variant-name}'s filesystem layout, refer to the https://ostreedev.github.io/ostree/adapting-existing/[libostree documentation].
