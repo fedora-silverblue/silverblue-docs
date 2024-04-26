@@ -160,3 +160,16 @@ or setup shell `alias`es as needed to make them available to the CLI like so:
   $ alias evince="flatpak run org.gnome.Evince"
     # or alias evince="org.gnome.Evince"
   $ evince
+
+== Enabling TPM2 for LUKS 
+
+It is possible to use the TPM2 device in your machine to automatically decrypt your LUKS-encrypted device. 
+
+First, enable the needed initramfs and kernel features: 
+
+  $ sudo rpm-ostree kargs --append=rd.luks.options=tpm2-device=auto
+  $ sudo rpm-ostree initramfs --enable --arg=-a --arg=systemd-pcrphase
+
+Then, enroll the device: 
+
+  $ sudo systemd-cryptenroll --tpm2-device=auto --tpm2-pcrs=0+7 /your/boot/device
