@@ -1,16 +1,5 @@
 = Tips and Tricks
 
-== Hiding the default browser (Firefox)
-
-If you're using another browser than the one installed by default (Firefox) then you can hide the default one from the interface via the following commands:
-
-```
-$ sudo mkdir -p /usr/local/share/applications/
-$ sudo cp /usr/share/applications/firefox.desktop /usr/local/share/applications/
-$ sudo sed -i "2a\\NotShowIn=GNOME;KDE" /usr/local/share/applications/firefox.desktop
-$ sudo update-desktop-database /usr/local/share/applications/
-```
-
 == Enabling RPM Fusion repos
 
 [CAUTION]
