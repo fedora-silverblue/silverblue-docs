@@ -45,6 +45,15 @@ However, if it isn't, or if you want to download it manually, an install image c
 Once you have got your copy of {variant-name}, it can be installed in the usual manner.
 We hope that you love it!
 
+[[preparing-boot-media]]
+== Preparing Boot Media
+Fedora images are `Hybrid ISOs` and can be used to create installation media with both optical and USB disks, for booting on both BIOS and UEFI systems.
+
+The best and easy way to make bootable USB media to install {variant-name} is to use Fedora Media Writer. Using it is strongly encouraged, although other USB media creation software can work as well.
+
+You can see https://docs.fedoraproject.org/en-US/fedora/latest/preparing-boot-media/#_fedora_media_writer[Fedora Media Writer] section to learn to use it.
+
+
 [[manual-partition]]
 == Manual Partitioning
 
@@ -55,6 +64,7 @@ Automatic partitioning is recommended.
 With {variant-name}, only certain mounts can be manually specified as partitions.
 These include:
 
+* `/boot/efi` (for the UEFI boot loaders)
 * `/boot`
 * `/var`
 * Subdirectories under `/var`, including:
@@ -67,6 +77,47 @@ The Fedora installer is not aware of these restrictions and will accept custom p
 
 image::faw-manual-partition-complete.png[title="Partitioning Complete"]
 
-The above screenshot shows a typical configuration with manual partitioning, with partitions for `/boot`, `/`, `swap` and `/var/home`.
+The above screenshot shows a typical configuration with manual partitioning in UEFI firmware, with partitions for `/boot`, `/boot/efi`, `/`, and `/var/home`.
 
 Manual partitioning on {variant-name} can be done with `Btrfs`, https://en.wikipedia.org/wiki/Logical_Volume_Manager_%28Linux%29[LVM], as well as standard partitions or an `xfs` filesystem.
+
+[[first-run]]
+== First Run
+
+On first startup you will be asked to enable third-party repositories, location services, and to create a new user. You can enable third-party repositories and location later, but you must create a new user by entering your desired name and password.
+
+image::Fedora_40_new_user.png[title="Create New User"]
+
+Once you have created the user you can start using {variant-name}.
+
+Depending on different personal needs, there are several starting actions and installations that you could perform on newly installed {variant-name} for a customized user experience.
+
+[IMPORTANT]
+====
+If you are new to {variant-name}, before installing software in your newly installed Fedora, Please read and understand the https://docs.fedoraproject.org/en-US/fedora-silverblue/getting-started/[Getting Started] section to consider the difference in software installation between: *Flatpak*, *Toolbox* e *Package layering* (rpm-ostree).
+====
+
+* Enable RPM Fusion: see the xref:tips-and-tricks.adoc#_enabling_rpm_fusion_repos[Enabling RPM Fusion repos] section
+* Enable TRIM in encrypt installation: see the xref:tips-and-tricks.adoc#_enable-trim-in-encrypt-installation[Enabling TRIM in encrypt installation] section
+* Enable Intel GPU Acceleration: see the xref:tips-and-tricks.adoc#_enabling-intel-gpu-acceleration[Enabling Intel GPU Acceleration] section
+* Using NVIDIA drivers: see the xref:troubleshooting.adoc#_using_nvidia_drivers[Using NVIDIA drivers] section
+* Install GNOME Tweaks: run the command
+
+ $ rpm-ostree install gnome-tweak-tool
+
+* Install Extension Manager:  run the command
+
+ $ flatpak install flathub org.gnome.Extensions
+
+* Install ffmpeg codecs: run the command
+
+ $ flatpak install org.freedesktop.Platform.ffmpeg-full
+
+* Play more videos in Firefox: see xref:faq.adoc#_How_can_I_play_more_videos_in_Firefox,_like_YouTube?[How can I play more videos in Firefox, like YouTube?] section or, alternatively run these commands
+
+ $ rpm-ostree override remove \
+    firefox \
+    firefox-langpacks \
+
+ $ flatpak install org.mozilla.firefox
+

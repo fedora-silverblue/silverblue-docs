@@ -160,3 +160,63 @@ or setup shell `alias`es as needed to make them available to the CLI like so:
   $ alias evince="flatpak run org.gnome.Evince"
     # or alias evince="org.gnome.Evince"
   $ evince
+
+[[enabling-intel-gpu-acceleration]]
+== Enabling Intel GPU Acceleration
+
+Starting with Gen9 microarchitecture (Skylake), Intel GPUs include a Graphics micro Controller (GuC).
+
+As explained from this https://cdrdv2-public.intel.com/793432/793432_Intel_Core_Ultra_Datasheet_Rev001.pdf[document in PDF format provided by Intel] there are power, performance and functionalities benefits from Gen9 (Skylake) GPUs and later, using the new GuC and HuC firmware.
+
+To download the firmwares run the command:
+
+ $ rpm-ostree override remove mesa-va-drivers \
+    --install mesa-va-drivers-freeworld \
+    --install intel-media-driver \
+
+After installing Intel drivers, the firmwares are enabled by default for Gen11+ microarchitecture GPUs, for previous generation GPUs you can enable the firmwares with the command:
+
+`$ rpm-ostree kargs --append=i915.enable_guc=2` +
+for Gen9 microarchitecture: Skylake microprocessors
+
+`$ rpm-ostree kargs --append=i915.enable_guc=3` +
+for Gen9.5 microarchitecture: Kaby Lake, Coffee Lake, Comet Lake, and Goldmont Plus based microprocessors
+
+[TIP]
+====
+`rpm-ostree kargs` means Modifying Kernel Arguments. To understand and learn more about the _kargs_ option see: https://docs.fedoraproject.org/en-US/fedora-coreos/kernel-args/
+====
+
+To check that the GuC and HuC firmwares are active on your Fedora Silverblue system, you can run the commands:
+
+ $ dmesg | grep "GuC"
+
+ $ dmesg | grep "HuC"
+
+For more information about Intel GPUs Hardware acceleration in Linux see:
+
+* https://fedoraproject.org/wiki/Firefox_Hardware_acceleration#Configure_VA-API_Video_decoding_on_Intel[VA-API Video decoding on Fedora Project wiki]
+* https://github.com/intel/media-driver[The Intel(R) Media Driver for VAAPI Github]
+* This topic on Fedora Discussion: https://discussion.fedoraproject.org/t/intel-graphics-best-practices-and-settings-for-hardware-acceleration/69944/44
+
+[[enable-trim-in-encrypt-installation]]
+== Enable TRIM in encrypt installation
+
+If a fedora installation is performed using the disk encryption option, TRIM is not enabled by default.
+This happens because although TRIM increases the performance of your SSD, it results in a loss of security in disk encryption.
+At https://asalor.blogspot.com/2011/08/trim-dm-crypt-problems.html[this blog article] you can read the analysis of a cryptsetup developer. +
+_If you consider the use of TRIM to be more important to you than security you can go ahead and enable it._
+
+* Locates the luks partition where TRIM is not active:
+
+ $ lsblk --discard
+
+* Enable TRIM (where _luks-***_ is your luks  found with the previous command)
+
+ $ sudo cryptsetup --allow-discards --persistent refresh luks-***
+
+* Verify that your partition has the _allow_discards_ flag with the command:
+
+ $ sudo dmsetup table
+
+For further help see this topic in Fedora Discussion: https://discussion.fedoraproject.org/t/trim-for-ssd/82876
