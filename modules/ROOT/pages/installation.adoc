@@ -52,7 +52,7 @@ Fedora images are `Hybrid ISOs` and can be used to create installation media wit
 
 We recommend using Fedora Media Writer to make a bootable USB media to install {variant-name}. Other USB media creation software may work as well but are not regularly tested.
 
-You can see https://docs.fedoraproject.org/en-US/fedora/latest/preparing-boot-media/#_fedora_media_writer[Fedora Media Writer] section to learn to use it.
+See the https://docs.fedoraproject.org/en-US/fedora/latest/preparing-boot-media/#_fedora_media_writer[Fedora Media Writer] section to learn how to use it.
 
 
 [[manual-partition]]
@@ -95,7 +95,7 @@ Depending on different personal needs, there are several starting actions and in
 
 [IMPORTANT]
 ====
-If you are new to {variant-name}, before installing software in your newly installed Fedora, Please read and understand the https://docs.fedoraproject.org/en-US/fedora-silverblue/getting-started/[Getting Started] section to consider the difference in software installation between: *Flatpak*, *Toolbox* e *Package layering* (rpm-ostree).
+If you are new to {variant-name} and before installing software in your newly installed Fedora, you should read the https://docs.fedoraproject.org/en-US/fedora-silverblue/getting-started/[Getting Started] section to learn about the difference between *Flatpak*, *Toolbox* and *package layering* (rpm-ostree).
 ====
 
 For some tips about basic customization of {variant-name} see the xref:tips-and-tricks.adoc#_basic-customization[Basic Customization] section

@@ -1,5 +1,6 @@
 = Tips and Tricks
 
+[[hiding-the-default-browser-firefox]]
 == Hiding the default browser (Firefox)
 
 If you're using another browser than the one installed by default (Firefox) then you can hide the default one from the interface via the following commands:
@@ -10,6 +11,7 @@ $ sudo cp /usr/share/applications/firefox.desktop /usr/local/share/applications/
 $ sudo sed -i "2a\\NotShowIn=GNOME;KDE" /usr/local/share/applications/firefox.desktop
 $ sudo update-desktop-database /usr/local/share/applications/
 ```
+
 [[enabling_rpm_fusion_repos]]
 == Enabling RPM Fusion repos
 
@@ -180,7 +182,7 @@ or setup shell `alias`es as needed to make them available to the CLI like so:
 
  $ flatpak install org.freedesktop.Platform.ffmpeg-full
 
-* Play more videos in Firefox: see xref:faq.adoc#_how-can-i-play-more-videos-in-firefox-like-youtebe[How can I play more videos in Firefox, like YouTube?] section
+* Play more videos in Firefox: see xref:faq.adoc#_how-can-i-play-more-videos-in-firefox-like-youtube[How can I play more videos in Firefox, like YouTube?] section
 
 [[enabling-intel-gpu-acceleration]]
 == Enabling Intel GPU Acceleration
