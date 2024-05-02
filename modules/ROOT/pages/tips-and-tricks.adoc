@@ -6,8 +6,15 @@ If you're using another browser than the one installed by default (Firefox) then
 
 ```
 $ sudo mkdir -p /usr/local/share/applications/
+
+# For Fedora 39 and earlier:
+$ sudo cp /usr/share/applications/firefox.desktop /usr/local/share/applications/
+$ sudo sed -i "2a\\NotShowIn=GNOME;KDE" /usr/local/share/applications/firefox.desktop
+
+# Fedora 40 and later:
 $ sudo cp /usr/share/applications/org.mozilla.firefox.desktop /usr/local/share/applications/
 $ sudo sed -i "2a\\NotShowIn=GNOME;KDE" /usr/local/share/applications/org.mozilla.firefox.desktop
+
 $ sudo update-desktop-database /usr/local/share/applications/
 ```
 
