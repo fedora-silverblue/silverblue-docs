@@ -1,37 +1,37 @@
 [[toolbox]]
-= Toolbx
+= Toolbox
 
 As an immutable host, {variant-name} is an excellent platform for container-based development and, for working with containers, https://buildah.io/[buildah] and https://podman.io/[podman] are recommended.
 
-{variant-name} also comes with the https://github.com/containers/toolbox[toolbx] utility, which uses containers to provide an environment where development tools and libraries can be installed and used.
+{variant-name} also comes with the https://github.com/containers/toolbox[toolbox] utility, which uses containers to provide an environment where development tools and libraries can be installed and used.
 
 [[toolbox-why-use]]
-== Why use toolbx?
+== Why use toolbox?
 
-Toolbx makes it easy to use a containerized environment for everyday software development and debugging.
+Toolbox makes it easy to use a containerized environment for everyday software development and debugging.
 On immutable operating systems, like {website}[{variant-name}], it provides a familiar package-based environment in which tools and libraries can be installed and used.
-However, toolbx can also be used on package-based systems.
+However, toolbox can also be used on package-based systems.
 
-Using Toolbx for running your workflows in a containerized manner brings you several advantages:
+Using Toolbox for running your workflows in a containerized manner brings you several advantages:
 
 * It keeps the host OS clean and stable, and helps to avoid the clutter that can happen after installing lots of development tools and packages.
 * You get access to different versions of supported distributions independent of the version you are running.
 * Containers are a good way to isolate and organise the dependencies needed for different projects.
 * Containers are a safe space to experiment: if things go wrong, it's easy to throw a toolbox away and start again.
 
-However, it is very important to note that toolbx containers are still integrated with your host system, so you should not attempt to do things or run software you otherwise wouldn't on your host system. Toolbx containers are not completely isolated environments like virtual machines.
+However, it is very important to note that toolbox containers are still integrated with your host system, so you should not attempt to do things or run software you otherwise wouldn't on your host system. Toolbox containers are not completely isolated environments like virtual machines.
 
 [[toolbox-how-it-works]]
 == How it works
 
-Toolbx takes the work out of using containers, by providing a small number of simple commands to create, enter, list and remove containers.
-It also integrates toolbx containers into your regular working environment, to make it easy for you to use them as an everyday development space.
+Toolbox takes the work out of using containers, by providing a small number of simple commands to create, enter, list and remove containers.
+It also integrates toolbox containers into your regular working environment, to make it easy for you to use them as an everyday development space.
 
 Containers are created from images and those are usually a very stripped down version of distributions.
 In such images there are almost no tools and documentation available.
-The team behind Toolbx maintains a Fedora image where such tools and documentation are available, providing a good out of the box experience.
+The team behind Toolbox maintains a Fedora image where such tools and documentation are available, providing a good out of the box experience.
 
-Each toolbx container is an environment that you can enter from the command line.
+Each toolbox container is an environment that you can enter from the command line.
 Inside each one, you will find:
 
 * Your existing username and permissions
@@ -39,42 +39,42 @@ Inside each one, you will find:
 * Access to both system and session D-Bus, system journal and Kerberos
 * Common command lines tools, including a package manager (e.g., DNF on Fedora)
 
-In other words, toolbx containers look, feel and behave like a standard Linux command line environment.
-By connecting all this information, toolbx containers lose a certain amount of security gained by using the containers technology.
-Therefore, you should not treat toolbx containers as a sandbox where you can execute any script you would never run on any other system.
+In other words, toolbox containers look, feel and behave like a standard Linux command line environment.
+By connecting all this information, toolbox containers lose a certain amount of security gained by using the containers technology.
+Therefore, you should not treat toolbox containers as a sandbox where you can execute any script you would never run on any other system.
 
 In most cases, when a command is run inside a container, the program from inside the container is used.
 However, there are a few special cases where the program on the host is used instead (using `flatpak-spawn`).
-One example of this is the `toolbox` command itself; this makes it possible to use toolbx from inside toolbx containers.
+One example of this is the `toolbox` command itself; this makes it possible to use toolbox from inside toolbox containers.
 
 [[toolbox-installation]]
 == Installation
 
 === {variant-name}
 
-Toolbx is preinstalled on {variant-name}.
+Toolbox is preinstalled on {variant-name}.
 
 === {variant-classic}
 
-Toolbx can be installed on {variant-classic} (or any package-based version of Fedora) with the following command:
+Toolbox can be installed on {variant-classic} (or any package-based version of Fedora) with the following command:
 
  $ sudo dnf install toolbox
 
 [[toolbox-first-toolbox]]
 == Your first toolbox
 
-Once toolbx is installed, two simple commands are required to get started:
+Once toolbox is installed, two simple commands are required to get started:
 
  $ toolbox create
 
-This will download an OCI image and create a toolbx container from it.
+This will download an OCI image and create a toolbox container from it.
 Once this is complete, run:
 
  $ toolbox enter
 
 Once inside the toolbox, you can access common command line tools, and install new ones using a package manager (e.g., DNF on Fedora).
 
-NOTE: When the prompt is inside a toolbox, it is prepended with a diamond: this indicates that the prompt is inside a toolbx container.
+NOTE: When the prompt is inside a toolbox, it is prepended with a diamond: this indicates that the prompt is inside a toolbox container.
       The diamond symbol may not be present if you use a custom shell theme.
 
 [[toolbox-commands]]
@@ -83,7 +83,7 @@ NOTE: When the prompt is inside a toolbox, it is prepended with a diamond: this 
 [[toolbox-create]]
 === toolbox create [options] <name>
 
-Creates a toolbx container.
+Creates a toolbox container.
 This will download an OCI image if one isn't available (this is required to create the container).
 By default an image matching the version of the host is used.
 If the host system does not have a matching image, a Fedora image is used instead.
@@ -93,7 +93,7 @@ To create additional toolboxes, use the `<name>` argument.
 
 To use a specific version of the host system (e.g., Fedora 32 on Fedora 34), use the `--release <release> | -r <release>` option.
 
-To use a different distribution to create a toolbx container (e.g., RHEL on Fedora), use the `--distro <distro> | -d <distro>` option.
+To use a different distribution to create a toolbox container (e.g., RHEL on Fedora), use the `--distro <distro> | -d <distro>` option.
 
 To use a different image, use the ``--image <name> | -i <name>`` option.
 
@@ -124,7 +124,7 @@ To run a command in a toolbox with specific version (e.g., RHEL 8.1 on RHEL 8.3)
 [[toolbox-list]]
 === toolbox list [options]
 
-Lists local toolbx images and containers.
+Lists local toolbox images and containers.
 
 To only show containers, use the `--containers | -c` option.
 
@@ -133,25 +133,25 @@ To only show images, use the `--images | -i` option.
 [[toolbox-rm]]
 === toolbox rm [options] <name ...>
 
-Removes one or more toolbx containers.
+Removes one or more toolbox containers.
 
 The `--force | -f` option removes the marked containers even if they are running.
 
-The `--all | -a` option removes all toolbx containers.
+The `--all | -a` option removes all toolbox containers.
 
 [[toolbox-rmi]]
 === toolbox rmi [options] <name ...>
 
-Removes one or more toolbx images.
+Removes one or more toolbox images.
 
 The `--force | -f` option removes the marked images and all containers that have been created using the marked images.
 
-The `--all | -a` option removes all toolbx images.
+The `--all | -a` option removes all toolbox images.
 
 [[toolbox-help]]
 === toolbox --help
 
-Shows Toolbx's manual page.
+Shows Toolbox's manual page.
 
 [[toolbox-exiting]]
 === Exiting a toolbox
@@ -161,7 +161,7 @@ To return to the host environment, either run `exit` or quit the current shell (
 [[toolbox-under-the-hood]]
 == Under the hood
 
-Toolbx uses the following technologies:
+Toolbox uses the following technologies:
 
 * https://www.opencontainers.org/[OCI container images]
 * https://podman.io/[Podman]
@@ -169,6 +169,6 @@ Toolbx uses the following technologies:
 [[toolbox-contact]]
 == Contact and issues
 
-To report issues, make suggestions, or contribute fixes, see https://github.com/containers/toolbox[toolbx's GitHub project].
+To report issues, make suggestions, or contribute fixes, see https://github.com/containers/toolbox[toolbox's GitHub project].
 
-To get in touch with toolbx users and developers, use https://discussion.fedoraproject.org/[Fedora's Discourse instance], or join the #silverblue IRC channel on https://libera.chat/[Libera].
+To get in touch with toolbox users and developers, use https://discussion.fedoraproject.org/[Fedora's Discourse instance], or join the #silverblue IRC channel on https://libera.chat/[Libera].
