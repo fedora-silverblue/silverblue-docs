@@ -1,6 +1,8 @@
 [[toolbox]]
 = Toolbx
 
+[small]#(Toolbx is not a typo, see the https://containertoolbx.org/[project page])#
+
 As an immutable host, {variant-name} is an excellent platform for container-based development and, for working with containers, https://buildah.io/[buildah] and https://podman.io/[podman] are recommended.
 
 {variant-name} also comes with the https://github.com/containers/toolbox[toolbx] utility, which uses containers to provide an environment where development tools and libraries can be installed and used.
