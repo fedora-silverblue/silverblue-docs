@@ -1,5 +1,5 @@
 [[toolbox]]
-= Toolbx
+= Toolbox
 
 As an immutable host, {variant-name} is an excellent platform for container-based development and, for working with containers, https://buildah.io/[buildah] and https://podman.io/[podman] are recommended.
 
