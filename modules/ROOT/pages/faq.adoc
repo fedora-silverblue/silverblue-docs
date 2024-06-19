@@ -27,12 +27,14 @@ However, {variant-name} is specifically focused on workstation and desktop use c
 
 == About using {variant-name}
 
+[[how-can-i-play-more-videos-in-firefox-like-youtube]]
 === How can I play more videos in Firefox, like YouTube?
 
 Firefox is included in the OS image for now (see https://github.com/fedora-silverblue/issue-tracker/issues/288[issue#288] for progress on moving to Flatpak by default).
 Until that changes, getting it to play videos works the same way as it does for the regular {variant-classic}: find a package with the needed codecs, and install it.
 The one difference is that you use `rpm-ostree install` instead of `dnf install`.
-An alternative solution is to install https://flathub.org/apps/details/org.mozilla.firefox[Firefox from Flathub].
+
+An alternative solution is xref:tips-and-tricks.adoc#_hiding-the-default-browser-firefox[hiding the default browser] and install https://flathub.org/apps/details/org.mozilla.firefox[Firefox from Flathub]
 
 === How do I create a VPN connection?
 
