@@ -7,10 +7,14 @@ However, {variant-name} is built differently from other operating systems, and t
 {variant-name} has different options for installing software, compared with a standard {variant-classic} (or other package-based Linux distributions).
 These include:
 
-* Flatpak apps: this is the primary way that (GUI) apps get installed on {variant-name}.
+* Flatpak apps: This is the primary way that (GUI) apps get installed on {variant-name}.
 * Toolbox: Used primarily for CLI apps; development, debugging tools, etc., but also has support for graphical apps.
 * Package layering: Most Fedora packages can be installed on the system with the help of package layering.
   By default the system operates in pure image mode, but package layering is useful for things like libvirt, drivers, etc.
+
+Although Flatpak is best suited for GUI apps, Toolbox for CLI apps and package layering for system-level packages, it's ultimately up to you to choose the method that best suits your needs.
+There's nothing wrong in installing CLI apps with Flatpak, or GUI apps with Toolbox, or using package layering only.
+Nevertheless, our examples stick to the aforementioned recommendations throughout this documentation.
 
 For information on <<flatpak>> and <<package-layering,package layering>>, see below.
 
@@ -110,6 +114,14 @@ This will download the package and any required dependencies, and recompose your
 `rpm-ostree` uses standard Fedora package names, which can be searched with `rpm-ostree search` since {variant-name} 39, or using DNF inside a xref:toolbox.adoc[toolbox] for previous versions.
 
 Once a package has been installed in this manner, it will be kept up-to-date as new versions are released and as the base operating system is updated.
+
+By default, `rpm-ostree` will download both required and recommended dependencies of layered packages.
+If you want dependency resolver to stick to required dependencies only, then you have to append
+
+ Recommends=false
+
+line to the `/etc/rpm-ostreed.conf` file.
+There's no ad-hoc CLI flag to do so because of how rpm-ostree works internally.
 
 === Replacing packages
 
