@@ -27,8 +27,8 @@ asciidoc:
     variant-name: "Fedora Silverblue"
     variant-classic: "Fedora Workstation"
     variant-desktop: "GNOME desktop environment"
-    version-stable: 39
-    version-oldstable: 38
+    version-stable: 40
+    version-oldstable: 39
     update-application: "GNOME Software"
     alternative-name: "Fedora Kinoite"
     alternative-desktop: "KDE Plasma desktop environment"
