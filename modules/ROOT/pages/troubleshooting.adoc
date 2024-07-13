@@ -24,6 +24,7 @@ A partial https://github.com/projectatomic/rpm-ostree/pull/1795[solution] has be
 
 This issue is tracked in https://github.com/coreos/rpm-ostree/issues/233[rpm-ostree#233].
 
+[[using-nvidia-drivers]]
 == Using NVIDIA drivers
 
 You can install the official NVIDIA binary drivers from the RPM Fusion repositories.
