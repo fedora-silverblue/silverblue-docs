@@ -165,7 +165,7 @@ or setup shell `alias`es as needed to make them available to the CLI like so:
 
 It is possible to use the TPM2 device in your machine to automatically decrypt your LUKS-encrypted device. It is important to note a few things regarding this setup: first, it is trading security for convenience. Anyone who has access to both the disk and the TPM2 device can unlock your data. Second, it is crucial to keep a LUKS passphrase in addition to the TPM2 device that you can use to unlock the LUKS device; if you update BIOS, or the kernel shim, or make other substantial changes to your device, the TPM will refuse to sign your session and you will fall back to manually entering a LUKS passphrase. In this case, you can re-enable TPM2 for unlocking by re-running the enroll command below. This tip assumes you have a single LUKS device created during the Anaconda installer; if you have more than one LUKS device, you will need to correctly identify the device you want to enroll. 
 
-To set up TPM2 unlocking, first, find the LUKS device you want to enroll. This is probably in /etc/cryptsetup; you can also use `cryptsetup status /dev/mappper/luks*` to identify the device.
+To set up TPM2 unlocking, first, find the LUKS device you want to enroll. This is probably in `/etc/crypttab`. You can also use `sudo cryptsetup status /dev/mapper/luks*` to identify the device.
 
 Next, enable the required initramfs and kernel features. Note that the initramfs command below will overwrite any other initramfs changes you have made: 
 
