@@ -90,7 +90,7 @@ After rolling back, you will technically be on an old OS version, and may be pro
 Updating will undo the rollback, so should be avoided if you want the rollback to stay in effect.
 
 `rpm-ostree` only keeps one rollback version available by default.
-If you want to rollback to another version that the one currently available on your system, you can do so with the following commands:
+If you want to rollback to another version than the one currently available on your system, you can do so with the following commands:
 
 . Pull the ostree commit log from the remote repository:
 +
