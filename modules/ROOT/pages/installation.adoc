@@ -98,4 +98,4 @@ Depending on different personal needs, there are several starting actions and in
 If you are new to {variant-name} and before installing software in your newly installed Fedora, you should read the https://docs.fedoraproject.org/en-US/fedora-silverblue/getting-started/[Getting Started] section to learn about the difference between *Flatpak*, *Toolbox* and *package layering* (rpm-ostree).
 ====
 
-For some tips about of {variant-name} see the xref:tips-and-tricks.adoc[Tips and Tricks] section
+For some tips about basic customization of {variant-name} see the xref:tips-and-tricks.adoc#_basic-customization[Basic Customization] section
