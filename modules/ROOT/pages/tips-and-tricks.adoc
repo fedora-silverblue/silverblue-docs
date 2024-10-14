@@ -18,6 +18,15 @@ $ sudo sed -i "2a\\NotShowIn=GNOME;KDE" /usr/local/share/applications/org.mozill
 $ sudo update-desktop-database /usr/local/share/applications/
 ```
 
+== Reenabling the default browser (Firefox)
+
+If you want to make the default browser (Firefox) visible again after hiding it, you can follow these steps:
+
+```
+$ sudo rm -f /usr/local/share/applications/*firefox*.desktop
+$ sudo update-desktop-database /usr/local/share/applications
+```
+
 == Enabling RPM Fusion repos
 
 [CAUTION]
