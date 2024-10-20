@@ -73,10 +73,9 @@ You can simply use:
 
 === How can I check if an `rpm` software package is available in the repository?
 
-At this point in time, there is no `rpm` package search function built into `rpm-ostree`.
-However, you can use `toolbox` with the following command:
+To search for packages in your enabled repositories, use:
 
- $ toolbox run dnf search <package>
+ $ rpm-ostree search <package>
 
 NOTE: The assumption is that you have already created a toolbox matching the version of your {variant-name} installation.
 
