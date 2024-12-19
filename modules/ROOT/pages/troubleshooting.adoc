@@ -65,7 +65,7 @@ NOTE: If you want to use RPM Fusion repositories, please follow the xref:tips-an
 
 Some sofware may only be available from a third-party repository.
 You can add an external repository manually on {variant-name} by placing the `.repo` file into `/etc/yum.repos.d/` and the GPG key into `/etc/pki/rpm-gpg/`.
-The following is a full example for setting up the Taiscale repo:
+The following is a full example for setting up the Tailscale repo:
 
 . Fetch and install the repo config:
 
