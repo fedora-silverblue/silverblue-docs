@@ -82,6 +82,13 @@ The above screenshot shows a typical configuration with manual partitioning in U
 
 Manual partitioning on {variant-name} can be done with `Btrfs`, https://en.wikipedia.org/wiki/Logical_Volume_Manager_%28Linux%29[LVM], as well as standard partitions or an `xfs` filesystem.
 
+[IMPORTANT]
+====
+Btrfs filesystems smaller than 5 GiB should be formatted using `--mixed` (`-M`) flag.
+Currently neither `mkfs.btrfs` nor Blivet does this automatically.
+See https://btrfs.readthedocs.io/en/latest/mkfs.btrfs.html#mkfs-feature-mixed-bg[Btrfs documentation] for more details.
+====
+
 [[first-run]]
 == First Run
 
