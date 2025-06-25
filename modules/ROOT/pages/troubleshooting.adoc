@@ -39,7 +39,7 @@ NOTE: The https://universal-blue.org/[Universal Blue] project creates operating 
 . Finally, install the drivers:
 
  # rpm-ostree install kmod-nvidia xorg-x11-drv-nvidia
- # rpm-ostree kargs --append=rd.driver.blacklist=nouveau --append=modprobe.blacklist=nouveau --append=nvidia-drm.modeset=1 --append=initcall_blacklist=simpledrm_platform_driver_init
+ # rpm-ostree kargs --append=rd.driver.blacklist=nouveau,nova-core --append=modprobe.blacklist=nouveau,nova-core --append=nvidia-drm.modeset=1 --append=initcall_blacklist=simpledrm_platform_driver_init
  # systemctl reboot
 
 NOTE: When using Secure Boot, the locally installed NVIDIA drivers have to be signed with a local key that is enrolled using `mokutil`. See the https://github.com/fedora-silverblue/issue-tracker/issues/499[fedora-silverblue#499] issue for more details.
