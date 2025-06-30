@@ -114,3 +114,40 @@ $ rpm-ostree deploy {version-stable}.20230716.0
 ----
 
 Note that this will deploy the exact version as requested and will not include overlayed packages and other changes.
+
+[[removing-and-pinning-deployments]]
+== Removing and pinning deployments
+
+Deployments are automatically removed as updates occur.
+However, if you want to manually remove all previous or pending deployments to free up disk space, you can do so using the `rpm-ostree cleanup` command.
+Moreover, if you want to keep specific deployments from being removed by the cleanup command, you can pin them, this will be discussed later.
+
+Remove previous deployments:
+----
+$ rpm-ostree cleanup --rollback
+----
+Remove pending deployments:
+----
+$ rpm-ostree cleanup --pending
+----
+
+Specific deployments can be pinned so they don't get removed by the `rpm-ostree cleanup` command.
+Deployments can also be unpinned so they can be removed normally.
+You can, for example, pin deployments which you deem as stable on your system, so you will have a guaranteed fallback if a future update introduces any regressions or bugs.
+
+To pin or unpin a deployment, you need to know the index number of that deployment.
+
+Check the index number of deployments:
+----
+$ rpm-ostree status -v
+----
+
+Pin a deployment:
+----
+$ sudo ostree admin pin 0
+----
+
+Unpin a deployment:
+----
+$ sudo ostree admin pin --unpin 0
+----
