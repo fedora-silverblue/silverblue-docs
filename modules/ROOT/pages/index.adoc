@@ -4,7 +4,7 @@ Welcome to the {variant-name} user guide!
 
 image::silverblue-logo.svg[{variant-name} logo]
 
-_{variant-name}_ is an immutable desktop operating system.
+_{variant-name}_ is an Atomic desktop operating system.
 It aims to be extremely stable and reliable.
 It also aims to be an excellent platform for developers and for those using container-focused workflows.
 
@@ -14,12 +14,12 @@ It also aims to be an excellent platform for developers and for those using cont
 {variant-name} is a variant of {variant-classic}.
 It looks, feels and behaves like a regular desktop operating system, and the experience is similar to what you find with using a standard {variant-classic}.
 
-However, unlike other operating systems, {variant-name} is immutable.
+However, unlike other operating systems, {variant-name} is Atomic.
 This means that every installation is identical to every other installation of the same version.
 The operating system that is on disk is exactly the same from one machine to the next, and it never changes as it is used.
 
-{variant-name}'s immutable design is intended to make it more stable, less prone to bugs, and easier to test and develop.
-Finally, {variant-name}'s immutable design also makes it an excellent platform for containerized applications as well as container-based software development.
+{variant-name}'s Atomic design is intended to make it more stable, less prone to bugs, and easier to test and develop.
+Finally, {variant-name}'s Atomic design also makes it an excellent platform for containerized applications as well as container-based software development.
 In each case, applications (apps) and containers are kept separate from the host system, improving stability and reliability.
 
 {variant-name}'s core technologies have some other helpful features.

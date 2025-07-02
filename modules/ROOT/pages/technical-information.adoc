@@ -26,7 +26,7 @@ rpm-ostree also takes care of recreating the layered image whenever you update t
 [[filesystem-layout]]
 == {variant-name} filesystem layout
 
-On {variant-name}, the root filesystem (`/`) is immutable.
+On {variant-name}, the root filesystem (`/`) is Atomic.
 The `/usr` directory and everything below it is read-only.
 
 The `/etc` and `/var` directories are respectively used to store configuration files and runtime state and are thus writable.
