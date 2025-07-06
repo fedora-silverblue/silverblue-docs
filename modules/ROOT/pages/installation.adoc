@@ -25,17 +25,6 @@ However, there are hazards involved in both cases, and you should only attempt t
 
 This issue is tracked in https://github.com/fedora-silverblue/issue-tracker/issues/284[issue #284].
 
-*The keyboard layout selected during installation is not used for the LUKS unlock screen of {variant-name}.*
-
-Regardless of your selection during the installation process, the keyboard layout available for the LUKS unlock screen will default to `en-US` (English - United States of America).
-You can workaround this issue by running the following command on the first boot after the installation:
-
-  $ rpm-ostree initramfs-etc --track=/etc/vconsole.conf
-
-To avoid struggling when having to type the LUKS passphrase for the first time, you could set during installation a disk encryption passphrase that is easy to type with the `en-US` keyboard layout, and then change it to the passphrase that you actually want through the GNOME https://apps.gnome.org/en-GB/app/org.gnome.DiskUtility[Disks] app.
-
-See https://bugzilla.redhat.com/show_bug.cgi?id=1890085[bug #1890085] (Red Hat Bugzilla) and https://github.com/fedora-silverblue/issue-tracker/issues/3[issue #3] (Fedora Silverblue issue tracker) for details.
-
 [[getting-silverblue]]
 == Getting {variant-name}
 
