@@ -3,7 +3,7 @@
 
 [small]#(Toolbx is not a typo, see the https://containertoolbx.org/[project page])#
 
-As an Atomic host, {variant-name} is an excellent platform for container-based development and, for working with containers, https://buildah.io/[buildah] and https://podman.io/[podman] are recommended.
+{variant-name} is an excellent platform for container-based development and, for working with containers, https://buildah.io/[buildah] and https://podman.io/[podman] are recommended.
 
 {variant-name} also comes with the https://github.com/containers/toolbox[toolbx] utility, which uses containers to provide an environment where development tools and libraries can be installed and used.
 
@@ -11,7 +11,7 @@ As an Atomic host, {variant-name} is an excellent platform for container-based d
 == Why use toolbx?
 
 Toolbx makes it easy to use a containerized environment for everyday software development and debugging.
-On Atomic operating systems, like {website}[{variant-name}], it provides a familiar package-based environment in which tools and libraries can be installed and used.
+On operating systems utilizing read-only root filesystems, like {website}[{variant-name}], it provides a familiar package-based environment in which tools and libraries can be installed and used.
 However, toolbx can also be used on package-based systems.
 
 Using Toolbx for running your workflows in a containerized manner brings you several advantages:

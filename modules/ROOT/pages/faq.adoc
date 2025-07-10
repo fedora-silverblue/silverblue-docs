@@ -36,7 +36,7 @@ An alternative solution is to install https://flathub.org/apps/details/org.mozil
 
 === How do I create a VPN connection?
 
-`/etc` is not part of the Atomic OS image, so you can just copy files into `/etc/NetworkManager/system-connections` (or let NetworkManager store them there when you recreate your connections).
+`/etc` is not part of the readonly mount, so you can just copy files into `/etc/NetworkManager/system-connections` (or let NetworkManager store them there when you recreate your connections).
 Certificates in `/etc/pki` need to be handled similarly.
 
 === How can I install my preferred IDE on {variant-name}?
