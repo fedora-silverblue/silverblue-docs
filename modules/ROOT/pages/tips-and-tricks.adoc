@@ -38,6 +38,8 @@ Fedora recommends the use of free and open source software and avoidance of soft
 
 Users may want to take advantage of the non-free software that is made available via the https://rpmfusion.org/[RPM Fusion] repos in order to use the proprietary NVIDIA drivers, multimedia codecs, or other software not distributed as part of Fedora.
 
+=== First installation
+
 The first time you install the RPM Fusion repos, you need to install the versioned RPMs:
 
     $ sudo rpm-ostree install \
@@ -45,6 +47,9 @@ The first time you install the RPM Fusion repos, you need to install the version
         https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
     $ reboot
 
+Then continue with the next section to prepare your system for major Fedora updates.
+
+=== Major Fedora updates
 
 Once you have rebooted into the new deployment, you can run the following command to remove the “lock” on the versioned packages that were installed previously.
 This will enable the RPM Fusion repos to be automatically updated and versioned correctly across major Fedora version rebases:
