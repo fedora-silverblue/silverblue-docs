@@ -65,6 +65,8 @@ NOTE: Currently, the default remote for {variant-name} {version-stable} is named
 
 The process is very similar to a system update: the new OS is downloaded and installed in the background, and you just boot into it when it is ready.
 
+NOTE: If you are using the RPM Fusion repositories and are having issues during major updates, see the xref:tips-and-tricks.adoc#_enabling_rpm_fusion_repos[Enabling RPM Fusion repos] section.
+
 [[rebasing]]
 == Rebasing to another Atomic Desktop
 
