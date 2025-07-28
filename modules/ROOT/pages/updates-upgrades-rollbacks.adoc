@@ -65,6 +65,9 @@ NOTE: Currently, the default remote for {variant-name} {version-stable} is named
 
 The process is very similar to a system update: the new OS is downloaded and installed in the background, and you just boot into it when it is ready.
 
+[[rebasing]]
+== Rebasing to another Atomic Desktop
+
 Additionally, you can choose to rebase to a different variant of Fedora Atomic, like for example {alternative-name}.
 {alternative-name} is similar to {variant-name}, except for the fact that it uses the {alternative-desktop} instead of the default {variant-desktop}.
 
@@ -73,7 +76,7 @@ Because the two system images are isolated from eachother, the two desktop envir
 All of your flatpak apps and /home files will stay persistent between rebases.
 Same applies for testing out the bleeding-edge version of {variant-name}, which is Rawhide.
 
-If you decide to rebase, make sure to xref:faq.adoc#pinning[pin] your current deployment, so you don't accidentaly lose it (by default, only the two most recent deployments are kept).
+If you decide to rebase, make sure to xref:faq.adoc#pinning[pin] your current deployment, so you don't accidentally lose it (by default, only the two most recent deployments are kept).
 
 [[rolling-back]]
 == Rolling back
