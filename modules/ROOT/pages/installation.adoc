@@ -83,6 +83,17 @@ See https://btrfs.readthedocs.io/en/latest/mkfs.btrfs.html#mkfs-feature-mixed-bg
 
 On first startup you will be asked to enable third-party repositories, location services, and to create a new user. You can enable third-party repositories and location later, but you must create a new user by entering your desired name and password.
 
+[WARNING]
+====
+It is a known issue that enabling third-party repositories at startup causes the setup wizard to hang, with the following error message:
+
+"Initial Setup" Is Not Responding. You may choose to wait a short while for it to continue or force the app to quit entirely
+
+So, you may want to instead enable third-party repositories through GNOME Software.
+
+See https://github.com/fedora-silverblue/issue-tracker/issues/650
+====
+
 image::Fedora_40_new_user.png[title="Create New User"]
 
 Once you have created the user you can start using {variant-name}.
