@@ -23,7 +23,7 @@ Your contributions towards the main https://fedoraproject.org/wiki/Join[Fedora] 
 Creating or modifying documentation is easy.
 Head over to our {docs-src}[documentation] GitHub repository, fork it and create a pull request.
 
-If you are not comfortable with using git, create a new topic in our {discussion-forum}[community] or log an {docs-issue}[issue] describing what need to be changed.
+If you are not comfortable with using git, create a new topic in our {discussion-forum}[community] or log an {docs-issue}[issue] describing what needs to be changed.
 
 [[writing-conventions]]
 === Writing Conventions
