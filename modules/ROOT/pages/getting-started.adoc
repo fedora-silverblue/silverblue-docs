@@ -2,7 +2,7 @@
 = Getting Started
 
 {variant-name} is designed to be easy and straightforward to use, and specialist knowledge should generally not be required.
-However, {variant-name} is built differently from other operating systems, and there are therefore some things that it is useful to know.
+However, {variant-name} is built differently from other operating systems, and there are therefore some things that are useful to know.
 
 {variant-name} has different options for installing software, compared with a standard {variant-classic} (or other package-based Linux distributions).
 These include:
