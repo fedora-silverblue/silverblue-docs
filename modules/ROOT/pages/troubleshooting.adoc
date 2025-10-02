@@ -89,7 +89,7 @@ The following is a full example for setting up the Tailscale repo:
 
 . Replace the `gpgkey=` URL in the repo config by the path the GPG keys:
 
- $ sudo $EDITOR /etc/yum.repos.d/tailscale.repo
+ $ sudoedit /etc/yum.repos.d/tailscale.repo
  $ cat /etc/yum.repos.d/tailscale.repo
  [tailscale-stable]
  name=Tailscale stable
