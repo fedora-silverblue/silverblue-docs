@@ -87,7 +87,7 @@ If, for whatever reason, you need to downgrade the kernel, you can do so by foll
 
 . Install the packages downloaded on the previous step by issuing:
 
- $ rpm-ostree override replace <kernel> <kernel-core> <kernel-modules> <kernel-modules-extra>
+ $ rpm-ostree override replace <kernel> <kernel-core> <kernel-modules> <kernel-modules-core> <kernel-modules-extra>
 
 . Reboot the system to apply the changes.
 
