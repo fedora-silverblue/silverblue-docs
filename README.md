@@ -1,3 +1,11 @@
+# Archived docs
+
+This documentation has been merged into the unified documentation for Fedora Atomic Desktops:
+- New docs: https://docs.fedoraproject.org/en-US/atomic-desktops/
+- Sources: https://forge.fedoraproject.org/atomic-desktops/docs
+
+---
+
 # Fedora Silverblue Documentation
 
 This repository contains the Fedora Silverblue documentation.
